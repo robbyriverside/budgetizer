@@ -5,6 +5,7 @@
         "name": "Mortgage Payment",
         "amount": 2500.00,
         "category": [
+            "Mortgage Payment",
             "Payment",
             "Rent"
         ],
@@ -16,6 +17,7 @@
         "name": "Starbucks",
         "amount": 5.40,
         "category": [
+            "Starbucks",
             "Food and Drink",
             "Coffee"
         ],
@@ -27,6 +29,7 @@
         "name": "Safeway",
         "amount": 124.50,
         "category": [
+            "Safeway",
             "Shops",
             "Supermarkets"
         ],
@@ -38,6 +41,7 @@
         "name": "Chevron",
         "amount": 45.00,
         "category": [
+            "Chevron",
             "Travel",
             "Gas Stations"
         ],
@@ -49,6 +53,7 @@
         "name": "Netflix",
         "amount": 15.99,
         "category": [
+            "Netflix",
             "Service",
             "Subscription"
         ],
@@ -60,6 +65,7 @@
         "name": "Salary Deposit",
         "amount": -4000.00,
         "category": [
+            "Salary Deposit",
             "Transfer",
             "Payroll"
         ],
@@ -71,6 +77,7 @@
         "name": "Uber",
         "amount": 24.00,
         "category": [
+            "Uber",
             "Travel",
             "Taxi"
         ],

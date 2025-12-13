@@ -15,7 +15,6 @@ class InspectorPanel extends ConsumerStatefulWidget {
 class _InspectorPanelState extends ConsumerState<InspectorPanel> {
   // Form State
   final _formKey = GlobalKey<FormState>();
-  TransactionType? _selectedType;
   final _tagsController = TextEditingController();
 
   // Track the ID being edited to reset form on selection change
@@ -29,7 +28,6 @@ class _InspectorPanelState extends ConsumerState<InspectorPanel> {
       if (_activeId != newId) {
         // Reset form when selection changes
         _activeId = newId;
-        _selectedType = null;
         _tagsController.clear();
       }
     } else {
@@ -94,23 +92,7 @@ class _InspectorPanelState extends ConsumerState<InspectorPanel> {
           ),
           Divider(height: 30),
 
-          // 1. Type Dropdown
-          DropdownButtonFormField<TransactionType>(
-            // ignore: deprecated_member_use
-            value: _selectedType,
-            decoration: InputDecoration(labelText: "Type"),
-            items: TransactionType.values
-                .map(
-                  (t) => DropdownMenuItem(
-                    value: t,
-                    child: Text(t.name.toUpperCase()),
-                  ),
-                )
-                .toList(),
-            onChanged: (val) => setState(() => _selectedType = val),
-            validator: (val) => val == null ? 'Required' : null,
-          ),
-          SizedBox(height: 10),
+          // 1. Tags (Type is now derived or default)
 
           // 2. Tags
           TextFormField(
@@ -122,13 +104,6 @@ class _InspectorPanelState extends ConsumerState<InspectorPanel> {
             validator: (val) => val == null || val.isEmpty ? 'Required' : null,
           ),
           SizedBox(height: 10),
-
-          // 3. Limit (REMOVED - Managed in Tag Inspector)
-          if (_selectedType == TransactionType.variable)
-            const Text(
-              "Note: Limits are now managed per Tag.",
-              style: TextStyle(color: Colors.grey, fontSize: 12),
-            ),
 
           SizedBox(height: 20),
           FilledButton.icon(
@@ -156,7 +131,7 @@ class _InspectorPanelState extends ConsumerState<InspectorPanel> {
     // Call Controller to Initialize
     ref
         .read(dashboardControllerProvider.notifier)
-        .initializeTransaction(id: id, type: _selectedType!, tags: tags);
+        .initializeTransaction(id: id, tags: tags);
 
     // Clear selection after save
     ref.read(dashboardControllerProvider.notifier).clearSelection();
@@ -165,21 +140,21 @@ class _InspectorPanelState extends ConsumerState<InspectorPanel> {
   Widget _buildReadOnlyView(BankTransaction tx) {
     return Padding(
       padding: EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Transaction Details",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-          ),
-          SizedBox(height: 20),
-          _detailRow("Name", tx.name),
-          _detailRow("Amount", "\$${tx.amount.abs().toStringAsFixed(2)}"),
-          _buildTagsRow(tx.tags),
-          _detailRow("Date", "${tx.date.month}/${tx.date.day}"),
-          Spacer(),
-          OutlinedButton(onPressed: () {}, child: Text("Edit (Coming Soon)")),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Transaction Details",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+            SizedBox(height: 20),
+            _detailRow("Name", tx.name),
+            _detailRow("Amount", "\$${tx.amount.abs().toStringAsFixed(2)}"),
+            _buildTagsRow(tx.id, tx.tags),
+            _detailRow("Date", "${tx.date.month}/${tx.date.day}"),
+          ],
+        ),
       ),
     );
   }
@@ -197,34 +172,80 @@ class _InspectorPanelState extends ConsumerState<InspectorPanel> {
     );
   }
 
-  Widget _buildTagsRow(List<String> tags) {
+  Widget _buildTagsRow(String txId, List<String> tags) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("Tags", style: TextStyle(color: Colors.grey)),
-          Row(
-            children: tags
-                .map(
-                  (tag) => Padding(
-                    padding: const EdgeInsets.only(left: 4.0),
-                    child: ActionChip(
-                      label: Text(tag),
-                      onPressed: () {
-                        // Trigger selection in controller
-                        ref
-                            .read(dashboardControllerProvider.notifier)
-                            .selectTag(tag);
-                      },
-                      padding: EdgeInsets.zero,
-                      labelStyle: TextStyle(fontSize: 11),
-                    ),
+          Padding(
+            padding: const EdgeInsets.only(top: 6.0, right: 8.0),
+            child: Text("Tags", style: TextStyle(color: Colors.grey)),
+          ),
+          Expanded(
+            child: Wrap(
+              spacing: 4.0,
+              runSpacing: 4.0,
+              children: tags.asMap().entries.map((entry) {
+                final index = entry.key;
+                final tag = entry.value;
+                final isVendor = index == 0;
+
+                return InputChip(
+                  label: Text(
+                    tag,
+                    style: isVendor
+                        ? TextStyle(fontWeight: FontWeight.bold)
+                        : null,
                   ),
-                )
-                .toList(),
+                  avatar: isVendor ? Icon(Icons.store, size: 14) : null,
+                  onPressed: () {
+                    // Trigger selection in controller
+                    ref
+                        .read(dashboardControllerProvider.notifier)
+                        .selectTag(tag);
+                  },
+                  onDeleted: isVendor
+                      ? null
+                      : () {
+                          _removeTagWithUndo(context, ref, txId, tag);
+                        },
+                  padding: EdgeInsets.zero,
+                  labelStyle: TextStyle(fontSize: 11),
+                );
+              }).toList(),
+            ),
           ),
         ],
+      ),
+    );
+  }
+
+  void _removeTagWithUndo(
+    BuildContext context,
+    WidgetRef ref,
+    String txId,
+    String tag,
+  ) {
+    // 1. Remove Tag
+    ref
+        .read(dashboardControllerProvider.notifier)
+        .removeTagFromTransaction(txId, tag);
+
+    // 2. Show Undo SnackBar
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Removed tag '$tag'"),
+        action: SnackBarAction(
+          label: "UNDO",
+          onPressed: () {
+            ref
+                .read(dashboardControllerProvider.notifier)
+                .addTagToTransaction(txId, tag);
+          },
+        ),
       ),
     );
   }

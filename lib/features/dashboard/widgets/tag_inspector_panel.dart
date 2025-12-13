@@ -5,8 +5,13 @@ import '../../../../core/services/bank_service.dart';
 
 class TagInspectorPanel extends ConsumerStatefulWidget {
   final String tagName;
+  final bool isVendor;
 
-  const TagInspectorPanel({super.key, required this.tagName});
+  const TagInspectorPanel({
+    super.key,
+    required this.tagName,
+    this.isVendor = false,
+  });
 
   @override
   ConsumerState<TagInspectorPanel> createState() => _TagInspectorPanelState();
@@ -26,7 +31,7 @@ class _TagInspectorPanelState extends ConsumerState<TagInspectorPanel> {
   @override
   void didUpdateWidget(TagInspectorPanel oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.tagName != widget.tagName) {
+    if (widget.tagName != oldWidget.tagName) {
       _loadTagData();
     }
   }
@@ -76,36 +81,81 @@ class _TagInspectorPanelState extends ConsumerState<TagInspectorPanel> {
     }
 
     return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: const BoxDecoration(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.grey[900], // Dark panel background
         border: Border(top: BorderSide(color: Colors.white12)),
-        color: Colors.black12,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
+        padding: EdgeInsets.zero,
+        // crossAxisAlignment: CrossAxisAlignment.start, // ListView doesn't use this
+        // mainAxisSize: MainAxisSize.min, // ListView expands
         children: [
+          // Header
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Tag: ${widget.tagName}",
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.tealAccent,
-                ),
+              Row(
+                children: [
+                  if (widget.isVendor) ...[
+                    const Icon(Icons.store, color: Colors.blueAccent),
+                    const SizedBox(width: 8),
+                  ],
+                  Text(
+                    widget.tagName,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
               IconButton(
+                icon: const Icon(Icons.close, size: 20),
                 onPressed: () {
                   ref
                       .read(dashboardControllerProvider.notifier)
                       .selectTag(null);
                 },
-                icon: const Icon(Icons.close, size: 16),
               ),
             ],
           ),
           const SizedBox(height: 10),
+
+          if (widget.isVendor) ...[
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.blueAccent.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(4),
+                border: Border.all(color: Colors.blueAccent.withOpacity(0.3)),
+              ),
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    "VENDOR INFORMATION",
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    "Regex: ^TARGET.*",
+                    style: TextStyle(fontSize: 12, fontFamily: 'monospace'),
+                  ),
+                  Text(
+                    "Defaults: Groceries, Home",
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+          ],
           if (_isLoading)
             const LinearProgressIndicator()
           else

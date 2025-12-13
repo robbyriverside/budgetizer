@@ -42,7 +42,6 @@ class DashboardController extends _$DashboardController {
 
   Future<void> initializeTransaction({
     required String id,
-    required TransactionType type,
     required List<String> tags,
   }) async {
     final service = ref.read(bankServiceProvider);
@@ -50,12 +49,74 @@ class DashboardController extends _$DashboardController {
         ref.read(bankTransactionListProvider).asData?.value ?? [];
 
     final tx = currentList.firstWhere((t) => t.id == id);
-    final updatedTx = tx.copyWith(isInitialized: true, type: type, tags: tags);
+
+    final updatedTx = tx.copyWith(isInitialized: true, tags: tags);
 
     // Update Mock Service
     await service.updateTransaction(updatedTx);
 
     // Refresh List
+    ref.invalidate(bankTransactionListProvider);
+  }
+
+  Future<void> removeTagFromTransaction(
+    String transactionId,
+    String tag,
+  ) async {
+    final service = ref.read(bankServiceProvider);
+    final currentList =
+        ref.read(bankTransactionListProvider).asData?.value ?? [];
+
+    final tx = currentList.firstWhere((t) => t.id == transactionId);
+
+    // Guard: Cannot remove the first tag (Vendor Tag) with current logic?
+    // Actually, tags.indexOf(tag) would find it.
+    // If the tag being removed is at index 0, abort.
+    final index = tx.tags.indexOf(tag);
+    if (index == 0) {
+      // Vendor tag is immutable
+      return;
+    }
+
+    final updatedTags = List<String>.from(tx.tags)..remove(tag);
+
+    final updatedTx = tx.copyWith(tags: updatedTags);
+
+    await service.updateTransaction(updatedTx);
+    ref.invalidate(bankTransactionListProvider);
+  }
+
+  Future<void> addTagToTransaction(String transactionId, String tag) async {
+    // Helper for Undo
+    final service = ref.read(bankServiceProvider);
+    final currentList =
+        ref.read(bankTransactionListProvider).asData?.value ?? [];
+
+    final tx = currentList.firstWhere((t) => t.id == transactionId);
+    final updatedTags = List<String>.from(tx.tags)..add(tag);
+
+    final updatedTx = tx.copyWith(tags: updatedTags);
+
+    await service.updateTransaction(updatedTx);
+    ref.invalidate(bankTransactionListProvider);
+  }
+
+  Future<void> restoreVendorTags(String transactionId) async {
+    final service = ref.read(bankServiceProvider);
+    final currentList =
+        ref.read(bankTransactionListProvider).asData?.value ?? [];
+
+    final tx = currentList.firstWhere((t) => t.id == transactionId);
+
+    if (tx.tags.isEmpty) return; // Should not happen per rules
+
+    final vendorTag = tx.tags.first;
+    final defaultTags = await service.getVendorTags(vendorTag);
+
+    // Replace current tags with defaults
+    final updatedTx = tx.copyWith(tags: defaultTags);
+
+    await service.updateTransaction(updatedTx);
     ref.invalidate(bankTransactionListProvider);
   }
 

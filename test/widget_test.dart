@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:budgetizer/core/services/bank_service.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:budgetizer/main.dart';
@@ -46,18 +46,10 @@ void main() {
     expect(find.text('Initialize Transaction'), findsOneWidget);
 
     // 4. Fill Form
-    // Select Type: Fixed
-    await tester.tap(
-      find.byType(DropdownButtonFormField<TransactionType>),
-    ); // Find Dropdown
-    await tester.pumpAndSettle(); // Open menu
-    await tester.tap(find.text('FIXED').last); // Select Fixed item
-    await tester.pumpAndSettle();
-
-    // Enter Category
+    // Enter Tags
     await tester.enterText(
-      find.widgetWithText(TextFormField, 'Category (e.g. Groceries)'),
-      'Test Category',
+      find.widgetWithText(TextFormField, 'Tags (comma separated)'),
+      'Test Tag, Another Tag',
     );
     await tester.pump();
 

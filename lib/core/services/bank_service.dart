@@ -29,8 +29,7 @@ class BankTransaction {
   final bool pending;
 
   final bool isInitialized;
-  final TransactionType? type;
-  // budgetLimit removed - now lives on Tag
+  // type removed
 
   BankTransaction({
     required this.id,
@@ -40,7 +39,6 @@ class BankTransaction {
     required this.tags,
     required this.pending,
     this.isInitialized = true,
-    this.type,
   });
 
   factory BankTransaction.fromJson(Map<String, dynamic> json) {
@@ -59,7 +57,6 @@ class BankTransaction {
 
   BankTransaction copyWith({
     bool? isInitialized,
-    TransactionType? type,
     String? name,
     List<String>? tags,
   }) {
@@ -71,18 +68,18 @@ class BankTransaction {
       tags: tags ?? this.tags,
       pending: pending,
       isInitialized: isInitialized ?? this.isInitialized,
-      type: type ?? this.type,
     );
   }
 }
 
-enum TransactionType { fixed, variable, income, transfer }
+// TransactionType enum removed - Types are now Tags
 
 abstract class BankService {
   Future<List<BankTransaction>> fetchTransactions();
   Future<void> updateTransaction(BankTransaction transaction);
   Future<List<Tag>> fetchTags();
   Future<void> updateTag(Tag tag);
+  Future<List<String>> getVendorTags(String vendorTag);
 }
 
 class MockBankService implements BankService {
@@ -137,6 +134,31 @@ class MockBankService implements BankService {
     }
   }
 
+  @override
+  Future<List<String>> getVendorTags(String vendorTag) async {
+    // Mock AI Logic: Return hardcoded defaults based on Vendor Tag
+    // In real app, this queries the AI/Vendor DB
+    switch (vendorTag.toUpperCase()) {
+      case 'TARGET':
+        return ['Target', 'Groceries', 'Home Goods', 'Clothing'];
+      case 'SHELL':
+        return ['Shell', 'Gas', 'Auto'];
+      case 'STARBUCKS':
+        return ['Starbucks', 'Dining', 'Coffee'];
+      case 'UBER RIDE':
+      case 'UBER':
+        return ['Uber', 'Transport', 'Services'];
+      case 'WHOLE FOODS':
+        return ['Whole Foods', 'Groceries', 'Dining'];
+      case 'MORTGAGE PAYMENT': // Example of strict mapping
+        return ['Mortgage Payment', 'Housing', 'Fixed'];
+      default:
+        // Fallback: Just the vendor tag and a default 'Uncategorized' if unknown?
+        // Or AI matching would happen here.
+        return [vendorTag, 'Uncategorized'];
+    }
+  }
+
   List<BankTransaction> _generateRandomTransactions() {
     // Basic randomizer for V1 testing
     final now = DateTime.now();
@@ -146,7 +168,7 @@ class MockBankService implements BankService {
         date: now,
         name: 'UBER RIDE',
         amount: -24.50,
-        tags: [],
+        tags: ['UBER RIDE'],
         pending: false,
         isInitialized: false,
       ),
@@ -155,7 +177,7 @@ class MockBankService implements BankService {
         date: now,
         name: 'WHOLE FOODS',
         amount: -102.30,
-        tags: [],
+        tags: ['WHOLE FOODS'],
         pending: true,
         isInitialized: false,
       ),

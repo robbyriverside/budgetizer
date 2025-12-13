@@ -27,7 +27,7 @@ So in the first version there no hierarchy of cashflows.  Just a single cashflow
 
 ## Version 2
 
-Second version allows me to budget a single cashflow transaction.  This involves identifying transactions as fixed or variable, with a limit.  And implement all the features of a transaction: see abstraction.md section 2.2.
+Second version allows me to budget a single cashflow transaction.   And implement all the features of a transaction: see abstraction.md section 2.2.
 
 **Core Feature**: **Prediction Engine**. Calculate the "Projected End-of-Cycle Buffer" based on the new Limits and Fixed/Variable definitions.
 

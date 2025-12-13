@@ -32,14 +32,15 @@ A **Transaction** is the atomic unit of change within a Cash Flow.
 - **Amount**: Positive (Income) or Negative (Expense).
 - **Date**: When it occurred (or is predicted to occur).
 - **Description**: What it is.
-- **Category (Purpose)**: The classification (e.g., "Groceries", "Salary").
+- **Vendor**: Derived from the **first tag** in the `tags` list. The vendor tag is immutable.
+- **Tags**: Attributes assigned by AI. The first tag is always the Vendor.
 - **Related Transaction**: A link to a corresponding transaction in another Cash Flow (e.g., a credit card payment expense in Checking links to a payment received income in the Credit Card).
 
 ### 2.2. Dimensions
 Every transaction exists on three key dimensions:
 1.  **Variability**:
     - **Fixed**: Same amount every node (e.g., Rent, Netflix).
-    - **Variable**: Fluctuates (e.g., Groceries, Utilities). *Requires an Alert Limit*.
+    - **Variable**: Fluctuates (e.g., Groceries, Utilities). *Managed via Tag Budgets*.
 2.  **Planning**:
     - **Planned**: Known in advance.
     - **Unexpected**: Ad-hoc events (e.g., Car repair).
@@ -48,6 +49,20 @@ Every transaction exists on three key dimensions:
     - **Expense**: Money Out.
 
 ---
+
+## 3. Tagging Model
+The system uses an **AI-first** approach to classification.
+
+### 3.1. Vendor vs. Tags
+- **Vendor Tag**: The **first tag** in the list is always the Vendor. It cannot be removed.
+- **Tags**: Subsequent tags describe products or categories (e.g., "Groceries", "Home Goods").
+- **Control**: User can remove any tag *except* the first one.
+
+### 3.2. Tag Budgets
+Budgeting is done at the **Tag** level, not the Category level.
+- **Limit**: The maximum amount to spend on a Tag.
+- **Frequency**: The cycle for that limit (Weekly, Monthly).
+- **Variable Expenses** are constrained by the sum of budgets for their assigned tags.
 
 ## 3. Cash Flow Types
 
@@ -86,10 +101,10 @@ Every transaction exists on three key dimensions:
 The core value proposition is **predicting the End-of-Cycle Buffer**.
 `Predicted Buffer = Current Balance + (Planned Income) - (Planned Expenses) - (Expected Variable Expenses)`
 
-- **Variable Expense Prediction**: Uses the *Alert Limit* or historical average to estimate remaining spend for the cycle.
+- **Variable Expense Prediction**: Uses the *Sum of Tag Budgets* or historical average to estimate remaining spend for the cycle.
 - **Credit Card Lag**: Spending *now* on a Credit Card does not reduce the Checking Buffer *now*, but reduces the *Next Cycle's* Checking Buffer.
 
 ### 4.2. Alerts
-- **Overspending**: When `Current Spend > Alert Limit`.
+- **Overspending**: When `Current Tag Spend > Tag Limit`.
 - **Low Buffer**: When `Predicted Buffer < Safety Threshold`.
 - **Action**: These alerts trigger a recommendation (e.g., "Transfer $500 from Savings").
