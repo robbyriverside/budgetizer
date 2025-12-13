@@ -8,14 +8,21 @@ class Tag {
   final String name;
   final double? budgetLimit;
   final String? frequency; // 'weekly', 'monthly'
+  final String? regex;
 
-  Tag({required this.name, this.budgetLimit, this.frequency});
+  Tag({required this.name, this.budgetLimit, this.frequency, this.regex});
 
-  Tag copyWith({String? name, double? budgetLimit, String? frequency}) {
+  Tag copyWith({
+    String? name,
+    double? budgetLimit,
+    String? frequency,
+    String? regex,
+  }) {
     return Tag(
       name: name ?? this.name,
       budgetLimit: budgetLimit ?? this.budgetLimit,
       frequency: frequency ?? this.frequency,
+      regex: regex ?? this.regex,
     );
   }
 }
@@ -121,6 +128,28 @@ class MockBankService implements BankService {
 
   @override
   Future<List<Tag>> fetchTags() async {
+    if (_tags.isEmpty) {
+      try {
+        final String response = await rootBundle.loadString(
+          'assets/data/db_tags.json',
+        );
+        final Map<String, dynamic> data = json.decode(response);
+        final List<dynamic> tagList = data['tags'];
+
+        for (var t in tagList) {
+          _tags.add(
+            Tag(
+              name: t['name'],
+              // description: t['description'], // Tag model needs desc update if we want it too
+              regex: t['regex'],
+              // type: t['type'],
+            ),
+          );
+        }
+      } catch (e) {
+        print("Error loading tags: $e");
+      }
+    }
     return _tags;
   }
 

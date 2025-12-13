@@ -1,0 +1,3841 @@
+{
+  "tags": [
+    {
+      "name": "Amazon",
+      "type": "Vendor",
+      "description": "Vendor: Amazon",
+      "regex": "(?i)Amazon"
+    },
+    {
+      "name": "Target",
+      "type": "Vendor",
+      "description": "Vendor: Target",
+      "regex": "(?i)Target"
+    },
+    {
+      "name": "Shell",
+      "type": "Vendor",
+      "description": "Vendor: Shell",
+      "regex": "(?i)Shell"
+    },
+    {
+      "name": "Starbucks",
+      "type": "Vendor",
+      "description": "Vendor: Starbucks",
+      "regex": "(?i)Starbucks"
+    },
+    {
+      "name": "Uber",
+      "type": "Vendor",
+      "description": "Vendor: Uber",
+      "regex": "(?i)Uber"
+    },
+    {
+      "name": "Whole Foods",
+      "type": "Vendor",
+      "description": "Vendor: Whole Foods",
+      "regex": "(?i)Whole Foods"
+    },
+    {
+      "name": "Netflix",
+      "type": "Vendor",
+      "description": "Vendor: Netflix",
+      "regex": "(?i)Netflix"
+    },
+    {
+      "name": "Chevron",
+      "type": "Vendor",
+      "description": "Vendor: Chevron",
+      "regex": "(?i)Chevron"
+    },
+    {
+      "name": "Safeway",
+      "type": "Vendor",
+      "description": "Vendor: Safeway",
+      "regex": "(?i)Safeway"
+    },
+    {
+      "name": "McDonald's",
+      "type": "Vendor",
+      "description": "Vendor: McDonald's",
+      "regex": "(?i)McDonald's"
+    },
+    {
+      "name": "Jiffy Lube",
+      "type": "Vendor",
+      "description": "Vendor: Jiffy Lube",
+      "regex": "(?i)Jiffy Lube"
+    },
+    {
+      "name": "Groceries",
+      "type": "Market",
+      "description": "Supermarkets, bakers, butchers (e.g., Whole Foods, Safeway)."
+    },
+    {
+      "name": "Dining",
+      "type": "Market",
+      "description": "Restaurants, fast food, bars (e.g., McDonald's)."
+    },
+    {
+      "name": "Home Goods",
+      "type": "Market",
+      "description": "Furniture, decor, hardware (e.g., Home Depot, IKEA)."
+    },
+    {
+      "name": "Clothing",
+      "type": "Market",
+      "description": "Apparel, shoes, accessories (e.g., GAP, Nike)."
+    },
+    {
+      "name": "Gas",
+      "type": "Market",
+      "description": "Fuel stations (e.g., Shell, Chevron)."
+    },
+    {
+      "name": "Auto Maintenance",
+      "type": "Market",
+      "description": "Repairs, parts, service (e.g., Jiffy Lube)."
+    },
+    {
+      "name": "Transport",
+      "type": "Market",
+      "description": "Rideshare, public transit, taxis (e.g., Uber, Lyft)."
+    },
+    {
+      "name": "Housing",
+      "type": "Market",
+      "description": "Rent, mortgage, repairs (e.g., specific property management)."
+    },
+    {
+      "name": "Entertainment",
+      "type": "Market",
+      "description": "Fun, hobbies, media (e.g., Netflix, Cinema)."
+    },
+    {
+      "name": "Utilities",
+      "type": "Market",
+      "description": "Electricity, water, internet (e.g., PGE, Comcast)."
+    },
+    {
+      "name": "Health",
+      "type": "Market",
+      "description": "Medical, dental, pharmacy (e.g., Walgreens, Kaiser)."
+    },
+    {
+      "name": "Travel",
+      "type": "Market",
+      "description": "Flights, hotels, car rentals (e.g., Airbnb, Delta)."
+    },
+    {
+      "name": "Education",
+      "type": "Market",
+      "description": "Tuition, courses, books."
+    },
+    {
+      "name": "Subscription",
+      "type": "System",
+      "description": "Fixed recurring expense"
+    },
+    {
+      "name": "Fixed",
+      "type": "System",
+      "description": "Fixed non-recurring expense"
+    },
+    {
+      "name": "Variable",
+      "type": "System",
+      "description": "Variable non-recurring expense"
+    },
+    {
+      "name": "Recurring",
+      "type": "System",
+      "description": "Variable recurring expense"
+    },
+    {
+      "name": "Income",
+      "type": "System",
+      "description": "Positive amount added to the budget"
+    },
+    {
+      "name": "Transfer",
+      "type": "System",
+      "description": "Transfer between accounts"
+    },
+    {
+      "name": "Pending",
+      "type": "System",
+      "description": "Pending transaction"
+    },
+    {
+      "name": "Ride Services",
+      "type": "Service",
+      "description": "Taxis, Uber, Lyft.",
+      "source": "Manual"
+    },
+    {
+      "name": "Oil Change",
+      "type": "Service",
+      "description": "Preventative maintenance (e.g., Jiffy Lube).",
+      "source": "Manual"
+    },
+    {
+      "name": "Auto Repair",
+      "type": "Service",
+      "description": "Mechanical repairs and fixes.",
+      "source": "Manual"
+    },
+    {
+      "name": "Coffee",
+      "type": "Service",
+      "description": "Coffee shops, cafes.",
+      "source": "Manual"
+    },
+    {
+      "name": "Fast Food",
+      "type": "Service",
+      "description": "Quick service dining.",
+      "source": "Manual"
+    },
+    {
+      "name": "Streaming",
+      "type": "Service",
+      "description": "Digital media subscriptions.",
+      "source": "Manual"
+    },
+    {
+      "name": "Internet",
+      "type": "Service",
+      "description": "ISP services.",
+      "source": "Manual"
+    },
+    {
+      "name": "Mobile",
+      "type": "Service",
+      "description": "Cell phone service.",
+      "source": "Manual"
+    },
+    {
+      "name": "Gifts",
+      "type": "Service",
+      "description": "Presents, donations.",
+      "source": "Manual"
+    },
+    {
+      "name": "Electronics",
+      "type": "Service",
+      "description": "Gadgets, tech.",
+      "source": "Manual"
+    },
+    {
+      "name": "Alcohol",
+      "type": "Service",
+      "description": "Liquor stores, bars.",
+      "source": "Manual"
+    },
+    {
+      "name": "Veterinary Services",
+      "type": "Service",
+      "description": "Veterinary Services"
+    },
+    {
+      "name": "Agricultural Co-operatives",
+      "type": "Service",
+      "description": "Agricultural Co-operatives"
+    },
+    {
+      "name": "Horticultural Services, Landscaping Services",
+      "type": "Service",
+      "description": "Horticultural Services, Landscaping Services"
+    },
+    {
+      "name": "General Contractors-Residential and Commercial",
+      "type": "Service",
+      "description": "General Contractors-Residential and Commercial"
+    },
+    {
+      "name": "Air Conditioning Contractors \u2013 Sales and Installation, Heating Contractors \u2013 Sales, Service, Installation",
+      "type": "Service",
+      "description": "Air Conditioning Contractors \u2013 Sales and Installation, Heating Contractors \u2013 Sales, Service, Installation"
+    },
+    {
+      "name": "Electrical Contractors",
+      "type": "Service",
+      "description": "Electrical Contractors"
+    },
+    {
+      "name": "Insulation \u2013 Contractors, Masonry, Stonework Contractors, Plastering Contractors, Stonework and Masonry Contractors, Tile Settings Contractors",
+      "type": "Service",
+      "description": "Insulation \u2013 Contractors, Masonry, Stonework Contractors, Plastering Contractors, Stonework and Masonry Contractors, Tile Settings Contractors"
+    },
+    {
+      "name": "Carpentry Contractors",
+      "type": "Service",
+      "description": "Carpentry Contractors"
+    },
+    {
+      "name": "Roofing \u2013 Contractors, Sheet Metal Work \u2013 Contractors, Siding \u2013 Contractors",
+      "type": "Service",
+      "description": "Roofing \u2013 Contractors, Sheet Metal Work \u2013 Contractors, Siding \u2013 Contractors"
+    },
+    {
+      "name": "Contractors \u2013 Concrete Work",
+      "type": "Service",
+      "description": "Contractors \u2013 Concrete Work"
+    },
+    {
+      "name": "Contractors \u2013 Special Trade, Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Contractors \u2013 Special Trade, Not Elsewhere Classified"
+    },
+    {
+      "name": "Miscellaneous Publishing and Printing",
+      "type": "Service",
+      "description": "Miscellaneous Publishing and Printing"
+    },
+    {
+      "name": "Typesetting, Plate Making, & Related Services",
+      "type": "Service",
+      "description": "Typesetting, Plate Making, & Related Services"
+    },
+    {
+      "name": "Specialty Cleaning, Polishing, and Sanitation Preparations",
+      "type": "Service",
+      "description": "Specialty Cleaning, Polishing, and Sanitation Preparations"
+    },
+    {
+      "name": "UNITED AIRLINES",
+      "type": "Service",
+      "description": "UNITED AIRLINES"
+    },
+    {
+      "name": "AMERICAN AIRLINES",
+      "type": "Service",
+      "description": "AMERICAN AIRLINES"
+    },
+    {
+      "name": "PAN AMERICAN",
+      "type": "Service",
+      "description": "PAN AMERICAN"
+    },
+    {
+      "name": "Airlines",
+      "type": "Service",
+      "description": "Airlines"
+    },
+    {
+      "name": "TRANS WORLD AIRLINES",
+      "type": "Service",
+      "description": "TRANS WORLD AIRLINES"
+    },
+    {
+      "name": "BRITISH AIRWAYS",
+      "type": "Service",
+      "description": "BRITISH AIRWAYS"
+    },
+    {
+      "name": "JAPAN AIRLINES",
+      "type": "Service",
+      "description": "JAPAN AIRLINES"
+    },
+    {
+      "name": "AIR FRANCE",
+      "type": "Service",
+      "description": "AIR FRANCE"
+    },
+    {
+      "name": "LUFTHANSA",
+      "type": "Service",
+      "description": "LUFTHANSA"
+    },
+    {
+      "name": "AIR CANADA",
+      "type": "Service",
+      "description": "AIR CANADA"
+    },
+    {
+      "name": "KLM (ROYAL DUTCH AIRLINES)",
+      "type": "Service",
+      "description": "KLM (ROYAL DUTCH AIRLINES)"
+    },
+    {
+      "name": "AEORFLOT",
+      "type": "Service",
+      "description": "AEORFLOT"
+    },
+    {
+      "name": "QANTAS",
+      "type": "Service",
+      "description": "QANTAS"
+    },
+    {
+      "name": "ALITALIA",
+      "type": "Service",
+      "description": "ALITALIA"
+    },
+    {
+      "name": "SAUDIA ARABIAN AIRLINES",
+      "type": "Service",
+      "description": "SAUDIA ARABIAN AIRLINES"
+    },
+    {
+      "name": "SWISSAIR",
+      "type": "Service",
+      "description": "SWISSAIR"
+    },
+    {
+      "name": "SAS",
+      "type": "Service",
+      "description": "SAS"
+    },
+    {
+      "name": "SOUTH AFRICAN AIRWAYS",
+      "type": "Service",
+      "description": "SOUTH AFRICAN AIRWAYS"
+    },
+    {
+      "name": "VARIG (BRAZIL)",
+      "type": "Service",
+      "description": "VARIG (BRAZIL)"
+    },
+    {
+      "name": "AIR-INDIA",
+      "type": "Service",
+      "description": "AIR-INDIA"
+    },
+    {
+      "name": "AIR ALGERIE",
+      "type": "Service",
+      "description": "AIR ALGERIE"
+    },
+    {
+      "name": "PHILIPPINE AIRLINES",
+      "type": "Service",
+      "description": "PHILIPPINE AIRLINES"
+    },
+    {
+      "name": "MEXICANA",
+      "type": "Service",
+      "description": "MEXICANA"
+    },
+    {
+      "name": "PAKISTAN INTERNATIONAL",
+      "type": "Service",
+      "description": "PAKISTAN INTERNATIONAL"
+    },
+    {
+      "name": "AIR NEW ZEALAND",
+      "type": "Service",
+      "description": "AIR NEW ZEALAND"
+    },
+    {
+      "name": "UTA/INTERAIR",
+      "type": "Service",
+      "description": "UTA/INTERAIR"
+    },
+    {
+      "name": "AIR MALTA",
+      "type": "Service",
+      "description": "AIR MALTA"
+    },
+    {
+      "name": "SABENA",
+      "type": "Service",
+      "description": "SABENA"
+    },
+    {
+      "name": "AEROLINEAS ARGENTINAS",
+      "type": "Service",
+      "description": "AEROLINEAS ARGENTINAS"
+    },
+    {
+      "name": "OLYMPIC AIRWAYS",
+      "type": "Service",
+      "description": "OLYMPIC AIRWAYS"
+    },
+    {
+      "name": "EL AL",
+      "type": "Service",
+      "description": "EL AL"
+    },
+    {
+      "name": "ANSETT AIRLINES",
+      "type": "Service",
+      "description": "ANSETT AIRLINES"
+    },
+    {
+      "name": "AUSTRAINLIAN AIRLINES",
+      "type": "Service",
+      "description": "AUSTRAINLIAN AIRLINES"
+    },
+    {
+      "name": "TAP (PORTUGAL)",
+      "type": "Service",
+      "description": "TAP (PORTUGAL)"
+    },
+    {
+      "name": "VASP (BRAZIL)",
+      "type": "Service",
+      "description": "VASP (BRAZIL)"
+    },
+    {
+      "name": "EGYPTAIR",
+      "type": "Service",
+      "description": "EGYPTAIR"
+    },
+    {
+      "name": "KUWAIT AIRLINES",
+      "type": "Service",
+      "description": "KUWAIT AIRLINES"
+    },
+    {
+      "name": "AVIANCA",
+      "type": "Service",
+      "description": "AVIANCA"
+    },
+    {
+      "name": "GULF AIR (BAHRAIN)",
+      "type": "Service",
+      "description": "GULF AIR (BAHRAIN)"
+    },
+    {
+      "name": "BALKAN-BULGARIAN AIRLINES",
+      "type": "Service",
+      "description": "BALKAN-BULGARIAN AIRLINES"
+    },
+    {
+      "name": "FINNAIR",
+      "type": "Service",
+      "description": "FINNAIR"
+    },
+    {
+      "name": "AER LINGUS",
+      "type": "Service",
+      "description": "AER LINGUS"
+    },
+    {
+      "name": "AIR LANKA",
+      "type": "Service",
+      "description": "AIR LANKA"
+    },
+    {
+      "name": "NIGERIA AIRWAYS",
+      "type": "Service",
+      "description": "NIGERIA AIRWAYS"
+    },
+    {
+      "name": "CRUZEIRO DO SUL (BRAZIJ)",
+      "type": "Service",
+      "description": "CRUZEIRO DO SUL (BRAZIJ)"
+    },
+    {
+      "name": "THY (TURKEY)",
+      "type": "Service",
+      "description": "THY (TURKEY)"
+    },
+    {
+      "name": "ROYAL AIR MAROC",
+      "type": "Service",
+      "description": "ROYAL AIR MAROC"
+    },
+    {
+      "name": "TUNIS AIR",
+      "type": "Service",
+      "description": "TUNIS AIR"
+    },
+    {
+      "name": "ICELANDAIR",
+      "type": "Service",
+      "description": "ICELANDAIR"
+    },
+    {
+      "name": "AUSTRIAN AIRLINES",
+      "type": "Service",
+      "description": "AUSTRIAN AIRLINES"
+    },
+    {
+      "name": "LANCHILE",
+      "type": "Service",
+      "description": "LANCHILE"
+    },
+    {
+      "name": "AVIACO (SPAIN)",
+      "type": "Service",
+      "description": "AVIACO (SPAIN)"
+    },
+    {
+      "name": "LADECO (CHILE)",
+      "type": "Service",
+      "description": "LADECO (CHILE)"
+    },
+    {
+      "name": "LAB (BOLIVIA)",
+      "type": "Service",
+      "description": "LAB (BOLIVIA)"
+    },
+    {
+      "name": "QUEBECAIRE",
+      "type": "Service",
+      "description": "QUEBECAIRE"
+    },
+    {
+      "name": "EASTWEST AIRLINES (AUSTRALIA)",
+      "type": "Service",
+      "description": "EASTWEST AIRLINES (AUSTRALIA)"
+    },
+    {
+      "name": "DELTA",
+      "type": "Service",
+      "description": "DELTA"
+    },
+    {
+      "name": "NORTHWEST",
+      "type": "Service",
+      "description": "NORTHWEST"
+    },
+    {
+      "name": "CONTINENTAL",
+      "type": "Service",
+      "description": "CONTINENTAL"
+    },
+    {
+      "name": "WESTERN",
+      "type": "Service",
+      "description": "WESTERN"
+    },
+    {
+      "name": "US AIR",
+      "type": "Service",
+      "description": "US AIR"
+    },
+    {
+      "name": "AIRINTER",
+      "type": "Service",
+      "description": "AIRINTER"
+    },
+    {
+      "name": "SOUTHWEST",
+      "type": "Service",
+      "description": "SOUTHWEST"
+    },
+    {
+      "name": "SUN COUNTRY AIRLINES",
+      "type": "Service",
+      "description": "SUN COUNTRY AIRLINES"
+    },
+    {
+      "name": "AIR BRITISH COLUBIA",
+      "type": "Service",
+      "description": "AIR BRITISH COLUBIA"
+    },
+    {
+      "name": "SINGAPORE AIRLINES",
+      "type": "Service",
+      "description": "SINGAPORE AIRLINES"
+    },
+    {
+      "name": "AEROMEXICO",
+      "type": "Service",
+      "description": "AEROMEXICO"
+    },
+    {
+      "name": "THAI AIRWAYS",
+      "type": "Service",
+      "description": "THAI AIRWAYS"
+    },
+    {
+      "name": "CHINA AIRLINES",
+      "type": "Service",
+      "description": "CHINA AIRLINES"
+    },
+    {
+      "name": "NORDAIR",
+      "type": "Service",
+      "description": "NORDAIR"
+    },
+    {
+      "name": "KOREAN AIRLINES",
+      "type": "Service",
+      "description": "KOREAN AIRLINES"
+    },
+    {
+      "name": "AIR AFRIGUE",
+      "type": "Service",
+      "description": "AIR AFRIGUE"
+    },
+    {
+      "name": "EVA AIRLINES",
+      "type": "Service",
+      "description": "EVA AIRLINES"
+    },
+    {
+      "name": "MIDWEST EXPRESS AIRLINES, INC.",
+      "type": "Service",
+      "description": "MIDWEST EXPRESS AIRLINES, INC."
+    },
+    {
+      "name": "METRO AIRLINES",
+      "type": "Service",
+      "description": "METRO AIRLINES"
+    },
+    {
+      "name": "CROATIA AIRLINES",
+      "type": "Service",
+      "description": "CROATIA AIRLINES"
+    },
+    {
+      "name": "TRANSAERO",
+      "type": "Service",
+      "description": "TRANSAERO"
+    },
+    {
+      "name": "ZAMBIA AIRWAYS",
+      "type": "Service",
+      "description": "ZAMBIA AIRWAYS"
+    },
+    {
+      "name": "AIR ZIMBABWE",
+      "type": "Service",
+      "description": "AIR ZIMBABWE"
+    },
+    {
+      "name": "CATHAY PACIFIC",
+      "type": "Service",
+      "description": "CATHAY PACIFIC"
+    },
+    {
+      "name": "MALAYSIAN AIRLINE SYSTEM",
+      "type": "Service",
+      "description": "MALAYSIAN AIRLINE SYSTEM"
+    },
+    {
+      "name": "IBERIA",
+      "type": "Service",
+      "description": "IBERIA"
+    },
+    {
+      "name": "GARUDA (INDONESIA)",
+      "type": "Service",
+      "description": "GARUDA (INDONESIA)"
+    },
+    {
+      "name": "BRAATHENS S.A.F.E. (NORWAY)",
+      "type": "Service",
+      "description": "BRAATHENS S.A.F.E. (NORWAY)"
+    },
+    {
+      "name": "WINGS AIRWAYS",
+      "type": "Service",
+      "description": "WINGS AIRWAYS"
+    },
+    {
+      "name": "BRITISH MIDLAND",
+      "type": "Service",
+      "description": "BRITISH MIDLAND"
+    },
+    {
+      "name": "WINDWARD ISLAND",
+      "type": "Service",
+      "description": "WINDWARD ISLAND"
+    },
+    {
+      "name": "VIASA",
+      "type": "Service",
+      "description": "VIASA"
+    },
+    {
+      "name": "VALLEY AIRLINES",
+      "type": "Service",
+      "description": "VALLEY AIRLINES"
+    },
+    {
+      "name": "TAN",
+      "type": "Service",
+      "description": "TAN"
+    },
+    {
+      "name": "TALAIR",
+      "type": "Service",
+      "description": "TALAIR"
+    },
+    {
+      "name": "TACA INTERNATIONAL",
+      "type": "Service",
+      "description": "TACA INTERNATIONAL"
+    },
+    {
+      "name": "SURINAM AIRWAYS",
+      "type": "Service",
+      "description": "SURINAM AIRWAYS"
+    },
+    {
+      "name": "SUN WORLD INTERNATIONAL",
+      "type": "Service",
+      "description": "SUN WORLD INTERNATIONAL"
+    },
+    {
+      "name": "SUNBELT AIRLINES",
+      "type": "Service",
+      "description": "SUNBELT AIRLINES"
+    },
+    {
+      "name": "SUDAN AIRWAYS",
+      "type": "Service",
+      "description": "SUDAN AIRWAYS"
+    },
+    {
+      "name": "SINGLETON",
+      "type": "Service",
+      "description": "SINGLETON"
+    },
+    {
+      "name": "SIMMONS AIRLINES",
+      "type": "Service",
+      "description": "SIMMONS AIRLINES"
+    },
+    {
+      "name": "SCENIC AIRLINES",
+      "type": "Service",
+      "description": "SCENIC AIRLINES"
+    },
+    {
+      "name": "VIRGIN ATLANTIC",
+      "type": "Service",
+      "description": "VIRGIN ATLANTIC"
+    },
+    {
+      "name": "SAN JUAN AIRLINES",
+      "type": "Service",
+      "description": "SAN JUAN AIRLINES"
+    },
+    {
+      "name": "LUXAIR",
+      "type": "Service",
+      "description": "LUXAIR"
+    },
+    {
+      "name": "AIR ZAIRE",
+      "type": "Service",
+      "description": "AIR ZAIRE"
+    },
+    {
+      "name": "PRINCEVILLE",
+      "type": "Service",
+      "description": "PRINCEVILLE"
+    },
+    {
+      "name": "PBA",
+      "type": "Service",
+      "description": "PBA"
+    },
+    {
+      "name": "ALL NIPPON AIRWAYS",
+      "type": "Service",
+      "description": "ALL NIPPON AIRWAYS"
+    },
+    {
+      "name": "NORONTAIR",
+      "type": "Service",
+      "description": "NORONTAIR"
+    },
+    {
+      "name": "NEW YORK HELICOPTER",
+      "type": "Service",
+      "description": "NEW YORK HELICOPTER"
+    },
+    {
+      "name": "NOUNT COOK",
+      "type": "Service",
+      "description": "NOUNT COOK"
+    },
+    {
+      "name": "CANADIAN AIRLINES INTERNATIONAL",
+      "type": "Service",
+      "description": "CANADIAN AIRLINES INTERNATIONAL"
+    },
+    {
+      "name": "NATIONAIR",
+      "type": "Service",
+      "description": "NATIONAIR"
+    },
+    {
+      "name": "METROFLIGHT AIRLINES",
+      "type": "Service",
+      "description": "METROFLIGHT AIRLINES"
+    },
+    {
+      "name": "MESA AIR",
+      "type": "Service",
+      "description": "MESA AIR"
+    },
+    {
+      "name": "MALEV",
+      "type": "Service",
+      "description": "MALEV"
+    },
+    {
+      "name": "LOT (POLAND)",
+      "type": "Service",
+      "description": "LOT (POLAND)"
+    },
+    {
+      "name": "LIAT",
+      "type": "Service",
+      "description": "LIAT"
+    },
+    {
+      "name": "LAV (VENEZUELA)",
+      "type": "Service",
+      "description": "LAV (VENEZUELA)"
+    },
+    {
+      "name": "LAP (PARAGUAY)",
+      "type": "Service",
+      "description": "LAP (PARAGUAY)"
+    },
+    {
+      "name": "LACSA (COSTA RICA)",
+      "type": "Service",
+      "description": "LACSA (COSTA RICA)"
+    },
+    {
+      "name": "JUGOSLAV AIR",
+      "type": "Service",
+      "description": "JUGOSLAV AIR"
+    },
+    {
+      "name": "ISLAND AIRLINES",
+      "type": "Service",
+      "description": "ISLAND AIRLINES"
+    },
+    {
+      "name": "IRAN AIR",
+      "type": "Service",
+      "description": "IRAN AIR"
+    },
+    {
+      "name": "INDIAN AIRLINES",
+      "type": "Service",
+      "description": "INDIAN AIRLINES"
+    },
+    {
+      "name": "HAWAIIAN AIR",
+      "type": "Service",
+      "description": "HAWAIIAN AIR"
+    },
+    {
+      "name": "HAVASU AIRLINES",
+      "type": "Service",
+      "description": "HAVASU AIRLINES"
+    },
+    {
+      "name": "FUYANA AIRWAYS",
+      "type": "Service",
+      "description": "FUYANA AIRWAYS"
+    },
+    {
+      "name": "GOLDEN PACIFIC AIR",
+      "type": "Service",
+      "description": "GOLDEN PACIFIC AIR"
+    },
+    {
+      "name": "FREEDOM AIR",
+      "type": "Service",
+      "description": "FREEDOM AIR"
+    },
+    {
+      "name": "DOMINICANA",
+      "type": "Service",
+      "description": "DOMINICANA"
+    },
+    {
+      "name": "DAN AIR SERVICES",
+      "type": "Service",
+      "description": "DAN AIR SERVICES"
+    },
+    {
+      "name": "CUMBERLAND AIRLINES",
+      "type": "Service",
+      "description": "CUMBERLAND AIRLINES"
+    },
+    {
+      "name": "CSA",
+      "type": "Service",
+      "description": "CSA"
+    },
+    {
+      "name": "CROWN AIR",
+      "type": "Service",
+      "description": "CROWN AIR"
+    },
+    {
+      "name": "COPA",
+      "type": "Service",
+      "description": "COPA"
+    },
+    {
+      "name": "COMPANIA FAUCETT",
+      "type": "Service",
+      "description": "COMPANIA FAUCETT"
+    },
+    {
+      "name": "TRANSPORTES AEROS MILITARES ECCUATORANOS",
+      "type": "Service",
+      "description": "TRANSPORTES AEROS MILITARES ECCUATORANOS"
+    },
+    {
+      "name": "COMMAND AIRWAYS",
+      "type": "Service",
+      "description": "COMMAND AIRWAYS"
+    },
+    {
+      "name": "COMAIR",
+      "type": "Service",
+      "description": "COMAIR"
+    },
+    {
+      "name": "CAYMAN AIRWAYS",
+      "type": "Service",
+      "description": "CAYMAN AIRWAYS"
+    },
+    {
+      "name": "SAETA SOCIAEDAD ECUATORIANOS DE TRANSPORTES AEREOS",
+      "type": "Service",
+      "description": "SAETA SOCIAEDAD ECUATORIANOS DE TRANSPORTES AEREOS"
+    },
+    {
+      "name": "SASHA SERVICIO AERO DE HONDURAS",
+      "type": "Service",
+      "description": "SASHA SERVICIO AERO DE HONDURAS"
+    },
+    {
+      "name": "CAPITOL AIR",
+      "type": "Service",
+      "description": "CAPITOL AIR"
+    },
+    {
+      "name": "BWIA",
+      "type": "Service",
+      "description": "BWIA"
+    },
+    {
+      "name": "BROKWAY AIR",
+      "type": "Service",
+      "description": "BROKWAY AIR"
+    },
+    {
+      "name": "BEMIDJI AIRLINES",
+      "type": "Service",
+      "description": "BEMIDJI AIRLINES"
+    },
+    {
+      "name": "BAR HARBOR AIRLINES",
+      "type": "Service",
+      "description": "BAR HARBOR AIRLINES"
+    },
+    {
+      "name": "BAHAMASAIR",
+      "type": "Service",
+      "description": "BAHAMASAIR"
+    },
+    {
+      "name": "AVIATECA (GUATEMALA)",
+      "type": "Service",
+      "description": "AVIATECA (GUATEMALA)"
+    },
+    {
+      "name": "AVENSA",
+      "type": "Service",
+      "description": "AVENSA"
+    },
+    {
+      "name": "AUSTRIAN AIR SERVICE",
+      "type": "Service",
+      "description": "AUSTRIAN AIR SERVICE"
+    },
+    {
+      "name": "ALOHA AIRLINES",
+      "type": "Service",
+      "description": "ALOHA AIRLINES"
+    },
+    {
+      "name": "ALM",
+      "type": "Service",
+      "description": "ALM"
+    },
+    {
+      "name": "AMERICA WEST",
+      "type": "Service",
+      "description": "AMERICA WEST"
+    },
+    {
+      "name": "TRUMP AIRLINE",
+      "type": "Service",
+      "description": "TRUMP AIRLINE"
+    },
+    {
+      "name": "ALASKA AIRLINES",
+      "type": "Service",
+      "description": "ALASKA AIRLINES"
+    },
+    {
+      "name": "AMERICAN TRANS AIR",
+      "type": "Service",
+      "description": "AMERICAN TRANS AIR"
+    },
+    {
+      "name": "AIR CHINA",
+      "type": "Service",
+      "description": "AIR CHINA"
+    },
+    {
+      "name": "RENO AIR, INC.",
+      "type": "Service",
+      "description": "RENO AIR, INC."
+    },
+    {
+      "name": "AIR SEYCHELLES",
+      "type": "Service",
+      "description": "AIR SEYCHELLES"
+    },
+    {
+      "name": "AIR PANAMA",
+      "type": "Service",
+      "description": "AIR PANAMA"
+    },
+    {
+      "name": "AIR JAMAICA",
+      "type": "Service",
+      "description": "AIR JAMAICA"
+    },
+    {
+      "name": "AIR DJIBOUTI",
+      "type": "Service",
+      "description": "AIR DJIBOUTI"
+    },
+    {
+      "name": "AERO VIRGIN ISLANDS",
+      "type": "Service",
+      "description": "AERO VIRGIN ISLANDS"
+    },
+    {
+      "name": "AERO PERU",
+      "type": "Service",
+      "description": "AERO PERU"
+    },
+    {
+      "name": "AEROLINEAS NICARAGUENSIS",
+      "type": "Service",
+      "description": "AEROLINEAS NICARAGUENSIS"
+    },
+    {
+      "name": "AERO COACH AVAIATION",
+      "type": "Service",
+      "description": "AERO COACH AVAIATION"
+    },
+    {
+      "name": "ARIANA AFGHAN",
+      "type": "Service",
+      "description": "ARIANA AFGHAN"
+    },
+    {
+      "name": "CYPRUS AIRWAYS",
+      "type": "Service",
+      "description": "CYPRUS AIRWAYS"
+    },
+    {
+      "name": "ECUATORIANA",
+      "type": "Service",
+      "description": "ECUATORIANA"
+    },
+    {
+      "name": "ETHIOPIAN AIRLINES",
+      "type": "Service",
+      "description": "ETHIOPIAN AIRLINES"
+    },
+    {
+      "name": "KENYA AIRLINES",
+      "type": "Service",
+      "description": "KENYA AIRLINES"
+    },
+    {
+      "name": "AIR MAURITIUS",
+      "type": "Service",
+      "description": "AIR MAURITIUS"
+    },
+    {
+      "name": "WIDERO\u2019S FLYVESELSKAP",
+      "type": "Service",
+      "description": "WIDERO\u2019S FLYVESELSKAP"
+    },
+    {
+      "name": "AFFILIATED AUTO RENTAL",
+      "type": "Service",
+      "description": "AFFILIATED AUTO RENTAL"
+    },
+    {
+      "name": "AMERICAN INTL RENT-A-CAR",
+      "type": "Service",
+      "description": "AMERICAN INTL RENT-A-CAR"
+    },
+    {
+      "name": "BROOKS RENT-A-CAR",
+      "type": "Service",
+      "description": "BROOKS RENT-A-CAR"
+    },
+    {
+      "name": "ACTION AUTO RENTAL",
+      "type": "Service",
+      "description": "ACTION AUTO RENTAL"
+    },
+    {
+      "name": "Car Rental",
+      "type": "Service",
+      "description": "Car Rental"
+    },
+    {
+      "name": "HERTZ RENT-A-CAR",
+      "type": "Service",
+      "description": "HERTZ RENT-A-CAR"
+    },
+    {
+      "name": "PAYLESS CAR RENTAL",
+      "type": "Service",
+      "description": "PAYLESS CAR RENTAL"
+    },
+    {
+      "name": "SNAPPY CAR RENTAL",
+      "type": "Service",
+      "description": "SNAPPY CAR RENTAL"
+    },
+    {
+      "name": "AIRWAYS RENT-A-CAR",
+      "type": "Service",
+      "description": "AIRWAYS RENT-A-CAR"
+    },
+    {
+      "name": "ALTRA AUTO RENTAL",
+      "type": "Service",
+      "description": "ALTRA AUTO RENTAL"
+    },
+    {
+      "name": "AGENCY RENT-A-CAR",
+      "type": "Service",
+      "description": "AGENCY RENT-A-CAR"
+    },
+    {
+      "name": "BUDGET RENT-A-CAR",
+      "type": "Service",
+      "description": "BUDGET RENT-A-CAR"
+    },
+    {
+      "name": "HOLIDAY RENT-A-WRECK",
+      "type": "Service",
+      "description": "HOLIDAY RENT-A-WRECK"
+    },
+    {
+      "name": "RENT-A-WRECK",
+      "type": "Service",
+      "description": "RENT-A-WRECK"
+    },
+    {
+      "name": "AJAX RENT-A-CAR",
+      "type": "Service",
+      "description": "AJAX RENT-A-CAR"
+    },
+    {
+      "name": "EUROP CAR",
+      "type": "Service",
+      "description": "EUROP CAR"
+    },
+    {
+      "name": "TROPICAL RENT-A-CAR",
+      "type": "Service",
+      "description": "TROPICAL RENT-A-CAR"
+    },
+    {
+      "name": "SHOWCASE RENTAL CARS",
+      "type": "Service",
+      "description": "SHOWCASE RENTAL CARS"
+    },
+    {
+      "name": "ALAMO RENT-A-CAR",
+      "type": "Service",
+      "description": "ALAMO RENT-A-CAR"
+    },
+    {
+      "name": "AVIS RENT-A-CAR",
+      "type": "Service",
+      "description": "AVIS RENT-A-CAR"
+    },
+    {
+      "name": "DOLLAR RENT-A-CAR",
+      "type": "Service",
+      "description": "DOLLAR RENT-A-CAR"
+    },
+    {
+      "name": "EUROPE BY CAR",
+      "type": "Service",
+      "description": "EUROPE BY CAR"
+    },
+    {
+      "name": "NATIONAL CAR RENTAL",
+      "type": "Service",
+      "description": "NATIONAL CAR RENTAL"
+    },
+    {
+      "name": "KEMWELL GROUP RENT-A-CAR",
+      "type": "Service",
+      "description": "KEMWELL GROUP RENT-A-CAR"
+    },
+    {
+      "name": "THRIFTY RENT-A-CAR",
+      "type": "Service",
+      "description": "THRIFTY RENT-A-CAR"
+    },
+    {
+      "name": "TILDEN TENT-A-CAR",
+      "type": "Service",
+      "description": "TILDEN TENT-A-CAR"
+    },
+    {
+      "name": "ECONO-CAR RENT-A-CAR",
+      "type": "Service",
+      "description": "ECONO-CAR RENT-A-CAR"
+    },
+    {
+      "name": "AUTO HOST COST CAR RENTALS",
+      "type": "Service",
+      "description": "AUTO HOST COST CAR RENTALS"
+    },
+    {
+      "name": "ENTERPRISE RENT-A-CAR",
+      "type": "Service",
+      "description": "ENTERPRISE RENT-A-CAR"
+    },
+    {
+      "name": "GENERAL RENT-A-CAR",
+      "type": "Service",
+      "description": "GENERAL RENT-A-CAR"
+    },
+    {
+      "name": "A-1 RENT-A-CAR",
+      "type": "Service",
+      "description": "A-1 RENT-A-CAR"
+    },
+    {
+      "name": "GODFREY NATL RENT-A-CAR",
+      "type": "Service",
+      "description": "GODFREY NATL RENT-A-CAR"
+    },
+    {
+      "name": "ALPHA RENT-A-CAR",
+      "type": "Service",
+      "description": "ALPHA RENT-A-CAR"
+    },
+    {
+      "name": "ANSA INTL RENT-A-CAR",
+      "type": "Service",
+      "description": "ANSA INTL RENT-A-CAR"
+    },
+    {
+      "name": "ALLSTAE RENT-A-CAR",
+      "type": "Service",
+      "description": "ALLSTAE RENT-A-CAR"
+    },
+    {
+      "name": "AVCAR RENT-A-CAR",
+      "type": "Service",
+      "description": "AVCAR RENT-A-CAR"
+    },
+    {
+      "name": "AUTOMATE RENT-A-CAR",
+      "type": "Service",
+      "description": "AUTOMATE RENT-A-CAR"
+    },
+    {
+      "name": "AVON RENT-A-CAR",
+      "type": "Service",
+      "description": "AVON RENT-A-CAR"
+    },
+    {
+      "name": "CAREY RENT-A-CAR",
+      "type": "Service",
+      "description": "CAREY RENT-A-CAR"
+    },
+    {
+      "name": "INSURANCE RENT-A-CAR",
+      "type": "Service",
+      "description": "INSURANCE RENT-A-CAR"
+    },
+    {
+      "name": "MAJOR RENT-A-CAR",
+      "type": "Service",
+      "description": "MAJOR RENT-A-CAR"
+    },
+    {
+      "name": "REPLACEMENT RENT-A-CAR",
+      "type": "Service",
+      "description": "REPLACEMENT RENT-A-CAR"
+    },
+    {
+      "name": "RESERVE RENT-A-CAR",
+      "type": "Service",
+      "description": "RESERVE RENT-A-CAR"
+    },
+    {
+      "name": "UGLY DUCKLING RENT-A-CAR",
+      "type": "Service",
+      "description": "UGLY DUCKLING RENT-A-CAR"
+    },
+    {
+      "name": "USA RENT-A-CAR",
+      "type": "Service",
+      "description": "USA RENT-A-CAR"
+    },
+    {
+      "name": "VALUE RENT-A-CAR",
+      "type": "Service",
+      "description": "VALUE RENT-A-CAR"
+    },
+    {
+      "name": "AUTOHANSA RENT-A-CAR",
+      "type": "Service",
+      "description": "AUTOHANSA RENT-A-CAR"
+    },
+    {
+      "name": "CITE RENT-A-CAR",
+      "type": "Service",
+      "description": "CITE RENT-A-CAR"
+    },
+    {
+      "name": "INTERENT RENT-A-CAR",
+      "type": "Service",
+      "description": "INTERENT RENT-A-CAR"
+    },
+    {
+      "name": "MILLEVILLE RENT-A-CAR",
+      "type": "Service",
+      "description": "MILLEVILLE RENT-A-CAR"
+    },
+    {
+      "name": "VIA ROUTE RENT-A-CAR",
+      "type": "Service",
+      "description": "VIA ROUTE RENT-A-CAR"
+    },
+    {
+      "name": "HOLIDAY INNS, HOLIDAY INN EXPRESS",
+      "type": "Service",
+      "description": "HOLIDAY INNS, HOLIDAY INN EXPRESS"
+    },
+    {
+      "name": "BEST WESTERN HOTELS",
+      "type": "Service",
+      "description": "BEST WESTERN HOTELS"
+    },
+    {
+      "name": "SHERATON HOTELS",
+      "type": "Service",
+      "description": "SHERATON HOTELS"
+    },
+    {
+      "name": "HILTON HOTELS",
+      "type": "Service",
+      "description": "HILTON HOTELS"
+    },
+    {
+      "name": "FORTE HOTELS",
+      "type": "Service",
+      "description": "FORTE HOTELS"
+    },
+    {
+      "name": "GOLDEN TULIP HOTELS",
+      "type": "Service",
+      "description": "GOLDEN TULIP HOTELS"
+    },
+    {
+      "name": "FRIENDSHIP INNS",
+      "type": "Service",
+      "description": "FRIENDSHIP INNS"
+    },
+    {
+      "name": "QUALITY INNS, QUALITY SUITES",
+      "type": "Service",
+      "description": "QUALITY INNS, QUALITY SUITES"
+    },
+    {
+      "name": "MARRIOTT HOTELS",
+      "type": "Service",
+      "description": "MARRIOTT HOTELS"
+    },
+    {
+      "name": "DAYS INN, DAYSTOP",
+      "type": "Service",
+      "description": "DAYS INN, DAYSTOP"
+    },
+    {
+      "name": "ARABELLA HOTELS",
+      "type": "Service",
+      "description": "ARABELLA HOTELS"
+    },
+    {
+      "name": "INTER-CONTINENTAL HOTELS",
+      "type": "Service",
+      "description": "INTER-CONTINENTAL HOTELS"
+    },
+    {
+      "name": "WESTIN HOTELS",
+      "type": "Service",
+      "description": "WESTIN HOTELS"
+    },
+    {
+      "name": "Hotels/Motels/Inns/Resorts",
+      "type": "Service",
+      "description": "Hotels/Motels/Inns/Resorts"
+    },
+    {
+      "name": "RODEWAY INNS",
+      "type": "Service",
+      "description": "RODEWAY INNS"
+    },
+    {
+      "name": "LA QUINTA MOTOR INNS",
+      "type": "Service",
+      "description": "LA QUINTA MOTOR INNS"
+    },
+    {
+      "name": "AMERICANA HOTELS",
+      "type": "Service",
+      "description": "AMERICANA HOTELS"
+    },
+    {
+      "name": "SOL HOTELS",
+      "type": "Service",
+      "description": "SOL HOTELS"
+    },
+    {
+      "name": "PULLMAN INTERNATIONAL HOTELS",
+      "type": "Service",
+      "description": "PULLMAN INTERNATIONAL HOTELS"
+    },
+    {
+      "name": "MERIDIEN HOTELS",
+      "type": "Service",
+      "description": "MERIDIEN HOTELS"
+    },
+    {
+      "name": "CREST HOTELS (see FORTE HOTELS)",
+      "type": "Service",
+      "description": "CREST HOTELS (see FORTE HOTELS)"
+    },
+    {
+      "name": "TOKYO HOTEL",
+      "type": "Service",
+      "description": "TOKYO HOTEL"
+    },
+    {
+      "name": "PENNSULA HOTEL",
+      "type": "Service",
+      "description": "PENNSULA HOTEL"
+    },
+    {
+      "name": "WELCOMGROUP HOTELS",
+      "type": "Service",
+      "description": "WELCOMGROUP HOTELS"
+    },
+    {
+      "name": "DUNFEY HOTELS",
+      "type": "Service",
+      "description": "DUNFEY HOTELS"
+    },
+    {
+      "name": "DOWNTOWNER-PASSPORT HOTEL",
+      "type": "Service",
+      "description": "DOWNTOWNER-PASSPORT HOTEL"
+    },
+    {
+      "name": "RED LION HOTELS, RED LION INNS",
+      "type": "Service",
+      "description": "RED LION HOTELS, RED LION INNS"
+    },
+    {
+      "name": "CP HOTELS",
+      "type": "Service",
+      "description": "CP HOTELS"
+    },
+    {
+      "name": "RENAISSANCE HOTELS, STOUFFER HOTELS",
+      "type": "Service",
+      "description": "RENAISSANCE HOTELS, STOUFFER HOTELS"
+    },
+    {
+      "name": "ASTIR HOTELS",
+      "type": "Service",
+      "description": "ASTIR HOTELS"
+    },
+    {
+      "name": "SUN ROUTE HOTELS",
+      "type": "Service",
+      "description": "SUN ROUTE HOTELS"
+    },
+    {
+      "name": "HOTEL IBIS",
+      "type": "Service",
+      "description": "HOTEL IBIS"
+    },
+    {
+      "name": "SOUTHERN PACIFIC HOTELS",
+      "type": "Service",
+      "description": "SOUTHERN PACIFIC HOTELS"
+    },
+    {
+      "name": "HILTON INTERNATIONAL",
+      "type": "Service",
+      "description": "HILTON INTERNATIONAL"
+    },
+    {
+      "name": "AMFAC HOTELS",
+      "type": "Service",
+      "description": "AMFAC HOTELS"
+    },
+    {
+      "name": "ANA HOTEL",
+      "type": "Service",
+      "description": "ANA HOTEL"
+    },
+    {
+      "name": "CONCORDE HOTELS",
+      "type": "Service",
+      "description": "CONCORDE HOTELS"
+    },
+    {
+      "name": "IBEROTEL HOTELS",
+      "type": "Service",
+      "description": "IBEROTEL HOTELS"
+    },
+    {
+      "name": "HOTEL OKURA",
+      "type": "Service",
+      "description": "HOTEL OKURA"
+    },
+    {
+      "name": "ROYAL HOTELS",
+      "type": "Service",
+      "description": "ROYAL HOTELS"
+    },
+    {
+      "name": "FOUR SEASONS HOTELS",
+      "type": "Service",
+      "description": "FOUR SEASONS HOTELS"
+    },
+    {
+      "name": "CIGA HOTELS",
+      "type": "Service",
+      "description": "CIGA HOTELS"
+    },
+    {
+      "name": "SHANGRI-LA INTERNATIONAL",
+      "type": "Service",
+      "description": "SHANGRI-LA INTERNATIONAL"
+    },
+    {
+      "name": "HOTELES MELIA",
+      "type": "Service",
+      "description": "HOTELES MELIA"
+    },
+    {
+      "name": "AUBERGE DES GOVERNEURS",
+      "type": "Service",
+      "description": "AUBERGE DES GOVERNEURS"
+    },
+    {
+      "name": "REGAL 8 INNS",
+      "type": "Service",
+      "description": "REGAL 8 INNS"
+    },
+    {
+      "name": "COAST HOTELS",
+      "type": "Service",
+      "description": "COAST HOTELS"
+    },
+    {
+      "name": "PARK INNS INTERNATIONAL",
+      "type": "Service",
+      "description": "PARK INNS INTERNATIONAL"
+    },
+    {
+      "name": "JOLLY HOTELS",
+      "type": "Service",
+      "description": "JOLLY HOTELS"
+    },
+    {
+      "name": "COMFORT INNS",
+      "type": "Service",
+      "description": "COMFORT INNS"
+    },
+    {
+      "name": "JOURNEY\u2019S END MOTLS",
+      "type": "Service",
+      "description": "JOURNEY\u2019S END MOTLS"
+    },
+    {
+      "name": "RELAX INNS",
+      "type": "Service",
+      "description": "RELAX INNS"
+    },
+    {
+      "name": "LADBROKE HOTELS",
+      "type": "Service",
+      "description": "LADBROKE HOTELS"
+    },
+    {
+      "name": "FORUM HOTELS",
+      "type": "Service",
+      "description": "FORUM HOTELS"
+    },
+    {
+      "name": "MIYAKO HOTELS",
+      "type": "Service",
+      "description": "MIYAKO HOTELS"
+    },
+    {
+      "name": "SANDMAN HOTELS",
+      "type": "Service",
+      "description": "SANDMAN HOTELS"
+    },
+    {
+      "name": "VENTURE INNS",
+      "type": "Service",
+      "description": "VENTURE INNS"
+    },
+    {
+      "name": "VAGABOND HOTELS",
+      "type": "Service",
+      "description": "VAGABOND HOTELS"
+    },
+    {
+      "name": "MANDARIN ORIENTAL HOTEL",
+      "type": "Service",
+      "description": "MANDARIN ORIENTAL HOTEL"
+    },
+    {
+      "name": "HOTEL MERCURE",
+      "type": "Service",
+      "description": "HOTEL MERCURE"
+    },
+    {
+      "name": "DELTA HOTEL",
+      "type": "Service",
+      "description": "DELTA HOTEL"
+    },
+    {
+      "name": "SAS HOTELS",
+      "type": "Service",
+      "description": "SAS HOTELS"
+    },
+    {
+      "name": "PRINCESS HOTELS INTERNATIONAL",
+      "type": "Service",
+      "description": "PRINCESS HOTELS INTERNATIONAL"
+    },
+    {
+      "name": "HUNGAR HOTELS",
+      "type": "Service",
+      "description": "HUNGAR HOTELS"
+    },
+    {
+      "name": "SOKOS HOTELS",
+      "type": "Service",
+      "description": "SOKOS HOTELS"
+    },
+    {
+      "name": "DORAL HOTELS",
+      "type": "Service",
+      "description": "DORAL HOTELS"
+    },
+    {
+      "name": "HELMSLEY HOTELS",
+      "type": "Service",
+      "description": "HELMSLEY HOTELS"
+    },
+    {
+      "name": "FAIRMONT HOTELS",
+      "type": "Service",
+      "description": "FAIRMONT HOTELS"
+    },
+    {
+      "name": "SONESTA HOTELS",
+      "type": "Service",
+      "description": "SONESTA HOTELS"
+    },
+    {
+      "name": "OMNI HOTELS",
+      "type": "Service",
+      "description": "OMNI HOTELS"
+    },
+    {
+      "name": "CUNARD HOTELS",
+      "type": "Service",
+      "description": "CUNARD HOTELS"
+    },
+    {
+      "name": "HOSPITALITY INTERNATIONAL",
+      "type": "Service",
+      "description": "HOSPITALITY INTERNATIONAL"
+    },
+    {
+      "name": "REGENT INTERNATIONAL HOTELS",
+      "type": "Service",
+      "description": "REGENT INTERNATIONAL HOTELS"
+    },
+    {
+      "name": "PANNONIA HOTELS",
+      "type": "Service",
+      "description": "PANNONIA HOTELS"
+    },
+    {
+      "name": "NOAH\u2019S HOTELS",
+      "type": "Service",
+      "description": "NOAH\u2019S HOTELS"
+    },
+    {
+      "name": "MOVENPICK HOTELS",
+      "type": "Service",
+      "description": "MOVENPICK HOTELS"
+    },
+    {
+      "name": "TRAVELODGE",
+      "type": "Service",
+      "description": "TRAVELODGE"
+    },
+    {
+      "name": "TELFORD INTERNATIONAL",
+      "type": "Service",
+      "description": "TELFORD INTERNATIONAL"
+    },
+    {
+      "name": "MERLIN HOTELS",
+      "type": "Service",
+      "description": "MERLIN HOTELS"
+    },
+    {
+      "name": "DORINT HOTELS",
+      "type": "Service",
+      "description": "DORINT HOTELS"
+    },
+    {
+      "name": "HOTLE UNIVERSALE",
+      "type": "Service",
+      "description": "HOTLE UNIVERSALE"
+    },
+    {
+      "name": "PRINCE HOTELS",
+      "type": "Service",
+      "description": "PRINCE HOTELS"
+    },
+    {
+      "name": "DAN HOTELS",
+      "type": "Service",
+      "description": "DAN HOTELS"
+    },
+    {
+      "name": "RANK HOTELS",
+      "type": "Service",
+      "description": "RANK HOTELS"
+    },
+    {
+      "name": "SWISSOTEL",
+      "type": "Service",
+      "description": "SWISSOTEL"
+    },
+    {
+      "name": "RESO HOTELS",
+      "type": "Service",
+      "description": "RESO HOTELS"
+    },
+    {
+      "name": "SAROVA HOTELS",
+      "type": "Service",
+      "description": "SAROVA HOTELS"
+    },
+    {
+      "name": "RAMADA INNS, RAMADA LIMITED",
+      "type": "Service",
+      "description": "RAMADA INNS, RAMADA LIMITED"
+    },
+    {
+      "name": "HO JO INN, HOWARD JOHNSON",
+      "type": "Service",
+      "description": "HO JO INN, HOWARD JOHNSON"
+    },
+    {
+      "name": "MOUNT CHARLOTTE THISTLE",
+      "type": "Service",
+      "description": "MOUNT CHARLOTTE THISTLE"
+    },
+    {
+      "name": "HYATT HOTEL",
+      "type": "Service",
+      "description": "HYATT HOTEL"
+    },
+    {
+      "name": "SOFITEL HOTELS",
+      "type": "Service",
+      "description": "SOFITEL HOTELS"
+    },
+    {
+      "name": "NOVOTEL HOTELS",
+      "type": "Service",
+      "description": "NOVOTEL HOTELS"
+    },
+    {
+      "name": "STEIGENBERGER HOTELS",
+      "type": "Service",
+      "description": "STEIGENBERGER HOTELS"
+    },
+    {
+      "name": "ECONO LODGES",
+      "type": "Service",
+      "description": "ECONO LODGES"
+    },
+    {
+      "name": "QUEENS MOAT HOUSES",
+      "type": "Service",
+      "description": "QUEENS MOAT HOUSES"
+    },
+    {
+      "name": "SWALLOW HOTELS",
+      "type": "Service",
+      "description": "SWALLOW HOTELS"
+    },
+    {
+      "name": "HUSA HOTELS",
+      "type": "Service",
+      "description": "HUSA HOTELS"
+    },
+    {
+      "name": "DE VERE HOTELS",
+      "type": "Service",
+      "description": "DE VERE HOTELS"
+    },
+    {
+      "name": "RADISSON HOTELS",
+      "type": "Service",
+      "description": "RADISSON HOTELS"
+    },
+    {
+      "name": "RED ROOK INNS",
+      "type": "Service",
+      "description": "RED ROOK INNS"
+    },
+    {
+      "name": "IMPERIAL LONDON HOTEL",
+      "type": "Service",
+      "description": "IMPERIAL LONDON HOTEL"
+    },
+    {
+      "name": "EMBASSY HOTELS",
+      "type": "Service",
+      "description": "EMBASSY HOTELS"
+    },
+    {
+      "name": "PENTA HOTELS",
+      "type": "Service",
+      "description": "PENTA HOTELS"
+    },
+    {
+      "name": "LOEWS HOTELS",
+      "type": "Service",
+      "description": "LOEWS HOTELS"
+    },
+    {
+      "name": "SCANDIC HOTELS",
+      "type": "Service",
+      "description": "SCANDIC HOTELS"
+    },
+    {
+      "name": "SARA HOTELS",
+      "type": "Service",
+      "description": "SARA HOTELS"
+    },
+    {
+      "name": "OBEROI HOTELS",
+      "type": "Service",
+      "description": "OBEROI HOTELS"
+    },
+    {
+      "name": "OTANI HOTELS",
+      "type": "Service",
+      "description": "OTANI HOTELS"
+    },
+    {
+      "name": "TAJ HOTELS INTERNATIONAL",
+      "type": "Service",
+      "description": "TAJ HOTELS INTERNATIONAL"
+    },
+    {
+      "name": "KNIGHTS INNS",
+      "type": "Service",
+      "description": "KNIGHTS INNS"
+    },
+    {
+      "name": "METROPOLE HOTELS",
+      "type": "Service",
+      "description": "METROPOLE HOTELS"
+    },
+    {
+      "name": "HOTELES EL PRESIDENTS",
+      "type": "Service",
+      "description": "HOTELES EL PRESIDENTS"
+    },
+    {
+      "name": "FLAG INN",
+      "type": "Service",
+      "description": "FLAG INN"
+    },
+    {
+      "name": "HAMPTON INNS",
+      "type": "Service",
+      "description": "HAMPTON INNS"
+    },
+    {
+      "name": "STAKIS HOTELS",
+      "type": "Service",
+      "description": "STAKIS HOTELS"
+    },
+    {
+      "name": "MARITIM HOTELS",
+      "type": "Service",
+      "description": "MARITIM HOTELS"
+    },
+    {
+      "name": "ARCARD HOTELS",
+      "type": "Service",
+      "description": "ARCARD HOTELS"
+    },
+    {
+      "name": "ARCTIA HOTELS",
+      "type": "Service",
+      "description": "ARCTIA HOTELS"
+    },
+    {
+      "name": "CAMPANIEL HOTELS",
+      "type": "Service",
+      "description": "CAMPANIEL HOTELS"
+    },
+    {
+      "name": "IBUSZ HOTELS",
+      "type": "Service",
+      "description": "IBUSZ HOTELS"
+    },
+    {
+      "name": "RANTASIPI HOTELS",
+      "type": "Service",
+      "description": "RANTASIPI HOTELS"
+    },
+    {
+      "name": "INTERHOTEL CEDOK",
+      "type": "Service",
+      "description": "INTERHOTEL CEDOK"
+    },
+    {
+      "name": "CLIMAT DE FRANCE HOTELS",
+      "type": "Service",
+      "description": "CLIMAT DE FRANCE HOTELS"
+    },
+    {
+      "name": "CUMULUS HOTELS",
+      "type": "Service",
+      "description": "CUMULUS HOTELS"
+    },
+    {
+      "name": "DANUBIUS HOTEL",
+      "type": "Service",
+      "description": "DANUBIUS HOTEL"
+    },
+    {
+      "name": "ADAMS MARK HOTELS",
+      "type": "Service",
+      "description": "ADAMS MARK HOTELS"
+    },
+    {
+      "name": "ALLSTAR INNS",
+      "type": "Service",
+      "description": "ALLSTAR INNS"
+    },
+    {
+      "name": "BUDGET HOST INNS",
+      "type": "Service",
+      "description": "BUDGET HOST INNS"
+    },
+    {
+      "name": "BUDGETEL HOTELS",
+      "type": "Service",
+      "description": "BUDGETEL HOTELS"
+    },
+    {
+      "name": "SUISSE CHALETS",
+      "type": "Service",
+      "description": "SUISSE CHALETS"
+    },
+    {
+      "name": "CLARION HOTELS",
+      "type": "Service",
+      "description": "CLARION HOTELS"
+    },
+    {
+      "name": "COMPRI HOTELS",
+      "type": "Service",
+      "description": "COMPRI HOTELS"
+    },
+    {
+      "name": "CONSORT HOTELS",
+      "type": "Service",
+      "description": "CONSORT HOTELS"
+    },
+    {
+      "name": "COURTYARD BY MARRIOTT",
+      "type": "Service",
+      "description": "COURTYARD BY MARRIOTT"
+    },
+    {
+      "name": "DILLION INNS",
+      "type": "Service",
+      "description": "DILLION INNS"
+    },
+    {
+      "name": "DOUBLETREE HOTELS",
+      "type": "Service",
+      "description": "DOUBLETREE HOTELS"
+    },
+    {
+      "name": "DRURY INNS",
+      "type": "Service",
+      "description": "DRURY INNS"
+    },
+    {
+      "name": "ECONOMY INNS OF AMERICA",
+      "type": "Service",
+      "description": "ECONOMY INNS OF AMERICA"
+    },
+    {
+      "name": "EMBASSY SUITES",
+      "type": "Service",
+      "description": "EMBASSY SUITES"
+    },
+    {
+      "name": "EXEL INNS",
+      "type": "Service",
+      "description": "EXEL INNS"
+    },
+    {
+      "name": "FARFIELD HOTELS",
+      "type": "Service",
+      "description": "FARFIELD HOTELS"
+    },
+    {
+      "name": "HARLEY HOTELS",
+      "type": "Service",
+      "description": "HARLEY HOTELS"
+    },
+    {
+      "name": "MIDWAY MOTOR LODGE",
+      "type": "Service",
+      "description": "MIDWAY MOTOR LODGE"
+    },
+    {
+      "name": "MOTEL 6",
+      "type": "Service",
+      "description": "MOTEL 6"
+    },
+    {
+      "name": "GUEST QUARTERS (Formally PICKETT SUITE HOTELS)",
+      "type": "Service",
+      "description": "GUEST QUARTERS (Formally PICKETT SUITE HOTELS)"
+    },
+    {
+      "name": "THE REGISTRY HOTELS",
+      "type": "Service",
+      "description": "THE REGISTRY HOTELS"
+    },
+    {
+      "name": "RESIDENCE INNS",
+      "type": "Service",
+      "description": "RESIDENCE INNS"
+    },
+    {
+      "name": "ROYCE HOTELS",
+      "type": "Service",
+      "description": "ROYCE HOTELS"
+    },
+    {
+      "name": "SANDMAN INNS",
+      "type": "Service",
+      "description": "SANDMAN INNS"
+    },
+    {
+      "name": "SHILO INNS",
+      "type": "Service",
+      "description": "SHILO INNS"
+    },
+    {
+      "name": "SHONEY\u2019S INNS",
+      "type": "Service",
+      "description": "SHONEY\u2019S INNS"
+    },
+    {
+      "name": "SUPER8 MOTELS",
+      "type": "Service",
+      "description": "SUPER8 MOTELS"
+    },
+    {
+      "name": "THE RITZ CARLTON HOTELS",
+      "type": "Service",
+      "description": "THE RITZ CARLTON HOTELS"
+    },
+    {
+      "name": "FLAG INNS (AUSRALIA)",
+      "type": "Service",
+      "description": "FLAG INNS (AUSRALIA)"
+    },
+    {
+      "name": "GOLDEN CHAIN HOTEL",
+      "type": "Service",
+      "description": "GOLDEN CHAIN HOTEL"
+    },
+    {
+      "name": "QUALITY PACIFIC HOTEL",
+      "type": "Service",
+      "description": "QUALITY PACIFIC HOTEL"
+    },
+    {
+      "name": "FOUR SEASONS HOTEL (AUSTRALIA)",
+      "type": "Service",
+      "description": "FOUR SEASONS HOTEL (AUSTRALIA)"
+    },
+    {
+      "name": "FARIFIELD INN",
+      "type": "Service",
+      "description": "FARIFIELD INN"
+    },
+    {
+      "name": "CARLTON HOTELS",
+      "type": "Service",
+      "description": "CARLTON HOTELS"
+    },
+    {
+      "name": "CITY LODGE HOTELS",
+      "type": "Service",
+      "description": "CITY LODGE HOTELS"
+    },
+    {
+      "name": "KAROS HOTELS",
+      "type": "Service",
+      "description": "KAROS HOTELS"
+    },
+    {
+      "name": "PROTEA HOTELS",
+      "type": "Service",
+      "description": "PROTEA HOTELS"
+    },
+    {
+      "name": "SOUTHERN SUN HOTELS",
+      "type": "Service",
+      "description": "SOUTHERN SUN HOTELS"
+    },
+    {
+      "name": "HILTON CONRAD",
+      "type": "Service",
+      "description": "HILTON CONRAD"
+    },
+    {
+      "name": "WYNDHAM HOTEL AND RESORTS",
+      "type": "Service",
+      "description": "WYNDHAM HOTEL AND RESORTS"
+    },
+    {
+      "name": "RICA HOTELS",
+      "type": "Service",
+      "description": "RICA HOTELS"
+    },
+    {
+      "name": "INER NOR HOTELS",
+      "type": "Service",
+      "description": "INER NOR HOTELS"
+    },
+    {
+      "name": "SEAINES PLANATION",
+      "type": "Service",
+      "description": "SEAINES PLANATION"
+    },
+    {
+      "name": "RIO SUITES",
+      "type": "Service",
+      "description": "RIO SUITES"
+    },
+    {
+      "name": "BROADMOOR HOTEL",
+      "type": "Service",
+      "description": "BROADMOOR HOTEL"
+    },
+    {
+      "name": "BALLY\u2019S HOTEL AND CASINO",
+      "type": "Service",
+      "description": "BALLY\u2019S HOTEL AND CASINO"
+    },
+    {
+      "name": "JOHN ASCUAGA\u2019S NUGGET",
+      "type": "Service",
+      "description": "JOHN ASCUAGA\u2019S NUGGET"
+    },
+    {
+      "name": "MGM GRAND HOTEL",
+      "type": "Service",
+      "description": "MGM GRAND HOTEL"
+    },
+    {
+      "name": "HARRAH\u2019S HOTELS AND CASINOS",
+      "type": "Service",
+      "description": "HARRAH\u2019S HOTELS AND CASINOS"
+    },
+    {
+      "name": "OPRYLAND HOTEL",
+      "type": "Service",
+      "description": "OPRYLAND HOTEL"
+    },
+    {
+      "name": "BOCA RATON RESORT",
+      "type": "Service",
+      "description": "BOCA RATON RESORT"
+    },
+    {
+      "name": "HARVEY/BRISTOL HOTELS",
+      "type": "Service",
+      "description": "HARVEY/BRISTOL HOTELS"
+    },
+    {
+      "name": "COLORADO BELLE/EDGEWATER RESORT",
+      "type": "Service",
+      "description": "COLORADO BELLE/EDGEWATER RESORT"
+    },
+    {
+      "name": "RIVIERA HOTEL AND CASINO",
+      "type": "Service",
+      "description": "RIVIERA HOTEL AND CASINO"
+    },
+    {
+      "name": "TROPICANA RESORT AND CASINO",
+      "type": "Service",
+      "description": "TROPICANA RESORT AND CASINO"
+    },
+    {
+      "name": "WOODSIDE HOTELS AND RESORTS",
+      "type": "Service",
+      "description": "WOODSIDE HOTELS AND RESORTS"
+    },
+    {
+      "name": "TOWNPLACE SUITES",
+      "type": "Service",
+      "description": "TOWNPLACE SUITES"
+    },
+    {
+      "name": "MILLENIUM BROADWAY HOTEL",
+      "type": "Service",
+      "description": "MILLENIUM BROADWAY HOTEL"
+    },
+    {
+      "name": "CLUB MED",
+      "type": "Service",
+      "description": "CLUB MED"
+    },
+    {
+      "name": "BILTMORE HOTEL AND SUITES",
+      "type": "Service",
+      "description": "BILTMORE HOTEL AND SUITES"
+    },
+    {
+      "name": "CAREFREE RESORTS",
+      "type": "Service",
+      "description": "CAREFREE RESORTS"
+    },
+    {
+      "name": "ST. REGIS HOTEL",
+      "type": "Service",
+      "description": "ST. REGIS HOTEL"
+    },
+    {
+      "name": "THE ELIOT HOTEL",
+      "type": "Service",
+      "description": "THE ELIOT HOTEL"
+    },
+    {
+      "name": "CLUBCORP/CLUB RESORTS",
+      "type": "Service",
+      "description": "CLUBCORP/CLUB RESORTS"
+    },
+    {
+      "name": "WELESLEY INNS",
+      "type": "Service",
+      "description": "WELESLEY INNS"
+    },
+    {
+      "name": "THE BEVERLY HILLS HOTEL",
+      "type": "Service",
+      "description": "THE BEVERLY HILLS HOTEL"
+    },
+    {
+      "name": "CROWNE PLAZA HOTELS",
+      "type": "Service",
+      "description": "CROWNE PLAZA HOTELS"
+    },
+    {
+      "name": "HOMEWOOD SUITES",
+      "type": "Service",
+      "description": "HOMEWOOD SUITES"
+    },
+    {
+      "name": "PEABODY HOTELS",
+      "type": "Service",
+      "description": "PEABODY HOTELS"
+    },
+    {
+      "name": "GREENBRIAH RESORTS",
+      "type": "Service",
+      "description": "GREENBRIAH RESORTS"
+    },
+    {
+      "name": "AMELIA ISLAND PLANATION",
+      "type": "Service",
+      "description": "AMELIA ISLAND PLANATION"
+    },
+    {
+      "name": "THE HOMESTEAD",
+      "type": "Service",
+      "description": "THE HOMESTEAD"
+    },
+    {
+      "name": "SOUTH SEAS RESORTS",
+      "type": "Service",
+      "description": "SOUTH SEAS RESORTS"
+    },
+    {
+      "name": "Home2Suites",
+      "type": "Service",
+      "description": ""
+    },
+    {
+      "name": "* MASTERS ECONOMY INNS",
+      "type": "Service",
+      "description": "* MASTERS ECONOMY INNS"
+    },
+    {
+      "name": "Railroads",
+      "type": "Service",
+      "description": "Railroads"
+    },
+    {
+      "name": "Local/Suburban Commuter Passenger Transportation \u2013 Railroads, Feries, Local Water Transportation.",
+      "type": "Service",
+      "description": "Local/Suburban Commuter Passenger Transportation \u2013 Railroads, Feries, Local Water Transportation."
+    },
+    {
+      "name": "Passenger Railways",
+      "type": "Service",
+      "description": "Passenger Railways"
+    },
+    {
+      "name": "Ambulance Services",
+      "type": "Service",
+      "description": "Ambulance Services"
+    },
+    {
+      "name": "Taxicabs and Limousines",
+      "type": "Service",
+      "description": "Taxicabs and Limousines"
+    },
+    {
+      "name": "Bus Lines, Including Charters, Tour Buses",
+      "type": "Service",
+      "description": "Bus Lines, Including Charters, Tour Buses"
+    },
+    {
+      "name": "Motor Freight Carriers, Moving and Storage Companies, Trucking \u2013 Local/Long Distance, Delivery Services \u2013 Local",
+      "type": "Service",
+      "description": "Motor Freight Carriers, Moving and Storage Companies, Trucking \u2013 Local/Long Distance, Delivery Services \u2013 Local"
+    },
+    {
+      "name": "Courier Services \u2013 Air or Ground, Freight forwarders",
+      "type": "Service",
+      "description": "Courier Services \u2013 Air or Ground, Freight forwarders"
+    },
+    {
+      "name": "Public warehousing, Storage",
+      "type": "Service",
+      "description": "Public warehousing, Storage"
+    },
+    {
+      "name": "Cruise and Steamship Lines",
+      "type": "Service",
+      "description": "Cruise and Steamship Lines"
+    },
+    {
+      "name": "Boat Rentals and Leases",
+      "type": "Service",
+      "description": "Boat Rentals and Leases"
+    },
+    {
+      "name": "Marinas, Marine Service, and Supplies",
+      "type": "Service",
+      "description": "Marinas, Marine Service, and Supplies"
+    },
+    {
+      "name": "Airlines, Air Carriers ( not listed elsewhere)",
+      "type": "Service",
+      "description": "Airlines, Air Carriers ( not listed elsewhere)"
+    },
+    {
+      "name": "Airports, Airport Terminals, Flying Fields",
+      "type": "Service",
+      "description": "Airports, Airport Terminals, Flying Fields"
+    },
+    {
+      "name": "Travel Agencies and Tour Operations",
+      "type": "Service",
+      "description": "Travel Agencies and Tour Operations"
+    },
+    {
+      "name": "Package Tour Operators (For use in Germany only)",
+      "type": "Service",
+      "description": "Package Tour Operators (For use in Germany only)"
+    },
+    {
+      "name": "Toll and Bridge Fees",
+      "type": "Service",
+      "description": "Toll and Bridge Fees"
+    },
+    {
+      "name": "Transportation Services, Not elsewhere classified)",
+      "type": "Service",
+      "description": "Transportation Services, Not elsewhere classified)"
+    },
+    {
+      "name": "Telecommunications Equipment including telephone sales",
+      "type": "Service",
+      "description": "Telecommunications Equipment including telephone sales"
+    },
+    {
+      "name": "Fax services, Telecommunication Services",
+      "type": "Service",
+      "description": "Fax services, Telecommunication Services"
+    },
+    {
+      "name": "VisaPhone",
+      "type": "Service",
+      "description": "VisaPhone"
+    },
+    {
+      "name": "Computer Network Services",
+      "type": "Service",
+      "description": "Computer Network Services"
+    },
+    {
+      "name": "Telegraph services",
+      "type": "Service",
+      "description": "Telegraph services"
+    },
+    {
+      "name": "Money Orders \u2013 Wire Transfer",
+      "type": "Service",
+      "description": "Money Orders \u2013 Wire Transfer"
+    },
+    {
+      "name": "Cable and other pay television (previously Cable Services)",
+      "type": "Service",
+      "description": "Cable and other pay television (previously Cable Services)"
+    },
+    {
+      "name": "Electric, Gas, Sanitary and Water Utilities",
+      "type": "Service",
+      "description": "Electric, Gas, Sanitary and Water Utilities"
+    },
+    {
+      "name": "Motor vehicle supplies and new parts",
+      "type": "Service",
+      "description": "Motor vehicle supplies and new parts"
+    },
+    {
+      "name": "Office and Commercial Furniture",
+      "type": "Service",
+      "description": "Office and Commercial Furniture"
+    },
+    {
+      "name": "Construction Materials, Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Construction Materials, Not Elsewhere Classified"
+    },
+    {
+      "name": "Office, Photographic, Photocopy, and Microfilm Equipment",
+      "type": "Service",
+      "description": "Office, Photographic, Photocopy, and Microfilm Equipment"
+    },
+    {
+      "name": "Computers, Computer Peripheral Equipment, Software",
+      "type": "Service",
+      "description": "Computers, Computer Peripheral Equipment, Software"
+    },
+    {
+      "name": "Commercial Equipment, Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Commercial Equipment, Not Elsewhere Classified"
+    },
+    {
+      "name": "Medical, Dental Ophthalmic, Hospital Equipment and Supplies",
+      "type": "Service",
+      "description": "Medical, Dental Ophthalmic, Hospital Equipment and Supplies"
+    },
+    {
+      "name": "Metal Service Centers and Offices",
+      "type": "Service",
+      "description": "Metal Service Centers and Offices"
+    },
+    {
+      "name": "Electrical Parts and Equipment",
+      "type": "Service",
+      "description": "Electrical Parts and Equipment"
+    },
+    {
+      "name": "Hardware Equipment and Supplies",
+      "type": "Service",
+      "description": "Hardware Equipment and Supplies"
+    },
+    {
+      "name": "Plumbing and Heating Equipment and Supplies",
+      "type": "Service",
+      "description": "Plumbing and Heating Equipment and Supplies"
+    },
+    {
+      "name": "Industrial Supplies, Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Industrial Supplies, Not Elsewhere Classified"
+    },
+    {
+      "name": "Precious Stones and Metals, Watches and Jewelry",
+      "type": "Service",
+      "description": "Precious Stones and Metals, Watches and Jewelry"
+    },
+    {
+      "name": "Durable Goods, Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Durable Goods, Not Elsewhere Classified"
+    },
+    {
+      "name": "Stationery, Office Supplies, Printing, and Writing Paper",
+      "type": "Service",
+      "description": "Stationery, Office Supplies, Printing, and Writing Paper"
+    },
+    {
+      "name": "Drugs, Drug Proprietors, and Druggist\u2019s Sundries",
+      "type": "Service",
+      "description": "Drugs, Drug Proprietors, and Druggist\u2019s Sundries"
+    },
+    {
+      "name": "Piece Goods, Notions, and Other Dry Goods",
+      "type": "Service",
+      "description": "Piece Goods, Notions, and Other Dry Goods"
+    },
+    {
+      "name": "Men\u2019s Women\u2019s and Children\u2019s Uniforms and Commercial Clothing",
+      "type": "Service",
+      "description": "Men\u2019s Women\u2019s and Children\u2019s Uniforms and Commercial Clothing"
+    },
+    {
+      "name": "Commercial Footwear",
+      "type": "Service",
+      "description": "Commercial Footwear"
+    },
+    {
+      "name": "Chemicals and Allied Products, Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Chemicals and Allied Products, Not Elsewhere Classified"
+    },
+    {
+      "name": "Petroleum and Petroleum Products",
+      "type": "Service",
+      "description": "Petroleum and Petroleum Products"
+    },
+    {
+      "name": "Books, Periodicals, and Newspapers",
+      "type": "Service",
+      "description": "Books, Periodicals, and Newspapers"
+    },
+    {
+      "name": "Florists\u2019 Supplies, Nursery Stock and Flowers",
+      "type": "Service",
+      "description": "Florists\u2019 Supplies, Nursery Stock and Flowers"
+    },
+    {
+      "name": "Paints, Varnishes, and Supplies",
+      "type": "Service",
+      "description": "Paints, Varnishes, and Supplies"
+    },
+    {
+      "name": "Non-durable Goods, Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Non-durable Goods, Not Elsewhere Classified"
+    },
+    {
+      "name": "Home Supply Warehouse Stores",
+      "type": "Service",
+      "description": "Home Supply Warehouse Stores"
+    },
+    {
+      "name": "Lumber and Building Materials Stores",
+      "type": "Service",
+      "description": "Lumber and Building Materials Stores"
+    },
+    {
+      "name": "Glass, Paint, and Wallpaper Stores",
+      "type": "Service",
+      "description": "Glass, Paint, and Wallpaper Stores"
+    },
+    {
+      "name": "Hardware Stores",
+      "type": "Service",
+      "description": "Hardware Stores"
+    },
+    {
+      "name": "Nurseries \u2013 Lawn and Garden Supply Store",
+      "type": "Service",
+      "description": "Nurseries \u2013 Lawn and Garden Supply Store"
+    },
+    {
+      "name": "Mobile Home Dealers",
+      "type": "Service",
+      "description": "Mobile Home Dealers"
+    },
+    {
+      "name": "Wholesale Clubs",
+      "type": "Service",
+      "description": "Wholesale Clubs"
+    },
+    {
+      "name": "Duty Free Store",
+      "type": "Service",
+      "description": "Duty Free Store"
+    },
+    {
+      "name": "Discount Stores",
+      "type": "Service",
+      "description": "Discount Stores"
+    },
+    {
+      "name": "Department Stores",
+      "type": "Service",
+      "description": "Department Stores"
+    },
+    {
+      "name": "Variety Stores",
+      "type": "Service",
+      "description": "Variety Stores"
+    },
+    {
+      "name": "Misc. General Merchandise",
+      "type": "Service",
+      "description": "Misc. General Merchandise"
+    },
+    {
+      "name": "Grocery Stores, Supermarkets",
+      "type": "Service",
+      "description": "Grocery Stores, Supermarkets"
+    },
+    {
+      "name": "Meat Provisioners \u2013 Freezer and Locker",
+      "type": "Service",
+      "description": "Meat Provisioners \u2013 Freezer and Locker"
+    },
+    {
+      "name": "Candy, Nut, and Confectionery Stores",
+      "type": "Service",
+      "description": "Candy, Nut, and Confectionery Stores"
+    },
+    {
+      "name": "Dairy Products Stores",
+      "type": "Service",
+      "description": "Dairy Products Stores"
+    },
+    {
+      "name": "Bakeries",
+      "type": "Service",
+      "description": "Bakeries"
+    },
+    {
+      "name": "Misc. Food Stores \u2013 Convenience Stores and Specialty Markets",
+      "type": "Service",
+      "description": "Misc. Food Stores \u2013 Convenience Stores and Specialty Markets"
+    },
+    {
+      "name": "Car and Truck Dealers (New and Used) Sales, Service, Repairs, Parts, and Leasing",
+      "type": "Service",
+      "description": "Car and Truck Dealers (New and Used) Sales, Service, Repairs, Parts, and Leasing"
+    },
+    {
+      "name": "Automobile and Truck Dealers (Used Only)",
+      "type": "Service",
+      "description": "Automobile and Truck Dealers (Used Only)"
+    },
+    {
+      "name": "Automobile Supply Stores",
+      "type": "Service",
+      "description": "Automobile Supply Stores"
+    },
+    {
+      "name": "Automotive Tire Stores",
+      "type": "Service",
+      "description": "Automotive Tire Stores"
+    },
+    {
+      "name": "Automotive Parts, Accessories Stores",
+      "type": "Service",
+      "description": "Automotive Parts, Accessories Stores"
+    },
+    {
+      "name": "Service Stations ( with or without ancillary services)",
+      "type": "Service",
+      "description": "Service Stations ( with or without ancillary services)"
+    },
+    {
+      "name": "Automated Fuel Dispensers",
+      "type": "Service",
+      "description": "Automated Fuel Dispensers"
+    },
+    {
+      "name": "Boat Dealers",
+      "type": "Service",
+      "description": "Boat Dealers"
+    },
+    {
+      "name": "Recreational and Utility Trailers, Camp Dealers",
+      "type": "Service",
+      "description": "Recreational and Utility Trailers, Camp Dealers"
+    },
+    {
+      "name": "Motorcycle Dealers",
+      "type": "Service",
+      "description": "Motorcycle Dealers"
+    },
+    {
+      "name": "Motor Home Dealers",
+      "type": "Service",
+      "description": "Motor Home Dealers"
+    },
+    {
+      "name": "Snowmobile Dealers",
+      "type": "Service",
+      "description": "Snowmobile Dealers"
+    },
+    {
+      "name": "Miscellaneous Auto Dealers",
+      "type": "Service",
+      "description": "Miscellaneous Auto Dealers"
+    },
+    {
+      "name": "Men\u2019s and Boy\u2019s Clothing and Accessories Stores",
+      "type": "Service",
+      "description": "Men\u2019s and Boy\u2019s Clothing and Accessories Stores"
+    },
+    {
+      "name": "Women\u2019s Ready-to-Wear Stores",
+      "type": "Service",
+      "description": "Women\u2019s Ready-to-Wear Stores"
+    },
+    {
+      "name": "Women\u2019s Accessory and Specialty Shops",
+      "type": "Service",
+      "description": "Women\u2019s Accessory and Specialty Shops"
+    },
+    {
+      "name": "Children\u2019s and Infant\u2019s Wear Stores",
+      "type": "Service",
+      "description": "Children\u2019s and Infant\u2019s Wear Stores"
+    },
+    {
+      "name": "Family Clothing Stores",
+      "type": "Service",
+      "description": "Family Clothing Stores"
+    },
+    {
+      "name": "Sports Apparel, Riding Apparel Stores",
+      "type": "Service",
+      "description": "Sports Apparel, Riding Apparel Stores"
+    },
+    {
+      "name": "Shoe Stores",
+      "type": "Service",
+      "description": "Shoe Stores"
+    },
+    {
+      "name": "Furriers and Fur Shops",
+      "type": "Service",
+      "description": "Furriers and Fur Shops"
+    },
+    {
+      "name": "Men\u2019s and Women\u2019s Clothing Stores",
+      "type": "Service",
+      "description": "Men\u2019s and Women\u2019s Clothing Stores"
+    },
+    {
+      "name": "Tailors, Seamstress, Mending, and Alterations",
+      "type": "Service",
+      "description": "Tailors, Seamstress, Mending, and Alterations"
+    },
+    {
+      "name": "Wig and Toupee Stores",
+      "type": "Service",
+      "description": "Wig and Toupee Stores"
+    },
+    {
+      "name": "Miscellaneous Apparel and Accessory Shops",
+      "type": "Service",
+      "description": "Miscellaneous Apparel and Accessory Shops"
+    },
+    {
+      "name": "Furniture, Home Furnishings, and Equipment Stores, ExceptAppliances",
+      "type": "Service",
+      "description": "Furniture, Home Furnishings, and Equipment Stores, ExceptAppliances"
+    },
+    {
+      "name": "Floor Covering Stores",
+      "type": "Service",
+      "description": "Floor Covering Stores"
+    },
+    {
+      "name": "Drapery, Window Covering and Upholstery Stores",
+      "type": "Service",
+      "description": "Drapery, Window Covering and Upholstery Stores"
+    },
+    {
+      "name": "Fireplace, Fireplace Screens, and Accessories Stores",
+      "type": "Service",
+      "description": "Fireplace, Fireplace Screens, and Accessories Stores"
+    },
+    {
+      "name": "Miscellaneous Home Furnishing Specialty Stores",
+      "type": "Service",
+      "description": "Miscellaneous Home Furnishing Specialty Stores"
+    },
+    {
+      "name": "Household Appliance Stores",
+      "type": "Service",
+      "description": "Household Appliance Stores"
+    },
+    {
+      "name": "Electronic Sales",
+      "type": "Service",
+      "description": "Electronic Sales"
+    },
+    {
+      "name": "Music Stores, Musical Instruments, Piano Sheet Music",
+      "type": "Service",
+      "description": "Music Stores, Musical Instruments, Piano Sheet Music"
+    },
+    {
+      "name": "Computer Software Stores",
+      "type": "Service",
+      "description": "Computer Software Stores"
+    },
+    {
+      "name": "Record Shops",
+      "type": "Service",
+      "description": "Record Shops"
+    },
+    {
+      "name": "Caterers",
+      "type": "Service",
+      "description": "Caterers"
+    },
+    {
+      "name": "Eating places and Restaurants",
+      "type": "Service",
+      "description": "Eating places and Restaurants"
+    },
+    {
+      "name": "Drinking Places (Alcoholic Beverages), Bars, Taverns, Cocktail lounges, Nightclubs and Discotheques",
+      "type": "Service",
+      "description": "Drinking Places (Alcoholic Beverages), Bars, Taverns, Cocktail lounges, Nightclubs and Discotheques"
+    },
+    {
+      "name": "Fast Food Restaurants",
+      "type": "Service",
+      "description": "Fast Food Restaurants"
+    },
+    {
+      "name": "Digital Goods: Media, Books, Movies, Music",
+      "type": "Service",
+      "description": ""
+    },
+    {
+      "name": "Digital Goods: Games",
+      "type": "Service",
+      "description": ""
+    },
+    {
+      "name": "Digital Goods: Applications (Excludes Games)",
+      "type": "Service",
+      "description": ""
+    },
+    {
+      "name": "Digital Goods: Large Digital Goods Merchant",
+      "type": "Service",
+      "description": ""
+    },
+    {
+      "name": "Antique Shops \u2013 Sales, Repairs, and Restoration Services",
+      "type": "Service",
+      "description": "Antique Shops \u2013 Sales, Repairs, and Restoration Services"
+    },
+    {
+      "name": "Drug Stores and Pharmacies",
+      "type": "Service",
+      "description": "Drug Stores and Pharmacies"
+    },
+    {
+      "name": "Package Stores \u2013 Beer, Wine, and Liquor",
+      "type": "Service",
+      "description": "Package Stores \u2013 Beer, Wine, and Liquor"
+    },
+    {
+      "name": "Used Merchandise and Secondhand Stores",
+      "type": "Service",
+      "description": "Used Merchandise and Secondhand Stores"
+    },
+    {
+      "name": "Antique Shops",
+      "type": "Service",
+      "description": "Antique Shops"
+    },
+    {
+      "name": "Pawn Shops and Salvage Yards",
+      "type": "Service",
+      "description": "Pawn Shops and Salvage Yards"
+    },
+    {
+      "name": "Wrecking and Salvage Yards",
+      "type": "Service",
+      "description": "Wrecking and Salvage Yards"
+    },
+    {
+      "name": "Antique Reproductions",
+      "type": "Service",
+      "description": "Antique Reproductions"
+    },
+    {
+      "name": "Bicycle Shops \u2013 Sales and Service",
+      "type": "Service",
+      "description": "Bicycle Shops \u2013 Sales and Service"
+    },
+    {
+      "name": "Sporting Goods Stores",
+      "type": "Service",
+      "description": "Sporting Goods Stores"
+    },
+    {
+      "name": "Book Stores",
+      "type": "Service",
+      "description": "Book Stores"
+    },
+    {
+      "name": "Stationery Stores, Office and School Supply Stores",
+      "type": "Service",
+      "description": "Stationery Stores, Office and School Supply Stores"
+    },
+    {
+      "name": "Watch, Clock, Jewelry, and Silverware Stores",
+      "type": "Service",
+      "description": "Watch, Clock, Jewelry, and Silverware Stores"
+    },
+    {
+      "name": "Hobby, Toy, and Game Shops",
+      "type": "Service",
+      "description": "Hobby, Toy, and Game Shops"
+    },
+    {
+      "name": "Camera and Photographic Supply Stores",
+      "type": "Service",
+      "description": "Camera and Photographic Supply Stores"
+    },
+    {
+      "name": "Card Shops, Gift, Novelty, and Souvenir Shops",
+      "type": "Service",
+      "description": "Card Shops, Gift, Novelty, and Souvenir Shops"
+    },
+    {
+      "name": "Leather Goods Stores",
+      "type": "Service",
+      "description": "Leather Goods Stores"
+    },
+    {
+      "name": "Sewing, Needle, Fabric, and Price Goods Stores",
+      "type": "Service",
+      "description": "Sewing, Needle, Fabric, and Price Goods Stores"
+    },
+    {
+      "name": "Glassware/Crystal Stores",
+      "type": "Service",
+      "description": "Glassware/Crystal Stores"
+    },
+    {
+      "name": "Direct Marketing- Insurance Service",
+      "type": "Service",
+      "description": "Direct Marketing- Insurance Service"
+    },
+    {
+      "name": "Mail Order Houses Including Catalog Order Stores, Book/Record Clubs (No longer permitted for U.S. original presentments)",
+      "type": "Service",
+      "description": "Mail Order Houses Including Catalog Order Stores, Book/Record Clubs (No longer permitted for U.S. original presentments)"
+    },
+    {
+      "name": "Direct Marketing \u2013 Travel Related Arrangements Services",
+      "type": "Service",
+      "description": "Direct Marketing \u2013 Travel Related Arrangements Services"
+    },
+    {
+      "name": "Door-to-Door Sales",
+      "type": "Service",
+      "description": "Door-to-Door Sales"
+    },
+    {
+      "name": "Direct Marketing \u2013 Catalog Merchant",
+      "type": "Service",
+      "description": "Direct Marketing \u2013 Catalog Merchant"
+    },
+    {
+      "name": "Direct Marketing \u2013 Catalog and Catalog and Retail Merchant",
+      "type": "Service",
+      "description": "Direct Marketing \u2013 Catalog and Catalog and Retail Merchant"
+    },
+    {
+      "name": "Direct Marketing- Outbound Telemarketing Merchant",
+      "type": "Service",
+      "description": "Direct Marketing- Outbound Telemarketing Merchant"
+    },
+    {
+      "name": "Direct Marketing \u2013 Inbound Teleservices Merchant",
+      "type": "Service",
+      "description": "Direct Marketing \u2013 Inbound Teleservices Merchant"
+    },
+    {
+      "name": "Direct Marketing \u2013 Continuity/Subscription Merchant",
+      "type": "Service",
+      "description": "Direct Marketing \u2013 Continuity/Subscription Merchant"
+    },
+    {
+      "name": "Direct Marketing \u2013 Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Direct Marketing \u2013 Not Elsewhere Classified"
+    },
+    {
+      "name": "Artist\u2019s Supply and Craft Shops",
+      "type": "Service",
+      "description": "Artist\u2019s Supply and Craft Shops"
+    },
+    {
+      "name": "Art Dealers and Galleries",
+      "type": "Service",
+      "description": "Art Dealers and Galleries"
+    },
+    {
+      "name": "Stamp and Coin Stores \u2013 Philatelic and Numismatic Supplies",
+      "type": "Service",
+      "description": "Stamp and Coin Stores \u2013 Philatelic and Numismatic Supplies"
+    },
+    {
+      "name": "Religious Goods Stores",
+      "type": "Service",
+      "description": "Religious Goods Stores"
+    },
+    {
+      "name": "Hearing Aids \u2013 Sales, Service, and Supply Stores",
+      "type": "Service",
+      "description": "Hearing Aids \u2013 Sales, Service, and Supply Stores"
+    },
+    {
+      "name": "Orthopedic Goods Prosthetic Devices",
+      "type": "Service",
+      "description": "Orthopedic Goods Prosthetic Devices"
+    },
+    {
+      "name": "Cosmetic Stores",
+      "type": "Service",
+      "description": "Cosmetic Stores"
+    },
+    {
+      "name": "Typewriter Stores \u2013 Sales, Rental, Service",
+      "type": "Service",
+      "description": "Typewriter Stores \u2013 Sales, Rental, Service"
+    },
+    {
+      "name": "Fuel \u2013 Fuel Oil, Wood, Coal, Liquefied Petroleum",
+      "type": "Service",
+      "description": "Fuel \u2013 Fuel Oil, Wood, Coal, Liquefied Petroleum"
+    },
+    {
+      "name": "Florists",
+      "type": "Service",
+      "description": "Florists"
+    },
+    {
+      "name": "Cigar Stores and Stands",
+      "type": "Service",
+      "description": "Cigar Stores and Stands"
+    },
+    {
+      "name": "News Dealers and Newsstands",
+      "type": "Service",
+      "description": "News Dealers and Newsstands"
+    },
+    {
+      "name": "Pet Shops, Pet Foods, and Supplies Stores",
+      "type": "Service",
+      "description": "Pet Shops, Pet Foods, and Supplies Stores"
+    },
+    {
+      "name": "Swimming Pools \u2013 Sales, Service, and Supplies",
+      "type": "Service",
+      "description": "Swimming Pools \u2013 Sales, Service, and Supplies"
+    },
+    {
+      "name": "Electric Razor Stores \u2013 Sales and Service",
+      "type": "Service",
+      "description": "Electric Razor Stores \u2013 Sales and Service"
+    },
+    {
+      "name": "Tent and Awning Shops",
+      "type": "Service",
+      "description": "Tent and Awning Shops"
+    },
+    {
+      "name": "Miscellaneous and Specialty Retail Stores",
+      "type": "Service",
+      "description": "Miscellaneous and Specialty Retail Stores"
+    },
+    {
+      "name": "Financial Institutions \u2013 Manual Cash Disbursements",
+      "type": "Service",
+      "description": "Financial Institutions \u2013 Manual Cash Disbursements"
+    },
+    {
+      "name": "Financial Institutions \u2013 Merchandise and Services",
+      "type": "Service",
+      "description": "Financial Institutions \u2013 Merchandise and Services"
+    },
+    {
+      "name": "Non-Financial Institutions \u2013 Foreign Currency, Money Orders (not wire transfer) and Travelers Cheques",
+      "type": "Service",
+      "description": "Non-Financial Institutions \u2013 Foreign Currency, Money Orders (not wire transfer) and Travelers Cheques"
+    },
+    {
+      "name": "Security Brokers/Dealers",
+      "type": "Service",
+      "description": "Security Brokers/Dealers"
+    },
+    {
+      "name": "Insurance Sales, Underwriting, and Premiums",
+      "type": "Service",
+      "description": "Insurance Sales, Underwriting, and Premiums"
+    },
+    {
+      "name": "Insurance Premiums, (no longer valid for first presentment work)",
+      "type": "Service",
+      "description": "Insurance Premiums, (no longer valid for first presentment work)"
+    },
+    {
+      "name": "Insurance, Not Elsewhere Classified ( no longer valid forfirst presentment work)",
+      "type": "Service",
+      "description": "Insurance, Not Elsewhere Classified ( no longer valid forfirst presentment work)"
+    },
+    {
+      "name": "Real Estate Agents and Managers - Rentals",
+      "type": "Service",
+      "description": "Real Estate Agents and Managers - Rentals"
+    },
+    {
+      "name": "Lodging \u2013 Hotels, Motels, Resorts, Central Reservation Services (not elsewhere classified)",
+      "type": "Service",
+      "description": "Lodging \u2013 Hotels, Motels, Resorts, Central Reservation Services (not elsewhere classified)"
+    },
+    {
+      "name": "Timeshares",
+      "type": "Service",
+      "description": "Timeshares"
+    },
+    {
+      "name": "Sporting and Recreational Camps",
+      "type": "Service",
+      "description": "Sporting and Recreational Camps"
+    },
+    {
+      "name": "Trailer Parks and Camp Grounds",
+      "type": "Service",
+      "description": "Trailer Parks and Camp Grounds"
+    },
+    {
+      "name": "Laundry, Cleaning, and Garment Services",
+      "type": "Service",
+      "description": "Laundry, Cleaning, and Garment Services"
+    },
+    {
+      "name": "Laundry \u2013 Family and Commercial",
+      "type": "Service",
+      "description": "Laundry \u2013 Family and Commercial"
+    },
+    {
+      "name": "Dry Cleaners",
+      "type": "Service",
+      "description": "Dry Cleaners"
+    },
+    {
+      "name": "Carpet and Upholstery Cleaning",
+      "type": "Service",
+      "description": "Carpet and Upholstery Cleaning"
+    },
+    {
+      "name": "Photographic Studios",
+      "type": "Service",
+      "description": "Photographic Studios"
+    },
+    {
+      "name": "Barber and Beauty Shops",
+      "type": "Service",
+      "description": "Barber and Beauty Shops"
+    },
+    {
+      "name": "Shop Repair Shops and Shoe Shine Parlors, and Hat Cleaning Shops",
+      "type": "Service",
+      "description": "Shop Repair Shops and Shoe Shine Parlors, and Hat Cleaning Shops"
+    },
+    {
+      "name": "Funeral Service and Crematories",
+      "type": "Service",
+      "description": "Funeral Service and Crematories"
+    },
+    {
+      "name": "Dating and Escort Services",
+      "type": "Service",
+      "description": "Dating and Escort Services"
+    },
+    {
+      "name": "Tax Preparation Service",
+      "type": "Service",
+      "description": "Tax Preparation Service"
+    },
+    {
+      "name": "Counseling Service \u2013 Debt, Marriage, Personal",
+      "type": "Service",
+      "description": "Counseling Service \u2013 Debt, Marriage, Personal"
+    },
+    {
+      "name": "Buying/Shopping Services, Clubs",
+      "type": "Service",
+      "description": "Buying/Shopping Services, Clubs"
+    },
+    {
+      "name": "Clothing Rental \u2013 Costumes, Formal Wear, Uniforms",
+      "type": "Service",
+      "description": "Clothing Rental \u2013 Costumes, Formal Wear, Uniforms"
+    },
+    {
+      "name": "Massage Parlors",
+      "type": "Service",
+      "description": "Massage Parlors"
+    },
+    {
+      "name": "Health and Beauty Shops",
+      "type": "Service",
+      "description": "Health and Beauty Shops"
+    },
+    {
+      "name": "Miscellaneous Personal Services ( not elsewhere classifies)",
+      "type": "Service",
+      "description": "Miscellaneous Personal Services ( not elsewhere classifies)"
+    },
+    {
+      "name": "Advertising Services",
+      "type": "Service",
+      "description": "Advertising Services"
+    },
+    {
+      "name": "Consumer Credit Reporting Agencies",
+      "type": "Service",
+      "description": "Consumer Credit Reporting Agencies"
+    },
+    {
+      "name": "Blueprinting and Photocopying Services",
+      "type": "Service",
+      "description": "Blueprinting and Photocopying Services"
+    },
+    {
+      "name": "Commercial Photography, Art and Graphics",
+      "type": "Service",
+      "description": "Commercial Photography, Art and Graphics"
+    },
+    {
+      "name": "Quick Copy, Reproduction and Blueprinting Services",
+      "type": "Service",
+      "description": "Quick Copy, Reproduction and Blueprinting Services"
+    },
+    {
+      "name": "Stenographic and Secretarial Support Services",
+      "type": "Service",
+      "description": "Stenographic and Secretarial Support Services"
+    },
+    {
+      "name": "Exterminating and Disinfecting Services",
+      "type": "Service",
+      "description": "Exterminating and Disinfecting Services"
+    },
+    {
+      "name": "Cleaning and Maintenance, Janitorial Services",
+      "type": "Service",
+      "description": "Cleaning and Maintenance, Janitorial Services"
+    },
+    {
+      "name": "Employment Agencies, Temporary Help Services",
+      "type": "Service",
+      "description": "Employment Agencies, Temporary Help Services"
+    },
+    {
+      "name": "Computer Programming, Integrated Systems Design and Data Processing Services",
+      "type": "Service",
+      "description": "Computer Programming, Integrated Systems Design and Data Processing Services"
+    },
+    {
+      "name": "Information Retrieval Services",
+      "type": "Service",
+      "description": "Information Retrieval Services"
+    },
+    {
+      "name": "Computer Maintenance and Repair Services, Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Computer Maintenance and Repair Services, Not Elsewhere Classified"
+    },
+    {
+      "name": "Management, Consulting, and Public Relations Services",
+      "type": "Service",
+      "description": "Management, Consulting, and Public Relations Services"
+    },
+    {
+      "name": "Protective and Security Services \u2013 Including Armored Carsand Guard Dogs",
+      "type": "Service",
+      "description": "Protective and Security Services \u2013 Including Armored Carsand Guard Dogs"
+    },
+    {
+      "name": "Equipment Rental and Leasing Services, Tool Rental, Furniture Rental, and Appliance Rental",
+      "type": "Service",
+      "description": "Equipment Rental and Leasing Services, Tool Rental, Furniture Rental, and Appliance Rental"
+    },
+    {
+      "name": "Photofinishing Laboratories, Photo Developing",
+      "type": "Service",
+      "description": "Photofinishing Laboratories, Photo Developing"
+    },
+    {
+      "name": "Business Services, Not Elsewhere Classified",
+      "type": "Service",
+      "description": "Business Services, Not Elsewhere Classified"
+    },
+    {
+      "name": "Truck Stop",
+      "type": "Service",
+      "description": "Truck Stop"
+    },
+    {
+      "name": "Car Rental Companies ( Not Listed Below)",
+      "type": "Service",
+      "description": "Car Rental Companies ( Not Listed Below)"
+    },
+    {
+      "name": "Truck and Utility Trailer Rentals",
+      "type": "Service",
+      "description": "Truck and Utility Trailer Rentals"
+    },
+    {
+      "name": "Motor Home and Recreational Vehicle Rentals",
+      "type": "Service",
+      "description": "Motor Home and Recreational Vehicle Rentals"
+    },
+    {
+      "name": "Automobile Parking Lots and Garages",
+      "type": "Service",
+      "description": "Automobile Parking Lots and Garages"
+    },
+    {
+      "name": "Automotive Body Repair Shops",
+      "type": "Service",
+      "description": "Automotive Body Repair Shops"
+    },
+    {
+      "name": "Tire Re-treading and Repair Shops",
+      "type": "Service",
+      "description": "Tire Re-treading and Repair Shops"
+    },
+    {
+      "name": "Paint Shops \u2013 Automotive",
+      "type": "Service",
+      "description": "Paint Shops \u2013 Automotive"
+    },
+    {
+      "name": "Automotive Service Shops",
+      "type": "Service",
+      "description": "Automotive Service Shops"
+    },
+    {
+      "name": "Car Washes",
+      "type": "Service",
+      "description": "Car Washes"
+    },
+    {
+      "name": "Towing Services",
+      "type": "Service",
+      "description": "Towing Services"
+    },
+    {
+      "name": "Radio Repair Shops",
+      "type": "Service",
+      "description": "Radio Repair Shops"
+    },
+    {
+      "name": "Air Conditioning and Refrigeration Repair Shops",
+      "type": "Service",
+      "description": "Air Conditioning and Refrigeration Repair Shops"
+    },
+    {
+      "name": "Electrical And Small Appliance Repair Shops",
+      "type": "Service",
+      "description": "Electrical And Small Appliance Repair Shops"
+    },
+    {
+      "name": "Watch, Clock, and Jewelry Repair",
+      "type": "Service",
+      "description": "Watch, Clock, and Jewelry Repair"
+    },
+    {
+      "name": "Furniture, Furniture Repair, and Furniture Refinishing",
+      "type": "Service",
+      "description": "Furniture, Furniture Repair, and Furniture Refinishing"
+    },
+    {
+      "name": "Welding Repair",
+      "type": "Service",
+      "description": "Welding Repair"
+    },
+    {
+      "name": "Repair Shops and Related Services \u2013Miscellaneous",
+      "type": "Service",
+      "description": "Repair Shops and Related Services \u2013Miscellaneous"
+    },
+    {
+      "name": "Government-Owned Lotteries",
+      "type": "Service",
+      "description": ""
+    },
+    {
+      "name": "Government-Licensed On-Line Casinos (On-Line Gambling)",
+      "type": "Service",
+      "description": ""
+    },
+    {
+      "name": "Government-Licensed Horse/Dog Racing",
+      "type": "Service",
+      "description": ""
+    },
+    {
+      "name": "Motion Pictures and Video Tape Production and Distribution",
+      "type": "Service",
+      "description": "Motion Pictures and Video Tape Production and Distribution"
+    },
+    {
+      "name": "Motion Picture Theaters",
+      "type": "Service",
+      "description": "Motion Picture Theaters"
+    },
+    {
+      "name": "Video Tape Rental Stores",
+      "type": "Service",
+      "description": "Video Tape Rental Stores"
+    },
+    {
+      "name": "Dance Halls, Studios and Schools",
+      "type": "Service",
+      "description": "Dance Halls, Studios and Schools"
+    },
+    {
+      "name": "Theatrical Producers (Except Motion Pictures), Ticket Agencies",
+      "type": "Service",
+      "description": "Theatrical Producers (Except Motion Pictures), Ticket Agencies"
+    },
+    {
+      "name": "Bands, Orchestras, and Miscellaneous Entertainers (Not Elsewhere Classified)",
+      "type": "Service",
+      "description": "Bands, Orchestras, and Miscellaneous Entertainers (Not Elsewhere Classified)"
+    },
+    {
+      "name": "Billiard and Pool Establishments",
+      "type": "Service",
+      "description": "Billiard and Pool Establishments"
+    },
+    {
+      "name": "Bowling Alleys",
+      "type": "Service",
+      "description": "Bowling Alleys"
+    },
+    {
+      "name": "Commercial Sports, Athletic Fields, Professional Sport Clubs, and Sport Promoters",
+      "type": "Service",
+      "description": "Commercial Sports, Athletic Fields, Professional Sport Clubs, and Sport Promoters"
+    },
+    {
+      "name": "Tourist Attractions and Exhibits",
+      "type": "Service",
+      "description": "Tourist Attractions and Exhibits"
+    },
+    {
+      "name": "Golf Courses \u2013 Public",
+      "type": "Service",
+      "description": "Golf Courses \u2013 Public"
+    },
+    {
+      "name": "Video Amusement Game Supplies",
+      "type": "Service",
+      "description": "Video Amusement Game Supplies"
+    },
+    {
+      "name": "Video Game Arcades/Establishments",
+      "type": "Service",
+      "description": "Video Game Arcades/Establishments"
+    },
+    {
+      "name": "Betting (including Lottery Tickets, Casino Gaming Chips, Off-track Betting and Wagers at Race Tracks)",
+      "type": "Service",
+      "description": "Betting (including Lottery Tickets, Casino Gaming Chips, Off-track Betting and Wagers at Race Tracks)"
+    },
+    {
+      "name": "Amusement Parks, Carnivals, Circuses, Fortune Tellers",
+      "type": "Service",
+      "description": "Amusement Parks, Carnivals, Circuses, Fortune Tellers"
+    },
+    {
+      "name": "Membership Clubs (Sports, Recreation, Athletic), Country Clubs, and Private Golf Courses",
+      "type": "Service",
+      "description": "Membership Clubs (Sports, Recreation, Athletic), Country Clubs, and Private Golf Courses"
+    },
+    {
+      "name": "Aquariums, Sea-aquariums, Dolphinariums",
+      "type": "Service",
+      "description": "Aquariums, Sea-aquariums, Dolphinariums"
+    },
+    {
+      "name": "Recreation Services (Not Elsewhere Classified)",
+      "type": "Service",
+      "description": "Recreation Services (Not Elsewhere Classified)"
+    },
+    {
+      "name": "Doctors and Physicians (Not Elsewhere Classified)",
+      "type": "Service",
+      "description": "Doctors and Physicians (Not Elsewhere Classified)"
+    },
+    {
+      "name": "Dentists and Orthodontists",
+      "type": "Service",
+      "description": "Dentists and Orthodontists"
+    },
+    {
+      "name": "Osteopaths",
+      "type": "Service",
+      "description": "Osteopaths"
+    },
+    {
+      "name": "Chiropractors",
+      "type": "Service",
+      "description": "Chiropractors"
+    },
+    {
+      "name": "Optometrists and Ophthalmologists",
+      "type": "Service",
+      "description": "Optometrists and Ophthalmologists"
+    },
+    {
+      "name": "Opticians, Opticians Goods and Eyeglasses",
+      "type": "Service",
+      "description": "Opticians, Opticians Goods and Eyeglasses"
+    },
+    {
+      "name": "Opticians, Optical Goods, and Eyeglasses (no longer validfor first presentments)",
+      "type": "Service",
+      "description": "Opticians, Optical Goods, and Eyeglasses (no longer validfor first presentments)"
+    },
+    {
+      "name": "Podiatrists and Chiropodists",
+      "type": "Service",
+      "description": "Podiatrists and Chiropodists"
+    },
+    {
+      "name": "Nursing and Personal Care Facilities",
+      "type": "Service",
+      "description": "Nursing and Personal Care Facilities"
+    },
+    {
+      "name": "Hospitals",
+      "type": "Service",
+      "description": "Hospitals"
+    },
+    {
+      "name": "Medical and Dental Laboratories",
+      "type": "Service",
+      "description": "Medical and Dental Laboratories"
+    },
+    {
+      "name": "Medical Services and Health Practitioners (Not Elsewhere Classified)",
+      "type": "Service",
+      "description": "Medical Services and Health Practitioners (Not Elsewhere Classified)"
+    },
+    {
+      "name": "Legal Services and Attorneys",
+      "type": "Service",
+      "description": "Legal Services and Attorneys"
+    },
+    {
+      "name": "Elementary and Secondary Schools",
+      "type": "Service",
+      "description": "Elementary and Secondary Schools"
+    },
+    {
+      "name": "Colleges, Junior Colleges, Universities, and ProfessionalSchools",
+      "type": "Service",
+      "description": "Colleges, Junior Colleges, Universities, and ProfessionalSchools"
+    },
+    {
+      "name": "Correspondence Schools",
+      "type": "Service",
+      "description": "Correspondence Schools"
+    },
+    {
+      "name": "Business and Secretarial Schools",
+      "type": "Service",
+      "description": "Business and Secretarial Schools"
+    },
+    {
+      "name": "Vocational Schools and Trade Schools",
+      "type": "Service",
+      "description": "Vocational Schools and Trade Schools"
+    },
+    {
+      "name": "Schools and Educational Services ( Not Elsewhere Classified)",
+      "type": "Service",
+      "description": "Schools and Educational Services ( Not Elsewhere Classified)"
+    },
+    {
+      "name": "Child Care Services",
+      "type": "Service",
+      "description": "Child Care Services"
+    },
+    {
+      "name": "Charitable and Social Service Organizations",
+      "type": "Service",
+      "description": "Charitable and Social Service Organizations"
+    },
+    {
+      "name": "Civic, Fraternal, and Social Associations",
+      "type": "Service",
+      "description": "Civic, Fraternal, and Social Associations"
+    },
+    {
+      "name": "Political Organizations",
+      "type": "Service",
+      "description": "Political Organizations"
+    },
+    {
+      "name": "Religious Organizations",
+      "type": "Service",
+      "description": "Religious Organizations"
+    },
+    {
+      "name": "Automobile Associations",
+      "type": "Service",
+      "description": "Automobile Associations"
+    },
+    {
+      "name": "Membership Organizations ( Not Elsewhere Classified)",
+      "type": "Service",
+      "description": "Membership Organizations ( Not Elsewhere Classified)"
+    },
+    {
+      "name": "Architectural \u2013 Engineering and Surveying Services",
+      "type": "Service",
+      "description": "Architectural \u2013 Engineering and Surveying Services"
+    },
+    {
+      "name": "Accounting, Auditing, and Bookkeeping Services",
+      "type": "Service",
+      "description": "Accounting, Auditing, and Bookkeeping Services"
+    },
+    {
+      "name": "Professional Services ( Not Elsewhere Defined)",
+      "type": "Service",
+      "description": "Professional Services ( Not Elsewhere Defined)"
+    },
+    {
+      "name": "Court Costs, including Alimony and Child Support",
+      "type": "Service",
+      "description": "Court Costs, including Alimony and Child Support"
+    },
+    {
+      "name": "Fines",
+      "type": "Service",
+      "description": "Fines"
+    },
+    {
+      "name": "Bail and Bond Payments",
+      "type": "Service",
+      "description": "Bail and Bond Payments"
+    },
+    {
+      "name": "Tax Payments",
+      "type": "Service",
+      "description": "Tax Payments"
+    },
+    {
+      "name": "Government Services ( Not Elsewhere Classified)",
+      "type": "Service",
+      "description": "Government Services ( Not Elsewhere Classified)"
+    },
+    {
+      "name": "Postal Services \u2013 Government Only",
+      "type": "Service",
+      "description": "Postal Services \u2013 Government Only"
+    },
+    {
+      "name": "Intra \u2013 Government Transactions",
+      "type": "Service",
+      "description": "Intra \u2013 Government Transactions"
+    },
+    {
+      "name": "Automated Referral Service ( For Visa Only)",
+      "type": "Service",
+      "description": "Automated Referral Service ( For Visa Only)"
+    },
+    {
+      "name": "Visa Credential Service ( For Visa Only)",
+      "type": "Service",
+      "description": "Visa Credential Service ( For Visa Only)"
+    },
+    {
+      "name": "GCAS Emergency Services ( For Visa Only)",
+      "type": "Service",
+      "description": "GCAS Emergency Services ( For Visa Only)"
+    },
+    {
+      "name": "Intra \u2013 Company Purchases ( For Visa Only)",
+      "type": "Service",
+      "description": "Intra \u2013 Company Purchases ( For Visa Only)"
+    }
+  ]
+}

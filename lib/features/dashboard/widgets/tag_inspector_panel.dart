@@ -21,6 +21,7 @@ class _TagInspectorPanelState extends ConsumerState<TagInspectorPanel> {
   final _limitController = TextEditingController();
   String? _frequency;
   bool _isLoading = false;
+  Tag? _currentTag;
 
   @override
   void initState() {
@@ -49,6 +50,7 @@ class _TagInspectorPanelState extends ConsumerState<TagInspectorPanel> {
 
     _limitController.text = tag.budgetLimit?.toString() ?? '';
     _frequency = tag.frequency ?? 'Monthly';
+    _currentTag = tag;
 
     if (mounted) setState(() => _isLoading = false);
   }
@@ -88,8 +90,6 @@ class _TagInspectorPanelState extends ConsumerState<TagInspectorPanel> {
       ),
       child: ListView(
         padding: EdgeInsets.zero,
-        // crossAxisAlignment: CrossAxisAlignment.start, // ListView doesn't use this
-        // mainAxisSize: MainAxisSize.min, // ListView expands
         children: [
           // Header
           Row(
@@ -133,8 +133,8 @@ class _TagInspectorPanelState extends ConsumerState<TagInspectorPanel> {
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "VENDOR INFORMATION",
                     style: TextStyle(
                       fontSize: 10,
@@ -142,12 +142,15 @@ class _TagInspectorPanelState extends ConsumerState<TagInspectorPanel> {
                       color: Colors.blueAccent,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    "Regex: ^TARGET.*",
-                    style: TextStyle(fontSize: 12, fontFamily: 'monospace'),
+                    "Regex: ${_currentTag?.regex ?? 'N/A'}",
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontFamily: 'monospace',
+                    ),
                   ),
-                  Text(
+                  const Text(
                     "Defaults: Groceries, Home",
                     style: TextStyle(fontSize: 12),
                   ),

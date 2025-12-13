@@ -3,11 +3,11 @@
         "transaction_id": "tx_001",
         "date": "2023-10-01",
         "name": "Mortgage Payment",
-        "amount": 2500.00,
+        "amount": 2500.0,
         "category": [
             "Mortgage Payment",
-            "Payment",
-            "Rent"
+            "Housing",
+            "Fixed"
         ],
         "pending": false
     },
@@ -15,10 +15,10 @@
         "transaction_id": "tx_002",
         "date": "2023-10-02",
         "name": "Starbucks",
-        "amount": 5.40,
+        "amount": 5.4,
         "category": [
             "Starbucks",
-            "Food and Drink",
+            "Dining",
             "Coffee"
         ],
         "pending": false
@@ -27,11 +27,10 @@
         "transaction_id": "tx_003",
         "date": "2023-10-03",
         "name": "Safeway",
-        "amount": 124.50,
+        "amount": 124.5,
         "category": [
             "Safeway",
-            "Shops",
-            "Supermarkets"
+            "Groceries"
         ],
         "pending": false
     },
@@ -39,11 +38,10 @@
         "transaction_id": "tx_004",
         "date": "2023-10-05",
         "name": "Chevron",
-        "amount": 45.00,
+        "amount": 45.0,
         "category": [
             "Chevron",
-            "Travel",
-            "Gas Stations"
+            "Gas"
         ],
         "pending": false
     },
@@ -54,7 +52,8 @@
         "amount": 15.99,
         "category": [
             "Netflix",
-            "Service",
+            "Entertainment",
+            "Streaming",
             "Subscription"
         ],
         "pending": false
@@ -63,11 +62,10 @@
         "transaction_id": "tx_006",
         "date": "2023-10-10",
         "name": "Salary Deposit",
-        "amount": -4000.00,
+        "amount": -4000.0,
         "category": [
             "Salary Deposit",
-            "Transfer",
-            "Payroll"
+            "Income"
         ],
         "pending": false
     },
@@ -75,11 +73,11 @@
         "transaction_id": "tx_007",
         "date": "2023-10-15",
         "name": "Uber",
-        "amount": 24.00,
+        "amount": 24.0,
         "category": [
             "Uber",
-            "Travel",
-            "Taxi"
+            "Transport",
+            "Ride Services"
         ],
         "pending": false
     }
