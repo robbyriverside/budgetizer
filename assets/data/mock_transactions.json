@@ -1,0 +1,79 @@
+[
+    {
+        "transaction_id": "tx_001",
+        "date": "2023-10-01",
+        "name": "Mortgage Payment",
+        "amount": 2500.00,
+        "category": [
+            "Payment",
+            "Rent"
+        ],
+        "pending": false
+    },
+    {
+        "transaction_id": "tx_002",
+        "date": "2023-10-02",
+        "name": "Starbucks",
+        "amount": 5.40,
+        "category": [
+            "Food and Drink",
+            "Coffee"
+        ],
+        "pending": false
+    },
+    {
+        "transaction_id": "tx_003",
+        "date": "2023-10-03",
+        "name": "Safeway",
+        "amount": 124.50,
+        "category": [
+            "Shops",
+            "Supermarkets"
+        ],
+        "pending": false
+    },
+    {
+        "transaction_id": "tx_004",
+        "date": "2023-10-05",
+        "name": "Chevron",
+        "amount": 45.00,
+        "category": [
+            "Travel",
+            "Gas Stations"
+        ],
+        "pending": false
+    },
+    {
+        "transaction_id": "tx_005",
+        "date": "2023-10-05",
+        "name": "Netflix",
+        "amount": 15.99,
+        "category": [
+            "Service",
+            "Subscription"
+        ],
+        "pending": false
+    },
+    {
+        "transaction_id": "tx_006",
+        "date": "2023-10-10",
+        "name": "Salary Deposit",
+        "amount": -4000.00,
+        "category": [
+            "Transfer",
+            "Payroll"
+        ],
+        "pending": false
+    },
+    {
+        "transaction_id": "tx_007",
+        "date": "2023-10-15",
+        "name": "Uber",
+        "amount": 24.00,
+        "category": [
+            "Travel",
+            "Taxi"
+        ],
+        "pending": false
+    }
+]
