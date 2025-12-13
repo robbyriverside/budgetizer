@@ -42,6 +42,7 @@ These represent the broad market sector of a vendor. A vendor often belongs to o
 - **Health**: Medical, dental, pharmacy (e.g., Walgreens, Kaiser).
 - **Travel**: Flights, hotels, car rentals (e.g., Airbnb, Delta).
 - **Education**: Tuition, courses, books.
+- **Financial**: Banks, credit unions, loans, taxes.
 
 ## Specific Services / Products (Sub-categories)
 These tags represent specific types of goods or services provided by a vendor. These often overlap with Markets (e.g., Streaming is a specific type of Entertainment).
@@ -58,3 +59,7 @@ These tags represent specific types of goods or services provided by a vendor. T
 - **Gifts**: Presents, donations.
 - **Electronics**: Gadgets, tech (often found in Target/Amazon).
 - **Alcohol**: Liquor stores, bars.
+- **Bank Fees**: OD fees, maintenance fees, ATM fees.
+- **Interest**: Interest income or expense.
+- **Taxes**: Income tax, property tax.
+- **Loan Repayment**: Personal loans, car payments.

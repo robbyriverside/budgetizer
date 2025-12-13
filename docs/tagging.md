@@ -17,6 +17,27 @@ For example, Target sells clothes, home goods, and food.  So if a transaction is
 The user evaluates these assigned tags and can remove them, only.  So if you bought food at Target, it will be tagged with clothes, home goods, and food.  If you remove the clothes tag and home goods tag, it means that transaction was only for food.
 
 Transactions only store the tags that were removed.  The total tags for the transaction are defined by the company found when the AI read the description of the transaction.  So a transaction will know which company it is for, and the tags that were removed.  
+Compton's Market is a grocery store, so the bank would send it with MCC 5411 ("Grocery Stores").
+
+Example:
+```
+Here is how the system should handle an unknown store without adding a new entry to 
+db_tags.json
+:
+
+Transaction Arrives:
+Description: "COMPTONS MARKET SACRAMENTO CA"
+MCC: 5411
+System Lookup:
+It looks up MCC 5411 in 
+db_tags.json
+.
+It finds the tag: Groceries (or "Grocery Stores").
+Auto-Tagging:
+Vendor Tag: "Comptons Market" (Extracted dynamically from the string).
+Service Tag: "Groceries" (Mapped from MCC 5411).
+Market Tag: "Groceries" (Parent category).
+```
 
 ## Special Tags
 

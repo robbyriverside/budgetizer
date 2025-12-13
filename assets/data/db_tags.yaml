@@ -3,46 +3,79 @@ tags:
     type: Vendor
     description: "Vendor: Amazon"
     regex: (?i)Amazon
+    related:
+      - Groceries
+      - Home Goods
+      - Clothing
+      - Entertainment
+      - Travel
+      - Financial
   - name: Target
     type: Vendor
     description: "Vendor: Target"
     regex: (?i)Target
+    related:
+      - Groceries
+      - Home Goods
+      - Clothing
   - name: Shell
     type: Vendor
     description: "Vendor: Shell"
     regex: (?i)Shell
+    related:
+      - Gas
+      - Transport
   - name: Starbucks
     type: Vendor
     description: "Vendor: Starbucks"
     regex: (?i)Starbucks
+    related:
+      - Dining
   - name: Uber
     type: Vendor
     description: "Vendor: Uber"
     regex: (?i)Uber
+    related:
+      - Transport
+      - Dining
+      - Travel
   - name: Whole Foods
     type: Vendor
     description: "Vendor: Whole Foods"
     regex: (?i)Whole Foods
+    related:
+      - Groceries
   - name: Netflix
     type: Vendor
     description: "Vendor: Netflix"
     regex: (?i)Netflix
+    related:
+      - Entertainment
   - name: Chevron
     type: Vendor
     description: "Vendor: Chevron"
     regex: (?i)Chevron
+    related:
+      - Gas
   - name: Safeway
     type: Vendor
     description: "Vendor: Safeway"
     regex: (?i)Safeway
+    related:
+      - Groceries
   - name: McDonald's
     type: Vendor
     description: "Vendor: McDonald's"
     regex: (?i)McDonald's
+    related:
+      - Dining
   - name: Jiffy Lube
     type: Vendor
     description: "Vendor: Jiffy Lube"
     regex: (?i)Jiffy Lube
+    related:
+      - Auto Maintenance
+      - Gas
   - name: Groceries
     type: Market
     description: Supermarkets, bakers, butchers (e.g., Whole Foods, Safeway).
@@ -82,6 +115,9 @@ tags:
   - name: Education
     type: Market
     description: Tuition, courses, books.
+  - name: Financial
+    type: Market
+    description: Banks, credit unions, loans, taxes.
   - name: Subscription
     type: System
     description: Fixed recurring expense
@@ -107,38 +143,61 @@ tags:
     type: Service
     description: Taxis, Uber, Lyft.
     source: Manual
+    related:
+      - Transport
   - name: Oil Change
     type: Service
     description: Preventative maintenance (e.g., Jiffy Lube).
     source: Manual
+    related:
+      - Auto Maintenance
   - name: Auto Repair
     type: Service
     description: Mechanical repairs and fixes.
     source: Manual
+    related:
+      - Auto Maintenance
   - name: Coffee
     type: Service
     description: Coffee shops, cafes.
     source: Manual
+    related:
+      - Dining
   - name: Fast Food
     type: Service
     description: Quick service dining.
     source: Manual
+    related:
+      - Dining
   - name: Streaming
     type: Service
     description: Digital media subscriptions.
     source: Manual
+    related:
+      - Entertainment
   - name: Internet
     type: Service
     description: ISP services.
     source: Manual
+    related:
+      - Utilities
+      - Entertainment
+      - Education
   - name: Mobile
     type: Service
     description: Cell phone service.
     source: Manual
+    related:
+      - Transport
+      - Utilities
+      - Entertainment
   - name: Gifts
     type: Service
     description: Presents, donations.
     source: Manual
+    related:
+      - Home Goods
+      - Entertainment
   - name: Electronics
     type: Service
     description: Gadgets, tech.
@@ -147,2158 +206,5196 @@ tags:
     type: Service
     description: Liquor stores, bars.
     source: Manual
+    related:
+      - Dining
+      - Entertainment
+  - name: Bank Fees
+    type: Service
+    description: OD fees, maintenance fees, ATM fees.
+    source: Manual
+    related:
+      - Financial
+  - name: Interest
+    type: Service
+    description: Interest income or expense.
+    source: Manual
+    related:
+      - Financial
+  - name: Taxes
+    type: Service
+    description: Income tax, property tax.
+    source: Manual
+    related:
+      - Housing
+      - Utilities
+      - Financial
+  - name: Loan Repayment
+    type: Service
+    description: Personal loans, car payments.
+    source: Manual
   - name: Veterinary Services
     type: Service
     description: Veterinary Services
+    source: MCC
+    mcc_id: 0742
+    related:
+      - Health
   - name: Agricultural Co-operatives
     type: Service
     description: Agricultural Co-operatives
-  - name: Horticultural Services, Landscaping Services
+    source: MCC
+    mcc_id: 0763
+    related:
+      - Groceries
+      - Utilities
+  - name: Landscaping
     type: Service
     description: Horticultural Services, Landscaping Services
-  - name: General Contractors-Residential and Commercial
+    source: MCC
+    mcc_id: 0780
+    related:
+      - Home Goods
+      - Housing
+  - name: Contractors
     type: Service
     description: General Contractors-Residential and Commercial
-  - name: Air Conditioning Contractors – Sales and Installation, Heating Contractors – Sales, Service, Installation
+    source: MCC
+    mcc_id: 1520
+    related:
+      - Housing
+      - Home Goods
+  - name: Air Conditioning
     type: Service
-    description: Air Conditioning Contractors – Sales and Installation, Heating Contractors – Sales, Service, Installation
+    description: Air Conditioning Contractors - Sales and Installation, Heating Contractors - Sales, Service, Installation
+    source: MCC
+    mcc_id: 1711
+    related:
+      - Home Goods
+      - Utilities
+      - Housing
   - name: Electrical Contractors
     type: Service
     description: Electrical Contractors
-  - name: Insulation – Contractors, Masonry, Stonework Contractors, Plastering Contractors, Stonework and Masonry Contractors, Tile Settings Contractors
-    type: Service
-    description: Insulation – Contractors, Masonry, Stonework Contractors, Plastering Contractors, Stonework and Masonry Contractors, Tile Settings Contractors
+    source: MCC
+    mcc_id: 1731
+    related:
+      - Utilities
+      - Home Goods
+      - Housing
   - name: Carpentry Contractors
     type: Service
     description: Carpentry Contractors
-  - name: Roofing – Contractors, Sheet Metal Work – Contractors, Siding – Contractors
+    source: MCC
+    mcc_id: 1750
+    related:
+      - Home Goods
+      - Housing
+  - name: Roofing
     type: Service
-    description: Roofing – Contractors, Sheet Metal Work – Contractors, Siding – Contractors
-  - name: Contractors – Concrete Work
+    description: Roofing - Contractors, Sheet Metal Work - Contractors, Siding - Contractors
+    source: MCC
+    mcc_id: 1761
+    related:
+      - Housing
+  - name: Concrete Work
     type: Service
-    description: Contractors – Concrete Work
-  - name: Contractors – Special Trade, Not Elsewhere Classified
-    type: Service
-    description: Contractors – Special Trade, Not Elsewhere Classified
-  - name: Miscellaneous Publishing and Printing
+    description: Contractors - Concrete Work
+    source: MCC
+    mcc_id: 1771
+    related:
+      - Housing
+  - name: Publishing
     type: Service
     description: Miscellaneous Publishing and Printing
-  - name: Typesetting, Plate Making, & Related Services
+    source: MCC
+    mcc_id: 2741
+  - name: Typesetting
     type: Service
     description: Typesetting, Plate Making, & Related Services
-  - name: Specialty Cleaning, Polishing, and Sanitation Preparations
+    source: MCC
+    mcc_id: 2791
+  - name: Cleaning Supplies
     type: Service
     description: Specialty Cleaning, Polishing, and Sanitation Preparations
+    source: MCC
+    mcc_id: 2842
+    related:
+      - Home Goods
+      - Groceries
   - name: UNITED AIRLINES
     type: Service
     description: UNITED AIRLINES
+    source: MCC
+    mcc_id: 3000
+    related:
+      - Transport
+      - Travel
   - name: AMERICAN AIRLINES
     type: Service
     description: AMERICAN AIRLINES
+    source: MCC
+    mcc_id: 3001
+    related:
+      - Transport
+      - Travel
   - name: PAN AMERICAN
     type: Service
     description: PAN AMERICAN
+    source: MCC
+    mcc_id: 3002
+    related:
+      - Travel
   - name: Airlines
     type: Service
     description: Airlines
+    source: MCC
+    mcc_id: 3003
+    related:
+      - Transport
+      - Travel
   - name: TRANS WORLD AIRLINES
     type: Service
     description: TRANS WORLD AIRLINES
+    source: MCC
+    mcc_id: 3004
+    related:
+      - Transport
+      - Travel
   - name: BRITISH AIRWAYS
     type: Service
     description: BRITISH AIRWAYS
+    source: MCC
+    mcc_id: 3005
+    related:
+      - Transport
+      - Travel
   - name: JAPAN AIRLINES
     type: Service
     description: JAPAN AIRLINES
+    source: MCC
+    mcc_id: 3006
+    related:
+      - Transport
+      - Travel
   - name: AIR FRANCE
     type: Service
     description: AIR FRANCE
+    source: MCC
+    mcc_id: 3007
+    related:
+      - Transport
+      - Travel
   - name: LUFTHANSA
     type: Service
     description: LUFTHANSA
+    source: MCC
+    mcc_id: 3008
+    related:
+      - Transport
+      - Travel
   - name: AIR CANADA
     type: Service
     description: AIR CANADA
-  - name: KLM (ROYAL DUTCH AIRLINES)
+    source: MCC
+    mcc_id: 3009
+    related:
+      - Transport
+      - Travel
+  - name: KLM
     type: Service
     description: KLM (ROYAL DUTCH AIRLINES)
+    source: MCC
+    mcc_id: 3010
+    related:
+      - Transport
+      - Travel
   - name: AEORFLOT
     type: Service
     description: AEORFLOT
+    source: MCC
+    mcc_id: 3011
+    related:
+      - Travel
   - name: QANTAS
     type: Service
     description: QANTAS
+    source: MCC
+    mcc_id: 3012
+    related:
+      - Transport
+      - Travel
   - name: ALITALIA
     type: Service
     description: ALITALIA
+    source: MCC
+    mcc_id: 3013
+    related:
+      - Transport
+      - Travel
   - name: SAUDIA ARABIAN AIRLINES
     type: Service
     description: SAUDIA ARABIAN AIRLINES
+    source: MCC
+    mcc_id: 3014
+    related:
+      - Transport
+      - Travel
   - name: SWISSAIR
     type: Service
     description: SWISSAIR
+    source: MCC
+    mcc_id: 3015
+    related:
+      - Travel
   - name: SAS
     type: Service
     description: SAS
+    source: MCC
+    mcc_id: 3016
+    related:
+      - Education
+      - Financial
   - name: SOUTH AFRICAN AIRWAYS
     type: Service
     description: SOUTH AFRICAN AIRWAYS
+    source: MCC
+    mcc_id: 3017
+    related:
+      - Transport
+      - Travel
   - name: VARIG (BRAZIL)
     type: Service
     description: VARIG (BRAZIL)
+    source: MCC
+    mcc_id: 3018
+    related:
+      - Transport
+      - Travel
   - name: AIR-INDIA
     type: Service
     description: AIR-INDIA
+    source: MCC
+    mcc_id: 3020
+    related:
+      - Travel
   - name: AIR ALGERIE
     type: Service
     description: AIR ALGERIE
+    source: MCC
+    mcc_id: 3021
+    related:
+      - Transport
+      - Travel
   - name: PHILIPPINE AIRLINES
     type: Service
     description: PHILIPPINE AIRLINES
+    source: MCC
+    mcc_id: 3022
+    related:
+      - Transport
+      - Travel
   - name: MEXICANA
     type: Service
     description: MEXICANA
+    source: MCC
+    mcc_id: 3023
+    related:
+      - Travel
   - name: PAKISTAN INTERNATIONAL
     type: Service
     description: PAKISTAN INTERNATIONAL
+    source: MCC
+    mcc_id: 3024
+    related:
+      - Travel
   - name: AIR NEW ZEALAND
     type: Service
     description: AIR NEW ZEALAND
+    source: MCC
+    mcc_id: 3025
+    related:
+      - Transport
+      - Travel
   - name: UTA/INTERAIR
     type: Service
     description: UTA/INTERAIR
+    source: MCC
+    mcc_id: 3027
+    related:
+      - Transport
+      - Travel
   - name: AIR MALTA
     type: Service
     description: AIR MALTA
+    source: MCC
+    mcc_id: 3028
+    related:
+      - Transport
+      - Travel
   - name: SABENA
     type: Service
     description: SABENA
+    source: MCC
+    mcc_id: 3029
+    related:
+      - Transport
+      - Travel
   - name: AEROLINEAS ARGENTINAS
     type: Service
     description: AEROLINEAS ARGENTINAS
+    source: MCC
+    mcc_id: 3030
+    related:
+      - Transport
+      - Travel
   - name: OLYMPIC AIRWAYS
     type: Service
     description: OLYMPIC AIRWAYS
+    source: MCC
+    mcc_id: 3031
+    related:
+      - Travel
   - name: EL AL
     type: Service
     description: EL AL
+    source: MCC
+    mcc_id: 3032
+    related:
+      - Travel
   - name: ANSETT AIRLINES
     type: Service
     description: ANSETT AIRLINES
+    source: MCC
+    mcc_id: 3033
+    related:
+      - Transport
+      - Travel
   - name: AUSTRAINLIAN AIRLINES
     type: Service
     description: AUSTRAINLIAN AIRLINES
+    source: MCC
+    mcc_id: 3034
+    related:
+      - Transport
+      - Travel
   - name: TAP (PORTUGAL)
     type: Service
     description: TAP (PORTUGAL)
+    source: MCC
+    mcc_id: 3035
+    related:
+      - Travel
   - name: VASP (BRAZIL)
     type: Service
     description: VASP (BRAZIL)
+    source: MCC
+    mcc_id: 3036
   - name: EGYPTAIR
     type: Service
     description: EGYPTAIR
+    source: MCC
+    mcc_id: 3037
+    related:
+      - Transport
+      - Travel
   - name: KUWAIT AIRLINES
     type: Service
     description: KUWAIT AIRLINES
+    source: MCC
+    mcc_id: 3038
+    related:
+      - Transport
+      - Travel
   - name: AVIANCA
     type: Service
     description: AVIANCA
+    source: MCC
+    mcc_id: 3039
+    related:
+      - Transport
+      - Travel
   - name: GULF AIR (BAHRAIN)
     type: Service
     description: GULF AIR (BAHRAIN)
+    source: MCC
+    mcc_id: 3040
+    related:
+      - Travel
   - name: BALKAN-BULGARIAN AIRLINES
     type: Service
     description: BALKAN-BULGARIAN AIRLINES
+    source: MCC
+    mcc_id: 3041
+    related:
+      - Transport
+      - Travel
   - name: FINNAIR
     type: Service
     description: FINNAIR
+    source: MCC
+    mcc_id: 3042
+    related:
+      - Transport
+      - Travel
   - name: AER LINGUS
     type: Service
     description: AER LINGUS
+    source: MCC
+    mcc_id: 3043
+    related:
+      - Transport
+      - Travel
   - name: AIR LANKA
     type: Service
     description: AIR LANKA
+    source: MCC
+    mcc_id: 3044
+    related:
+      - Transport
+      - Travel
   - name: NIGERIA AIRWAYS
     type: Service
     description: NIGERIA AIRWAYS
-  - name: CRUZEIRO DO SUL (BRAZIJ)
+    source: MCC
+    mcc_id: 3045
+    related:
+      - Transport
+      - Travel
+  - name: Cruzeiro do Sul
     type: Service
     description: CRUZEIRO DO SUL (BRAZIJ)
+    source: MCC
+    mcc_id: 3046
+    related:
+      - Travel
   - name: THY (TURKEY)
     type: Service
     description: THY (TURKEY)
+    source: MCC
+    mcc_id: 3047
+    related:
+      - Transport
+      - Travel
   - name: ROYAL AIR MAROC
     type: Service
     description: ROYAL AIR MAROC
+    source: MCC
+    mcc_id: 3048
+    related:
+      - Transport
+      - Travel
   - name: TUNIS AIR
     type: Service
     description: TUNIS AIR
+    source: MCC
+    mcc_id: 3049
+    related:
+      - Transport
+      - Travel
   - name: ICELANDAIR
     type: Service
     description: ICELANDAIR
+    source: MCC
+    mcc_id: 3050
+    related:
+      - Travel
   - name: AUSTRIAN AIRLINES
     type: Service
     description: AUSTRIAN AIRLINES
+    source: MCC
+    mcc_id: 3051
+    related:
+      - Transport
+      - Travel
   - name: LANCHILE
     type: Service
     description: LANCHILE
+    source: MCC
+    mcc_id: 3052
+    related:
+      - Transport
+      - Travel
   - name: AVIACO (SPAIN)
     type: Service
     description: AVIACO (SPAIN)
+    source: MCC
+    mcc_id: 3053
+    related:
+      - Travel
   - name: LADECO (CHILE)
     type: Service
     description: LADECO (CHILE)
+    source: MCC
+    mcc_id: 3054
+    related:
+      - Travel
   - name: LAB (BOLIVIA)
     type: Service
     description: LAB (BOLIVIA)
+    source: MCC
+    mcc_id: 3055
   - name: QUEBECAIRE
     type: Service
     description: QUEBECAIRE
+    source: MCC
+    mcc_id: 3056
+    related:
+      - Travel
   - name: EASTWEST AIRLINES (AUSTRALIA)
     type: Service
     description: EASTWEST AIRLINES (AUSTRALIA)
+    source: MCC
+    mcc_id: 3057
+    related:
+      - Transport
+      - Travel
   - name: DELTA
     type: Service
     description: DELTA
+    source: MCC
+    mcc_id: 3058
+    related:
+      - Transport
+      - Travel
   - name: NORTHWEST
     type: Service
     description: NORTHWEST
+    source: MCC
+    mcc_id: 3060
   - name: CONTINENTAL
     type: Service
     description: CONTINENTAL
+    source: MCC
+    mcc_id: 3061
+    related:
+      - Auto Maintenance
+      - Transport
   - name: WESTERN
     type: Service
     description: WESTERN
+    source: MCC
+    mcc_id: 3062
   - name: US AIR
     type: Service
     description: US AIR
+    source: MCC
+    mcc_id: 3063
+    related:
+      - Travel
   - name: AIRINTER
     type: Service
     description: AIRINTER
+    source: MCC
+    mcc_id: 3065
+    related:
+      - Travel
   - name: SOUTHWEST
     type: Service
     description: SOUTHWEST
+    source: MCC
+    mcc_id: 3066
+    related:
+      - Travel
   - name: SUN COUNTRY AIRLINES
     type: Service
     description: SUN COUNTRY AIRLINES
+    source: MCC
+    mcc_id: 3069
+    related:
+      - Transport
+      - Travel
   - name: AIR BRITISH COLUBIA
     type: Service
     description: AIR BRITISH COLUBIA
+    source: MCC
+    mcc_id: 3071
+    related:
+      - Transport
+      - Travel
   - name: SINGAPORE AIRLINES
     type: Service
     description: SINGAPORE AIRLINES
+    source: MCC
+    mcc_id: 3075
+    related:
+      - Transport
+      - Travel
   - name: AEROMEXICO
     type: Service
     description: AEROMEXICO
+    source: MCC
+    mcc_id: 3076
+    related:
+      - Transport
+      - Travel
   - name: THAI AIRWAYS
     type: Service
     description: THAI AIRWAYS
+    source: MCC
+    mcc_id: 3077
+    related:
+      - Transport
+      - Travel
   - name: CHINA AIRLINES
     type: Service
     description: CHINA AIRLINES
+    source: MCC
+    mcc_id: 3078
+    related:
+      - Transport
+      - Travel
   - name: NORDAIR
     type: Service
     description: NORDAIR
+    source: MCC
+    mcc_id: 3081
+    related:
+      - Travel
   - name: KOREAN AIRLINES
     type: Service
     description: KOREAN AIRLINES
+    source: MCC
+    mcc_id: 3082
+    related:
+      - Transport
+      - Travel
   - name: AIR AFRIGUE
     type: Service
     description: AIR AFRIGUE
+    source: MCC
+    mcc_id: 3083
+    related:
+      - Travel
   - name: EVA AIRLINES
     type: Service
     description: EVA AIRLINES
-  - name: MIDWEST EXPRESS AIRLINES, INC.
+    source: MCC
+    mcc_id: 3084
+    related:
+      - Transport
+      - Travel
+  - name: Midwest Express
     type: Service
     description: MIDWEST EXPRESS AIRLINES, INC.
+    source: MCC
+    mcc_id: 3085
+    related:
+      - Transport
+      - Travel
   - name: METRO AIRLINES
     type: Service
     description: METRO AIRLINES
+    source: MCC
+    mcc_id: 3087
+    related:
+      - Transport
+      - Travel
   - name: CROATIA AIRLINES
     type: Service
     description: CROATIA AIRLINES
+    source: MCC
+    mcc_id: 3088
+    related:
+      - Transport
+      - Travel
   - name: TRANSAERO
     type: Service
     description: TRANSAERO
+    source: MCC
+    mcc_id: 3089
+    related:
+      - Travel
   - name: ZAMBIA AIRWAYS
     type: Service
     description: ZAMBIA AIRWAYS
+    source: MCC
+    mcc_id: 3094
+    related:
+      - Transport
+      - Travel
   - name: AIR ZIMBABWE
     type: Service
     description: AIR ZIMBABWE
+    source: MCC
+    mcc_id: 3096
+    related:
+      - Transport
+      - Travel
   - name: CATHAY PACIFIC
     type: Service
     description: CATHAY PACIFIC
+    source: MCC
+    mcc_id: 3099
+    related:
+      - Travel
   - name: MALAYSIAN AIRLINE SYSTEM
     type: Service
     description: MALAYSIAN AIRLINE SYSTEM
+    source: MCC
+    mcc_id: 3100
+    related:
+      - Transport
+      - Travel
   - name: IBERIA
     type: Service
     description: IBERIA
+    source: MCC
+    mcc_id: 3102
+    related:
+      - Travel
   - name: GARUDA (INDONESIA)
     type: Service
     description: GARUDA (INDONESIA)
+    source: MCC
+    mcc_id: 3103
+    related:
+      - Travel
   - name: BRAATHENS S.A.F.E. (NORWAY)
     type: Service
     description: BRAATHENS S.A.F.E. (NORWAY)
+    source: MCC
+    mcc_id: 3106
+    related:
+      - Transport
   - name: WINGS AIRWAYS
     type: Service
     description: WINGS AIRWAYS
+    source: MCC
+    mcc_id: 3110
+    related:
+      - Transport
+      - Travel
   - name: BRITISH MIDLAND
     type: Service
     description: BRITISH MIDLAND
+    source: MCC
+    mcc_id: 3111
+    related:
+      - Transport
+      - Travel
   - name: WINDWARD ISLAND
     type: Service
     description: WINDWARD ISLAND
+    source: MCC
+    mcc_id: 3112
   - name: VIASA
     type: Service
     description: VIASA
+    source: MCC
+    mcc_id: 3117
+    related:
+      - Travel
   - name: VALLEY AIRLINES
     type: Service
     description: VALLEY AIRLINES
+    source: MCC
+    mcc_id: 3118
+    related:
+      - Transport
+      - Travel
   - name: TAN
     type: Service
     description: TAN
+    source: MCC
+    mcc_id: 3125
   - name: TALAIR
     type: Service
     description: TALAIR
+    source: MCC
+    mcc_id: 3126
+    related:
+      - Travel
   - name: TACA INTERNATIONAL
     type: Service
     description: TACA INTERNATIONAL
+    source: MCC
+    mcc_id: 3127
+    related:
+      - Travel
   - name: SURINAM AIRWAYS
     type: Service
     description: SURINAM AIRWAYS
+    source: MCC
+    mcc_id: 3129
+    related:
+      - Transport
+      - Travel
   - name: SUN WORLD INTERNATIONAL
     type: Service
     description: SUN WORLD INTERNATIONAL
+    source: MCC
+    mcc_id: 3130
+    related:
+      - Travel
   - name: SUNBELT AIRLINES
     type: Service
     description: SUNBELT AIRLINES
+    source: MCC
+    mcc_id: 3133
+    related:
+      - Transport
+      - Travel
   - name: SUDAN AIRWAYS
     type: Service
     description: SUDAN AIRWAYS
+    source: MCC
+    mcc_id: 3135
+    related:
+      - Transport
+      - Travel
   - name: SINGLETON
     type: Service
     description: SINGLETON
+    source: MCC
+    mcc_id: 3137
   - name: SIMMONS AIRLINES
     type: Service
     description: SIMMONS AIRLINES
+    source: MCC
+    mcc_id: 3138
+    related:
+      - Transport
+      - Travel
   - name: SCENIC AIRLINES
     type: Service
     description: SCENIC AIRLINES
+    source: MCC
+    mcc_id: 3143
+    related:
+      - Travel
   - name: VIRGIN ATLANTIC
     type: Service
     description: VIRGIN ATLANTIC
+    source: MCC
+    mcc_id: 3144
+    related:
+      - Transport
+      - Travel
   - name: SAN JUAN AIRLINES
     type: Service
     description: SAN JUAN AIRLINES
+    source: MCC
+    mcc_id: 3145
+    related:
+      - Transport
+      - Travel
   - name: LUXAIR
     type: Service
     description: LUXAIR
+    source: MCC
+    mcc_id: 3146
+    related:
+      - Travel
   - name: AIR ZAIRE
     type: Service
     description: AIR ZAIRE
+    source: MCC
+    mcc_id: 3151
+    related:
+      - Transport
+      - Travel
   - name: PRINCEVILLE
     type: Service
     description: PRINCEVILLE
+    source: MCC
+    mcc_id: 3154
+    related:
+      - Travel
+      - Entertainment
   - name: PBA
     type: Service
     description: PBA
+    source: MCC
+    mcc_id: 3159
+    related:
+      - Entertainment
   - name: ALL NIPPON AIRWAYS
     type: Service
     description: ALL NIPPON AIRWAYS
+    source: MCC
+    mcc_id: 3161
+    related:
+      - Transport
+      - Travel
   - name: NORONTAIR
     type: Service
     description: NORONTAIR
+    source: MCC
+    mcc_id: 3164
+    related:
+      - Travel
   - name: NEW YORK HELICOPTER
     type: Service
     description: NEW YORK HELICOPTER
+    source: MCC
+    mcc_id: 3165
+    related:
+      - Transport
+      - Travel
+      - Entertainment
   - name: NOUNT COOK
     type: Service
     description: NOUNT COOK
+    source: MCC
+    mcc_id: 3170
+    related:
+      - Dining
+      - Travel
   - name: CANADIAN AIRLINES INTERNATIONAL
     type: Service
     description: CANADIAN AIRLINES INTERNATIONAL
+    source: MCC
+    mcc_id: 3171
+    related:
+      - Transport
+      - Travel
   - name: NATIONAIR
     type: Service
     description: NATIONAIR
+    source: MCC
+    mcc_id: 3172
+    related:
+      - Travel
   - name: METROFLIGHT AIRLINES
     type: Service
     description: METROFLIGHT AIRLINES
+    source: MCC
+    mcc_id: 3176
+    related:
+      - Transport
+      - Travel
   - name: MESA AIR
     type: Service
     description: MESA AIR
+    source: MCC
+    mcc_id: 3178
+    related:
+      - Transport
+      - Travel
   - name: MALEV
     type: Service
     description: MALEV
+    source: MCC
+    mcc_id: 3181
+    related:
+      - Travel
   - name: LOT (POLAND)
     type: Service
     description: LOT (POLAND)
+    source: MCC
+    mcc_id: 3182
+    related:
+      - Travel
   - name: LIAT
     type: Service
     description: LIAT
+    source: MCC
+    mcc_id: 3184
+    related:
+      - Transport
+      - Travel
   - name: LAV (VENEZUELA)
     type: Service
     description: LAV (VENEZUELA)
+    source: MCC
+    mcc_id: 3185
+    related:
+      - Travel
   - name: LAP (PARAGUAY)
     type: Service
     description: LAP (PARAGUAY)
+    source: MCC
+    mcc_id: 3186
+    related:
+      - Transport
+      - Travel
   - name: LACSA (COSTA RICA)
     type: Service
     description: LACSA (COSTA RICA)
+    source: MCC
+    mcc_id: 3187
+    related:
+      - Travel
   - name: JUGOSLAV AIR
     type: Service
     description: JUGOSLAV AIR
+    source: MCC
+    mcc_id: 3190
+    related:
+      - Transport
+      - Travel
   - name: ISLAND AIRLINES
     type: Service
     description: ISLAND AIRLINES
+    source: MCC
+    mcc_id: 3191
+    related:
+      - Transport
+      - Travel
   - name: IRAN AIR
     type: Service
     description: IRAN AIR
+    source: MCC
+    mcc_id: 3192
+    related:
+      - Transport
+      - Travel
   - name: INDIAN AIRLINES
     type: Service
     description: INDIAN AIRLINES
+    source: MCC
+    mcc_id: 3193
+    related:
+      - Transport
+      - Travel
   - name: HAWAIIAN AIR
     type: Service
     description: HAWAIIAN AIR
+    source: MCC
+    mcc_id: 3196
+    related:
+      - Transport
+      - Travel
   - name: HAVASU AIRLINES
     type: Service
     description: HAVASU AIRLINES
+    source: MCC
+    mcc_id: 3197
+    related:
+      - Transport
+      - Travel
   - name: FUYANA AIRWAYS
     type: Service
     description: FUYANA AIRWAYS
+    source: MCC
+    mcc_id: 3200
+    related:
+      - Transport
+      - Travel
   - name: GOLDEN PACIFIC AIR
     type: Service
     description: GOLDEN PACIFIC AIR
+    source: MCC
+    mcc_id: 3203
+    related:
+      - Transport
+      - Travel
   - name: FREEDOM AIR
     type: Service
     description: FREEDOM AIR
+    source: MCC
+    mcc_id: 3204
+    related:
+      - Travel
   - name: DOMINICANA
     type: Service
     description: DOMINICANA
+    source: MCC
+    mcc_id: 3212
+    related:
+      - Travel
+      - Dining
   - name: DAN AIR SERVICES
     type: Service
     description: DAN AIR SERVICES
+    source: MCC
+    mcc_id: 3215
+    related:
+      - Transport
+      - Travel
   - name: CUMBERLAND AIRLINES
     type: Service
     description: CUMBERLAND AIRLINES
+    source: MCC
+    mcc_id: 3216
+    related:
+      - Transport
+      - Travel
   - name: CSA
     type: Service
     description: CSA
+    source: MCC
+    mcc_id: 3217
   - name: CROWN AIR
     type: Service
     description: CROWN AIR
+    source: MCC
+    mcc_id: 3218
+    related:
+      - Transport
+      - Travel
   - name: COPA
     type: Service
     description: COPA
+    source: MCC
+    mcc_id: 3219
   - name: COMPANIA FAUCETT
     type: Service
     description: COMPANIA FAUCETT
-  - name: TRANSPORTES AEROS MILITARES ECCUATORANOS
+    source: MCC
+    mcc_id: 3220
+    related:
+      - Travel
+  - name: Transportes Aeros Militares
     type: Service
     description: TRANSPORTES AEROS MILITARES ECCUATORANOS
+    source: MCC
+    mcc_id: 3221
   - name: COMMAND AIRWAYS
     type: Service
     description: COMMAND AIRWAYS
+    source: MCC
+    mcc_id: 3222
+    related:
+      - Transport
   - name: COMAIR
     type: Service
     description: COMAIR
+    source: MCC
+    mcc_id: 3223
+    related:
+      - Transport
+      - Travel
   - name: CAYMAN AIRWAYS
     type: Service
     description: CAYMAN AIRWAYS
-  - name: SAETA SOCIAEDAD ECUATORIANOS DE TRANSPORTES AEREOS
+    source: MCC
+    mcc_id: 3228
+    related:
+      - Transport
+      - Travel
+  - name: SAETA
     type: Service
     description: SAETA SOCIAEDAD ECUATORIANOS DE TRANSPORTES AEREOS
-  - name: SASHA SERVICIO AERO DE HONDURAS
+    source: MCC
+    mcc_id: 3229
+    related:
+      - Travel
+  - name: Sasha
     type: Service
     description: SASHA SERVICIO AERO DE HONDURAS
+    source: MCC
+    mcc_id: 3231
   - name: CAPITOL AIR
     type: Service
     description: CAPITOL AIR
+    source: MCC
+    mcc_id: 3233
+    related:
+      - Transport
+      - Travel
   - name: BWIA
     type: Service
     description: BWIA
+    source: MCC
+    mcc_id: 3234
+    related:
+      - Transport
   - name: BROKWAY AIR
     type: Service
     description: BROKWAY AIR
+    source: MCC
+    mcc_id: 3235
+    related:
+      - Transport
+      - Travel
   - name: BEMIDJI AIRLINES
     type: Service
     description: BEMIDJI AIRLINES
+    source: MCC
+    mcc_id: 3238
+    related:
+      - Transport
+      - Travel
   - name: BAR HARBOR AIRLINES
     type: Service
     description: BAR HARBOR AIRLINES
+    source: MCC
+    mcc_id: 3239
+    related:
+      - Transport
+      - Travel
   - name: BAHAMASAIR
     type: Service
     description: BAHAMASAIR
+    source: MCC
+    mcc_id: 3240
+    related:
+      - Travel
   - name: AVIATECA (GUATEMALA)
     type: Service
     description: AVIATECA (GUATEMALA)
+    source: MCC
+    mcc_id: 3241
+    related:
+      - Travel
   - name: AVENSA
     type: Service
     description: AVENSA
+    source: MCC
+    mcc_id: 3242
+    related:
+      - Transport
+      - Travel
   - name: AUSTRIAN AIR SERVICE
     type: Service
     description: AUSTRIAN AIR SERVICE
+    source: MCC
+    mcc_id: 3243
+    related:
+      - Transport
+      - Travel
   - name: ALOHA AIRLINES
     type: Service
     description: ALOHA AIRLINES
+    source: MCC
+    mcc_id: 3251
+    related:
+      - Transport
+      - Travel
   - name: ALM
     type: Service
     description: ALM
+    source: MCC
+    mcc_id: 3252
   - name: AMERICA WEST
     type: Service
     description: AMERICA WEST
+    source: MCC
+    mcc_id: 3253
+    related:
+      - Travel
   - name: TRUMP AIRLINE
     type: Service
     description: TRUMP AIRLINE
+    source: MCC
+    mcc_id: 3254
+    related:
+      - Transport
+      - Travel
   - name: ALASKA AIRLINES
     type: Service
     description: ALASKA AIRLINES
+    source: MCC
+    mcc_id: 3256
+    related:
+      - Transport
+      - Travel
   - name: AMERICAN TRANS AIR
     type: Service
     description: AMERICAN TRANS AIR
+    source: MCC
+    mcc_id: 3259
+    related:
+      - Transport
+      - Travel
   - name: AIR CHINA
     type: Service
     description: AIR CHINA
+    source: MCC
+    mcc_id: 3261
+    related:
+      - Transport
+      - Travel
   - name: RENO AIR, INC.
     type: Service
     description: RENO AIR, INC.
+    source: MCC
+    mcc_id: 3262
+    related:
+      - Transport
+      - Travel
   - name: AIR SEYCHELLES
     type: Service
     description: AIR SEYCHELLES
+    source: MCC
+    mcc_id: 3266
+    related:
+      - Travel
   - name: AIR PANAMA
     type: Service
     description: AIR PANAMA
+    source: MCC
+    mcc_id: 3267
+    related:
+      - Transport
+      - Travel
   - name: AIR JAMAICA
     type: Service
     description: AIR JAMAICA
+    source: MCC
+    mcc_id: 3280
+    related:
+      - Travel
   - name: AIR DJIBOUTI
     type: Service
     description: AIR DJIBOUTI
+    source: MCC
+    mcc_id: 3282
+    related:
+      - Transport
+      - Travel
   - name: AERO VIRGIN ISLANDS
     type: Service
     description: AERO VIRGIN ISLANDS
+    source: MCC
+    mcc_id: 3284
+    related:
+      - Transport
+      - Travel
   - name: AERO PERU
     type: Service
     description: AERO PERU
+    source: MCC
+    mcc_id: 3285
+    related:
+      - Transport
+      - Travel
   - name: AEROLINEAS NICARAGUENSIS
     type: Service
     description: AEROLINEAS NICARAGUENSIS
+    source: MCC
+    mcc_id: 3286
+    related:
+      - Transport
+      - Travel
   - name: AERO COACH AVAIATION
     type: Service
     description: AERO COACH AVAIATION
+    source: MCC
+    mcc_id: 3287
+    related:
+      - Transport
   - name: ARIANA AFGHAN
     type: Service
     description: ARIANA AFGHAN
+    source: MCC
+    mcc_id: 3291
+    related:
+      - Dining
   - name: CYPRUS AIRWAYS
     type: Service
     description: CYPRUS AIRWAYS
+    source: MCC
+    mcc_id: 3292
+    related:
+      - Transport
+      - Travel
   - name: ECUATORIANA
     type: Service
     description: ECUATORIANA
+    source: MCC
+    mcc_id: 3293
+    related:
+      - Travel
+      - Transport
   - name: ETHIOPIAN AIRLINES
     type: Service
     description: ETHIOPIAN AIRLINES
+    source: MCC
+    mcc_id: 3294
+    related:
+      - Transport
+      - Travel
   - name: KENYA AIRLINES
     type: Service
     description: KENYA AIRLINES
+    source: MCC
+    mcc_id: 3295
+    related:
+      - Transport
+      - Travel
   - name: AIR MAURITIUS
     type: Service
     description: AIR MAURITIUS
-  - name: WIDERO’S FLYVESELSKAP
+    source: MCC
+    mcc_id: 3298
+    related:
+      - Travel
+  - name: WIDERO'S FLYVESELSKAP
     type: Service
-    description: WIDERO’S FLYVESELSKAP
+    description: WIDERO'S FLYVESELSKAP
+    source: MCC
+    mcc_id: 3299
+    related:
+      - Transport
+      - Travel
   - name: AFFILIATED AUTO RENTAL
     type: Service
     description: AFFILIATED AUTO RENTAL
+    source: MCC
+    mcc_id: 3351
+    related:
+      - Transport
   - name: AMERICAN INTL RENT-A-CAR
     type: Service
     description: AMERICAN INTL RENT-A-CAR
+    source: MCC
+    mcc_id: 3352
+    related:
+      - Transport
   - name: BROOKS RENT-A-CAR
     type: Service
     description: BROOKS RENT-A-CAR
+    source: MCC
+    mcc_id: 3353
+    related:
+      - Transport
+      - Travel
   - name: ACTION AUTO RENTAL
     type: Service
     description: ACTION AUTO RENTAL
+    source: MCC
+    mcc_id: 3354
+    related:
+      - Transport
+      - Travel
   - name: Car Rental
     type: Service
     description: Car Rental
+    source: MCC
+    mcc_id: 3355
+    related:
+      - Transport
+      - Travel
   - name: HERTZ RENT-A-CAR
     type: Service
     description: HERTZ RENT-A-CAR
+    source: MCC
+    mcc_id: 3357
+    related:
+      - Transport
+      - Travel
   - name: PAYLESS CAR RENTAL
     type: Service
     description: PAYLESS CAR RENTAL
+    source: MCC
+    mcc_id: 3359
+    related:
+      - Transport
+      - Travel
   - name: SNAPPY CAR RENTAL
     type: Service
     description: SNAPPY CAR RENTAL
+    source: MCC
+    mcc_id: 3360
+    related:
+      - Transport
+      - Travel
   - name: AIRWAYS RENT-A-CAR
     type: Service
     description: AIRWAYS RENT-A-CAR
+    source: MCC
+    mcc_id: 3361
+    related:
+      - Transport
+      - Travel
   - name: ALTRA AUTO RENTAL
     type: Service
     description: ALTRA AUTO RENTAL
+    source: MCC
+    mcc_id: 3362
+    related:
+      - Transport
   - name: AGENCY RENT-A-CAR
     type: Service
     description: AGENCY RENT-A-CAR
+    source: MCC
+    mcc_id: 3364
+    related:
+      - Transport
+      - Travel
   - name: BUDGET RENT-A-CAR
     type: Service
     description: BUDGET RENT-A-CAR
+    source: MCC
+    mcc_id: 3366
+    related:
+      - Transport
+      - Travel
   - name: HOLIDAY RENT-A-WRECK
     type: Service
     description: HOLIDAY RENT-A-WRECK
+    source: MCC
+    mcc_id: 3368
+    related:
+      - Transport
+      - Travel
   - name: RENT-A-WRECK
     type: Service
     description: RENT-A-WRECK
+    source: MCC
+    mcc_id: 3370
+    related:
+      - Transport
+      - Travel
   - name: AJAX RENT-A-CAR
     type: Service
     description: AJAX RENT-A-CAR
+    source: MCC
+    mcc_id: 3376
+    related:
+      - Transport
+      - Travel
   - name: EUROP CAR
     type: Service
     description: EUROP CAR
+    source: MCC
+    mcc_id: 3381
+    related:
+      - Transport
+      - Travel
   - name: TROPICAL RENT-A-CAR
     type: Service
     description: TROPICAL RENT-A-CAR
+    source: MCC
+    mcc_id: 3385
+    related:
+      - Transport
+      - Travel
   - name: SHOWCASE RENTAL CARS
     type: Service
     description: SHOWCASE RENTAL CARS
+    source: MCC
+    mcc_id: 3386
+    related:
+      - Transport
+      - Travel
   - name: ALAMO RENT-A-CAR
     type: Service
     description: ALAMO RENT-A-CAR
+    source: MCC
+    mcc_id: 3387
+    related:
+      - Transport
+      - Travel
   - name: AVIS RENT-A-CAR
     type: Service
     description: AVIS RENT-A-CAR
+    source: MCC
+    mcc_id: 3389
+    related:
+      - Transport
+      - Travel
   - name: DOLLAR RENT-A-CAR
     type: Service
     description: DOLLAR RENT-A-CAR
+    source: MCC
+    mcc_id: 3390
+    related:
+      - Transport
+      - Travel
   - name: EUROPE BY CAR
     type: Service
     description: EUROPE BY CAR
+    source: MCC
+    mcc_id: 3391
+    related:
+      - Transport
+      - Travel
   - name: NATIONAL CAR RENTAL
     type: Service
     description: NATIONAL CAR RENTAL
+    source: MCC
+    mcc_id: 3393
+    related:
+      - Transport
+      - Travel
   - name: KEMWELL GROUP RENT-A-CAR
     type: Service
     description: KEMWELL GROUP RENT-A-CAR
+    source: MCC
+    mcc_id: 3394
+    related:
+      - Transport
+      - Travel
   - name: THRIFTY RENT-A-CAR
     type: Service
     description: THRIFTY RENT-A-CAR
+    source: MCC
+    mcc_id: 3395
+    related:
+      - Transport
+      - Travel
   - name: TILDEN TENT-A-CAR
     type: Service
     description: TILDEN TENT-A-CAR
+    source: MCC
+    mcc_id: 3396
+    related:
+      - Transport
+      - Travel
   - name: ECONO-CAR RENT-A-CAR
     type: Service
     description: ECONO-CAR RENT-A-CAR
-  - name: AUTO HOST COST CAR RENTALS
+    source: MCC
+    mcc_id: 3398
+    related:
+      - Transport
+      - Travel
+  - name: Auto Host
     type: Service
     description: AUTO HOST COST CAR RENTALS
+    source: MCC
+    mcc_id: 3400
+    related:
+      - Transport
+      - Travel
   - name: ENTERPRISE RENT-A-CAR
     type: Service
     description: ENTERPRISE RENT-A-CAR
+    source: MCC
+    mcc_id: 3405
+    related:
+      - Transport
+      - Travel
   - name: GENERAL RENT-A-CAR
     type: Service
     description: GENERAL RENT-A-CAR
+    source: MCC
+    mcc_id: 3409
+    related:
+      - Transport
+      - Travel
   - name: A-1 RENT-A-CAR
     type: Service
     description: A-1 RENT-A-CAR
+    source: MCC
+    mcc_id: 3412
+    related:
+      - Transport
+      - Travel
   - name: GODFREY NATL RENT-A-CAR
     type: Service
     description: GODFREY NATL RENT-A-CAR
+    source: MCC
+    mcc_id: 3414
+    related:
+      - Transport
+      - Travel
   - name: ALPHA RENT-A-CAR
     type: Service
     description: ALPHA RENT-A-CAR
+    source: MCC
+    mcc_id: 3419
+    related:
+      - Transport
   - name: ANSA INTL RENT-A-CAR
     type: Service
     description: ANSA INTL RENT-A-CAR
+    source: MCC
+    mcc_id: 3420
+    related:
+      - Transport
+      - Travel
   - name: ALLSTAE RENT-A-CAR
     type: Service
     description: ALLSTAE RENT-A-CAR
+    source: MCC
+    mcc_id: 3421
+    related:
+      - Transport
+      - Travel
   - name: AVCAR RENT-A-CAR
     type: Service
     description: AVCAR RENT-A-CAR
+    source: MCC
+    mcc_id: 3423
+    related:
+      - Transport
+      - Travel
   - name: AUTOMATE RENT-A-CAR
     type: Service
     description: AUTOMATE RENT-A-CAR
+    source: MCC
+    mcc_id: 3425
+    related:
+      - Transport
+      - Travel
   - name: AVON RENT-A-CAR
     type: Service
     description: AVON RENT-A-CAR
+    source: MCC
+    mcc_id: 3427
+    related:
+      - Transport
+      - Travel
   - name: CAREY RENT-A-CAR
     type: Service
     description: CAREY RENT-A-CAR
+    source: MCC
+    mcc_id: 3428
+    related:
+      - Transport
+      - Travel
   - name: INSURANCE RENT-A-CAR
     type: Service
     description: INSURANCE RENT-A-CAR
+    source: MCC
+    mcc_id: 3429
+    related:
+      - Transport
+      - Travel
   - name: MAJOR RENT-A-CAR
     type: Service
     description: MAJOR RENT-A-CAR
+    source: MCC
+    mcc_id: 3430
+    related:
+      - Transport
+      - Travel
   - name: REPLACEMENT RENT-A-CAR
     type: Service
     description: REPLACEMENT RENT-A-CAR
+    source: MCC
+    mcc_id: 3431
+    related:
+      - Transport
   - name: RESERVE RENT-A-CAR
     type: Service
     description: RESERVE RENT-A-CAR
+    source: MCC
+    mcc_id: 3432
+    related:
+      - Transport
   - name: UGLY DUCKLING RENT-A-CAR
     type: Service
     description: UGLY DUCKLING RENT-A-CAR
+    source: MCC
+    mcc_id: 3433
+    related:
+      - Transport
+      - Travel
   - name: USA RENT-A-CAR
     type: Service
     description: USA RENT-A-CAR
+    source: MCC
+    mcc_id: 3434
+    related:
+      - Transport
+      - Travel
   - name: VALUE RENT-A-CAR
     type: Service
     description: VALUE RENT-A-CAR
+    source: MCC
+    mcc_id: 3435
+    related:
+      - Transport
+      - Travel
   - name: AUTOHANSA RENT-A-CAR
     type: Service
     description: AUTOHANSA RENT-A-CAR
+    source: MCC
+    mcc_id: 3436
+    related:
+      - Transport
+      - Travel
   - name: CITE RENT-A-CAR
     type: Service
     description: CITE RENT-A-CAR
+    source: MCC
+    mcc_id: 3437
+    related:
+      - Transport
+      - Travel
   - name: INTERENT RENT-A-CAR
     type: Service
     description: INTERENT RENT-A-CAR
+    source: MCC
+    mcc_id: 3438
+    related:
+      - Transport
+      - Travel
   - name: MILLEVILLE RENT-A-CAR
     type: Service
     description: MILLEVILLE RENT-A-CAR
+    source: MCC
+    mcc_id: 3439
+    related:
+      - Transport
   - name: VIA ROUTE RENT-A-CAR
     type: Service
     description: VIA ROUTE RENT-A-CAR
-  - name: HOLIDAY INNS, HOLIDAY INN EXPRESS
+    source: MCC
+    mcc_id: 3440
+    related:
+      - Transport
+      - Travel
+  - name: Holiday Inn
     type: Service
     description: HOLIDAY INNS, HOLIDAY INN EXPRESS
+    source: MCC
+    mcc_id: 3501
+    related:
+      - Travel
+      - Housing
   - name: BEST WESTERN HOTELS
     type: Service
     description: BEST WESTERN HOTELS
+    source: MCC
+    mcc_id: 3502
+    related:
+      - Travel
+      - Housing
   - name: SHERATON HOTELS
     type: Service
     description: SHERATON HOTELS
+    source: MCC
+    mcc_id: 3503
+    related:
+      - Travel
   - name: HILTON HOTELS
     type: Service
     description: HILTON HOTELS
+    source: MCC
+    mcc_id: 3504
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: FORTE HOTELS
     type: Service
     description: FORTE HOTELS
+    source: MCC
+    mcc_id: 3505
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: GOLDEN TULIP HOTELS
     type: Service
     description: GOLDEN TULIP HOTELS
+    source: MCC
+    mcc_id: 3506
+    related:
+      - Travel
   - name: FRIENDSHIP INNS
     type: Service
     description: FRIENDSHIP INNS
-  - name: QUALITY INNS, QUALITY SUITES
+    source: MCC
+    mcc_id: 3507
+    related:
+      - Travel
+      - Dining
+  - name: Quality Inn
     type: Service
     description: QUALITY INNS, QUALITY SUITES
+    source: MCC
+    mcc_id: 3508
+    related:
+      - Travel
+      - Housing
   - name: MARRIOTT HOTELS
     type: Service
     description: MARRIOTT HOTELS
+    source: MCC
+    mcc_id: 3509
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: DAYS INN, DAYSTOP
     type: Service
     description: DAYS INN, DAYSTOP
+    source: MCC
+    mcc_id: 3510
+    related:
+      - Travel
+      - Housing
   - name: ARABELLA HOTELS
     type: Service
     description: ARABELLA HOTELS
+    source: MCC
+    mcc_id: 3511
+    related:
+      - Travel
+      - Dining
+      - Entertainment
   - name: INTER-CONTINENTAL HOTELS
     type: Service
     description: INTER-CONTINENTAL HOTELS
+    source: MCC
+    mcc_id: 3512
+    related:
+      - Travel
   - name: WESTIN HOTELS
     type: Service
     description: WESTIN HOTELS
+    source: MCC
+    mcc_id: 3513
+    related:
+      - Travel
   - name: Hotels/Motels/Inns/Resorts
     type: Service
     description: Hotels/Motels/Inns/Resorts
+    source: MCC
+    mcc_id: 3514
+    related:
+      - Travel
+      - Dining
   - name: RODEWAY INNS
     type: Service
     description: RODEWAY INNS
-  - name: LA QUINTA MOTOR INNS
+    source: MCC
+    mcc_id: 3515
+    related:
+      - Travel
+      - Housing
+  - name: La Quinta
     type: Service
     description: LA QUINTA MOTOR INNS
+    source: MCC
+    mcc_id: 3516
+    related:
+      - Travel
+      - Housing
   - name: AMERICANA HOTELS
     type: Service
     description: AMERICANA HOTELS
+    source: MCC
+    mcc_id: 3517
+    related:
+      - Travel
+      - Housing
+      - Entertainment
   - name: SOL HOTELS
     type: Service
     description: SOL HOTELS
+    source: MCC
+    mcc_id: 3518
+    related:
+      - Travel
   - name: PULLMAN INTERNATIONAL HOTELS
     type: Service
     description: PULLMAN INTERNATIONAL HOTELS
+    source: MCC
+    mcc_id: 3519
+    related:
+      - Travel
   - name: MERIDIEN HOTELS
     type: Service
     description: MERIDIEN HOTELS
-  - name: CREST HOTELS (see FORTE HOTELS)
+    source: MCC
+    mcc_id: 3520
+    related:
+      - Travel
+  - name: Crest Hotels
     type: Service
     description: CREST HOTELS (see FORTE HOTELS)
+    source: MCC
+    mcc_id: 3521
+    related:
+      - Travel
+      - Dining
   - name: TOKYO HOTEL
     type: Service
     description: TOKYO HOTEL
+    source: MCC
+    mcc_id: 3522
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: PENNSULA HOTEL
     type: Service
     description: PENNSULA HOTEL
+    source: MCC
+    mcc_id: 3523
+    related:
+      - Travel
+      - Dining
   - name: WELCOMGROUP HOTELS
     type: Service
     description: WELCOMGROUP HOTELS
+    source: MCC
+    mcc_id: 3524
+    related:
+      - Travel
+      - Dining
   - name: DUNFEY HOTELS
     type: Service
     description: DUNFEY HOTELS
+    source: MCC
+    mcc_id: 3525
+    related:
+      - Travel
   - name: DOWNTOWNER-PASSPORT HOTEL
     type: Service
     description: DOWNTOWNER-PASSPORT HOTEL
-  - name: RED LION HOTELS, RED LION INNS
+    source: MCC
+    mcc_id: 3527
+    related:
+      - Travel
+      - Housing
+  - name: Red Lion
     type: Service
     description: RED LION HOTELS, RED LION INNS
+    source: MCC
+    mcc_id: 3528
+    related:
+      - Travel
+      - Housing
   - name: CP HOTELS
     type: Service
     description: CP HOTELS
-  - name: RENAISSANCE HOTELS, STOUFFER HOTELS
+    source: MCC
+    mcc_id: 3529
+    related:
+      - Travel
+      - Housing
+      - Dining
+  - name: Renaissance
     type: Service
     description: RENAISSANCE HOTELS, STOUFFER HOTELS
+    source: MCC
+    mcc_id: 3530
+    related:
+      - Travel
+      - Dining
   - name: ASTIR HOTELS
     type: Service
     description: ASTIR HOTELS
+    source: MCC
+    mcc_id: 3531
+    related:
+      - Travel
   - name: SUN ROUTE HOTELS
     type: Service
     description: SUN ROUTE HOTELS
+    source: MCC
+    mcc_id: 3532
+    related:
+      - Travel
   - name: HOTEL IBIS
     type: Service
     description: HOTEL IBIS
+    source: MCC
+    mcc_id: 3533
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: SOUTHERN PACIFIC HOTELS
     type: Service
     description: SOUTHERN PACIFIC HOTELS
+    source: MCC
+    mcc_id: 3534
+    related:
+      - Travel
   - name: HILTON INTERNATIONAL
     type: Service
     description: HILTON INTERNATIONAL
+    source: MCC
+    mcc_id: 3535
+    related:
+      - Travel
   - name: AMFAC HOTELS
     type: Service
     description: AMFAC HOTELS
+    source: MCC
+    mcc_id: 3536
+    related:
+      - Travel
   - name: ANA HOTEL
     type: Service
     description: ANA HOTEL
+    source: MCC
+    mcc_id: 3537
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: CONCORDE HOTELS
     type: Service
     description: CONCORDE HOTELS
+    source: MCC
+    mcc_id: 3538
+    related:
+      - Travel
+      - Dining
+      - Entertainment
   - name: IBEROTEL HOTELS
     type: Service
     description: IBEROTEL HOTELS
+    source: MCC
+    mcc_id: 3540
+    related:
+      - Travel
+      - Dining
+      - Entertainment
+      - Housing
   - name: HOTEL OKURA
     type: Service
     description: HOTEL OKURA
+    source: MCC
+    mcc_id: 3541
+    related:
+      - Travel
+      - Dining
   - name: ROYAL HOTELS
     type: Service
     description: ROYAL HOTELS
+    source: MCC
+    mcc_id: 3542
+    related:
+      - Travel
+      - Dining
+      - Entertainment
   - name: FOUR SEASONS HOTELS
     type: Service
     description: FOUR SEASONS HOTELS
+    source: MCC
+    mcc_id: 3543
+    related:
+      - Travel
   - name: CIGA HOTELS
     type: Service
     description: CIGA HOTELS
+    source: MCC
+    mcc_id: 3544
+    related:
+      - Travel
+      - Dining
+      - Entertainment
+      - Housing
   - name: SHANGRI-LA INTERNATIONAL
     type: Service
     description: SHANGRI-LA INTERNATIONAL
+    source: MCC
+    mcc_id: 3545
+    related:
+      - Travel
+      - Dining
   - name: HOTELES MELIA
     type: Service
     description: HOTELES MELIA
+    source: MCC
+    mcc_id: 3548
+    related:
+      - Travel
   - name: AUBERGE DES GOVERNEURS
     type: Service
     description: AUBERGE DES GOVERNEURS
+    source: MCC
+    mcc_id: 3549
+    related:
+      - Travel
+      - Dining
   - name: REGAL 8 INNS
     type: Service
     description: REGAL 8 INNS
+    source: MCC
+    mcc_id: 3550
+    related:
+      - Travel
+      - Housing
   - name: COAST HOTELS
     type: Service
     description: COAST HOTELS
+    source: MCC
+    mcc_id: 3552
+    related:
+      - Travel
   - name: PARK INNS INTERNATIONAL
     type: Service
     description: PARK INNS INTERNATIONAL
+    source: MCC
+    mcc_id: 3553
+    related:
+      - Travel
   - name: JOLLY HOTELS
     type: Service
     description: JOLLY HOTELS
+    source: MCC
+    mcc_id: 3558
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: COMFORT INNS
     type: Service
     description: COMFORT INNS
-  - name: JOURNEY’S END MOTLS
+    source: MCC
+    mcc_id: 3562
+    related:
+      - Travel
+      - Housing
+  - name: JOURNEY'S END MOTLS
     type: Service
-    description: JOURNEY’S END MOTLS
+    description: JOURNEY'S END MOTLS
+    source: MCC
+    mcc_id: 3563
+    related:
+      - Travel
+      - Housing
   - name: RELAX INNS
     type: Service
     description: RELAX INNS
+    source: MCC
+    mcc_id: 3565
+    related:
+      - Travel
   - name: LADBROKE HOTELS
     type: Service
     description: LADBROKE HOTELS
+    source: MCC
+    mcc_id: 3568
+    related:
+      - Travel
+      - Entertainment
+      - Housing
   - name: FORUM HOTELS
     type: Service
     description: FORUM HOTELS
+    source: MCC
+    mcc_id: 3570
+    related:
+      - Travel
   - name: MIYAKO HOTELS
     type: Service
     description: MIYAKO HOTELS
+    source: MCC
+    mcc_id: 3572
+    related:
+      - Travel
+      - Dining
+      - Housing
   - name: SANDMAN HOTELS
     type: Service
     description: SANDMAN HOTELS
+    source: MCC
+    mcc_id: 3573
+    related:
+      - Travel
   - name: VENTURE INNS
     type: Service
     description: VENTURE INNS
+    source: MCC
+    mcc_id: 3574
+    related:
+      - Dining
+      - Travel
+      - Housing
   - name: VAGABOND HOTELS
     type: Service
     description: VAGABOND HOTELS
+    source: MCC
+    mcc_id: 3575
+    related:
+      - Travel
+      - Housing
   - name: MANDARIN ORIENTAL HOTEL
     type: Service
     description: MANDARIN ORIENTAL HOTEL
+    source: MCC
+    mcc_id: 3577
+    related:
+      - Travel
+      - Dining
+      - Entertainment
   - name: HOTEL MERCURE
     type: Service
     description: HOTEL MERCURE
+    source: MCC
+    mcc_id: 3579
+    related:
+      - Travel
+      - Dining
+      - Entertainment
   - name: DELTA HOTEL
     type: Service
     description: DELTA HOTEL
+    source: MCC
+    mcc_id: 3581
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: SAS HOTELS
     type: Service
     description: SAS HOTELS
+    source: MCC
+    mcc_id: 3583
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: PRINCESS HOTELS INTERNATIONAL
     type: Service
     description: PRINCESS HOTELS INTERNATIONAL
+    source: MCC
+    mcc_id: 3584
+    related:
+      - Travel
   - name: HUNGAR HOTELS
     type: Service
     description: HUNGAR HOTELS
+    source: MCC
+    mcc_id: 3585
+    related:
+      - Travel
   - name: SOKOS HOTELS
     type: Service
     description: SOKOS HOTELS
+    source: MCC
+    mcc_id: 3586
+    related:
+      - Travel
   - name: DORAL HOTELS
     type: Service
     description: DORAL HOTELS
+    source: MCC
+    mcc_id: 3587
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: HELMSLEY HOTELS
     type: Service
     description: HELMSLEY HOTELS
+    source: MCC
+    mcc_id: 3588
+    related:
+      - Travel
   - name: FAIRMONT HOTELS
     type: Service
     description: FAIRMONT HOTELS
+    source: MCC
+    mcc_id: 3590
+    related:
+      - Travel
   - name: SONESTA HOTELS
     type: Service
     description: SONESTA HOTELS
+    source: MCC
+    mcc_id: 3591
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: OMNI HOTELS
     type: Service
     description: OMNI HOTELS
+    source: MCC
+    mcc_id: 3592
+    related:
+      - Travel
   - name: CUNARD HOTELS
     type: Service
     description: CUNARD HOTELS
+    source: MCC
+    mcc_id: 3593
+    related:
+      - Travel
   - name: HOSPITALITY INTERNATIONAL
     type: Service
     description: HOSPITALITY INTERNATIONAL
+    source: MCC
+    mcc_id: 3595
+    related:
+      - Dining
+      - Travel
   - name: REGENT INTERNATIONAL HOTELS
     type: Service
     description: REGENT INTERNATIONAL HOTELS
+    source: MCC
+    mcc_id: 3598
+    related:
+      - Travel
   - name: PANNONIA HOTELS
     type: Service
     description: PANNONIA HOTELS
-  - name: NOAH’S HOTELS
+    source: MCC
+    mcc_id: 3599
+    related:
+      - Travel
+  - name: NOAH'S HOTELS
     type: Service
-    description: NOAH’S HOTELS
+    description: NOAH'S HOTELS
+    source: MCC
+    mcc_id: 3603
+    related:
+      - Travel
   - name: MOVENPICK HOTELS
     type: Service
     description: MOVENPICK HOTELS
+    source: MCC
+    mcc_id: 3612
+    related:
+      - Travel
+      - Dining
   - name: TRAVELODGE
     type: Service
     description: TRAVELODGE
+    source: MCC
+    mcc_id: 3615
+    related:
+      - Travel
+      - Housing
   - name: TELFORD INTERNATIONAL
     type: Service
     description: TELFORD INTERNATIONAL
+    source: MCC
+    mcc_id: 3620
+    related:
+      - Travel
+      - Dining
   - name: MERLIN HOTELS
     type: Service
     description: MERLIN HOTELS
+    source: MCC
+    mcc_id: 3622
+    related:
+      - Travel
   - name: DORINT HOTELS
     type: Service
     description: DORINT HOTELS
+    source: MCC
+    mcc_id: 3623
+    related:
+      - Travel
   - name: HOTLE UNIVERSALE
     type: Service
     description: HOTLE UNIVERSALE
+    source: MCC
+    mcc_id: 3625
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: PRINCE HOTELS
     type: Service
     description: PRINCE HOTELS
+    source: MCC
+    mcc_id: 3626
+    related:
+      - Travel
   - name: DAN HOTELS
     type: Service
     description: DAN HOTELS
+    source: MCC
+    mcc_id: 3629
+    related:
+      - Travel
   - name: RANK HOTELS
     type: Service
     description: RANK HOTELS
+    source: MCC
+    mcc_id: 3633
+    related:
+      - Travel
   - name: SWISSOTEL
     type: Service
     description: SWISSOTEL
+    source: MCC
+    mcc_id: 3634
+    related:
+      - Travel
   - name: RESO HOTELS
     type: Service
     description: RESO HOTELS
+    source: MCC
+    mcc_id: 3635
+    related:
+      - Travel
   - name: SAROVA HOTELS
     type: Service
     description: SAROVA HOTELS
-  - name: RAMADA INNS, RAMADA LIMITED
+    source: MCC
+    mcc_id: 3636
+    related:
+      - Dining
+      - Travel
+      - Entertainment
+  - name: Ramada
     type: Service
     description: RAMADA INNS, RAMADA LIMITED
-  - name: HO JO INN, HOWARD JOHNSON
+    source: MCC
+    mcc_id: 3637
+    related:
+      - Travel
+  - name: Howard Johnson
     type: Service
     description: HO JO INN, HOWARD JOHNSON
+    source: MCC
+    mcc_id: 3638
+    related:
+      - Travel
+      - Dining
   - name: MOUNT CHARLOTTE THISTLE
     type: Service
     description: MOUNT CHARLOTTE THISTLE
+    source: MCC
+    mcc_id: 3639
+    related:
+      - Travel
   - name: HYATT HOTEL
     type: Service
     description: HYATT HOTEL
+    source: MCC
+    mcc_id: 3640
+    related:
+      - Travel
+      - Dining
+      - Entertainment
+      - Housing
   - name: SOFITEL HOTELS
     type: Service
     description: SOFITEL HOTELS
+    source: MCC
+    mcc_id: 3641
+    related:
+      - Travel
+      - Dining
+      - Entertainment
   - name: NOVOTEL HOTELS
     type: Service
     description: NOVOTEL HOTELS
+    source: MCC
+    mcc_id: 3642
+    related:
+      - Travel
+      - Dining
+      - Housing
   - name: STEIGENBERGER HOTELS
     type: Service
     description: STEIGENBERGER HOTELS
+    source: MCC
+    mcc_id: 3643
+    related:
+      - Travel
   - name: ECONO LODGES
     type: Service
     description: ECONO LODGES
+    source: MCC
+    mcc_id: 3644
+    related:
+      - Travel
+      - Housing
   - name: QUEENS MOAT HOUSES
     type: Service
     description: QUEENS MOAT HOUSES
+    source: MCC
+    mcc_id: 3645
+    related:
+      - Travel
   - name: SWALLOW HOTELS
     type: Service
     description: SWALLOW HOTELS
+    source: MCC
+    mcc_id: 3646
+    related:
+      - Travel
+      - Housing
   - name: HUSA HOTELS
     type: Service
     description: HUSA HOTELS
+    source: MCC
+    mcc_id: 3647
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: DE VERE HOTELS
     type: Service
     description: DE VERE HOTELS
+    source: MCC
+    mcc_id: 3648
+    related:
+      - Travel
   - name: RADISSON HOTELS
     type: Service
     description: RADISSON HOTELS
+    source: MCC
+    mcc_id: 3649
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: RED ROOK INNS
     type: Service
     description: RED ROOK INNS
+    source: MCC
+    mcc_id: 3650
+    related:
+      - Travel
+      - Housing
   - name: IMPERIAL LONDON HOTEL
     type: Service
     description: IMPERIAL LONDON HOTEL
+    source: MCC
+    mcc_id: 3651
+    related:
+      - Travel
+      - Dining
+      - Housing
   - name: EMBASSY HOTELS
     type: Service
     description: EMBASSY HOTELS
+    source: MCC
+    mcc_id: 3652
+    related:
+      - Travel
+      - Dining
+      - Housing
   - name: PENTA HOTELS
     type: Service
     description: PENTA HOTELS
+    source: MCC
+    mcc_id: 3653
+    related:
+      - Travel
   - name: LOEWS HOTELS
     type: Service
     description: LOEWS HOTELS
+    source: MCC
+    mcc_id: 3654
+    related:
+      - Travel
+      - Dining
+      - Entertainment
+      - Housing
   - name: SCANDIC HOTELS
     type: Service
     description: SCANDIC HOTELS
+    source: MCC
+    mcc_id: 3655
+    related:
+      - Travel
+      - Dining
+      - Housing
   - name: SARA HOTELS
     type: Service
     description: SARA HOTELS
+    source: MCC
+    mcc_id: 3656
+    related:
+      - Travel
   - name: OBEROI HOTELS
     type: Service
     description: OBEROI HOTELS
+    source: MCC
+    mcc_id: 3657
+    related:
+      - Dining
+      - Travel
   - name: OTANI HOTELS
     type: Service
     description: OTANI HOTELS
+    source: MCC
+    mcc_id: 3658
+    related:
+      - Travel
+      - Dining
+      - Entertainment
   - name: TAJ HOTELS INTERNATIONAL
     type: Service
     description: TAJ HOTELS INTERNATIONAL
+    source: MCC
+    mcc_id: 3659
+    related:
+      - Travel
+      - Dining
   - name: KNIGHTS INNS
     type: Service
     description: KNIGHTS INNS
+    source: MCC
+    mcc_id: 3660
+    related:
+      - Travel
+      - Housing
   - name: METROPOLE HOTELS
     type: Service
     description: METROPOLE HOTELS
+    source: MCC
+    mcc_id: 3661
+    related:
+      - Travel
   - name: HOTELES EL PRESIDENTS
     type: Service
     description: HOTELES EL PRESIDENTS
+    source: MCC
+    mcc_id: 3663
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: FLAG INN
     type: Service
     description: FLAG INN
+    source: MCC
+    mcc_id: 3664
+    related:
+      - Travel
+      - Housing
   - name: HAMPTON INNS
     type: Service
     description: HAMPTON INNS
+    source: MCC
+    mcc_id: 3665
+    related:
+      - Travel
+      - Housing
   - name: STAKIS HOTELS
     type: Service
     description: STAKIS HOTELS
+    source: MCC
+    mcc_id: 3666
+    related:
+      - Travel
   - name: MARITIM HOTELS
     type: Service
     description: MARITIM HOTELS
+    source: MCC
+    mcc_id: 3668
+    related:
+      - Travel
   - name: ARCARD HOTELS
     type: Service
     description: ARCARD HOTELS
+    source: MCC
+    mcc_id: 3670
+    related:
+      - Travel
   - name: ARCTIA HOTELS
     type: Service
     description: ARCTIA HOTELS
+    source: MCC
+    mcc_id: 3671
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: CAMPANIEL HOTELS
     type: Service
     description: CAMPANIEL HOTELS
+    source: MCC
+    mcc_id: 3672
+    related:
+      - Travel
   - name: IBUSZ HOTELS
     type: Service
     description: IBUSZ HOTELS
+    source: MCC
+    mcc_id: 3673
+    related:
+      - Travel
   - name: RANTASIPI HOTELS
     type: Service
     description: RANTASIPI HOTELS
+    source: MCC
+    mcc_id: 3674
+    related:
+      - Travel
   - name: INTERHOTEL CEDOK
     type: Service
     description: INTERHOTEL CEDOK
-  - name: CLIMAT DE FRANCE HOTELS
+    source: MCC
+    mcc_id: 3675
+    related:
+      - Travel
+  - name: Climat de France
     type: Service
     description: CLIMAT DE FRANCE HOTELS
+    source: MCC
+    mcc_id: 3677
+    related:
+      - Travel
   - name: CUMULUS HOTELS
     type: Service
     description: CUMULUS HOTELS
+    source: MCC
+    mcc_id: 3678
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: DANUBIUS HOTEL
     type: Service
     description: DANUBIUS HOTEL
+    source: MCC
+    mcc_id: 3679
+    related:
+      - Travel
+      - Dining
+      - Entertainment
   - name: ADAMS MARK HOTELS
     type: Service
     description: ADAMS MARK HOTELS
+    source: MCC
+    mcc_id: 3681
+    related:
+      - Travel
   - name: ALLSTAR INNS
     type: Service
     description: ALLSTAR INNS
+    source: MCC
+    mcc_id: 3682
+    related:
+      - Travel
+      - Housing
   - name: BUDGET HOST INNS
     type: Service
     description: BUDGET HOST INNS
+    source: MCC
+    mcc_id: 3684
+    related:
+      - Travel
+      - Housing
   - name: BUDGETEL HOTELS
     type: Service
     description: BUDGETEL HOTELS
+    source: MCC
+    mcc_id: 3685
+    related:
+      - Travel
+      - Housing
   - name: SUISSE CHALETS
     type: Service
     description: SUISSE CHALETS
+    source: MCC
+    mcc_id: 3686
+    related:
+      - Dining
+      - Entertainment
   - name: CLARION HOTELS
     type: Service
     description: CLARION HOTELS
+    source: MCC
+    mcc_id: 3687
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: COMPRI HOTELS
     type: Service
     description: COMPRI HOTELS
+    source: MCC
+    mcc_id: 3688
+    related:
+      - Travel
+      - Housing
   - name: CONSORT HOTELS
     type: Service
     description: CONSORT HOTELS
+    source: MCC
+    mcc_id: 3689
+    related:
+      - Travel
   - name: COURTYARD BY MARRIOTT
     type: Service
     description: COURTYARD BY MARRIOTT
+    source: MCC
+    mcc_id: 3690
+    related:
+      - Travel
+      - Housing
   - name: DILLION INNS
     type: Service
     description: DILLION INNS
+    source: MCC
+    mcc_id: 3691
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: DOUBLETREE HOTELS
     type: Service
     description: DOUBLETREE HOTELS
+    source: MCC
+    mcc_id: 3692
+    related:
+      - Travel
   - name: DRURY INNS
     type: Service
     description: DRURY INNS
-  - name: ECONOMY INNS OF AMERICA
+    source: MCC
+    mcc_id: 3693
+    related:
+      - Travel
+      - Housing
+  - name: Economy Inns
     type: Service
     description: ECONOMY INNS OF AMERICA
+    source: MCC
+    mcc_id: 3694
+    related:
+      - Travel
+      - Housing
   - name: EMBASSY SUITES
     type: Service
     description: EMBASSY SUITES
+    source: MCC
+    mcc_id: 3695
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: EXEL INNS
     type: Service
     description: EXEL INNS
+    source: MCC
+    mcc_id: 3696
+    related:
+      - Travel
   - name: FARFIELD HOTELS
     type: Service
     description: FARFIELD HOTELS
+    source: MCC
+    mcc_id: 3697
+    related:
+      - Travel
+      - Dining
+      - Housing
   - name: HARLEY HOTELS
     type: Service
     description: HARLEY HOTELS
+    source: MCC
+    mcc_id: 3698
+    related:
+      - Travel
+      - Housing
   - name: MIDWAY MOTOR LODGE
     type: Service
     description: MIDWAY MOTOR LODGE
+    source: MCC
+    mcc_id: 3699
+    related:
+      - Travel
+      - Housing
   - name: MOTEL 6
     type: Service
     description: MOTEL 6
-  - name: GUEST QUARTERS (Formally PICKETT SUITE HOTELS)
+    source: MCC
+    mcc_id: 3700
+    related:
+      - Travel
+      - Housing
+  - name: Guest Quarters
     type: Service
     description: GUEST QUARTERS (Formally PICKETT SUITE HOTELS)
+    source: MCC
+    mcc_id: 3701
+    related:
+      - Travel
   - name: THE REGISTRY HOTELS
     type: Service
     description: THE REGISTRY HOTELS
+    source: MCC
+    mcc_id: 3702
+    related:
+      - Travel
   - name: RESIDENCE INNS
     type: Service
     description: RESIDENCE INNS
+    source: MCC
+    mcc_id: 3703
+    related:
+      - Travel
+      - Housing
   - name: ROYCE HOTELS
     type: Service
     description: ROYCE HOTELS
+    source: MCC
+    mcc_id: 3704
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: SANDMAN INNS
     type: Service
     description: SANDMAN INNS
+    source: MCC
+    mcc_id: 3705
+    related:
+      - Travel
+      - Housing
   - name: SHILO INNS
     type: Service
     description: SHILO INNS
-  - name: SHONEY’S INNS
+    source: MCC
+    mcc_id: 3706
+    related:
+      - Travel
+      - Housing
+  - name: SHONEY'S INNS
     type: Service
-    description: SHONEY’S INNS
+    description: SHONEY'S INNS
+    source: MCC
+    mcc_id: 3707
+    related:
+      - Travel
+      - Dining
   - name: SUPER8 MOTELS
     type: Service
     description: SUPER8 MOTELS
-  - name: THE RITZ CARLTON HOTELS
+    source: MCC
+    mcc_id: 3709
+    related:
+      - Travel
+      - Housing
+  - name: Ritz Carlton
     type: Service
     description: THE RITZ CARLTON HOTELS
+    source: MCC
+    mcc_id: 3710
+    related:
+      - Travel
   - name: FLAG INNS (AUSRALIA)
     type: Service
     description: FLAG INNS (AUSRALIA)
+    source: MCC
+    mcc_id: 3711
+    related:
+      - Travel
   - name: GOLDEN CHAIN HOTEL
     type: Service
     description: GOLDEN CHAIN HOTEL
+    source: MCC
+    mcc_id: 3712
+    related:
+      - Travel
+      - Housing
   - name: QUALITY PACIFIC HOTEL
     type: Service
     description: QUALITY PACIFIC HOTEL
-  - name: FOUR SEASONS HOTEL (AUSTRALIA)
+    source: MCC
+    mcc_id: 3713
+    related:
+      - Travel
+      - Housing
+      - Dining
+  - name: Four Seasons
     type: Service
     description: FOUR SEASONS HOTEL (AUSTRALIA)
+    source: MCC
+    mcc_id: 3714
+    related:
+      - Dining
+      - Travel
   - name: FARIFIELD INN
     type: Service
     description: FARIFIELD INN
+    source: MCC
+    mcc_id: 3715
+    related:
+      - Travel
+      - Housing
   - name: CARLTON HOTELS
     type: Service
     description: CARLTON HOTELS
+    source: MCC
+    mcc_id: 3716
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: CITY LODGE HOTELS
     type: Service
     description: CITY LODGE HOTELS
+    source: MCC
+    mcc_id: 3717
+    related:
+      - Travel
+      - Dining
+      - Housing
   - name: KAROS HOTELS
     type: Service
     description: KAROS HOTELS
+    source: MCC
+    mcc_id: 3718
+    related:
+      - Travel
+      - Dining
+      - Entertainment
+      - Housing
   - name: PROTEA HOTELS
     type: Service
     description: PROTEA HOTELS
+    source: MCC
+    mcc_id: 3719
+    related:
+      - Travel
   - name: SOUTHERN SUN HOTELS
     type: Service
     description: SOUTHERN SUN HOTELS
+    source: MCC
+    mcc_id: 3720
+    related:
+      - Travel
   - name: HILTON CONRAD
     type: Service
     description: HILTON CONRAD
-  - name: WYNDHAM HOTEL AND RESORTS
+    source: MCC
+    mcc_id: 3721
+    related:
+      - Travel
+  - name: Wyndham
     type: Service
     description: WYNDHAM HOTEL AND RESORTS
+    source: MCC
+    mcc_id: 3722
+    related:
+      - Travel
+      - Housing
+      - Entertainment
   - name: RICA HOTELS
     type: Service
     description: RICA HOTELS
+    source: MCC
+    mcc_id: 3723
+    related:
+      - Travel
   - name: INER NOR HOTELS
     type: Service
     description: INER NOR HOTELS
+    source: MCC
+    mcc_id: 3724
+    related:
+      - Travel
   - name: SEAINES PLANATION
     type: Service
     description: SEAINES PLANATION
+    source: MCC
+    mcc_id: 3725
   - name: RIO SUITES
     type: Service
     description: RIO SUITES
+    source: MCC
+    mcc_id: 3726
+    related:
+      - Travel
   - name: BROADMOOR HOTEL
     type: Service
     description: BROADMOOR HOTEL
-  - name: BALLY’S HOTEL AND CASINO
+    source: MCC
+    mcc_id: 3727
+    related:
+      - Dining
+      - Travel
+      - Entertainment
+  - name: Bally's
     type: Service
-    description: BALLY’S HOTEL AND CASINO
-  - name: JOHN ASCUAGA’S NUGGET
+    description: BALLY'S HOTEL AND CASINO
+    source: MCC
+    mcc_id: 3728
+    related:
+      - Entertainment
+      - Travel
+  - name: JOHN ASCUAGA'S NUGGET
     type: Service
-    description: JOHN ASCUAGA’S NUGGET
+    description: JOHN ASCUAGA'S NUGGET
+    source: MCC
+    mcc_id: 3729
+    related:
+      - Dining
+      - Entertainment
+      - Travel
   - name: MGM GRAND HOTEL
     type: Service
     description: MGM GRAND HOTEL
-  - name: HARRAH’S HOTELS AND CASINOS
+    source: MCC
+    mcc_id: 3730
+    related:
+      - Entertainment
+      - Travel
+      - Dining
+  - name: Harrah's
     type: Service
-    description: HARRAH’S HOTELS AND CASINOS
+    description: HARRAH'S HOTELS AND CASINOS
+    source: MCC
+    mcc_id: 3731
+    related:
+      - Dining
+      - Entertainment
+      - Travel
   - name: OPRYLAND HOTEL
     type: Service
     description: OPRYLAND HOTEL
+    source: MCC
+    mcc_id: 3732
+    related:
+      - Travel
+      - Entertainment
+      - Dining
   - name: BOCA RATON RESORT
     type: Service
     description: BOCA RATON RESORT
+    source: MCC
+    mcc_id: 3733
+    related:
+      - Dining
+      - Travel
+      - Entertainment
   - name: HARVEY/BRISTOL HOTELS
     type: Service
     description: HARVEY/BRISTOL HOTELS
+    source: MCC
+    mcc_id: 3734
+    related:
+      - Travel
+      - Housing
+      - Dining
   - name: COLORADO BELLE/EDGEWATER RESORT
     type: Service
     description: COLORADO BELLE/EDGEWATER RESORT
-  - name: RIVIERA HOTEL AND CASINO
+    source: MCC
+    mcc_id: 3736
+  - name: Riviera Hotel
     type: Service
     description: RIVIERA HOTEL AND CASINO
-  - name: TROPICANA RESORT AND CASINO
+    source: MCC
+    mcc_id: 3737
+  - name: Tropicana
     type: Service
     description: TROPICANA RESORT AND CASINO
-  - name: WOODSIDE HOTELS AND RESORTS
+    source: MCC
+    mcc_id: 3738
+    related:
+      - Entertainment
+      - Travel
+  - name: Woodside
     type: Service
     description: WOODSIDE HOTELS AND RESORTS
+    source: MCC
+    mcc_id: 3739
+    related:
+      - Travel
+      - Dining
+      - Entertainment
+      - Housing
   - name: TOWNPLACE SUITES
     type: Service
     description: TOWNPLACE SUITES
+    source: MCC
+    mcc_id: 3740
+    related:
+      - Travel
+      - Housing
   - name: MILLENIUM BROADWAY HOTEL
     type: Service
     description: MILLENIUM BROADWAY HOTEL
+    source: MCC
+    mcc_id: 3741
+    related:
+      - Travel
   - name: CLUB MED
     type: Service
     description: CLUB MED
-  - name: BILTMORE HOTEL AND SUITES
+    source: MCC
+    mcc_id: 3742
+    related:
+      - Travel
+  - name: Biltmore Hotel
     type: Service
     description: BILTMORE HOTEL AND SUITES
+    source: MCC
+    mcc_id: 3743
+    related:
+      - Travel
+      - Dining
+      - Entertainment
+      - Housing
   - name: CAREFREE RESORTS
     type: Service
     description: CAREFREE RESORTS
+    source: MCC
+    mcc_id: 3744
+    related:
+      - Travel
   - name: ST. REGIS HOTEL
     type: Service
     description: ST. REGIS HOTEL
+    source: MCC
+    mcc_id: 3745
+    related:
+      - Travel
   - name: THE ELIOT HOTEL
     type: Service
     description: THE ELIOT HOTEL
+    source: MCC
+    mcc_id: 3746
+    related:
+      - Travel
+      - Dining
   - name: CLUBCORP/CLUB RESORTS
     type: Service
     description: CLUBCORP/CLUB RESORTS
+    source: MCC
+    mcc_id: 3747
+    related:
+      - Dining
+      - Travel
   - name: WELESLEY INNS
     type: Service
     description: WELESLEY INNS
-  - name: THE BEVERLY HILLS HOTEL
+    source: MCC
+    mcc_id: 3748
+    related:
+      - Travel
+      - Housing
+      - Dining
+  - name: Beverly Hills Hotel
     type: Service
     description: THE BEVERLY HILLS HOTEL
+    source: MCC
+    mcc_id: 3749
+    related:
+      - Dining
+      - Travel
   - name: CROWNE PLAZA HOTELS
     type: Service
     description: CROWNE PLAZA HOTELS
+    source: MCC
+    mcc_id: 3750
+    related:
+      - Travel
   - name: HOMEWOOD SUITES
     type: Service
     description: HOMEWOOD SUITES
+    source: MCC
+    mcc_id: 3751
+    related:
+      - Travel
+      - Housing
   - name: PEABODY HOTELS
     type: Service
     description: PEABODY HOTELS
+    source: MCC
+    mcc_id: 3752
+    related:
+      - Travel
   - name: GREENBRIAH RESORTS
     type: Service
     description: GREENBRIAH RESORTS
+    source: MCC
+    mcc_id: 3753
+    related:
+      - Travel
+      - Entertainment
   - name: AMELIA ISLAND PLANATION
     type: Service
     description: AMELIA ISLAND PLANATION
+    source: MCC
+    mcc_id: 3754
   - name: THE HOMESTEAD
     type: Service
     description: THE HOMESTEAD
+    source: MCC
+    mcc_id: 3755
+    related:
+      - Housing
+      - Travel
   - name: SOUTH SEAS RESORTS
     type: Service
     description: SOUTH SEAS RESORTS
+    source: MCC
+    mcc_id: 3756
+    related:
+      - Travel
   - name: Home2Suites
     type: Service
-  - name: * MASTERS ECONOMY INNS
+    description: Home2Suites
+    source: MCC
+    mcc_id: 3816
+    related:
+      - Travel
+  - name: Masters Economy Inns
     type: Service
     description: * MASTERS ECONOMY INNS
+    source: MCC
+    mcc_id: 3835
+    related:
+      - Travel
+      - Housing
   - name: Railroads
     type: Service
     description: Railroads
-  - name: Local/Suburban Commuter Passenger Transportation – Railroads, Feries, Local Water Transportation.
+    source: MCC
+    mcc_id: 4011
+    related:
+      - Transport
+      - Travel
+  - name: Transportation
     type: Service
-    description: Local/Suburban Commuter Passenger Transportation – Railroads, Feries, Local Water Transportation.
+    description: Local/Suburban Commuter Passenger Transportation - Railroads, Feries, Local Water Transportation.
+    source: MCC
+    mcc_id: 4111
+    related:
+      - Transport
+      - Travel
   - name: Passenger Railways
     type: Service
     description: Passenger Railways
+    source: MCC
+    mcc_id: 4112
+    related:
+      - Transport
+      - Travel
   - name: Ambulance Services
     type: Service
     description: Ambulance Services
+    source: MCC
+    mcc_id: 4119
+    related:
+      - Transport
+      - Health
   - name: Taxicabs and Limousines
     type: Service
     description: Taxicabs and Limousines
-  - name: Bus Lines, Including Charters, Tour Buses
+    source: MCC
+    mcc_id: 4121
+    related:
+      - Transport
+  - name: Bus Lines
     type: Service
     description: Bus Lines, Including Charters, Tour Buses
-  - name: Motor Freight Carriers, Moving and Storage Companies, Trucking – Local/Long Distance, Delivery Services – Local
+    source: MCC
+    mcc_id: 4131
+    related:
+      - Transport
+      - Travel
+  - name: Trucking
     type: Service
-    description: Motor Freight Carriers, Moving and Storage Companies, Trucking – Local/Long Distance, Delivery Services – Local
-  - name: Courier Services – Air or Ground, Freight forwarders
+    description: Motor Freight Carriers, Moving and Storage Companies, Trucking - Local/Long Distance, Delivery Services - Local
+    source: MCC
+    mcc_id: 4214
+    related:
+      - Transport
+  - name: Courier Services
     type: Service
-    description: Courier Services – Air or Ground, Freight forwarders
+    description: Courier Services - Air or Ground, Freight forwarders
+    source: MCC
+    mcc_id: 4215
+    related:
+      - Transport
+      - Travel
   - name: Public warehousing, Storage
     type: Service
     description: Public warehousing, Storage
-  - name: Cruise and Steamship Lines
+    source: MCC
+    mcc_id: 4225
+  - name: Cruise Lines
     type: Service
     description: Cruise and Steamship Lines
-  - name: Boat Rentals and Leases
+    source: MCC
+    mcc_id: 4411
+    related:
+      - Travel
+      - Entertainment
+  - name: Boat Rentals
     type: Service
     description: Boat Rentals and Leases
-  - name: Marinas, Marine Service, and Supplies
+    source: MCC
+    mcc_id: 4457
+    related:
+      - Transport
+      - Travel
+      - Entertainment
+  - name: Marinas
     type: Service
     description: Marinas, Marine Service, and Supplies
-  - name: Airlines, Air Carriers ( not listed elsewhere)
-    type: Service
-    description: Airlines, Air Carriers ( not listed elsewhere)
-  - name: Airports, Airport Terminals, Flying Fields
+    source: MCC
+    mcc_id: 4468
+  - name: Airports
     type: Service
     description: Airports, Airport Terminals, Flying Fields
-  - name: Travel Agencies and Tour Operations
+    source: MCC
+    mcc_id: 4582
+    related:
+      - Transport
+      - Travel
+  - name: Travel Agencies
     type: Service
     description: Travel Agencies and Tour Operations
-  - name: Package Tour Operators (For use in Germany only)
+    source: MCC
+    mcc_id: 4722
+    related:
+      - Travel
+  - name: Package Tour
     type: Service
     description: Package Tour Operators (For use in Germany only)
-  - name: Toll and Bridge Fees
+    source: MCC
+    mcc_id: 4723
+  - name: Toll Fees
     type: Service
     description: Toll and Bridge Fees
-  - name: Transportation Services, Not elsewhere classified)
+    source: MCC
+    mcc_id: 4784
+    related:
+      - Transport
+      - Travel
+  - name: Transportation Services
     type: Service
     description: Transportation Services, Not elsewhere classified)
-  - name: Telecommunications Equipment including telephone sales
+    source: MCC
+    mcc_id: 4789
+  - name: Telecommunications
     type: Service
     description: Telecommunications Equipment including telephone sales
-  - name: Fax services, Telecommunication Services
+    source: MCC
+    mcc_id: 4812
+  - name: Telecommunication
     type: Service
     description: Fax services, Telecommunication Services
+    source: MCC
+    mcc_id: 4814
+    related:
+      - Utilities
+      - Transport
   - name: VisaPhone
     type: Service
     description: VisaPhone
+    source: MCC
+    mcc_id: 4815
   - name: Computer Network Services
     type: Service
     description: Computer Network Services
+    source: MCC
+    mcc_id: 4816
   - name: Telegraph services
     type: Service
     description: Telegraph services
-  - name: Money Orders – Wire Transfer
+    source: MCC
+    mcc_id: 4821
+  - name: Money Transfer
     type: Service
-    description: Money Orders – Wire Transfer
-  - name: Cable and other pay television (previously Cable Services)
+    description: Money Orders - Wire Transfer
+    source: MCC
+    mcc_id: 4829
+    related:
+      - Financial
+  - name: Cable Services
     type: Service
     description: Cable and other pay television (previously Cable Services)
-  - name: Electric, Gas, Sanitary and Water Utilities
+    source: MCC
+    mcc_id: 4899
+    related:
+      - Entertainment
+  - name: Utilities
     type: Service
     description: Electric, Gas, Sanitary and Water Utilities
-  - name: Motor vehicle supplies and new parts
+    source: MCC
+    mcc_id: 4900
+    related:
+      - Gas
+      - Utilities
+  - name: Motor Vehicle Supplies
     type: Service
     description: Motor vehicle supplies and new parts
-  - name: Office and Commercial Furniture
+    source: MCC
+    mcc_id: 5013
+    related:
+      - Auto Maintenance
+      - Transport
+  - name: Office Furniture
     type: Service
     description: Office and Commercial Furniture
-  - name: Construction Materials, Not Elsewhere Classified
+    source: MCC
+    mcc_id: 5021
+    related:
+      - Home Goods
+  - name: Construction Materials
     type: Service
     description: Construction Materials, Not Elsewhere Classified
-  - name: Office, Photographic, Photocopy, and Microfilm Equipment
+    source: MCC
+    mcc_id: 5039
+  - name: Office Equipment
     type: Service
     description: Office, Photographic, Photocopy, and Microfilm Equipment
-  - name: Computers, Computer Peripheral Equipment, Software
+    source: MCC
+    mcc_id: 5044
+    related:
+      - Home Goods
+      - Education
+  - name: Computers
     type: Service
     description: Computers, Computer Peripheral Equipment, Software
-  - name: Commercial Equipment, Not Elsewhere Classified
+    source: MCC
+    mcc_id: 5045
+    related:
+      - Education
+      - Entertainment
+      - Utilities
+  - name: Commercial Equipment
     type: Service
     description: Commercial Equipment, Not Elsewhere Classified
-  - name: Medical, Dental Ophthalmic, Hospital Equipment and Supplies
+    source: MCC
+    mcc_id: 5046
+  - name: Medical Supplies
     type: Service
     description: Medical, Dental Ophthalmic, Hospital Equipment and Supplies
-  - name: Metal Service Centers and Offices
+    source: MCC
+    mcc_id: 5047
+    related:
+      - Health
+  - name: Metal Service Centers
     type: Service
     description: Metal Service Centers and Offices
-  - name: Electrical Parts and Equipment
+    source: MCC
+    mcc_id: 5051
+  - name: Electrical Parts
     type: Service
     description: Electrical Parts and Equipment
-  - name: Hardware Equipment and Supplies
+    source: MCC
+    mcc_id: 5065
+    related:
+      - Home Goods
+      - Utilities
+  - name: Hardware
     type: Service
     description: Hardware Equipment and Supplies
-  - name: Plumbing and Heating Equipment and Supplies
+    source: MCC
+    mcc_id: 5072
+    related:
+      - Home Goods
+      - Utilities
+  - name: Plumbing Supplies
     type: Service
     description: Plumbing and Heating Equipment and Supplies
-  - name: Industrial Supplies, Not Elsewhere Classified
+    source: MCC
+    mcc_id: 5074
+    related:
+      - Home Goods
+      - Utilities
+      - Housing
+  - name: Industrial Supplies
     type: Service
     description: Industrial Supplies, Not Elsewhere Classified
-  - name: Precious Stones and Metals, Watches and Jewelry
+    source: MCC
+    mcc_id: 5085
+  - name: Jewelry
     type: Service
     description: Precious Stones and Metals, Watches and Jewelry
-  - name: Durable Goods, Not Elsewhere Classified
+    source: MCC
+    mcc_id: 5094
+  - name: Durable Goods
     type: Service
     description: Durable Goods, Not Elsewhere Classified
-  - name: Stationery, Office Supplies, Printing, and Writing Paper
+    source: MCC
+    mcc_id: 5099
+  - name: Stationery
     type: Service
     description: Stationery, Office Supplies, Printing, and Writing Paper
-  - name: Drugs, Drug Proprietors, and Druggist’s Sundries
+    source: MCC
+    mcc_id: 5111
+    related:
+      - Education
+      - Home Goods
+  - name: Drugs
     type: Service
-    description: Drugs, Drug Proprietors, and Druggist’s Sundries
-  - name: Piece Goods, Notions, and Other Dry Goods
+    description: Drugs, Drug Proprietors, and Druggist's Sundries
+    source: MCC
+    mcc_id: 5122
+    related:
+      - Health
+  - name: Dry Goods
     type: Service
     description: Piece Goods, Notions, and Other Dry Goods
-  - name: Men’s Women’s and Children’s Uniforms and Commercial Clothing
+    source: MCC
+    mcc_id: 5131
+    related:
+      - Home Goods
+      - Clothing
+  - name: Uniforms
     type: Service
-    description: Men’s Women’s and Children’s Uniforms and Commercial Clothing
+    description: Men's Women's and Children's Uniforms and Commercial Clothing
+    source: MCC
+    mcc_id: 5137
+    related:
+      - Clothing
   - name: Commercial Footwear
     type: Service
     description: Commercial Footwear
-  - name: Chemicals and Allied Products, Not Elsewhere Classified
+    source: MCC
+    mcc_id: 5139
+    related:
+      - Clothing
+  - name: Chemicals
     type: Service
     description: Chemicals and Allied Products, Not Elsewhere Classified
-  - name: Petroleum and Petroleum Products
+    source: MCC
+    mcc_id: 5169
+  - name: Petroleum
     type: Service
     description: Petroleum and Petroleum Products
-  - name: Books, Periodicals, and Newspapers
+    source: MCC
+    mcc_id: 5172
+    related:
+      - Gas
+      - Transport
+      - Utilities
+  - name: Books
     type: Service
     description: Books, Periodicals, and Newspapers
-  - name: Florists’ Supplies, Nursery Stock and Flowers
+    source: MCC
+    mcc_id: 5192
+    related:
+      - Education
+      - Entertainment
+  - name: Florists
     type: Service
-    description: Florists’ Supplies, Nursery Stock and Flowers
-  - name: Paints, Varnishes, and Supplies
+    description: Florists' Supplies, Nursery Stock and Flowers
+    source: MCC
+    mcc_id: 5193
+    related:
+      - Home Goods
+      - Dining
+  - name: Paints
     type: Service
     description: Paints, Varnishes, and Supplies
-  - name: Non-durable Goods, Not Elsewhere Classified
+    source: MCC
+    mcc_id: 5198
+    related:
+      - Home Goods
+  - name: Non-durable Goods
     type: Service
     description: Non-durable Goods, Not Elsewhere Classified
-  - name: Home Supply Warehouse Stores
+    source: MCC
+    mcc_id: 5199
+    related:
+      - Groceries
+      - Clothing
+      - Health
+  - name: Home Supply
     type: Service
     description: Home Supply Warehouse Stores
-  - name: Lumber and Building Materials Stores
+    source: MCC
+    mcc_id: 5200
+    related:
+      - Home Goods
+      - Utilities
+  - name: Lumber
     type: Service
     description: Lumber and Building Materials Stores
-  - name: Glass, Paint, and Wallpaper Stores
+    source: MCC
+    mcc_id: 5211
+    related:
+      - Home Goods
+      - Housing
+  - name: Glass
     type: Service
     description: Glass, Paint, and Wallpaper Stores
+    source: MCC
+    mcc_id: 5231
+    related:
+      - Home Goods
   - name: Hardware Stores
     type: Service
     description: Hardware Stores
-  - name: Nurseries – Lawn and Garden Supply Store
+    source: MCC
+    mcc_id: 5251
+    related:
+      - Home Goods
+      - Utilities
+  - name: Lawn and Garden
     type: Service
-    description: Nurseries – Lawn and Garden Supply Store
+    description: Nurseries - Lawn and Garden Supply Store
+    source: MCC
+    mcc_id: 5261
+    related:
+      - Home Goods
+      - Housing
   - name: Mobile Home Dealers
     type: Service
     description: Mobile Home Dealers
+    source: MCC
+    mcc_id: 5271
+    related:
+      - Housing
   - name: Wholesale Clubs
     type: Service
     description: Wholesale Clubs
+    source: MCC
+    mcc_id: 5300
+    related:
+      - Groceries
+      - Home Goods
   - name: Duty Free Store
     type: Service
     description: Duty Free Store
+    source: MCC
+    mcc_id: 5309
+    related:
+      - Travel
   - name: Discount Stores
     type: Service
     description: Discount Stores
+    source: MCC
+    mcc_id: 5310
+    related:
+      - Groceries
+      - Clothing
+      - Home Goods
   - name: Department Stores
     type: Service
     description: Department Stores
+    source: MCC
+    mcc_id: 5311
+    related:
+      - Clothing
+      - Home Goods
   - name: Variety Stores
     type: Service
     description: Variety Stores
+    source: MCC
+    mcc_id: 5331
+    related:
+      - Groceries
+      - Home Goods
+      - Clothing
+      - Entertainment
   - name: Misc. General Merchandise
     type: Service
     description: Misc. General Merchandise
+    source: MCC
+    mcc_id: 5399
   - name: Grocery Stores, Supermarkets
     type: Service
     description: Grocery Stores, Supermarkets
-  - name: Meat Provisioners – Freezer and Locker
+    source: MCC
+    mcc_id: 5411
+    related:
+      - Groceries
+  - name: Meat Provisioners
     type: Service
-    description: Meat Provisioners – Freezer and Locker
-  - name: Candy, Nut, and Confectionery Stores
+    description: Meat Provisioners - Freezer and Locker
+    source: MCC
+    mcc_id: 5422
+  - name: Candy Stores
     type: Service
     description: Candy, Nut, and Confectionery Stores
+    source: MCC
+    mcc_id: 5441
+    related:
+      - Groceries
+      - Dining
+      - Entertainment
   - name: Dairy Products Stores
     type: Service
     description: Dairy Products Stores
+    source: MCC
+    mcc_id: 5451
+    related:
+      - Groceries
   - name: Bakeries
     type: Service
     description: Bakeries
-  - name: Misc. Food Stores – Convenience Stores and Specialty Markets
+    source: MCC
+    mcc_id: 5462
+    related:
+      - Dining
+      - Groceries
+  - name: Food Stores
     type: Service
-    description: Misc. Food Stores – Convenience Stores and Specialty Markets
-  - name: Car and Truck Dealers (New and Used) Sales, Service, Repairs, Parts, and Leasing
+    description: Misc. Food Stores - Convenience Stores and Specialty Markets
+    source: MCC
+    mcc_id: 5499
+    related:
+      - Groceries
+      - Dining
+  - name: Car and Truck Dealers
     type: Service
     description: Car and Truck Dealers (New and Used) Sales, Service, Repairs, Parts, and Leasing
-  - name: Automobile and Truck Dealers (Used Only)
+    source: MCC
+    mcc_id: 5511
+    related:
+      - Auto Maintenance
+      - Transport
+  - name: Automobile Dealers
     type: Service
     description: Automobile and Truck Dealers (Used Only)
+    source: MCC
+    mcc_id: 5521
+    related:
+      - Auto Maintenance
+      - Transport
   - name: Automobile Supply Stores
     type: Service
     description: Automobile Supply Stores
+    source: MCC
+    mcc_id: 5531
+    related:
+      - Auto Maintenance
   - name: Automotive Tire Stores
     type: Service
     description: Automotive Tire Stores
-  - name: Automotive Parts, Accessories Stores
+    source: MCC
+    mcc_id: 5532
+    related:
+      - Auto Maintenance
+  - name: Automotive Parts
     type: Service
     description: Automotive Parts, Accessories Stores
-  - name: Service Stations ( with or without ancillary services)
+    source: MCC
+    mcc_id: 5533
+    related:
+      - Auto Maintenance
+  - name: Service Stations
     type: Service
     description: Service Stations ( with or without ancillary services)
+    source: MCC
+    mcc_id: 5541
+    related:
+      - Gas
+      - Auto Maintenance
+      - Transport
   - name: Automated Fuel Dispensers
     type: Service
     description: Automated Fuel Dispensers
+    source: MCC
+    mcc_id: 5542
+    related:
+      - Gas
+      - Auto Maintenance
   - name: Boat Dealers
     type: Service
     description: Boat Dealers
-  - name: Recreational and Utility Trailers, Camp Dealers
+    source: MCC
+    mcc_id: 5551
+  - name: Trailers
     type: Service
     description: Recreational and Utility Trailers, Camp Dealers
+    source: MCC
+    mcc_id: 5561
   - name: Motorcycle Dealers
     type: Service
     description: Motorcycle Dealers
+    source: MCC
+    mcc_id: 5571
+    related:
+      - Transport
+      - Auto Maintenance
   - name: Motor Home Dealers
     type: Service
     description: Motor Home Dealers
+    source: MCC
+    mcc_id: 5592
+    related:
+      - Travel
+      - Housing
   - name: Snowmobile Dealers
     type: Service
     description: Snowmobile Dealers
+    source: MCC
+    mcc_id: 5598
+    related:
+      - Transport
+      - Entertainment
   - name: Miscellaneous Auto Dealers
     type: Service
     description: Miscellaneous Auto Dealers
-  - name: Men’s and Boy’s Clothing and Accessories Stores
+    source: MCC
+    mcc_id: 5599
+    related:
+      - Transport
+      - Auto Maintenance
+  - name: Clothing Stores
     type: Service
-    description: Men’s and Boy’s Clothing and Accessories Stores
-  - name: Women’s Ready-to-Wear Stores
+    description: Men's and Boy's Clothing and Accessories Stores
+    source: MCC
+    mcc_id: 5611
+    related:
+      - Clothing
+  - name: Women's Ready-to-Wear Stores
     type: Service
-    description: Women’s Ready-to-Wear Stores
-  - name: Women’s Accessory and Specialty Shops
+    description: Women's Ready-to-Wear Stores
+    source: MCC
+    mcc_id: 5621
+    related:
+      - Clothing
+  - name: Women's Accessories
     type: Service
-    description: Women’s Accessory and Specialty Shops
-  - name: Children’s and Infant’s Wear Stores
+    description: Women's Accessory and Specialty Shops
+    source: MCC
+    mcc_id: 5631
+    related:
+      - Clothing
+  - name: Children's Wear
     type: Service
-    description: Children’s and Infant’s Wear Stores
+    description: Children's and Infant's Wear Stores
+    source: MCC
+    mcc_id: 5641
+    related:
+      - Clothing
   - name: Family Clothing Stores
     type: Service
     description: Family Clothing Stores
-  - name: Sports Apparel, Riding Apparel Stores
+    source: MCC
+    mcc_id: 5651
+    related:
+      - Clothing
+  - name: Apparel
     type: Service
     description: Sports Apparel, Riding Apparel Stores
+    source: MCC
+    mcc_id: 5655
+    related:
+      - Clothing
   - name: Shoe Stores
     type: Service
     description: Shoe Stores
-  - name: Furriers and Fur Shops
+    source: MCC
+    mcc_id: 5661
+    related:
+      - Clothing
+  - name: Furriers
     type: Service
     description: Furriers and Fur Shops
-  - name: Men’s and Women’s Clothing Stores
-    type: Service
-    description: Men’s and Women’s Clothing Stores
-  - name: Tailors, Seamstress, Mending, and Alterations
+    source: MCC
+    mcc_id: 5681
+    related:
+      - Clothing
+  - name: Tailors
     type: Service
     description: Tailors, Seamstress, Mending, and Alterations
-  - name: Wig and Toupee Stores
+    source: MCC
+    mcc_id: 5697
+    related:
+      - Clothing
+      - Home Goods
+  - name: Wig
     type: Service
     description: Wig and Toupee Stores
-  - name: Miscellaneous Apparel and Accessory Shops
-    type: Service
-    description: Miscellaneous Apparel and Accessory Shops
-  - name: Furniture, Home Furnishings, and Equipment Stores, ExceptAppliances
+    source: MCC
+    mcc_id: 5698
+    related:
+      - Clothing
+  - name: Furniture
     type: Service
     description: Furniture, Home Furnishings, and Equipment Stores, ExceptAppliances
+    source: MCC
+    mcc_id: 5712
+    related:
+      - Home Goods
+      - Housing
   - name: Floor Covering Stores
     type: Service
     description: Floor Covering Stores
-  - name: Drapery, Window Covering and Upholstery Stores
+    source: MCC
+    mcc_id: 5713
+    related:
+      - Home Goods
+      - Housing
+  - name: Drapery
     type: Service
     description: Drapery, Window Covering and Upholstery Stores
-  - name: Fireplace, Fireplace Screens, and Accessories Stores
+    source: MCC
+    mcc_id: 5714
+    related:
+      - Home Goods
+      - Housing
+  - name: Fireplace
     type: Service
     description: Fireplace, Fireplace Screens, and Accessories Stores
-  - name: Miscellaneous Home Furnishing Specialty Stores
+    source: MCC
+    mcc_id: 5718
+    related:
+      - Home Goods
+      - Housing
+  - name: Home Furnishing
     type: Service
     description: Miscellaneous Home Furnishing Specialty Stores
+    source: MCC
+    mcc_id: 5719
+    related:
+      - Home Goods
   - name: Household Appliance Stores
     type: Service
     description: Household Appliance Stores
+    source: MCC
+    mcc_id: 5722
+    related:
+      - Home Goods
   - name: Electronic Sales
     type: Service
     description: Electronic Sales
-  - name: Music Stores, Musical Instruments, Piano Sheet Music
+    source: MCC
+    mcc_id: 5732
+    related:
+      - Entertainment
+      - Home Goods
+  - name: Music Stores
     type: Service
     description: Music Stores, Musical Instruments, Piano Sheet Music
+    source: MCC
+    mcc_id: 5733
+    related:
+      - Entertainment
   - name: Computer Software Stores
     type: Service
     description: Computer Software Stores
+    source: MCC
+    mcc_id: 5734
   - name: Record Shops
     type: Service
     description: Record Shops
+    source: MCC
+    mcc_id: 5735
+    related:
+      - Entertainment
   - name: Caterers
     type: Service
     description: Caterers
-  - name: Eating places and Restaurants
+    source: MCC
+    mcc_id: 5811
+    related:
+      - Dining
+  - name: Restaurants
     type: Service
     description: Eating places and Restaurants
-  - name: Drinking Places (Alcoholic Beverages), Bars, Taverns, Cocktail lounges, Nightclubs and Discotheques
+    source: MCC
+    mcc_id: 5812
+    related:
+      - Dining
+      - Entertainment
+  - name: Bars & Clubs
     type: Service
     description: Drinking Places (Alcoholic Beverages), Bars, Taverns, Cocktail lounges, Nightclubs and Discotheques
-  - name: Fast Food Restaurants
+    source: MCC
+    mcc_id: 5813
+    related:
+      - Dining
+      - Entertainment
+  - name: Digital Goods
     type: Service
-    description: Fast Food Restaurants
-  - name: "Digital Goods: Media, Books, Movies, Music"
-    type: Service
+    description: "Digital Goods: Media, Books, Movies, Music"
+    source: MCC
+    mcc_id: 5815
+    related:
+      - Entertainment
+      - Education
   - name: "Digital Goods: Games"
     type: Service
-  - name: "Digital Goods: Applications (Excludes Games)"
-    type: Service
-  - name: "Digital Goods: Large Digital Goods Merchant"
-    type: Service
-  - name: Antique Shops – Sales, Repairs, and Restoration Services
-    type: Service
-    description: Antique Shops – Sales, Repairs, and Restoration Services
-  - name: Drug Stores and Pharmacies
-    type: Service
-    description: Drug Stores and Pharmacies
-  - name: Package Stores – Beer, Wine, and Liquor
-    type: Service
-    description: Package Stores – Beer, Wine, and Liquor
-  - name: Used Merchandise and Secondhand Stores
-    type: Service
-    description: Used Merchandise and Secondhand Stores
+    description: "Digital Goods: Games"
+    source: MCC
+    mcc_id: 5816
+    related:
+      - Entertainment
   - name: Antique Shops
     type: Service
-    description: Antique Shops
-  - name: Pawn Shops and Salvage Yards
+    description: Antique Shops - Sales, Repairs, and Restoration Services
+    source: MCC
+    mcc_id: 5832
+    related:
+      - Home Goods
+      - Entertainment
+  - name: Pharmacies
+    type: Service
+    description: Drug Stores and Pharmacies
+    source: MCC
+    mcc_id: 5912
+    related:
+      - Health
+  - name: Package Stores
+    type: Service
+    description: Package Stores - Beer, Wine, and Liquor
+    source: MCC
+    mcc_id: 5921
+    related:
+      - Groceries
+      - Entertainment
+  - name: Secondhand Stores
+    type: Service
+    description: Used Merchandise and Secondhand Stores
+    source: MCC
+    mcc_id: 5931
+    related:
+      - Clothing
+      - Home Goods
+  - name: Pawn Shops
     type: Service
     description: Pawn Shops and Salvage Yards
-  - name: Wrecking and Salvage Yards
+    source: MCC
+    mcc_id: 5933
+    related:
+      - Financial
+  - name: Wrecking
     type: Service
     description: Wrecking and Salvage Yards
+    source: MCC
+    mcc_id: 5935
+    related:
+      - Auto Maintenance
+      - Home Goods
   - name: Antique Reproductions
     type: Service
     description: Antique Reproductions
-  - name: Bicycle Shops – Sales and Service
+    source: MCC
+    mcc_id: 5937
+    related:
+      - Home Goods
+  - name: Bicycle Shops
     type: Service
-    description: Bicycle Shops – Sales and Service
+    description: Bicycle Shops - Sales and Service
+    source: MCC
+    mcc_id: 5940
+    related:
+      - Transport
+      - Auto Maintenance
   - name: Sporting Goods Stores
     type: Service
     description: Sporting Goods Stores
+    source: MCC
+    mcc_id: 5941
   - name: Book Stores
     type: Service
     description: Book Stores
-  - name: Stationery Stores, Office and School Supply Stores
-    type: Service
-    description: Stationery Stores, Office and School Supply Stores
-  - name: Watch, Clock, Jewelry, and Silverware Stores
-    type: Service
-    description: Watch, Clock, Jewelry, and Silverware Stores
-  - name: Hobby, Toy, and Game Shops
+    source: MCC
+    mcc_id: 5942
+    related:
+      - Entertainment
+      - Education
+  - name: Hobby Shops
     type: Service
     description: Hobby, Toy, and Game Shops
-  - name: Camera and Photographic Supply Stores
+    source: MCC
+    mcc_id: 5945
+    related:
+      - Entertainment
+  - name: Camera Supplies
     type: Service
     description: Camera and Photographic Supply Stores
-  - name: Card Shops, Gift, Novelty, and Souvenir Shops
+    source: MCC
+    mcc_id: 5946
+  - name: Gift Shops
     type: Service
     description: Card Shops, Gift, Novelty, and Souvenir Shops
+    source: MCC
+    mcc_id: 5947
   - name: Leather Goods Stores
     type: Service
     description: Leather Goods Stores
-  - name: Sewing, Needle, Fabric, and Price Goods Stores
+    source: MCC
+    mcc_id: 5948
+    related:
+      - Clothing
+      - Home Goods
+  - name: Sewing
     type: Service
     description: Sewing, Needle, Fabric, and Price Goods Stores
+    source: MCC
+    mcc_id: 5949
+    related:
+      - Home Goods
+      - Clothing
   - name: Glassware/Crystal Stores
     type: Service
     description: Glassware/Crystal Stores
-  - name: Direct Marketing- Insurance Service
+    source: MCC
+    mcc_id: 5950
+    related:
+      - Home Goods
+  - name: Insurance Service
     type: Service
     description: Direct Marketing- Insurance Service
-  - name: Mail Order Houses Including Catalog Order Stores, Book/Record Clubs (No longer permitted for U.S. original presentments)
+    source: MCC
+    mcc_id: 5960
+    related:
+      - Financial
+  - name: Mail Order Houses
     type: Service
     description: Mail Order Houses Including Catalog Order Stores, Book/Record Clubs (No longer permitted for U.S. original presentments)
-  - name: Direct Marketing – Travel Related Arrangements Services
+    source: MCC
+    mcc_id: 5961
+  - name: Travel Services
     type: Service
-    description: Direct Marketing – Travel Related Arrangements Services
+    description: Direct Marketing - Travel Related Arrangements Services
+    source: MCC
+    mcc_id: 5962
+    related:
+      - Travel
   - name: Door-to-Door Sales
     type: Service
     description: Door-to-Door Sales
-  - name: Direct Marketing – Catalog Merchant
+    source: MCC
+    mcc_id: 5963
+  - name: Direct Marketing
     type: Service
-    description: Direct Marketing – Catalog Merchant
-  - name: Direct Marketing – Catalog and Catalog and Retail Merchant
+    description: Direct Marketing - Catalog Merchant
+    source: MCC
+    mcc_id: 5964
+    related:
+      - Clothing
+      - Home Goods
+      - Groceries
+  - name: Teleservices
     type: Service
-    description: Direct Marketing – Catalog and Catalog and Retail Merchant
-  - name: Direct Marketing- Outbound Telemarketing Merchant
+    description: Direct Marketing - Inbound Teleservices Merchant
+    source: MCC
+    mcc_id: 5967
+  - name: Art Supplies
     type: Service
-    description: Direct Marketing- Outbound Telemarketing Merchant
-  - name: Direct Marketing – Inbound Teleservices Merchant
-    type: Service
-    description: Direct Marketing – Inbound Teleservices Merchant
-  - name: Direct Marketing – Continuity/Subscription Merchant
-    type: Service
-    description: Direct Marketing – Continuity/Subscription Merchant
-  - name: Direct Marketing – Not Elsewhere Classified
-    type: Service
-    description: Direct Marketing – Not Elsewhere Classified
-  - name: Artist’s Supply and Craft Shops
-    type: Service
-    description: Artist’s Supply and Craft Shops
-  - name: Art Dealers and Galleries
+    description: Artist's Supply and Craft Shops
+    source: MCC
+    mcc_id: 5970
+    related:
+      - Home Goods
+      - Entertainment
+      - Education
+  - name: Art Dealers
     type: Service
     description: Art Dealers and Galleries
-  - name: Stamp and Coin Stores – Philatelic and Numismatic Supplies
+    source: MCC
+    mcc_id: 5971
+    related:
+      - Entertainment
+  - name: Stamp and Coin Stores
     type: Service
-    description: Stamp and Coin Stores – Philatelic and Numismatic Supplies
+    description: Stamp and Coin Stores - Philatelic and Numismatic Supplies
+    source: MCC
+    mcc_id: 5972
   - name: Religious Goods Stores
     type: Service
     description: Religious Goods Stores
-  - name: Hearing Aids – Sales, Service, and Supply Stores
+    source: MCC
+    mcc_id: 5973
+  - name: Hearing Aids
     type: Service
-    description: Hearing Aids – Sales, Service, and Supply Stores
-  - name: Orthopedic Goods Prosthetic Devices
+    description: Hearing Aids - Sales, Service, and Supply Stores
+    source: MCC
+    mcc_id: 5975
+    related:
+      - Health
+  - name: Orthopedic Goods
     type: Service
     description: Orthopedic Goods Prosthetic Devices
+    source: MCC
+    mcc_id: 5976
   - name: Cosmetic Stores
     type: Service
     description: Cosmetic Stores
-  - name: Typewriter Stores – Sales, Rental, Service
+    source: MCC
+    mcc_id: 5977
+  - name: Typewriter Stores
     type: Service
-    description: Typewriter Stores – Sales, Rental, Service
-  - name: Fuel – Fuel Oil, Wood, Coal, Liquefied Petroleum
+    description: Typewriter Stores - Sales, Rental, Service
+    source: MCC
+    mcc_id: 5978
+  - name: Fuel
     type: Service
-    description: Fuel – Fuel Oil, Wood, Coal, Liquefied Petroleum
-  - name: Florists
-    type: Service
-    description: Florists
-  - name: Cigar Stores and Stands
+    description: Fuel - Fuel Oil, Wood, Coal, Liquefied Petroleum
+    source: MCC
+    mcc_id: 5983
+    related:
+      - Gas
+      - Utilities
+  - name: Cigar Stores
     type: Service
     description: Cigar Stores and Stands
-  - name: News Dealers and Newsstands
+    source: MCC
+    mcc_id: 5993
+  - name: Newsstands
     type: Service
     description: News Dealers and Newsstands
-  - name: Pet Shops, Pet Foods, and Supplies Stores
+    source: MCC
+    mcc_id: 5994
+  - name: Pet Shops
     type: Service
     description: Pet Shops, Pet Foods, and Supplies Stores
-  - name: Swimming Pools – Sales, Service, and Supplies
+    source: MCC
+    mcc_id: 5995
+  - name: Swimming Pools
     type: Service
-    description: Swimming Pools – Sales, Service, and Supplies
-  - name: Electric Razor Stores – Sales and Service
+    description: Swimming Pools - Sales, Service, and Supplies
+    source: MCC
+    mcc_id: 5996
+    related:
+      - Home Goods
+      - Utilities
+      - Entertainment
+  - name: Electric Razor
     type: Service
-    description: Electric Razor Stores – Sales and Service
-  - name: Tent and Awning Shops
+    description: Electric Razor Stores - Sales and Service
+    source: MCC
+    mcc_id: 5997
+  - name: Tent Shops
     type: Service
     description: Tent and Awning Shops
-  - name: Miscellaneous and Specialty Retail Stores
+    source: MCC
+    mcc_id: 5998
+    related:
+      - Home Goods
+      - Travel
+      - Entertainment
+  - name: Miscellaneous Retail
     type: Service
     description: Miscellaneous and Specialty Retail Stores
-  - name: Financial Institutions – Manual Cash Disbursements
+    source: MCC
+    mcc_id: 5999
+  - name: Financial Institutions
     type: Service
-    description: Financial Institutions – Manual Cash Disbursements
-  - name: Financial Institutions – Merchandise and Services
+    description: Financial Institutions - Manual Cash Disbursements
+    source: MCC
+    mcc_id: 6010
+    related:
+      - Financial
+  - name: Foreign Currency
     type: Service
-    description: Financial Institutions – Merchandise and Services
-  - name: Non-Financial Institutions – Foreign Currency, Money Orders (not wire transfer) and Travelers Cheques
-    type: Service
-    description: Non-Financial Institutions – Foreign Currency, Money Orders (not wire transfer) and Travelers Cheques
+    description: Non-Financial Institutions - Foreign Currency, Money Orders (not wire transfer) and Travelers Cheques
+    source: MCC
+    mcc_id: 6051
+    related:
+      - Travel
+      - Financial
   - name: Security Brokers/Dealers
     type: Service
     description: Security Brokers/Dealers
-  - name: Insurance Sales, Underwriting, and Premiums
+    source: MCC
+    mcc_id: 6211
+  - name: Insurance
     type: Service
     description: Insurance Sales, Underwriting, and Premiums
-  - name: Insurance Premiums, (no longer valid for first presentment work)
-    type: Service
-    description: Insurance Premiums, (no longer valid for first presentment work)
-  - name: Insurance, Not Elsewhere Classified ( no longer valid forfirst presentment work)
-    type: Service
-    description: Insurance, Not Elsewhere Classified ( no longer valid forfirst presentment work)
-  - name: Real Estate Agents and Managers - Rentals
+    source: MCC
+    mcc_id: 6300
+    related:
+      - Financial
+  - name: Real Estate
     type: Service
     description: Real Estate Agents and Managers - Rentals
-  - name: Lodging – Hotels, Motels, Resorts, Central Reservation Services (not elsewhere classified)
+    source: MCC
+    mcc_id: 6513
+    related:
+      - Housing
+  - name: Lodging
     type: Service
-    description: Lodging – Hotels, Motels, Resorts, Central Reservation Services (not elsewhere classified)
+    description: Lodging - Hotels, Motels, Resorts, Central Reservation Services (not elsewhere classified)
+    source: MCC
+    mcc_id: 7011
+    related:
+      - Travel
+      - Housing
   - name: Timeshares
     type: Service
     description: Timeshares
-  - name: Sporting and Recreational Camps
+    source: MCC
+    mcc_id: 7012
+    related:
+      - Housing
+      - Travel
+      - Entertainment
+  - name: Camps
     type: Service
     description: Sporting and Recreational Camps
-  - name: Trailer Parks and Camp Grounds
+    source: MCC
+    mcc_id: 7032
+    related:
+      - Entertainment
+      - Travel
+      - Education
+  - name: Trailer Parks
     type: Service
     description: Trailer Parks and Camp Grounds
-  - name: Laundry, Cleaning, and Garment Services
+    source: MCC
+    mcc_id: 7033
+    related:
+      - Housing
+      - Travel
+      - Utilities
+  - name: Laundry Services
     type: Service
     description: Laundry, Cleaning, and Garment Services
-  - name: Laundry – Family and Commercial
+    source: MCC
+    mcc_id: 7210
+    related:
+      - Home Goods
+      - Clothing
+  - name: Laundry
     type: Service
-    description: Laundry – Family and Commercial
+    description: Laundry - Family and Commercial
+    source: MCC
+    mcc_id: 7211
   - name: Dry Cleaners
     type: Service
     description: Dry Cleaners
-  - name: Carpet and Upholstery Cleaning
+    source: MCC
+    mcc_id: 7216
+    related:
+      - Clothing
+      - Home Goods
+  - name: Cleaning Services
     type: Service
     description: Carpet and Upholstery Cleaning
+    source: MCC
+    mcc_id: 7217
+    related:
+      - Home Goods
   - name: Photographic Studios
     type: Service
     description: Photographic Studios
-  - name: Barber and Beauty Shops
+    source: MCC
+    mcc_id: 7221
+    related:
+      - Entertainment
+  - name: Barber Shops
     type: Service
     description: Barber and Beauty Shops
-  - name: Shop Repair Shops and Shoe Shine Parlors, and Hat Cleaning Shops
+    source: MCC
+    mcc_id: 7230
+  - name: Repair Shops
     type: Service
     description: Shop Repair Shops and Shoe Shine Parlors, and Hat Cleaning Shops
-  - name: Funeral Service and Crematories
+    source: MCC
+    mcc_id: 7251
+    related:
+      - Home Goods
+      - Clothing
+      - Auto Maintenance
+  - name: Funeral Service
     type: Service
     description: Funeral Service and Crematories
-  - name: Dating and Escort Services
+    source: MCC
+    mcc_id: 7261
+  - name: Dating Services
     type: Service
     description: Dating and Escort Services
+    source: MCC
+    mcc_id: 7273
+    related:
+      - Entertainment
   - name: Tax Preparation Service
     type: Service
     description: Tax Preparation Service
-  - name: Counseling Service – Debt, Marriage, Personal
+    source: MCC
+    mcc_id: 7276
+    related:
+      - Financial
+  - name: Counseling Service
     type: Service
-    description: Counseling Service – Debt, Marriage, Personal
+    description: Counseling Service - Debt, Marriage, Personal
+    source: MCC
+    mcc_id: 7277
+    related:
+      - Health
+      - Education
+      - Financial
   - name: Buying/Shopping Services, Clubs
     type: Service
     description: Buying/Shopping Services, Clubs
-  - name: Clothing Rental – Costumes, Formal Wear, Uniforms
+    source: MCC
+    mcc_id: 7278
+    related:
+      - Groceries
+      - Clothing
+      - Home Goods
+      - Dining
+      - Entertainment
+  - name: Clothing Rental
     type: Service
-    description: Clothing Rental – Costumes, Formal Wear, Uniforms
+    description: Clothing Rental - Costumes, Formal Wear, Uniforms
+    source: MCC
+    mcc_id: 7296
+    related:
+      - Clothing
+      - Entertainment
   - name: Massage Parlors
     type: Service
     description: Massage Parlors
-  - name: Health and Beauty Shops
+    source: MCC
+    mcc_id: 7297
+    related:
+      - Health
+      - Entertainment
+  - name: Health and Beauty
     type: Service
     description: Health and Beauty Shops
-  - name: Miscellaneous Personal Services ( not elsewhere classifies)
+    source: MCC
+    mcc_id: 7298
+    related:
+      - Health
+  - name: Personal Services
     type: Service
     description: Miscellaneous Personal Services ( not elsewhere classifies)
+    source: MCC
+    mcc_id: 7299
   - name: Advertising Services
     type: Service
     description: Advertising Services
-  - name: Consumer Credit Reporting Agencies
+    source: MCC
+    mcc_id: 7311
+  - name: Credit Reporting
     type: Service
     description: Consumer Credit Reporting Agencies
-  - name: Blueprinting and Photocopying Services
+    source: MCC
+    mcc_id: 7321
+    related:
+      - Financial
+  - name: Blueprinting
     type: Service
     description: Blueprinting and Photocopying Services
-  - name: Commercial Photography, Art and Graphics
+    source: MCC
+    mcc_id: 7332
+  - name: Photography
     type: Service
     description: Commercial Photography, Art and Graphics
-  - name: Quick Copy, Reproduction and Blueprinting Services
+    source: MCC
+    mcc_id: 7333
+    related:
+      - Entertainment
+      - Travel
+  - name: Quick Copy
     type: Service
     description: Quick Copy, Reproduction and Blueprinting Services
-  - name: Stenographic and Secretarial Support Services
+    source: MCC
+    mcc_id: 7338
+  - name: Secretarial Services
     type: Service
     description: Stenographic and Secretarial Support Services
-  - name: Exterminating and Disinfecting Services
+    source: MCC
+    mcc_id: 7339
+  - name: Exterminating
     type: Service
     description: Exterminating and Disinfecting Services
-  - name: Cleaning and Maintenance, Janitorial Services
+    source: MCC
+    mcc_id: 7342
+  - name: Janitorial Services
     type: Service
     description: Cleaning and Maintenance, Janitorial Services
-  - name: Employment Agencies, Temporary Help Services
+    source: MCC
+    mcc_id: 7349
+    related:
+      - Home Goods
+      - Utilities
+  - name: Employment Agencies
     type: Service
     description: Employment Agencies, Temporary Help Services
-  - name: Computer Programming, Integrated Systems Design and Data Processing Services
+    source: MCC
+    mcc_id: 7361
+  - name: Computer Programming
     type: Service
     description: Computer Programming, Integrated Systems Design and Data Processing Services
+    source: MCC
+    mcc_id: 7372
   - name: Information Retrieval Services
     type: Service
     description: Information Retrieval Services
-  - name: Computer Maintenance and Repair Services, Not Elsewhere Classified
+    source: MCC
+    mcc_id: 7375
+  - name: Computer Maintenance
     type: Service
     description: Computer Maintenance and Repair Services, Not Elsewhere Classified
-  - name: Management, Consulting, and Public Relations Services
+    source: MCC
+    mcc_id: 7379
+  - name: Consulting
     type: Service
     description: Management, Consulting, and Public Relations Services
-  - name: Protective and Security Services – Including Armored Carsand Guard Dogs
+    source: MCC
+    mcc_id: 7392
+  - name: Protective Services
     type: Service
-    description: Protective and Security Services – Including Armored Carsand Guard Dogs
-  - name: Equipment Rental and Leasing Services, Tool Rental, Furniture Rental, and Appliance Rental
+    description: Protective and Security Services - Including Armored Carsand Guard Dogs
+    source: MCC
+    mcc_id: 7393
+  - name: Equipment Rental
     type: Service
     description: Equipment Rental and Leasing Services, Tool Rental, Furniture Rental, and Appliance Rental
-  - name: Photofinishing Laboratories, Photo Developing
+    source: MCC
+    mcc_id: 7394
+    related:
+      - Home Goods
+      - Housing
+      - Travel
+  - name: Photofinishing
     type: Service
     description: Photofinishing Laboratories, Photo Developing
-  - name: Business Services, Not Elsewhere Classified
+    source: MCC
+    mcc_id: 7395
+  - name: Business Services
     type: Service
     description: Business Services, Not Elsewhere Classified
+    source: MCC
+    mcc_id: 7399
   - name: Truck Stop
     type: Service
     description: Truck Stop
-  - name: Car Rental Companies ( Not Listed Below)
-    type: Service
-    description: Car Rental Companies ( Not Listed Below)
-  - name: Truck and Utility Trailer Rentals
+    source: MCC
+    mcc_id: 7511
+    related:
+      - Gas
+      - Dining
+      - Transport
+  - name: Truck Rentals
     type: Service
     description: Truck and Utility Trailer Rentals
-  - name: Motor Home and Recreational Vehicle Rentals
+    source: MCC
+    mcc_id: 7513
+    related:
+      - Transport
+      - Travel
+  - name: Recreational Vehicles
     type: Service
     description: Motor Home and Recreational Vehicle Rentals
-  - name: Automobile Parking Lots and Garages
+    source: MCC
+    mcc_id: 7519
+    related:
+      - Travel
+      - Entertainment
+      - Gas
+  - name: Parking Lots
     type: Service
     description: Automobile Parking Lots and Garages
-  - name: Automotive Body Repair Shops
+    source: MCC
+    mcc_id: 7523
+    related:
+      - Transport
+      - Auto Maintenance
+  - name: Automotive
     type: Service
     description: Automotive Body Repair Shops
-  - name: Tire Re-treading and Repair Shops
+    source: MCC
+    mcc_id: 7531
+    related:
+      - Auto Maintenance
+  - name: Tire Repair
     type: Service
     description: Tire Re-treading and Repair Shops
-  - name: Paint Shops – Automotive
+    source: MCC
+    mcc_id: 7534
+    related:
+      - Auto Maintenance
+  - name: Paint Shops
     type: Service
-    description: Paint Shops – Automotive
+    description: Paint Shops - Automotive
+    source: MCC
+    mcc_id: 7535
+    related:
+      - Auto Maintenance
   - name: Automotive Service Shops
     type: Service
     description: Automotive Service Shops
+    source: MCC
+    mcc_id: 7538
+    related:
+      - Auto Maintenance
   - name: Car Washes
     type: Service
     description: Car Washes
+    source: MCC
+    mcc_id: 7542
+    related:
+      - Auto Maintenance
   - name: Towing Services
     type: Service
     description: Towing Services
+    source: MCC
+    mcc_id: 7549
+    related:
+      - Transport
+      - Auto Maintenance
   - name: Radio Repair Shops
     type: Service
     description: Radio Repair Shops
-  - name: Air Conditioning and Refrigeration Repair Shops
-    type: Service
-    description: Air Conditioning and Refrigeration Repair Shops
-  - name: Electrical And Small Appliance Repair Shops
+    source: MCC
+    mcc_id: 7622
+  - name: Electrical Repair
     type: Service
     description: Electrical And Small Appliance Repair Shops
-  - name: Watch, Clock, and Jewelry Repair
+    source: MCC
+    mcc_id: 7629
+    related:
+      - Home Goods
+      - Utilities
+  - name: Watch Repair
     type: Service
     description: Watch, Clock, and Jewelry Repair
-  - name: Furniture, Furniture Repair, and Furniture Refinishing
-    type: Service
-    description: Furniture, Furniture Repair, and Furniture Refinishing
+    source: MCC
+    mcc_id: 7631
   - name: Welding Repair
     type: Service
     description: Welding Repair
-  - name: Repair Shops and Related Services –Miscellaneous
-    type: Service
-    description: Repair Shops and Related Services –Miscellaneous
+    source: MCC
+    mcc_id: 7692
   - name: Government-Owned Lotteries
     type: Service
-  - name: Government-Licensed On-Line Casinos (On-Line Gambling)
+    description: Government-Owned Lotteries
+    source: MCC
+    mcc_id: 7800
+    related:
+      - Entertainment
+      - Financial
+  - name: On-Line Casinos
     type: Service
+    description: Government-Licensed On-Line Casinos (On-Line Gambling)
+    source: MCC
+    mcc_id: 7801
+    related:
+      - Entertainment
   - name: Government-Licensed Horse/Dog Racing
     type: Service
-  - name: Motion Pictures and Video Tape Production and Distribution
+    description: Government-Licensed Horse/Dog Racing
+    source: MCC
+    mcc_id: 7802
+    related:
+      - Entertainment
+  - name: Motion Pictures
     type: Service
     description: Motion Pictures and Video Tape Production and Distribution
+    source: MCC
+    mcc_id: 7829
+    related:
+      - Entertainment
   - name: Motion Picture Theaters
     type: Service
     description: Motion Picture Theaters
-  - name: Video Tape Rental Stores
+    source: MCC
+    mcc_id: 7832
+    related:
+      - Entertainment
+  - name: Video Rental
     type: Service
     description: Video Tape Rental Stores
-  - name: Dance Halls, Studios and Schools
+    source: MCC
+    mcc_id: 7841
+    related:
+      - Entertainment
+  - name: Dance Studios
     type: Service
     description: Dance Halls, Studios and Schools
-  - name: Theatrical Producers (Except Motion Pictures), Ticket Agencies
+    source: MCC
+    mcc_id: 7911
+    related:
+      - Entertainment
+      - Education
+  - name: Theatrical Producers
     type: Service
     description: Theatrical Producers (Except Motion Pictures), Ticket Agencies
-  - name: Bands, Orchestras, and Miscellaneous Entertainers (Not Elsewhere Classified)
+    source: MCC
+    mcc_id: 7922
+    related:
+      - Entertainment
+  - name: Bands
     type: Service
     description: Bands, Orchestras, and Miscellaneous Entertainers (Not Elsewhere Classified)
-  - name: Billiard and Pool Establishments
+    source: MCC
+    mcc_id: 7929
+    related:
+      - Entertainment
+  - name: Billiards
     type: Service
     description: Billiard and Pool Establishments
+    source: MCC
+    mcc_id: 7932
+    related:
+      - Entertainment
   - name: Bowling Alleys
     type: Service
     description: Bowling Alleys
-  - name: Commercial Sports, Athletic Fields, Professional Sport Clubs, and Sport Promoters
+    source: MCC
+    mcc_id: 7933
+    related:
+      - Entertainment
+  - name: Sports Venues
     type: Service
     description: Commercial Sports, Athletic Fields, Professional Sport Clubs, and Sport Promoters
-  - name: Tourist Attractions and Exhibits
+    source: MCC
+    mcc_id: 7941
+    related:
+      - Entertainment
+  - name: Tourist Attractions
     type: Service
     description: Tourist Attractions and Exhibits
-  - name: Golf Courses – Public
+    source: MCC
+    mcc_id: 7991
+    related:
+      - Travel
+      - Entertainment
+  - name: Golf Courses
     type: Service
-    description: Golf Courses – Public
-  - name: Video Amusement Game Supplies
+    description: Golf Courses - Public
+    source: MCC
+    mcc_id: 7992
+    related:
+      - Entertainment
+      - Travel
+  - name: Video Games
     type: Service
     description: Video Amusement Game Supplies
+    source: MCC
+    mcc_id: 7993
+    related:
+      - Entertainment
   - name: Video Game Arcades/Establishments
     type: Service
     description: Video Game Arcades/Establishments
-  - name: Betting (including Lottery Tickets, Casino Gaming Chips, Off-track Betting and Wagers at Race Tracks)
+    source: MCC
+    mcc_id: 7994
+    related:
+      - Entertainment
+  - name: Betting
     type: Service
     description: Betting (including Lottery Tickets, Casino Gaming Chips, Off-track Betting and Wagers at Race Tracks)
-  - name: Amusement Parks, Carnivals, Circuses, Fortune Tellers
+    source: MCC
+    mcc_id: 7995
+    related:
+      - Entertainment
+  - name: Amusement Parks
     type: Service
     description: Amusement Parks, Carnivals, Circuses, Fortune Tellers
-  - name: Membership Clubs (Sports, Recreation, Athletic), Country Clubs, and Private Golf Courses
+    source: MCC
+    mcc_id: 7996
+    related:
+      - Entertainment
+      - Travel
+  - name: Clubs
     type: Service
     description: Membership Clubs (Sports, Recreation, Athletic), Country Clubs, and Private Golf Courses
+    source: MCC
+    mcc_id: 7997
+    related:
+      - Entertainment
+      - Dining
+      - Travel
   - name: Aquariums, Sea-aquariums, Dolphinariums
     type: Service
     description: Aquariums, Sea-aquariums, Dolphinariums
-  - name: Recreation Services (Not Elsewhere Classified)
+    source: MCC
+    mcc_id: 7998
+    related:
+      - Entertainment
+  - name: Recreation Services
     type: Service
     description: Recreation Services (Not Elsewhere Classified)
-  - name: Doctors and Physicians (Not Elsewhere Classified)
+    source: MCC
+    mcc_id: 7999
+  - name: Doctors
     type: Service
     description: Doctors and Physicians (Not Elsewhere Classified)
+    source: MCC
+    mcc_id: 8011
+    related:
+      - Health
   - name: Dentists and Orthodontists
     type: Service
     description: Dentists and Orthodontists
+    source: MCC
+    mcc_id: 8021
+    related:
+      - Health
   - name: Osteopaths
     type: Service
     description: Osteopaths
+    source: MCC
+    mcc_id: 8031
+    related:
+      - Health
   - name: Chiropractors
     type: Service
     description: Chiropractors
+    source: MCC
+    mcc_id: 8041
+    related:
+      - Health
   - name: Optometrists and Ophthalmologists
     type: Service
     description: Optometrists and Ophthalmologists
-  - name: Opticians, Opticians Goods and Eyeglasses
+    source: MCC
+    mcc_id: 8042
+    related:
+      - Health
+  - name: Opticians
     type: Service
     description: Opticians, Opticians Goods and Eyeglasses
-  - name: Opticians, Optical Goods, and Eyeglasses (no longer validfor first presentments)
-    type: Service
-    description: Opticians, Optical Goods, and Eyeglasses (no longer validfor first presentments)
+    source: MCC
+    mcc_id: 8043
+    related:
+      - Health
   - name: Podiatrists and Chiropodists
     type: Service
     description: Podiatrists and Chiropodists
-  - name: Nursing and Personal Care Facilities
+    source: MCC
+    mcc_id: 8049
+    related:
+      - Health
+  - name: Nursing Care
     type: Service
     description: Nursing and Personal Care Facilities
+    source: MCC
+    mcc_id: 8050
+    related:
+      - Health
   - name: Hospitals
     type: Service
     description: Hospitals
-  - name: Medical and Dental Laboratories
+    source: MCC
+    mcc_id: 8062
+    related:
+      - Health
+  - name: Medical Laboratories
     type: Service
     description: Medical and Dental Laboratories
-  - name: Medical Services and Health Practitioners (Not Elsewhere Classified)
+    source: MCC
+    mcc_id: 8071
+  - name: Medical Services
     type: Service
     description: Medical Services and Health Practitioners (Not Elsewhere Classified)
-  - name: Legal Services and Attorneys
+    source: MCC
+    mcc_id: 8099
+  - name: Legal Services
     type: Service
     description: Legal Services and Attorneys
-  - name: Elementary and Secondary Schools
+    source: MCC
+    mcc_id: 8111
+  - name: Schools
     type: Service
     description: Elementary and Secondary Schools
-  - name: Colleges, Junior Colleges, Universities, and ProfessionalSchools
+    source: MCC
+    mcc_id: 8211
+    related:
+      - Education
+  - name: Colleges
     type: Service
     description: Colleges, Junior Colleges, Universities, and ProfessionalSchools
+    source: MCC
+    mcc_id: 8220
+    related:
+      - Education
   - name: Correspondence Schools
     type: Service
     description: Correspondence Schools
-  - name: Business and Secretarial Schools
+    source: MCC
+    mcc_id: 8241
+    related:
+      - Education
+  - name: Business Schools
     type: Service
     description: Business and Secretarial Schools
-  - name: Vocational Schools and Trade Schools
+    source: MCC
+    mcc_id: 8244
+    related:
+      - Education
+  - name: Vocational Schools
     type: Service
     description: Vocational Schools and Trade Schools
-  - name: Schools and Educational Services ( Not Elsewhere Classified)
+    source: MCC
+    mcc_id: 8249
+    related:
+      - Education
+  - name: Education
     type: Service
     description: Schools and Educational Services ( Not Elsewhere Classified)
+    source: MCC
+    mcc_id: 8299
+    related:
+      - Education
   - name: Child Care Services
     type: Service
     description: Child Care Services
-  - name: Charitable and Social Service Organizations
+    source: MCC
+    mcc_id: 8351
+    related:
+      - Education
+      - Health
+  - name: Charitable Organizations
     type: Service
     description: Charitable and Social Service Organizations
-  - name: Civic, Fraternal, and Social Associations
+    source: MCC
+    mcc_id: 8398
+  - name: Associations
     type: Service
     description: Civic, Fraternal, and Social Associations
+    source: MCC
+    mcc_id: 8641
   - name: Political Organizations
     type: Service
     description: Political Organizations
+    source: MCC
+    mcc_id: 8651
   - name: Religious Organizations
     type: Service
     description: Religious Organizations
+    source: MCC
+    mcc_id: 8661
   - name: Automobile Associations
     type: Service
     description: Automobile Associations
-  - name: Membership Organizations ( Not Elsewhere Classified)
+    source: MCC
+    mcc_id: 8675
+    related:
+      - Auto Maintenance
+      - Transport
+      - Travel
+  - name: Membership Organizations
     type: Service
     description: Membership Organizations ( Not Elsewhere Classified)
-  - name: Architectural – Engineering and Surveying Services
+    source: MCC
+    mcc_id: 8699
+  - name: Engineering Services
     type: Service
-    description: Architectural – Engineering and Surveying Services
-  - name: Accounting, Auditing, and Bookkeeping Services
+    description: Architectural - Engineering and Surveying Services
+    source: MCC
+    mcc_id: 8911
+  - name: Accounting
     type: Service
     description: Accounting, Auditing, and Bookkeeping Services
-  - name: Professional Services ( Not Elsewhere Defined)
+    source: MCC
+    mcc_id: 8931
+    related:
+      - Financial
+  - name: Professional Services
     type: Service
     description: Professional Services ( Not Elsewhere Defined)
-  - name: Court Costs, including Alimony and Child Support
+    source: MCC
+    mcc_id: 8999
+  - name: Court Costs
     type: Service
     description: Court Costs, including Alimony and Child Support
+    source: MCC
+    mcc_id: 9211
   - name: Fines
     type: Service
     description: Fines
-  - name: Bail and Bond Payments
+    source: MCC
+    mcc_id: 9222
+  - name: Bail Bonds
     type: Service
     description: Bail and Bond Payments
+    source: MCC
+    mcc_id: 9223
+    related:
+      - Financial
   - name: Tax Payments
     type: Service
     description: Tax Payments
-  - name: Government Services ( Not Elsewhere Classified)
+    source: MCC
+    mcc_id: 9311
+  - name: Government Services
     type: Service
     description: Government Services ( Not Elsewhere Classified)
-  - name: Postal Services – Government Only
+    source: MCC
+    mcc_id: 9399
+  - name: Postal Services
     type: Service
-    description: Postal Services – Government Only
-  - name: Intra – Government Transactions
+    description: Postal Services - Government Only
+    source: MCC
+    mcc_id: 9402
+    related:
+      - Transport
+      - Utilities
+  - name: Government Transactions
     type: Service
-    description: Intra – Government Transactions
-  - name: Automated Referral Service ( For Visa Only)
+    description: Intra - Government Transactions
+    source: MCC
+    mcc_id: 9405
+  - name: Referral Service
     type: Service
     description: Automated Referral Service ( For Visa Only)
-  - name: Visa Credential Service ( For Visa Only)
+    source: MCC
+    mcc_id: 9700
+  - name: Visa Credential Service
     type: Service
     description: Visa Credential Service ( For Visa Only)
-  - name: GCAS Emergency Services ( For Visa Only)
+    source: MCC
+    mcc_id: 9701
+    related:
+      - Financial
+      - Travel
+  - name: GCAS
     type: Service
     description: GCAS Emergency Services ( For Visa Only)
-  - name: Intra – Company Purchases ( For Visa Only)
+    source: MCC
+    mcc_id: 9702
+  - name: Intra Company Purchases
     type: Service
-    description: Intra – Company Purchases ( For Visa Only)
+    description: Intra - Company Purchases ( For Visa Only)
+    source: MCC
+    mcc_id: 9950

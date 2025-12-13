@@ -1,0 +1,2473 @@
+{
+  "Amazon": [
+    "Groceries",
+    "Home Goods",
+    "Clothing",
+    "Entertainment",
+    "Travel",
+    "Financial"
+  ],
+  "Target": [
+    "Groceries",
+    "Home Goods",
+    "Clothing"
+  ],
+  "Shell": [
+    "Gas",
+    "Transport"
+  ],
+  "Starbucks": [
+    "Dining"
+  ],
+  "Uber": [
+    "Transport",
+    "Dining",
+    "Travel"
+  ],
+  "Whole Foods": [
+    "Groceries"
+  ],
+  "Netflix": [
+    "Entertainment"
+  ],
+  "Chevron": [
+    "Gas"
+  ],
+  "Safeway": [
+    "Groceries"
+  ],
+  "McDonald's": [
+    "Dining"
+  ],
+  "Jiffy Lube": [
+    "Auto Maintenance",
+    "Gas"
+  ],
+  "Ride Services": [
+    "Transport"
+  ],
+  "Oil Change": [
+    "Auto Maintenance"
+  ],
+  "Auto Repair": [
+    "Auto Maintenance"
+  ],
+  "Coffee": [
+    "Dining"
+  ],
+  "Fast Food": [
+    "Dining"
+  ],
+  "Streaming": [
+    "Entertainment"
+  ],
+  "Internet": [
+    "Utilities",
+    "Entertainment",
+    "Education"
+  ],
+  "Mobile": [
+    "Transport",
+    "Utilities",
+    "Entertainment"
+  ],
+  "Gifts": [
+    "Home Goods",
+    "Entertainment"
+  ],
+  "Electronics": [],
+  "Alcohol": [
+    "Dining",
+    "Entertainment"
+  ],
+  "Bank Fees": [
+    "Financial"
+  ],
+  "Interest": [
+    "Financial"
+  ],
+  "Taxes": [
+    "Housing",
+    "Utilities",
+    "Financial"
+  ],
+  "Loan Repayment": [],
+  "Veterinary Services": [
+    "Health"
+  ],
+  "Agricultural Co-operatives": [
+    "Groceries",
+    "Utilities"
+  ],
+  "Landscaping": [
+    "Home Goods",
+    "Housing"
+  ],
+  "Contractors": [
+    "Housing",
+    "Home Goods"
+  ],
+  "Air Conditioning": [
+    "Home Goods",
+    "Utilities",
+    "Housing"
+  ],
+  "Electrical Contractors": [
+    "Utilities",
+    "Home Goods",
+    "Housing"
+  ],
+  "Carpentry Contractors": [
+    "Home Goods",
+    "Housing"
+  ],
+  "Roofing": [
+    "Housing"
+  ],
+  "Concrete Work": [
+    "Housing"
+  ],
+  "Publishing": [],
+  "Typesetting": [],
+  "Cleaning Supplies": [
+    "Home Goods",
+    "Groceries"
+  ],
+  "UNITED AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "AMERICAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "PAN AMERICAN": [
+    "Travel"
+  ],
+  "Airlines": [
+    "Transport",
+    "Travel"
+  ],
+  "TRANS WORLD AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "BRITISH AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "JAPAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR FRANCE": [
+    "Transport",
+    "Travel"
+  ],
+  "LUFTHANSA": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR CANADA": [
+    "Transport",
+    "Travel"
+  ],
+  "KLM": [
+    "Transport",
+    "Travel"
+  ],
+  "AEORFLOT": [
+    "Travel"
+  ],
+  "QANTAS": [
+    "Transport",
+    "Travel"
+  ],
+  "ALITALIA": [
+    "Transport",
+    "Travel"
+  ],
+  "SAUDIA ARABIAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "SWISSAIR": [
+    "Travel"
+  ],
+  "SAS": [
+    "Education",
+    "Financial"
+  ],
+  "SOUTH AFRICAN AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "VARIG (BRAZIL)": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR-INDIA": [
+    "Travel"
+  ],
+  "AIR ALGERIE": [
+    "Transport",
+    "Travel"
+  ],
+  "PHILIPPINE AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "MEXICANA": [
+    "Travel"
+  ],
+  "PAKISTAN INTERNATIONAL": [
+    "Travel"
+  ],
+  "AIR NEW ZEALAND": [
+    "Transport",
+    "Travel"
+  ],
+  "UTA/INTERAIR": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR MALTA": [
+    "Transport",
+    "Travel"
+  ],
+  "SABENA": [
+    "Transport",
+    "Travel"
+  ],
+  "AEROLINEAS ARGENTINAS": [
+    "Transport",
+    "Travel"
+  ],
+  "OLYMPIC AIRWAYS": [
+    "Travel"
+  ],
+  "EL AL": [
+    "Travel"
+  ],
+  "ANSETT AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "AUSTRAINLIAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "TAP (PORTUGAL)": [
+    "Travel"
+  ],
+  "VASP (BRAZIL)": [],
+  "EGYPTAIR": [
+    "Transport",
+    "Travel"
+  ],
+  "KUWAIT AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "AVIANCA": [
+    "Transport",
+    "Travel"
+  ],
+  "GULF AIR (BAHRAIN)": [
+    "Travel"
+  ],
+  "BALKAN-BULGARIAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "FINNAIR": [
+    "Transport",
+    "Travel"
+  ],
+  "AER LINGUS": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR LANKA": [
+    "Transport",
+    "Travel"
+  ],
+  "NIGERIA AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "Cruzeiro do Sul": [
+    "Travel"
+  ],
+  "THY (TURKEY)": [
+    "Transport",
+    "Travel"
+  ],
+  "ROYAL AIR MAROC": [
+    "Transport",
+    "Travel"
+  ],
+  "TUNIS AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "ICELANDAIR": [
+    "Travel"
+  ],
+  "AUSTRIAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "LANCHILE": [
+    "Transport",
+    "Travel"
+  ],
+  "AVIACO (SPAIN)": [
+    "Travel"
+  ],
+  "LADECO (CHILE)": [
+    "Travel"
+  ],
+  "LAB (BOLIVIA)": [],
+  "QUEBECAIRE": [
+    "Travel"
+  ],
+  "EASTWEST AIRLINES (AUSTRALIA)": [
+    "Transport",
+    "Travel"
+  ],
+  "DELTA": [
+    "Transport",
+    "Travel"
+  ],
+  "NORTHWEST": [],
+  "CONTINENTAL": [
+    "Auto Maintenance",
+    "Transport"
+  ],
+  "WESTERN": [],
+  "US AIR": [
+    "Travel"
+  ],
+  "AIRINTER": [
+    "Travel"
+  ],
+  "SOUTHWEST": [
+    "Travel"
+  ],
+  "SUN COUNTRY AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR BRITISH COLUBIA": [
+    "Transport",
+    "Travel"
+  ],
+  "SINGAPORE AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "AEROMEXICO": [
+    "Transport",
+    "Travel"
+  ],
+  "THAI AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "CHINA AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "NORDAIR": [
+    "Travel"
+  ],
+  "KOREAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR AFRIGUE": [
+    "Travel"
+  ],
+  "EVA AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "Midwest Express": [
+    "Transport",
+    "Travel"
+  ],
+  "METRO AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "CROATIA AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "TRANSAERO": [
+    "Travel"
+  ],
+  "ZAMBIA AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR ZIMBABWE": [
+    "Transport",
+    "Travel"
+  ],
+  "CATHAY PACIFIC": [
+    "Travel"
+  ],
+  "MALAYSIAN AIRLINE SYSTEM": [
+    "Transport",
+    "Travel"
+  ],
+  "IBERIA": [
+    "Travel"
+  ],
+  "GARUDA (INDONESIA)": [
+    "Travel"
+  ],
+  "BRAATHENS S.A.F.E. (NORWAY)": [
+    "Transport"
+  ],
+  "WINGS AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "BRITISH MIDLAND": [
+    "Transport",
+    "Travel"
+  ],
+  "WINDWARD ISLAND": [],
+  "VIASA": [
+    "Travel"
+  ],
+  "VALLEY AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "TAN": [],
+  "TALAIR": [
+    "Travel"
+  ],
+  "TACA INTERNATIONAL": [
+    "Travel"
+  ],
+  "SURINAM AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "SUN WORLD INTERNATIONAL": [
+    "Travel"
+  ],
+  "SUNBELT AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "SUDAN AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "SINGLETON": [],
+  "SIMMONS AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "SCENIC AIRLINES": [
+    "Travel"
+  ],
+  "VIRGIN ATLANTIC": [
+    "Transport",
+    "Travel"
+  ],
+  "SAN JUAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "LUXAIR": [
+    "Travel"
+  ],
+  "AIR ZAIRE": [
+    "Transport",
+    "Travel"
+  ],
+  "PRINCEVILLE": [
+    "Travel",
+    "Entertainment"
+  ],
+  "PBA": [
+    "Entertainment"
+  ],
+  "ALL NIPPON AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "NORONTAIR": [
+    "Travel"
+  ],
+  "NEW YORK HELICOPTER": [
+    "Transport",
+    "Travel",
+    "Entertainment"
+  ],
+  "NOUNT COOK": [
+    "Dining",
+    "Travel"
+  ],
+  "CANADIAN AIRLINES INTERNATIONAL": [
+    "Transport",
+    "Travel"
+  ],
+  "NATIONAIR": [
+    "Travel"
+  ],
+  "METROFLIGHT AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "MESA AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "MALEV": [
+    "Travel"
+  ],
+  "LOT (POLAND)": [
+    "Travel"
+  ],
+  "LIAT": [
+    "Transport",
+    "Travel"
+  ],
+  "LAV (VENEZUELA)": [
+    "Travel"
+  ],
+  "LAP (PARAGUAY)": [
+    "Transport",
+    "Travel"
+  ],
+  "LACSA (COSTA RICA)": [
+    "Travel"
+  ],
+  "JUGOSLAV AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "ISLAND AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "IRAN AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "INDIAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "HAWAIIAN AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "HAVASU AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "FUYANA AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "GOLDEN PACIFIC AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "FREEDOM AIR": [
+    "Travel"
+  ],
+  "DOMINICANA": [
+    "Travel",
+    "Dining"
+  ],
+  "DAN AIR SERVICES": [
+    "Transport",
+    "Travel"
+  ],
+  "CUMBERLAND AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "CSA": [],
+  "CROWN AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "COPA": [],
+  "COMPANIA FAUCETT": [
+    "Travel"
+  ],
+  "Transportes Aeros Militares": [],
+  "COMMAND AIRWAYS": [
+    "Transport"
+  ],
+  "COMAIR": [
+    "Transport",
+    "Travel"
+  ],
+  "CAYMAN AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "SAETA": [
+    "Travel"
+  ],
+  "Sasha": [],
+  "CAPITOL AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "BWIA": [
+    "Transport"
+  ],
+  "BROKWAY AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "BEMIDJI AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "BAR HARBOR AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "BAHAMASAIR": [
+    "Travel"
+  ],
+  "AVIATECA (GUATEMALA)": [
+    "Travel"
+  ],
+  "AVENSA": [
+    "Transport",
+    "Travel"
+  ],
+  "AUSTRIAN AIR SERVICE": [
+    "Transport",
+    "Travel"
+  ],
+  "ALOHA AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "ALM": [],
+  "AMERICA WEST": [
+    "Travel"
+  ],
+  "TRUMP AIRLINE": [
+    "Transport",
+    "Travel"
+  ],
+  "ALASKA AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "AMERICAN TRANS AIR": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR CHINA": [
+    "Transport",
+    "Travel"
+  ],
+  "RENO AIR, INC.": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR SEYCHELLES": [
+    "Travel"
+  ],
+  "AIR PANAMA": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR JAMAICA": [
+    "Travel"
+  ],
+  "AIR DJIBOUTI": [
+    "Transport",
+    "Travel"
+  ],
+  "AERO VIRGIN ISLANDS": [
+    "Transport",
+    "Travel"
+  ],
+  "AERO PERU": [
+    "Transport",
+    "Travel"
+  ],
+  "AEROLINEAS NICARAGUENSIS": [
+    "Transport",
+    "Travel"
+  ],
+  "AERO COACH AVAIATION": [
+    "Transport"
+  ],
+  "ARIANA AFGHAN": [
+    "Dining"
+  ],
+  "CYPRUS AIRWAYS": [
+    "Transport",
+    "Travel"
+  ],
+  "ECUATORIANA": [
+    "Travel",
+    "Transport"
+  ],
+  "ETHIOPIAN AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "KENYA AIRLINES": [
+    "Transport",
+    "Travel"
+  ],
+  "AIR MAURITIUS": [
+    "Travel"
+  ],
+  "WIDERO'S FLYVESELSKAP": [
+    "Transport",
+    "Travel"
+  ],
+  "AFFILIATED AUTO RENTAL": [
+    "Transport"
+  ],
+  "AMERICAN INTL RENT-A-CAR": [
+    "Transport"
+  ],
+  "BROOKS RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "ACTION AUTO RENTAL": [
+    "Transport",
+    "Travel"
+  ],
+  "Car Rental": [
+    "Transport",
+    "Travel"
+  ],
+  "HERTZ RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "PAYLESS CAR RENTAL": [
+    "Transport",
+    "Travel"
+  ],
+  "SNAPPY CAR RENTAL": [
+    "Transport",
+    "Travel"
+  ],
+  "AIRWAYS RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "ALTRA AUTO RENTAL": [
+    "Transport"
+  ],
+  "AGENCY RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "BUDGET RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "HOLIDAY RENT-A-WRECK": [
+    "Transport",
+    "Travel"
+  ],
+  "RENT-A-WRECK": [
+    "Transport",
+    "Travel"
+  ],
+  "AJAX RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "EUROP CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "TROPICAL RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "SHOWCASE RENTAL CARS": [
+    "Transport",
+    "Travel"
+  ],
+  "ALAMO RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "AVIS RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "DOLLAR RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "EUROPE BY CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "NATIONAL CAR RENTAL": [
+    "Transport",
+    "Travel"
+  ],
+  "KEMWELL GROUP RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "THRIFTY RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "TILDEN TENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "ECONO-CAR RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "Auto Host": [
+    "Transport",
+    "Travel"
+  ],
+  "ENTERPRISE RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "GENERAL RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "A-1 RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "GODFREY NATL RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "ALPHA RENT-A-CAR": [
+    "Transport"
+  ],
+  "ANSA INTL RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "ALLSTAE RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "AVCAR RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "AUTOMATE RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "AVON RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "CAREY RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "INSURANCE RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "MAJOR RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "REPLACEMENT RENT-A-CAR": [
+    "Transport"
+  ],
+  "RESERVE RENT-A-CAR": [
+    "Transport"
+  ],
+  "UGLY DUCKLING RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "USA RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "VALUE RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "AUTOHANSA RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "CITE RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "INTERENT RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "MILLEVILLE RENT-A-CAR": [
+    "Transport"
+  ],
+  "VIA ROUTE RENT-A-CAR": [
+    "Transport",
+    "Travel"
+  ],
+  "Holiday Inn": [
+    "Travel",
+    "Housing"
+  ],
+  "BEST WESTERN HOTELS": [
+    "Travel",
+    "Housing"
+  ],
+  "SHERATON HOTELS": [
+    "Travel"
+  ],
+  "HILTON HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "FORTE HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "GOLDEN TULIP HOTELS": [
+    "Travel"
+  ],
+  "FRIENDSHIP INNS": [
+    "Travel",
+    "Dining"
+  ],
+  "Quality Inn": [
+    "Travel",
+    "Housing"
+  ],
+  "MARRIOTT HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "DAYS INN, DAYSTOP": [
+    "Travel",
+    "Housing"
+  ],
+  "ARABELLA HOTELS": [
+    "Travel",
+    "Dining",
+    "Entertainment"
+  ],
+  "INTER-CONTINENTAL HOTELS": [
+    "Travel"
+  ],
+  "WESTIN HOTELS": [
+    "Travel"
+  ],
+  "Hotels/Motels/Inns/Resorts": [
+    "Travel",
+    "Dining"
+  ],
+  "RODEWAY INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "La Quinta": [
+    "Travel",
+    "Housing"
+  ],
+  "AMERICANA HOTELS": [
+    "Travel",
+    "Housing",
+    "Entertainment"
+  ],
+  "SOL HOTELS": [
+    "Travel"
+  ],
+  "PULLMAN INTERNATIONAL HOTELS": [
+    "Travel"
+  ],
+  "MERIDIEN HOTELS": [
+    "Travel"
+  ],
+  "Crest Hotels": [
+    "Travel",
+    "Dining"
+  ],
+  "TOKYO HOTEL": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "PENNSULA HOTEL": [
+    "Travel",
+    "Dining"
+  ],
+  "WELCOMGROUP HOTELS": [
+    "Travel",
+    "Dining"
+  ],
+  "DUNFEY HOTELS": [
+    "Travel"
+  ],
+  "DOWNTOWNER-PASSPORT HOTEL": [
+    "Travel",
+    "Housing"
+  ],
+  "Red Lion": [
+    "Travel",
+    "Housing"
+  ],
+  "CP HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "Renaissance": [
+    "Travel",
+    "Dining"
+  ],
+  "ASTIR HOTELS": [
+    "Travel"
+  ],
+  "SUN ROUTE HOTELS": [
+    "Travel"
+  ],
+  "HOTEL IBIS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "SOUTHERN PACIFIC HOTELS": [
+    "Travel"
+  ],
+  "HILTON INTERNATIONAL": [
+    "Travel"
+  ],
+  "AMFAC HOTELS": [
+    "Travel"
+  ],
+  "ANA HOTEL": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "CONCORDE HOTELS": [
+    "Travel",
+    "Dining",
+    "Entertainment"
+  ],
+  "IBEROTEL HOTELS": [
+    "Travel",
+    "Dining",
+    "Entertainment",
+    "Housing"
+  ],
+  "HOTEL OKURA": [
+    "Travel",
+    "Dining"
+  ],
+  "ROYAL HOTELS": [
+    "Travel",
+    "Dining",
+    "Entertainment"
+  ],
+  "FOUR SEASONS HOTELS": [
+    "Travel"
+  ],
+  "CIGA HOTELS": [
+    "Travel",
+    "Dining",
+    "Entertainment",
+    "Housing"
+  ],
+  "SHANGRI-LA INTERNATIONAL": [
+    "Travel",
+    "Dining"
+  ],
+  "HOTELES MELIA": [
+    "Travel"
+  ],
+  "AUBERGE DES GOVERNEURS": [
+    "Travel",
+    "Dining"
+  ],
+  "REGAL 8 INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "COAST HOTELS": [
+    "Travel"
+  ],
+  "PARK INNS INTERNATIONAL": [
+    "Travel"
+  ],
+  "JOLLY HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "COMFORT INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "JOURNEY'S END MOTLS": [
+    "Travel",
+    "Housing"
+  ],
+  "RELAX INNS": [
+    "Travel"
+  ],
+  "LADBROKE HOTELS": [
+    "Travel",
+    "Entertainment",
+    "Housing"
+  ],
+  "FORUM HOTELS": [
+    "Travel"
+  ],
+  "MIYAKO HOTELS": [
+    "Travel",
+    "Dining",
+    "Housing"
+  ],
+  "SANDMAN HOTELS": [
+    "Travel"
+  ],
+  "VENTURE INNS": [
+    "Dining",
+    "Travel",
+    "Housing"
+  ],
+  "VAGABOND HOTELS": [
+    "Travel",
+    "Housing"
+  ],
+  "MANDARIN ORIENTAL HOTEL": [
+    "Travel",
+    "Dining",
+    "Entertainment"
+  ],
+  "HOTEL MERCURE": [
+    "Travel",
+    "Dining",
+    "Entertainment"
+  ],
+  "DELTA HOTEL": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "SAS HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "PRINCESS HOTELS INTERNATIONAL": [
+    "Travel"
+  ],
+  "HUNGAR HOTELS": [
+    "Travel"
+  ],
+  "SOKOS HOTELS": [
+    "Travel"
+  ],
+  "DORAL HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "HELMSLEY HOTELS": [
+    "Travel"
+  ],
+  "FAIRMONT HOTELS": [
+    "Travel"
+  ],
+  "SONESTA HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "OMNI HOTELS": [
+    "Travel"
+  ],
+  "CUNARD HOTELS": [
+    "Travel"
+  ],
+  "HOSPITALITY INTERNATIONAL": [
+    "Dining",
+    "Travel"
+  ],
+  "REGENT INTERNATIONAL HOTELS": [
+    "Travel"
+  ],
+  "PANNONIA HOTELS": [
+    "Travel"
+  ],
+  "NOAH'S HOTELS": [
+    "Travel"
+  ],
+  "MOVENPICK HOTELS": [
+    "Travel",
+    "Dining"
+  ],
+  "TRAVELODGE": [
+    "Travel",
+    "Housing"
+  ],
+  "TELFORD INTERNATIONAL": [
+    "Travel",
+    "Dining"
+  ],
+  "MERLIN HOTELS": [
+    "Travel"
+  ],
+  "DORINT HOTELS": [
+    "Travel"
+  ],
+  "HOTLE UNIVERSALE": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "PRINCE HOTELS": [
+    "Travel"
+  ],
+  "DAN HOTELS": [
+    "Travel"
+  ],
+  "RANK HOTELS": [
+    "Travel"
+  ],
+  "SWISSOTEL": [
+    "Travel"
+  ],
+  "RESO HOTELS": [
+    "Travel"
+  ],
+  "SAROVA HOTELS": [
+    "Dining",
+    "Travel",
+    "Entertainment"
+  ],
+  "Ramada": [
+    "Travel"
+  ],
+  "Howard Johnson": [
+    "Travel",
+    "Dining"
+  ],
+  "MOUNT CHARLOTTE THISTLE": [
+    "Travel"
+  ],
+  "HYATT HOTEL": [
+    "Travel",
+    "Dining",
+    "Entertainment",
+    "Housing"
+  ],
+  "SOFITEL HOTELS": [
+    "Travel",
+    "Dining",
+    "Entertainment"
+  ],
+  "NOVOTEL HOTELS": [
+    "Travel",
+    "Dining",
+    "Housing"
+  ],
+  "STEIGENBERGER HOTELS": [
+    "Travel"
+  ],
+  "ECONO LODGES": [
+    "Travel",
+    "Housing"
+  ],
+  "QUEENS MOAT HOUSES": [
+    "Travel"
+  ],
+  "SWALLOW HOTELS": [
+    "Travel",
+    "Housing"
+  ],
+  "HUSA HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "DE VERE HOTELS": [
+    "Travel"
+  ],
+  "RADISSON HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "RED ROOK INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "IMPERIAL LONDON HOTEL": [
+    "Travel",
+    "Dining",
+    "Housing"
+  ],
+  "EMBASSY HOTELS": [
+    "Travel",
+    "Dining",
+    "Housing"
+  ],
+  "PENTA HOTELS": [
+    "Travel"
+  ],
+  "LOEWS HOTELS": [
+    "Travel",
+    "Dining",
+    "Entertainment",
+    "Housing"
+  ],
+  "SCANDIC HOTELS": [
+    "Travel",
+    "Dining",
+    "Housing"
+  ],
+  "SARA HOTELS": [
+    "Travel"
+  ],
+  "OBEROI HOTELS": [
+    "Dining",
+    "Travel"
+  ],
+  "OTANI HOTELS": [
+    "Travel",
+    "Dining",
+    "Entertainment"
+  ],
+  "TAJ HOTELS INTERNATIONAL": [
+    "Travel",
+    "Dining"
+  ],
+  "KNIGHTS INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "METROPOLE HOTELS": [
+    "Travel"
+  ],
+  "HOTELES EL PRESIDENTS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "FLAG INN": [
+    "Travel",
+    "Housing"
+  ],
+  "HAMPTON INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "STAKIS HOTELS": [
+    "Travel"
+  ],
+  "MARITIM HOTELS": [
+    "Travel"
+  ],
+  "ARCARD HOTELS": [
+    "Travel"
+  ],
+  "ARCTIA HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "CAMPANIEL HOTELS": [
+    "Travel"
+  ],
+  "IBUSZ HOTELS": [
+    "Travel"
+  ],
+  "RANTASIPI HOTELS": [
+    "Travel"
+  ],
+  "INTERHOTEL CEDOK": [
+    "Travel"
+  ],
+  "Climat de France": [
+    "Travel"
+  ],
+  "CUMULUS HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "DANUBIUS HOTEL": [
+    "Travel",
+    "Dining",
+    "Entertainment"
+  ],
+  "ADAMS MARK HOTELS": [
+    "Travel"
+  ],
+  "ALLSTAR INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "BUDGET HOST INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "BUDGETEL HOTELS": [
+    "Travel",
+    "Housing"
+  ],
+  "SUISSE CHALETS": [
+    "Dining",
+    "Entertainment"
+  ],
+  "CLARION HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "COMPRI HOTELS": [
+    "Travel",
+    "Housing"
+  ],
+  "CONSORT HOTELS": [
+    "Travel"
+  ],
+  "COURTYARD BY MARRIOTT": [
+    "Travel",
+    "Housing"
+  ],
+  "DILLION INNS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "DOUBLETREE HOTELS": [
+    "Travel"
+  ],
+  "DRURY INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "Economy Inns": [
+    "Travel",
+    "Housing"
+  ],
+  "EMBASSY SUITES": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "EXEL INNS": [
+    "Travel"
+  ],
+  "FARFIELD HOTELS": [
+    "Travel",
+    "Dining",
+    "Housing"
+  ],
+  "HARLEY HOTELS": [
+    "Travel",
+    "Housing"
+  ],
+  "MIDWAY MOTOR LODGE": [
+    "Travel",
+    "Housing"
+  ],
+  "MOTEL 6": [
+    "Travel",
+    "Housing"
+  ],
+  "Guest Quarters": [
+    "Travel"
+  ],
+  "THE REGISTRY HOTELS": [
+    "Travel"
+  ],
+  "RESIDENCE INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "ROYCE HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "SANDMAN INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "SHILO INNS": [
+    "Travel",
+    "Housing"
+  ],
+  "SHONEY'S INNS": [
+    "Travel",
+    "Dining"
+  ],
+  "SUPER8 MOTELS": [
+    "Travel",
+    "Housing"
+  ],
+  "Ritz Carlton": [
+    "Travel"
+  ],
+  "FLAG INNS (AUSRALIA)": [
+    "Travel"
+  ],
+  "GOLDEN CHAIN HOTEL": [
+    "Travel",
+    "Housing"
+  ],
+  "QUALITY PACIFIC HOTEL": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "Four Seasons": [
+    "Dining",
+    "Travel"
+  ],
+  "FARIFIELD INN": [
+    "Travel",
+    "Housing"
+  ],
+  "CARLTON HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "CITY LODGE HOTELS": [
+    "Travel",
+    "Dining",
+    "Housing"
+  ],
+  "KAROS HOTELS": [
+    "Travel",
+    "Dining",
+    "Entertainment",
+    "Housing"
+  ],
+  "PROTEA HOTELS": [
+    "Travel"
+  ],
+  "SOUTHERN SUN HOTELS": [
+    "Travel"
+  ],
+  "HILTON CONRAD": [
+    "Travel"
+  ],
+  "Wyndham": [
+    "Travel",
+    "Housing",
+    "Entertainment"
+  ],
+  "RICA HOTELS": [
+    "Travel"
+  ],
+  "INER NOR HOTELS": [
+    "Travel"
+  ],
+  "SEAINES PLANATION": [],
+  "RIO SUITES": [
+    "Travel"
+  ],
+  "BROADMOOR HOTEL": [
+    "Dining",
+    "Travel",
+    "Entertainment"
+  ],
+  "Bally's": [
+    "Entertainment",
+    "Travel"
+  ],
+  "JOHN ASCUAGA'S NUGGET": [
+    "Dining",
+    "Entertainment",
+    "Travel"
+  ],
+  "MGM GRAND HOTEL": [
+    "Entertainment",
+    "Travel",
+    "Dining"
+  ],
+  "Harrah's": [
+    "Dining",
+    "Entertainment",
+    "Travel"
+  ],
+  "OPRYLAND HOTEL": [
+    "Travel",
+    "Entertainment",
+    "Dining"
+  ],
+  "BOCA RATON RESORT": [
+    "Dining",
+    "Travel",
+    "Entertainment"
+  ],
+  "HARVEY/BRISTOL HOTELS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "COLORADO BELLE/EDGEWATER RESORT": [],
+  "Riviera Hotel": [],
+  "Tropicana": [
+    "Entertainment",
+    "Travel"
+  ],
+  "Woodside": [
+    "Travel",
+    "Dining",
+    "Entertainment",
+    "Housing"
+  ],
+  "TOWNPLACE SUITES": [
+    "Travel",
+    "Housing"
+  ],
+  "MILLENIUM BROADWAY HOTEL": [
+    "Travel"
+  ],
+  "CLUB MED": [
+    "Travel"
+  ],
+  "Biltmore Hotel": [
+    "Travel",
+    "Dining",
+    "Entertainment",
+    "Housing"
+  ],
+  "CAREFREE RESORTS": [
+    "Travel"
+  ],
+  "ST. REGIS HOTEL": [
+    "Travel"
+  ],
+  "THE ELIOT HOTEL": [
+    "Travel",
+    "Dining"
+  ],
+  "CLUBCORP/CLUB RESORTS": [
+    "Dining",
+    "Travel"
+  ],
+  "WELESLEY INNS": [
+    "Travel",
+    "Housing",
+    "Dining"
+  ],
+  "Beverly Hills Hotel": [
+    "Dining",
+    "Travel"
+  ],
+  "CROWNE PLAZA HOTELS": [
+    "Travel"
+  ],
+  "HOMEWOOD SUITES": [
+    "Travel",
+    "Housing"
+  ],
+  "PEABODY HOTELS": [
+    "Travel"
+  ],
+  "GREENBRIAH RESORTS": [
+    "Travel",
+    "Entertainment"
+  ],
+  "AMELIA ISLAND PLANATION": [],
+  "THE HOMESTEAD": [
+    "Housing",
+    "Travel"
+  ],
+  "SOUTH SEAS RESORTS": [
+    "Travel"
+  ],
+  "Home2Suites": [
+    "Travel"
+  ],
+  "Masters Economy Inns": [
+    "Travel",
+    "Housing"
+  ],
+  "Railroads": [
+    "Transport",
+    "Travel"
+  ],
+  "Transportation": [
+    "Transport",
+    "Travel"
+  ],
+  "Passenger Railways": [
+    "Transport",
+    "Travel"
+  ],
+  "Ambulance Services": [
+    "Transport",
+    "Health"
+  ],
+  "Taxicabs and Limousines": [
+    "Transport"
+  ],
+  "Bus Lines": [
+    "Transport",
+    "Travel"
+  ],
+  "Trucking": [
+    "Transport"
+  ],
+  "Courier Services": [
+    "Transport",
+    "Travel"
+  ],
+  "Public warehousing, Storage": [],
+  "Cruise Lines": [
+    "Travel",
+    "Entertainment"
+  ],
+  "Boat Rentals": [
+    "Transport",
+    "Travel",
+    "Entertainment"
+  ],
+  "Marinas": [],
+  "Airports": [
+    "Transport",
+    "Travel"
+  ],
+  "Travel Agencies": [
+    "Travel"
+  ],
+  "Package Tour": [],
+  "Toll Fees": [
+    "Transport",
+    "Travel"
+  ],
+  "Transportation Services": [],
+  "Telecommunications": [],
+  "Telecommunication": [
+    "Utilities",
+    "Transport"
+  ],
+  "VisaPhone": [],
+  "Computer Network Services": [],
+  "Telegraph services": [],
+  "Money Transfer": [
+    "Financial"
+  ],
+  "Cable Services": [
+    "Entertainment"
+  ],
+  "Utilities": [
+    "Gas",
+    "Utilities"
+  ],
+  "Motor Vehicle Supplies": [
+    "Auto Maintenance",
+    "Transport"
+  ],
+  "Office Furniture": [
+    "Home Goods"
+  ],
+  "Construction Materials": [],
+  "Office Equipment": [
+    "Home Goods",
+    "Education"
+  ],
+  "Computers": [
+    "Education",
+    "Entertainment",
+    "Utilities"
+  ],
+  "Commercial Equipment": [],
+  "Medical Supplies": [
+    "Health"
+  ],
+  "Metal Service Centers": [],
+  "Electrical Parts": [
+    "Home Goods",
+    "Utilities"
+  ],
+  "Hardware": [
+    "Home Goods",
+    "Utilities"
+  ],
+  "Plumbing Supplies": [
+    "Home Goods",
+    "Utilities",
+    "Housing"
+  ],
+  "Industrial Supplies": [],
+  "Jewelry": [],
+  "Durable Goods": [],
+  "Stationery": [
+    "Education",
+    "Home Goods"
+  ],
+  "Drugs": [
+    "Health"
+  ],
+  "Dry Goods": [
+    "Home Goods",
+    "Clothing"
+  ],
+  "Uniforms": [
+    "Clothing"
+  ],
+  "Commercial Footwear": [
+    "Clothing"
+  ],
+  "Chemicals": [],
+  "Petroleum": [
+    "Gas",
+    "Transport",
+    "Utilities"
+  ],
+  "Books": [
+    "Education",
+    "Entertainment"
+  ],
+  "Florists": [
+    "Home Goods",
+    "Dining"
+  ],
+  "Paints": [
+    "Home Goods"
+  ],
+  "Non-durable Goods": [
+    "Groceries",
+    "Clothing",
+    "Health"
+  ],
+  "Home Supply": [
+    "Home Goods",
+    "Utilities"
+  ],
+  "Lumber": [
+    "Home Goods",
+    "Housing"
+  ],
+  "Glass": [
+    "Home Goods"
+  ],
+  "Hardware Stores": [
+    "Home Goods",
+    "Utilities"
+  ],
+  "Lawn and Garden": [
+    "Home Goods",
+    "Housing"
+  ],
+  "Mobile Home Dealers": [
+    "Housing"
+  ],
+  "Wholesale Clubs": [
+    "Groceries",
+    "Home Goods"
+  ],
+  "Duty Free Store": [
+    "Travel"
+  ],
+  "Discount Stores": [
+    "Groceries",
+    "Clothing",
+    "Home Goods"
+  ],
+  "Department Stores": [
+    "Clothing",
+    "Home Goods"
+  ],
+  "Variety Stores": [
+    "Groceries",
+    "Home Goods",
+    "Clothing",
+    "Entertainment"
+  ],
+  "Misc. General Merchandise": [],
+  "Grocery Stores, Supermarkets": [
+    "Groceries"
+  ],
+  "Meat Provisioners": [],
+  "Candy Stores": [
+    "Groceries",
+    "Dining",
+    "Entertainment"
+  ],
+  "Dairy Products Stores": [
+    "Groceries"
+  ],
+  "Bakeries": [
+    "Dining",
+    "Groceries"
+  ],
+  "Food Stores": [
+    "Groceries",
+    "Dining"
+  ],
+  "Car and Truck Dealers": [
+    "Auto Maintenance",
+    "Transport"
+  ],
+  "Automobile Dealers": [
+    "Auto Maintenance",
+    "Transport"
+  ],
+  "Automobile Supply Stores": [
+    "Auto Maintenance"
+  ],
+  "Automotive Tire Stores": [
+    "Auto Maintenance"
+  ],
+  "Automotive Parts": [
+    "Auto Maintenance"
+  ],
+  "Service Stations": [
+    "Gas",
+    "Auto Maintenance",
+    "Transport"
+  ],
+  "Automated Fuel Dispensers": [
+    "Gas",
+    "Auto Maintenance"
+  ],
+  "Boat Dealers": [],
+  "Trailers": [],
+  "Motorcycle Dealers": [
+    "Transport",
+    "Auto Maintenance"
+  ],
+  "Motor Home Dealers": [
+    "Travel",
+    "Housing"
+  ],
+  "Snowmobile Dealers": [
+    "Transport",
+    "Entertainment"
+  ],
+  "Miscellaneous Auto Dealers": [
+    "Transport",
+    "Auto Maintenance"
+  ],
+  "Clothing Stores": [
+    "Clothing"
+  ],
+  "Women's Ready-to-Wear Stores": [
+    "Clothing"
+  ],
+  "Women's Accessories": [
+    "Clothing"
+  ],
+  "Children's Wear": [
+    "Clothing"
+  ],
+  "Family Clothing Stores": [
+    "Clothing"
+  ],
+  "Apparel": [
+    "Clothing"
+  ],
+  "Shoe Stores": [
+    "Clothing"
+  ],
+  "Furriers": [
+    "Clothing"
+  ],
+  "Tailors": [
+    "Clothing",
+    "Home Goods"
+  ],
+  "Wig": [
+    "Clothing"
+  ],
+  "Furniture": [
+    "Home Goods",
+    "Housing"
+  ],
+  "Floor Covering Stores": [
+    "Home Goods",
+    "Housing"
+  ],
+  "Drapery": [
+    "Home Goods",
+    "Housing"
+  ],
+  "Fireplace": [
+    "Home Goods",
+    "Housing"
+  ],
+  "Home Furnishing": [
+    "Home Goods"
+  ],
+  "Household Appliance Stores": [
+    "Home Goods"
+  ],
+  "Electronic Sales": [
+    "Entertainment",
+    "Home Goods"
+  ],
+  "Music Stores": [
+    "Entertainment"
+  ],
+  "Computer Software Stores": [],
+  "Record Shops": [
+    "Entertainment"
+  ],
+  "Caterers": [
+    "Dining"
+  ],
+  "Restaurants": [
+    "Dining",
+    "Entertainment"
+  ],
+  "Bars & Clubs": [
+    "Dining",
+    "Entertainment"
+  ],
+  "Digital Goods": [
+    "Entertainment",
+    "Education"
+  ],
+  "Digital Goods: Games": [
+    "Entertainment"
+  ],
+  "Antique Shops": [
+    "Home Goods",
+    "Entertainment"
+  ],
+  "Pharmacies": [
+    "Health"
+  ],
+  "Package Stores": [
+    "Groceries",
+    "Entertainment"
+  ],
+  "Secondhand Stores": [
+    "Clothing",
+    "Home Goods"
+  ],
+  "Pawn Shops": [
+    "Financial"
+  ],
+  "Wrecking": [
+    "Auto Maintenance",
+    "Home Goods"
+  ],
+  "Antique Reproductions": [
+    "Home Goods"
+  ],
+  "Bicycle Shops": [
+    "Transport",
+    "Auto Maintenance"
+  ],
+  "Sporting Goods Stores": [],
+  "Book Stores": [
+    "Entertainment",
+    "Education"
+  ],
+  "Hobby Shops": [
+    "Entertainment"
+  ],
+  "Camera Supplies": [],
+  "Gift Shops": [],
+  "Leather Goods Stores": [
+    "Clothing",
+    "Home Goods"
+  ],
+  "Sewing": [
+    "Home Goods",
+    "Clothing"
+  ],
+  "Glassware/Crystal Stores": [
+    "Home Goods"
+  ],
+  "Insurance Service": [
+    "Financial"
+  ],
+  "Mail Order Houses": [],
+  "Travel Services": [
+    "Travel"
+  ],
+  "Door-to-Door Sales": [],
+  "Direct Marketing": [
+    "Clothing",
+    "Home Goods",
+    "Groceries"
+  ],
+  "Teleservices": [],
+  "Art Supplies": [
+    "Home Goods",
+    "Entertainment",
+    "Education"
+  ],
+  "Art Dealers": [
+    "Entertainment"
+  ],
+  "Stamp and Coin Stores": [],
+  "Religious Goods Stores": [],
+  "Hearing Aids": [
+    "Health"
+  ],
+  "Orthopedic Goods": [],
+  "Cosmetic Stores": [],
+  "Typewriter Stores": [],
+  "Fuel": [
+    "Gas",
+    "Utilities"
+  ],
+  "Cigar Stores": [],
+  "Newsstands": [],
+  "Pet Shops": [],
+  "Swimming Pools": [
+    "Home Goods",
+    "Utilities",
+    "Entertainment"
+  ],
+  "Electric Razor": [],
+  "Tent Shops": [
+    "Home Goods",
+    "Travel",
+    "Entertainment"
+  ],
+  "Miscellaneous Retail": [],
+  "Financial Institutions": [
+    "Financial"
+  ],
+  "Foreign Currency": [
+    "Travel",
+    "Financial"
+  ],
+  "Security Brokers/Dealers": [],
+  "Insurance": [
+    "Financial"
+  ],
+  "Real Estate": [
+    "Housing"
+  ],
+  "Lodging": [
+    "Travel",
+    "Housing"
+  ],
+  "Timeshares": [
+    "Housing",
+    "Travel",
+    "Entertainment"
+  ],
+  "Camps": [
+    "Entertainment",
+    "Travel",
+    "Education"
+  ],
+  "Trailer Parks": [
+    "Housing",
+    "Travel",
+    "Utilities"
+  ],
+  "Laundry Services": [
+    "Home Goods",
+    "Clothing"
+  ],
+  "Laundry": [],
+  "Dry Cleaners": [
+    "Clothing",
+    "Home Goods"
+  ],
+  "Cleaning Services": [
+    "Home Goods"
+  ],
+  "Photographic Studios": [
+    "Entertainment"
+  ],
+  "Barber Shops": [],
+  "Repair Shops": [
+    "Home Goods",
+    "Clothing",
+    "Auto Maintenance"
+  ],
+  "Funeral Service": [],
+  "Dating Services": [
+    "Entertainment"
+  ],
+  "Tax Preparation Service": [
+    "Financial"
+  ],
+  "Counseling Service": [
+    "Health",
+    "Education",
+    "Financial"
+  ],
+  "Buying/Shopping Services, Clubs": [
+    "Groceries",
+    "Clothing",
+    "Home Goods",
+    "Dining",
+    "Entertainment"
+  ],
+  "Clothing Rental": [
+    "Clothing",
+    "Entertainment"
+  ],
+  "Massage Parlors": [
+    "Health",
+    "Entertainment"
+  ],
+  "Health and Beauty": [
+    "Health"
+  ],
+  "Personal Services": [],
+  "Advertising Services": [],
+  "Credit Reporting": [
+    "Financial"
+  ],
+  "Blueprinting": [],
+  "Photography": [
+    "Entertainment",
+    "Travel"
+  ],
+  "Quick Copy": [],
+  "Secretarial Services": [],
+  "Exterminating": [],
+  "Janitorial Services": [
+    "Home Goods",
+    "Utilities"
+  ],
+  "Employment Agencies": [],
+  "Computer Programming": [],
+  "Information Retrieval Services": [],
+  "Computer Maintenance": [],
+  "Consulting": [],
+  "Protective Services": [],
+  "Equipment Rental": [
+    "Home Goods",
+    "Housing",
+    "Travel"
+  ],
+  "Photofinishing": [],
+  "Business Services": [],
+  "Truck Stop": [
+    "Gas",
+    "Dining",
+    "Transport"
+  ],
+  "Truck Rentals": [
+    "Transport",
+    "Travel"
+  ],
+  "Recreational Vehicles": [
+    "Travel",
+    "Entertainment",
+    "Gas"
+  ],
+  "Parking Lots": [
+    "Transport",
+    "Auto Maintenance"
+  ],
+  "Automotive": [
+    "Auto Maintenance"
+  ],
+  "Tire Repair": [
+    "Auto Maintenance"
+  ],
+  "Paint Shops": [
+    "Auto Maintenance"
+  ],
+  "Automotive Service Shops": [
+    "Auto Maintenance"
+  ],
+  "Car Washes": [
+    "Auto Maintenance"
+  ],
+  "Towing Services": [
+    "Transport",
+    "Auto Maintenance"
+  ],
+  "Radio Repair Shops": [],
+  "Electrical Repair": [
+    "Home Goods",
+    "Utilities"
+  ],
+  "Watch Repair": [],
+  "Welding Repair": [],
+  "Government-Owned Lotteries": [
+    "Entertainment",
+    "Financial"
+  ],
+  "On-Line Casinos": [
+    "Entertainment"
+  ],
+  "Government-Licensed Horse/Dog Racing": [
+    "Entertainment"
+  ],
+  "Motion Pictures": [
+    "Entertainment"
+  ],
+  "Motion Picture Theaters": [
+    "Entertainment"
+  ],
+  "Video Rental": [
+    "Entertainment"
+  ],
+  "Dance Studios": [
+    "Entertainment",
+    "Education"
+  ],
+  "Theatrical Producers": [
+    "Entertainment"
+  ],
+  "Bands": [
+    "Entertainment"
+  ],
+  "Billiards": [
+    "Entertainment"
+  ],
+  "Bowling Alleys": [
+    "Entertainment"
+  ],
+  "Sports Venues": [
+    "Entertainment"
+  ],
+  "Tourist Attractions": [
+    "Travel",
+    "Entertainment"
+  ],
+  "Golf Courses": [
+    "Entertainment",
+    "Travel"
+  ],
+  "Video Games": [
+    "Entertainment"
+  ],
+  "Video Game Arcades/Establishments": [
+    "Entertainment"
+  ],
+  "Betting": [
+    "Entertainment"
+  ],
+  "Amusement Parks": [
+    "Entertainment",
+    "Travel"
+  ],
+  "Clubs": [
+    "Entertainment",
+    "Dining",
+    "Travel"
+  ],
+  "Aquariums, Sea-aquariums, Dolphinariums": [
+    "Entertainment"
+  ],
+  "Recreation Services": [],
+  "Doctors": [
+    "Health"
+  ],
+  "Dentists and Orthodontists": [
+    "Health"
+  ],
+  "Osteopaths": [
+    "Health"
+  ],
+  "Chiropractors": [
+    "Health"
+  ],
+  "Optometrists and Ophthalmologists": [
+    "Health"
+  ],
+  "Opticians": [
+    "Health"
+  ],
+  "Podiatrists and Chiropodists": [
+    "Health"
+  ],
+  "Nursing Care": [
+    "Health"
+  ],
+  "Hospitals": [
+    "Health"
+  ],
+  "Medical Laboratories": [],
+  "Medical Services": [],
+  "Legal Services": [],
+  "Schools": [
+    "Education"
+  ],
+  "Colleges": [
+    "Education"
+  ],
+  "Correspondence Schools": [
+    "Education"
+  ],
+  "Business Schools": [
+    "Education"
+  ],
+  "Vocational Schools": [
+    "Education"
+  ],
+  "Education": [
+    "Education"
+  ],
+  "Child Care Services": [
+    "Education",
+    "Health"
+  ],
+  "Charitable Organizations": [],
+  "Associations": [],
+  "Political Organizations": [],
+  "Religious Organizations": [],
+  "Automobile Associations": [
+    "Auto Maintenance",
+    "Transport",
+    "Travel"
+  ],
+  "Membership Organizations": [],
+  "Engineering Services": [],
+  "Accounting": [
+    "Financial"
+  ],
+  "Professional Services": [],
+  "Court Costs": [],
+  "Fines": [],
+  "Bail Bonds": [
+    "Financial"
+  ],
+  "Tax Payments": [],
+  "Government Services": [],
+  "Postal Services": [
+    "Transport",
+    "Utilities"
+  ],
+  "Government Transactions": [],
+  "Referral Service": [],
+  "Visa Credential Service": [
+    "Financial",
+    "Travel"
+  ],
+  "GCAS": [],
+  "Intra Company Purchases": []
+}
