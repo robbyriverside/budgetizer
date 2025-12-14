@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'controllers/dashboard_controller.dart';
-
 import '../../core/services/bank_service.dart';
 import 'widgets/inspector_panel.dart';
 import 'widgets/tag_inspector_panel.dart';
 import '../../core/widgets/split_view.dart';
+import 'widgets/alerts_dialog.dart';
+import 'widgets/load_data_dialog.dart';
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -20,6 +20,9 @@ class DashboardScreen extends ConsumerWidget {
     final dashboardState = ref.watch(dashboardControllerProvider);
     final selection = dashboardState.selection;
 
+    // 3. Get Cashflows
+    final currentCashflowId = ref.watch(currentCashflowProvider);
+
     return Scaffold(
       body: SplitView(
         axis: Axis.horizontal,
@@ -30,14 +33,13 @@ class DashboardScreen extends ConsumerWidget {
         child1: Column(
           children: [
             // Header (Breadcrumbs + Balance)
-            _buildHeader(),
+            _buildHeader(context, ref, currentCashflowId),
             // Cycle Progress Bar
             _buildCycleProgress(),
             // Transaction List
             Expanded(
               child: transactionsAsync.when(
                 data: (transactions) {
-                  // ... (Keep existing transaction list logic)
                   final uninitialized = transactions
                       .where((t) => !t.isInitialized)
                       .toList();
@@ -51,7 +53,7 @@ class DashboardScreen extends ConsumerWidget {
                       if (uninitialized.isNotEmpty) ...[
                         Container(
                           padding: EdgeInsets.all(10),
-                          color: Colors.amber.withValues(alpha: 0.1),
+                          color: Colors.amber.withOpacity(0.1),
                           child: Row(
                             children: [
                               Icon(Icons.warning_amber, color: Colors.amber),
@@ -70,9 +72,7 @@ class DashboardScreen extends ConsumerWidget {
                           final isSelected = selection.contains(tx.id);
                           return ListTile(
                             selected: isSelected,
-                            selectedTileColor: Colors.amber.withValues(
-                              alpha: 0.2,
-                            ),
+                            selectedTileColor: Colors.amber.withOpacity(0.2),
                             onTap: () {
                               final isMulti =
                                   HardwareKeyboard.instance.logicalKeysPressed
@@ -90,7 +90,7 @@ class DashboardScreen extends ConsumerWidget {
                               Icons.new_releases,
                               color: Colors.amber,
                             ),
-                            title: Text(tx.name),
+                            title: Text(tx.vendorName),
                             subtitle: Text("To be initialized..."),
                             trailing: Text(
                               '\$${tx.amount.abs().toStringAsFixed(2)}',
@@ -111,7 +111,7 @@ class DashboardScreen extends ConsumerWidget {
                         final isSelected = selection.contains(tx.id);
                         return ListTile(
                           selected: isSelected,
-                          selectedTileColor: Colors.teal.withValues(alpha: 0.2),
+                          selectedTileColor: Colors.teal.withOpacity(0.2),
                           onTap: () {
                             final isMulti =
                                 HardwareKeyboard.instance.logicalKeysPressed
@@ -126,7 +126,7 @@ class DashboardScreen extends ConsumerWidget {
                             Icons.receipt_long,
                             color: tx.amount < 0 ? Colors.green : Colors.white,
                           ),
-                          title: Text(tx.name),
+                          title: Text(tx.vendorName),
                           subtitle: Text(tx.tags.join(', ')),
                           trailing: Text(
                             '\$${tx.amount.abs().toStringAsFixed(2)}',
@@ -216,23 +216,121 @@ class DashboardScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(
+    BuildContext context,
+    WidgetRef ref,
+    String currentCashflowId,
+  ) {
+    final cashflowsFuture = ref.read(bankServiceProvider).fetchCashflows();
+
     return Container(
       padding: const EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          // Left: Cashflow Selector
+          FutureBuilder<List<Cashflow>>(
+            future: cashflowsFuture,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final cashflows = snapshot.data!;
+                final current = cashflows.firstWhere(
+                  (c) => c.id == currentCashflowId,
+                  orElse: () => cashflows.first,
+                );
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        DropdownButton<String>(
+                          value: current.id,
+                          underline: SizedBox(),
+                          icon: Icon(
+                            Icons.arrow_drop_down,
+                            color: Colors.tealAccent,
+                          ),
+                          dropdownColor: Color(0xFF2C2C2C),
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          onChanged: (newValue) {
+                            if (newValue != null) {
+                              ref
+                                  .read(currentCashflowProvider.notifier)
+                                  .set(newValue);
+                              ref.invalidate(bankTransactionListProvider);
+                            }
+                          },
+                          items: cashflows.map((c) {
+                            return DropdownMenuItem(
+                              value: c.id,
+                              child: Text(c.name),
+                            );
+                          }).toList(),
+                        ),
+                        const SizedBox(width: 10),
+                        Text(
+                          "Cycle (Oct)",
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "\$${current.balance.toStringAsFixed(2)}",
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                );
+              }
+              return CircularProgressIndicator();
+            },
+          ),
+
+          // Right: Actions
+          Row(
             children: [
-              Text(
-                "Checking > Cycle (Oct)",
-                style: TextStyle(color: Colors.grey),
+              // ALERT BUTTON
+              TextButton.icon(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => const AlertsDialog(),
+                  );
+                },
+                icon: Icon(
+                  Icons.warning_amber_rounded,
+                  color: Colors.orangeAccent,
+                ),
+                label: Text(
+                  "1 Alert",
+                  style: TextStyle(color: Colors.orangeAccent),
+                ),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.orangeAccent.withOpacity(0.1),
+                ),
               ),
-              const SizedBox(height: 5),
-              Text(
-                "\$12,450.00",
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              const SizedBox(width: 16),
+
+              // LOAD DATA
+              FilledButton.icon(
+                onPressed: () async {
+                  // Show Load Dialog
+                  await showDialog(
+                    context: context,
+                    builder: (_) => const LoadDataDialog(),
+                  );
+                  // Refresh after load
+                  ref.invalidate(bankTransactionListProvider);
+                },
+                icon: Icon(Icons.download),
+                label: Text("Load Data"),
               ),
             ],
           ),

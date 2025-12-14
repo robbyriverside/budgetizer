@@ -85,7 +85,7 @@ class _InspectorPanelState extends ConsumerState<InspectorPanel> {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
           SizedBox(height: 10),
-          Text(tx.name, style: TextStyle(fontSize: 16)),
+          Text(tx.vendorName, style: TextStyle(fontSize: 16)),
           Text(
             "\$${tx.amount.abs().toStringAsFixed(2)}",
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -149,7 +149,8 @@ class _InspectorPanelState extends ConsumerState<InspectorPanel> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             SizedBox(height: 20),
-            _detailRow("Name", tx.name),
+            _detailRow("Vendor", tx.vendorName),
+            _detailRow("Original", tx.description),
             _detailRow("Amount", "\$${tx.amount.abs().toStringAsFixed(2)}"),
             _buildTagsRow(tx.id, tx.tags),
             _detailRow("Date", "${tx.date.month}/${tx.date.day}"),

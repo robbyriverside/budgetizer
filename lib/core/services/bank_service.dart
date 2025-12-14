@@ -7,7 +7,7 @@ part 'bank_service.g.dart';
 class Tag {
   final String name;
   final double? budgetLimit;
-  final String? frequency; // 'weekly', 'monthly'
+  final int? frequency; // 0 = Monthly, X = Every X Days
   final String? regex;
 
   Tag({required this.name, this.budgetLimit, this.frequency, this.regex});
@@ -15,7 +15,7 @@ class Tag {
   Tag copyWith({
     String? name,
     double? budgetLimit,
-    String? frequency,
+    int? frequency,
     String? regex,
   }) {
     return Tag(
@@ -30,125 +30,225 @@ class Tag {
 class BankTransaction {
   final String id;
   final DateTime date;
-  final String name;
+  final String description; // Original description from bank
+  final String vendorName; // Extracted Vendor Name (e.g. Target)
   final double amount;
-  final List<String> tags; // Renamed from category
+  final List<String> tags; // Current active tags
+  final List<String> removedTags; // Tags removed by user
   final bool pending;
-
   final bool isInitialized;
-  // type removed
+  final String cashflowId; // Link to specific account
 
   BankTransaction({
     required this.id,
     required this.date,
-    required this.name,
+    required this.description,
+    required this.vendorName,
     required this.amount,
     required this.tags,
+    this.removedTags = const [],
     required this.pending,
     this.isInitialized = true,
+    required this.cashflowId,
   });
 
   factory BankTransaction.fromJson(Map<String, dynamic> json) {
     return BankTransaction(
       id: json['transaction_id'],
       date: DateTime.parse(json['date']),
-      name: json['name'],
+      description: json['name'] ?? 'Unknown',
+      vendorName: json['vendor_name'] ?? json['name'] ?? 'Unknown',
       amount: (json['amount'] as num).toDouble(),
-      tags: List<String>.from(
-        json['category'] ?? [],
-      ), // Map legacy category to tags
+      tags: List<String>.from(json['category'] ?? []),
       pending: json['pending'],
       isInitialized: true,
+      cashflowId: 'checking_1', // Default for legacy data
     );
   }
 
   BankTransaction copyWith({
     bool? isInitialized,
-    String? name,
+    String? vendorName,
     List<String>? tags,
+    List<String>? removedTags,
   }) {
     return BankTransaction(
       id: id,
       date: date,
-      name: name ?? this.name,
+      description: description,
+      vendorName: vendorName ?? this.vendorName,
       amount: amount,
       tags: tags ?? this.tags,
+      removedTags: removedTags ?? this.removedTags,
       pending: pending,
       isInitialized: isInitialized ?? this.isInitialized,
+      cashflowId: cashflowId,
     );
   }
 }
 
-// TransactionType enum removed - Types are now Tags
+class Cashflow {
+  final String id;
+  final String name;
+  final String type; // Checking, Savings, Credit Card
+  final double balance;
+
+  Cashflow({
+    required this.id,
+    required this.name,
+    required this.type,
+    required this.balance,
+  });
+}
 
 abstract class BankService {
-  Future<List<BankTransaction>> fetchTransactions();
+  Future<List<Cashflow>> fetchCashflows();
+  Future<List<BankTransaction>> fetchTransactions(String cashflowId);
   Future<void> updateTransaction(BankTransaction transaction);
   Future<List<Tag>> fetchTags();
   Future<void> updateTag(Tag tag);
-  Future<List<String>> getVendorTags(String vendorTag);
+  // Smart Tagging: Returns likely vendor and default tags based on description
+  Future<Map<String, dynamic>> analyzeTransaction(String description);
 }
 
 class MockBankService implements BankService {
-  List<BankTransaction> _currentTransactions = [];
-  final List<Tag> _tags = []; // In-memory tag storage for mock
+  // In-Memory Storage
+  final List<Cashflow> _cashflows = [
+    Cashflow(
+      id: 'checking_1',
+      name: 'Chase Checking',
+      type: 'Checking',
+      balance: 4520.50,
+    ),
+    Cashflow(
+      id: 'savings_1',
+      name: 'Chase Savings',
+      type: 'Savings',
+      balance: 12000.00,
+    ),
+    Cashflow(
+      id: 'visa_1',
+      name: 'Chase Sapphire',
+      type: 'Credit Card',
+      balance: -840.20,
+    ),
+  ];
+
+  Map<String, List<BankTransaction>> _transactionsByAccount = {};
+  final List<Tag> _tags = [];
   bool _isFirstLoad = true;
 
   @override
-  Future<List<BankTransaction>> fetchTransactions() async {
-    // Simulate network delay
-    await Future.delayed(const Duration(milliseconds: 500)); // Faster for dev
+  Future<List<Cashflow>> fetchCashflows() async {
+    await Future.delayed(const Duration(milliseconds: 300));
+    return _cashflows;
+  }
+
+  @override
+  Future<List<BankTransaction>> fetchTransactions(String cashflowId) async {
+    await Future.delayed(const Duration(milliseconds: 500));
 
     if (_isFirstLoad) {
+      await _initializeMockData();
+      _isFirstLoad = false;
+    }
+
+    return _transactionsByAccount[cashflowId] ?? [];
+  }
+
+  Future<void> _initializeMockData() async {
+    // Load checking from file if exists, or generate basic ones
+    try {
       final String response = await rootBundle.loadString(
         'assets/data/mock_transactions.json',
       );
       final List<dynamic> data = json.decode(response);
-      _currentTransactions = data
-          .map((json) => BankTransaction.fromJson(json))
-          .toList();
-      _isFirstLoad = false;
-    } else {
-      // Append 2-3 new random transactions
-      _currentTransactions.insertAll(0, _generateRandomTransactions());
+
+      // Assign legacy mock data to checking
+      _transactionsByAccount['checking_1'] = data.map((json) {
+        final tx = BankTransaction.fromJson(json);
+        // Enrich specific ones for demo
+        if (tx.description.contains('TARGET')) {
+          return tx.copyWith(
+            vendorName: 'Target',
+            tags: ['Target', 'Groceries', 'Home Goods', 'Clothing'],
+          );
+        }
+        return tx;
+      }).toList();
+    } catch (e) {
+      _transactionsByAccount['checking_1'] = [];
     }
 
-    return _currentTransactions;
+    // Generate Savings Data
+    _transactionsByAccount['savings_1'] = [
+      _createTx('savings_1', 'Transfer from Checking', 500.0, [
+        'Transfer',
+        'Savings',
+      ]),
+      _createTx('savings_1', 'Interest Payment', 12.50, ['Interest', 'Income']),
+    ];
+
+    // Generate detailed Credit Card Data
+    _transactionsByAccount['visa_1'] = [
+      _createTx('visa_1', 'UBER RIDE', -24.50, ['Uber', 'Transport']),
+      _createTx('visa_1', 'NETFLIX', -15.99, [
+        'Netflix',
+        'Subscription',
+        'Streaming',
+        'Movies',
+      ]),
+      _createTx('visa_1', 'TARGET', -84.22, [
+        'Target',
+        'Groceries',
+        'Home Goods',
+        'Clothing',
+      ]),
+      _createTx('visa_1', 'SHELL STATION', -45.00, ['Shell', 'Gas', 'Auto']),
+    ];
+  }
+
+  BankTransaction _createTx(
+    String accountId,
+    String desc,
+    double amount,
+    List<String> tags,
+  ) {
+    return BankTransaction(
+      id: '${accountId}_${DateTime.now().millisecondsSinceEpoch}_${(amount * 100).toInt()}',
+      date: DateTime.now().subtract(
+        Duration(days: (amount % 30).toInt().abs()),
+      ),
+      description: desc,
+      vendorName: desc, // Simple default
+      amount: amount,
+      tags: tags,
+      pending: false,
+      cashflowId: accountId,
+    );
   }
 
   @override
   Future<void> updateTransaction(BankTransaction transaction) async {
-    final index = _currentTransactions.indexWhere(
-      (t) => t.id == transaction.id,
-    );
-    if (index != -1) {
-      _currentTransactions[index] = transaction;
+    final list = _transactionsByAccount[transaction.cashflowId];
+    if (list != null) {
+      final index = list.indexWhere((t) => t.id == transaction.id);
+      if (index != -1) {
+        list[index] = transaction;
+      }
     }
   }
 
   @override
   Future<List<Tag>> fetchTags() async {
     if (_tags.isEmpty) {
-      try {
-        final String response = await rootBundle.loadString(
-          'assets/data/db_tags.json',
-        );
-        final Map<String, dynamic> data = json.decode(response);
-        final List<dynamic> tagList = data['tags'];
-
-        for (var t in tagList) {
-          _tags.add(
-            Tag(
-              name: t['name'],
-              // description: t['description'], // Tag model needs desc update if we want it too
-              regex: t['regex'],
-              // type: t['type'],
-            ),
-          );
-        }
-      } catch (e) {
-        print("Error loading tags: $e");
-      }
+      // Basic initial tags
+      _tags.addAll([
+        Tag(name: 'Groceries', budgetLimit: 400, frequency: 7),
+        Tag(name: 'Dining', budgetLimit: 200, frequency: 0),
+        Tag(name: 'Gas'),
+        Tag(name: 'Clothing'),
+      ]);
     }
     return _tags;
   }
@@ -164,58 +264,35 @@ class MockBankService implements BankService {
   }
 
   @override
-  Future<List<String>> getVendorTags(String vendorTag) async {
-    // Mock AI Logic: Return hardcoded defaults based on Vendor Tag
-    // In real app, this queries the AI/Vendor DB
-    switch (vendorTag.toUpperCase()) {
-      case 'TARGET':
-        return ['Target', 'Groceries', 'Home Goods', 'Clothing'];
-      case 'SHELL':
-        return ['Shell', 'Gas', 'Auto'];
-      case 'STARBUCKS':
-        return ['Starbucks', 'Dining', 'Coffee'];
-      case 'UBER RIDE':
-      case 'UBER':
-        return ['Uber', 'Transport', 'Services'];
-      case 'WHOLE FOODS':
-        return ['Whole Foods', 'Groceries', 'Dining'];
-      case 'MORTGAGE PAYMENT': // Example of strict mapping
-        return ['Mortgage Payment', 'Housing', 'Fixed'];
-      default:
-        // Fallback: Just the vendor tag and a default 'Uncategorized' if unknown?
-        // Or AI matching would happen here.
-        return [vendorTag, 'Uncategorized'];
+  Future<Map<String, dynamic>> analyzeTransaction(String description) async {
+    // "AI" Mock Logic
+    final upper = description.toUpperCase();
+    if (upper.contains('TARGET')) {
+      return {
+        'vendor': 'Target',
+        'tags': ['Target', 'Groceries', 'Home Goods', 'Clothing'],
+      };
     }
-  }
-
-  List<BankTransaction> _generateRandomTransactions() {
-    // Basic randomizer for V1 testing
-    final now = DateTime.now();
-    return [
-      BankTransaction(
-        id: 'new_${now.millisecondsSinceEpoch}_1',
-        date: now,
-        name: 'UBER RIDE',
-        amount: -24.50,
-        tags: ['UBER RIDE'],
-        pending: false,
-        isInitialized: false,
-      ),
-      BankTransaction(
-        id: 'new_${now.millisecondsSinceEpoch}_2',
-        date: now,
-        name: 'WHOLE FOODS',
-        amount: -102.30,
-        tags: ['WHOLE FOODS'],
-        pending: true,
-        isInitialized: false,
-      ),
-    ];
+    if (upper.contains('NETFLIX')) {
+      return {
+        'vendor': 'Netflix',
+        'tags': ['Netflix', 'Subscription', 'Streaming', 'Movies'],
+      };
+    }
+    if (upper.contains('UBER')) {
+      return {
+        'vendor': 'Uber',
+        'tags': ['Uber', 'Transport'],
+      };
+    }
+    return {
+      'vendor': description,
+      'tags': ['Uncategorized'],
+    };
   }
 }
 
 @riverpod
 BankService bankService(Ref ref) {
-  // Switch to RealBankService later
   return MockBankService();
 }

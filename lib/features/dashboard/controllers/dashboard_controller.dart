@@ -1,34 +1,40 @@
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/services/bank_service.dart';
 
-part 'dashboard_controller.g.dart';
+// 1. Dashboard State
+class DashboardState {
+  final Set<String> selection;
+  final String? selectedTag;
 
-@riverpod
-class DashboardController extends _$DashboardController {
+  const DashboardState({required this.selection, this.selectedTag});
+
+  DashboardState copyWith({Set<String>? selection, String? selectedTag}) {
+    return DashboardState(
+      selection: selection ?? this.selection,
+      selectedTag: selectedTag,
+    );
+  }
+}
+
+// 2. Dashboard Controller
+class DashboardController extends Notifier<DashboardState> {
   @override
   DashboardState build() {
-    return DashboardState(selection: {}, selectedTag: null);
+    return const DashboardState(selection: {}, selectedTag: null);
   }
 
   void selectTransaction(String id, {bool multiSelect = false}) {
     var newSelection = {...state.selection};
 
     if (multiSelect) {
-      // Toggle logic
       if (newSelection.contains(id)) {
         newSelection.remove(id);
       } else {
         newSelection.add(id);
       }
     } else {
-      // Single select logic
-      // If clicking already selected item (and it's the only one), could toggle off?
-      // User request says "default to single select". Usually clicking selected item keeps it selected.
-      // But clicking a *different* item clears others.
       newSelection = {id};
     }
-
-    // Always clear tag selection on transaction selection change
     state = state.copyWith(selection: newSelection, selectedTag: null);
   }
 
@@ -50,12 +56,11 @@ class DashboardController extends _$DashboardController {
 
     final tx = currentList.firstWhere((t) => t.id == id);
 
+    // Initial tags become the "active tags"
+    // For V1, we just overwrite tags. In real model, we might keep "auto tags" separate.
     final updatedTx = tx.copyWith(isInitialized: true, tags: tags);
 
-    // Update Mock Service
     await service.updateTransaction(updatedTx);
-
-    // Refresh List
     ref.invalidate(bankTransactionListProvider);
   }
 
@@ -69,64 +74,51 @@ class DashboardController extends _$DashboardController {
 
     final tx = currentList.firstWhere((t) => t.id == transactionId);
 
-    // Guard: Cannot remove the first tag (Vendor Tag) with current logic?
-    // Actually, tags.indexOf(tag) would find it.
-    // If the tag being removed is at index 0, abort.
+    // UI Logic: Cannot remove the Vendor Name if it's treated as a tag?
+    // User story says: "User removes details... but Vendor might remain"
+    // We treat tags as mutable set.
     final index = tx.tags.indexOf(tag);
-    if (index == 0) {
-      // Vendor tag is immutable
-      return;
-    }
+    if (index == 0) return; // Vendor tag is immutable
 
     final updatedTags = List<String>.from(tx.tags)..remove(tag);
+    final updatedRemoved = List<String>.from(tx.removedTags)..add(tag);
 
-    final updatedTx = tx.copyWith(tags: updatedTags);
+    final updatedTx = tx.copyWith(
+      tags: updatedTags,
+      removedTags: updatedRemoved,
+    );
 
     await service.updateTransaction(updatedTx);
     ref.invalidate(bankTransactionListProvider);
   }
 
   Future<void> addTagToTransaction(String transactionId, String tag) async {
-    // Helper for Undo
     final service = ref.read(bankServiceProvider);
     final currentList =
         ref.read(bankTransactionListProvider).asData?.value ?? [];
 
     final tx = currentList.firstWhere((t) => t.id == transactionId);
     final updatedTags = List<String>.from(tx.tags)..add(tag);
+    final updatedRemoved = List<String>.from(tx.removedTags)
+      ..remove(tag); // Remove from removed list if adding back
 
-    final updatedTx = tx.copyWith(tags: updatedTags);
-
-    await service.updateTransaction(updatedTx);
-    ref.invalidate(bankTransactionListProvider);
-  }
-
-  Future<void> restoreVendorTags(String transactionId) async {
-    final service = ref.read(bankServiceProvider);
-    final currentList =
-        ref.read(bankTransactionListProvider).asData?.value ?? [];
-
-    final tx = currentList.firstWhere((t) => t.id == transactionId);
-
-    if (tx.tags.isEmpty) return; // Should not happen per rules
-
-    final vendorTag = tx.tags.first;
-    final defaultTags = await service.getVendorTags(vendorTag);
-
-    // Replace current tags with defaults
-    final updatedTx = tx.copyWith(tags: defaultTags);
+    final updatedTx = tx.copyWith(
+      tags: updatedTags,
+      removedTags: updatedRemoved,
+    );
 
     await service.updateTransaction(updatedTx);
     ref.invalidate(bankTransactionListProvider);
   }
+
+  // restoreVendorTags removed as it conflicts with new persistent "removedTags" model
 
   Future<void> updateTagLimit(
     String tagName,
     double? limit,
-    String? frequency,
+    int? frequency,
   ) async {
     final service = ref.read(bankServiceProvider);
-    // Fetch existing or create new
     final tags = await service.fetchTags();
     final existingTag = tags.firstWhere(
       (t) => t.name == tagName,
@@ -138,35 +130,39 @@ class DashboardController extends _$DashboardController {
       frequency: frequency,
     );
     await service.updateTag(updatedTag);
-
-    // In a real app we might need to invalidate a tags provider
   }
 }
 
-class DashboardState {
-  final Set<String> selection;
-  final String? selectedTag;
-
-  const DashboardState({required this.selection, this.selectedTag});
-
-  DashboardState copyWith({Set<String>? selection, String? selectedTag}) {
-    return DashboardState(
-      selection: selection ?? this.selection,
-      selectedTag: selectedTag, // Allow null to clear
+// 3. Providers using Standard Syntax
+final dashboardControllerProvider =
+    NotifierProvider<DashboardController, DashboardState>(
+      DashboardController.new,
     );
-  }
+
+// Current Cashflow Provider
+class CurrentCashflowNotifier extends Notifier<String> {
+  @override
+  String build() => 'checking_1';
+
+  void set(String id) => state = id;
 }
 
-// Temporary Provider moved here for visibility
-@riverpod
-Future<List<BankTransaction>> bankTransactionList(Ref ref) async {
+final currentCashflowProvider =
+    NotifierProvider<CurrentCashflowNotifier, String>(
+      CurrentCashflowNotifier.new,
+    );
+
+// Bank Transaction List Provider
+final bankTransactionListProvider = FutureProvider<List<BankTransaction>>((
+  ref,
+) async {
   final service = ref.watch(bankServiceProvider);
-  return service.fetchTransactions();
-}
+  final cashflowId = ref.watch(currentCashflowProvider);
+  return service.fetchTransactions(cashflowId);
+});
 
 // Derived Provider for Calculations
-@riverpod
-Map<String, double> dashboardCalculations(Ref ref) {
+final dashboardCalculationsProvider = Provider<Map<String, double>>((ref) {
   final transactions =
       ref.watch(bankTransactionListProvider).asData?.value ?? [];
   final dashboardState = ref.watch(dashboardControllerProvider);
@@ -189,4 +185,4 @@ Map<String, double> dashboardCalculations(Ref ref) {
   }
 
   return {'income': income, 'expense': expense, 'net': income - expense};
-}
+});
