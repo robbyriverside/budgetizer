@@ -1,0 +1,14 @@
+name: plaid_dart
+description: A pure Dart client for the Plaid API.
+version: 0.0.1
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  http: ^1.2.0
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  build_runner: ^2.4.0
+  json_serializable: ^6.8.0

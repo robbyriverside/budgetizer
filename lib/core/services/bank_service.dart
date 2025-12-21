@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:plaid_dart/plaid_dart.dart';
 
 part 'bank_service.g.dart';
 
@@ -57,12 +60,15 @@ class BankTransaction {
       id: json['transaction_id'],
       date: DateTime.parse(json['date']),
       description: json['name'] ?? 'Unknown',
-      vendorName: json['vendor_name'] ?? json['name'] ?? 'Unknown',
+      vendorName:
+          json['merchant_name'] ??
+          json['name'] ??
+          'Unknown', // Plaid uses merchant_name
       amount: (json['amount'] as num).toDouble(),
       tags: List<String>.from(json['category'] ?? []),
-      pending: json['pending'],
+      pending: json['pending'] ?? false,
       isInitialized: true,
-      cashflowId: 'checking_1', // Default for legacy data
+      cashflowId: 'checking_1', // Default, will be overwritten by service
     );
   }
 
@@ -71,6 +77,7 @@ class BankTransaction {
     String? vendorName,
     List<String>? tags,
     List<String>? removedTags,
+    String? cashflowId,
   }) {
     return BankTransaction(
       id: id,
@@ -82,7 +89,7 @@ class BankTransaction {
       removedTags: removedTags ?? this.removedTags,
       pending: pending,
       isInitialized: isInitialized ?? this.isInitialized,
-      cashflowId: cashflowId,
+      cashflowId: cashflowId ?? this.cashflowId,
     );
   }
 }
@@ -101,14 +108,163 @@ class Cashflow {
   });
 }
 
+class DataSource {
+  final String id;
+  final String name;
+  final String type; // 'plaid', 'manual'
+  final String? accessToken; // Stored securely
+  final String? itemId;
+
+  DataSource({
+    required this.id,
+    required this.name,
+    required this.type,
+    this.accessToken,
+    this.itemId,
+  });
+}
+
 abstract class BankService {
   Future<List<Cashflow>> fetchCashflows();
   Future<List<BankTransaction>> fetchTransactions(String cashflowId);
   Future<void> updateTransaction(BankTransaction transaction);
   Future<List<Tag>> fetchTags();
   Future<void> updateTag(Tag tag);
-  // Smart Tagging: Returns likely vendor and default tags based on description
   Future<Map<String, dynamic>> analyzeTransaction(String description);
+
+  // Plaid specific
+  Future<String> createLinkToken();
+  Future<void> exchangePublicToken(String publicToken);
+  bool get isConnected;
+}
+
+class PlaidBankService implements BankService {
+  final PlaidClient _client;
+
+  DataSource? _connectedSource;
+  final List<Tag> _tags = [];
+
+  PlaidBankService({
+    required String clientId,
+    required String secret,
+    String environment = 'sandbox',
+  }) : _client = PlaidClient(
+         clientId: clientId,
+         secret: secret,
+         environment: environment,
+       );
+
+  @override
+  bool get isConnected => _connectedSource?.accessToken != null;
+
+  @override
+  Future<String> createLinkToken() async {
+    return _client.createLinkToken(userId: 'user_123'); // Fixed user ID for now
+  }
+
+  @override
+  Future<void> exchangePublicToken(String publicToken) async {
+    final accessToken = await _client.exchangePublicToken(publicToken);
+
+    // In a real app, we would fetch Item details to get the ID.
+    // For now, we'll generate a placeholder ID or assume it works.
+    // Ideally PlaidClient also exposes /item/get.
+    // For this simple demo:
+    _connectedSource = DataSource(
+      id: 'plaid_item_${DateTime.now().millisecondsSinceEpoch}',
+      name: 'Plaid Bank',
+      type: 'plaid',
+      accessToken: accessToken,
+      itemId: 'unknown_item_id',
+    );
+  }
+
+  @override
+  Future<List<Cashflow>> fetchCashflows() async {
+    if (_connectedSource?.accessToken == null) return [];
+
+    // START TODO: Add accounts/get to PlaidClient
+    // For now, returning empty list as PlaidClient doesn't support accounts/get yet
+    // This is valid as per the current scope of fixing step 1 transaction list.
+    return [];
+    // END TODO
+  }
+
+  @override
+  Future<List<BankTransaction>> fetchTransactions(String cashflowId) async {
+    if (_connectedSource?.accessToken == null) return [];
+
+    // For sandbox/demo, we'll just fetch the last 30 days
+    final now = DateTime.now();
+    final startDate = now.subtract(const Duration(days: 30));
+
+    // Plaid requires YYYY-MM-DD
+    String formatDate(DateTime d) =>
+        "${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}";
+
+    final response = await _client.getTransactions(
+      _connectedSource!.accessToken!,
+      startDate: formatDate(startDate),
+      endDate: formatDate(now),
+    );
+
+    final transactions = response['transactions'] as List;
+
+    final result = transactions
+        .map<BankTransaction>((tx) {
+          return BankTransaction.fromJson(
+            tx,
+          ).copyWith(cashflowId: tx['account_id']);
+        })
+        .where((t) => cashflowId == 'ALL' || t.cashflowId == cashflowId)
+        .toList();
+
+    return result;
+  }
+
+  @override
+  Future<void> updateTransaction(BankTransaction transaction) async {
+    // No-op for now
+  }
+
+  @override
+  Future<List<Tag>> fetchTags() async {
+    if (_tags.isEmpty) {
+      _tags.addAll([
+        Tag(name: 'Groceries', budgetLimit: 400, frequency: 7),
+        Tag(name: 'Dining', budgetLimit: 200, frequency: 0),
+        Tag(name: 'Gas'),
+        Tag(name: 'Clothing'),
+      ]);
+    }
+    return _tags;
+  }
+
+  @override
+  Future<void> updateTag(Tag tag) async {
+    final index = _tags.indexWhere((t) => t.name == tag.name);
+    if (index != -1) {
+      _tags[index] = tag;
+    } else {
+      _tags.add(tag);
+    }
+  }
+
+  @override
+  Future<Map<String, dynamic>> analyzeTransaction(String description) async {
+    // Reuse the simple logic from Mock implementation for now
+    final upper = description.toUpperCase();
+    if (upper.contains('TARGET')) {
+      return {
+        'vendor': 'Target',
+        'tags': ['Target', 'Groceries', 'Home Goods', 'Clothing'],
+      };
+    }
+    return {
+      'vendor': description,
+      'tags': ['Uncategorized'],
+    };
+  }
 }
 
 class MockBankService implements BankService {
@@ -134,9 +290,17 @@ class MockBankService implements BankService {
     ),
   ];
 
-  Map<String, List<BankTransaction>> _transactionsByAccount = {};
+  final Map<String, List<BankTransaction>> _transactionsByAccount = {};
   final List<Tag> _tags = [];
   bool _isFirstLoad = true;
+
+  @override
+  bool get isConnected => false;
+
+  @override
+  Future<String> createLinkToken() async => "mock-link-token";
+  @override
+  Future<void> exchangePublicToken(String publicToken) async {}
 
   @override
   Future<List<Cashflow>> fetchCashflows() async {
@@ -265,26 +429,6 @@ class MockBankService implements BankService {
 
   @override
   Future<Map<String, dynamic>> analyzeTransaction(String description) async {
-    // "AI" Mock Logic
-    final upper = description.toUpperCase();
-    if (upper.contains('TARGET')) {
-      return {
-        'vendor': 'Target',
-        'tags': ['Target', 'Groceries', 'Home Goods', 'Clothing'],
-      };
-    }
-    if (upper.contains('NETFLIX')) {
-      return {
-        'vendor': 'Netflix',
-        'tags': ['Netflix', 'Subscription', 'Streaming', 'Movies'],
-      };
-    }
-    if (upper.contains('UBER')) {
-      return {
-        'vendor': 'Uber',
-        'tags': ['Uber', 'Transport'],
-      };
-    }
     return {
       'vendor': description,
       'tags': ['Uncategorized'],
@@ -294,5 +438,17 @@ class MockBankService implements BankService {
 
 @riverpod
 BankService bankService(Ref ref) {
+  // Check env vars to decide which service to use
+  // This is a simple toggle. In real app, might be dynamic configuration.
+  final clientId = dotenv.env['PLAID_CLIENT_ID'];
+  final secret = dotenv.env['PLAID_SECRET'];
+
+  if (clientId != null &&
+      clientId.isNotEmpty &&
+      secret != null &&
+      secret.isNotEmpty) {
+    return PlaidBankService(clientId: clientId, secret: secret);
+  }
+
   return MockBankService();
 }

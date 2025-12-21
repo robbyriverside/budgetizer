@@ -48,6 +48,8 @@ Every transaction exists on three key dimensions:
     - **Income**: Money In.
     - **Expense**: Money Out.
 
+Also represented as tags on the transaction.
+
 ---
 
 ## 3. Tagging Model
@@ -59,7 +61,7 @@ The system uses an **AI-first** approach to classification.
 - **Control**: User can remove any tag *except* the first one.
 
 ### 3.2. Tag Budgets
-Budgeting is done at the **Tag** level, not the Category level.
+Budgeting is done on the **Tag**:
 - **Limit**: The maximum amount to spend on a Tag.
 - **Frequency**: The cycle for that limit (Weekly, Monthly).
 - **Variable Expenses** are constrained by the sum of budgets for their assigned tags.
