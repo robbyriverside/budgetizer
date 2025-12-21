@@ -2,18 +2,23 @@
 
 This document defines the core data structures and the flow of data through the Budgetizer system. It acts as the internal API specification for how applications should ingest, process, and store financial data.
 
+Everything below should be written in pure dart.  We are creating the library plaid_dart and everything related to our base datamodel features should be pure dart.
+
 ## 1. Configuring Data Sources
 
 The primary source of truth for financial data is the bank feed. We use **Plaid** as the primary provider, leveraging the `plaid_flutter` SDK.
 
 ### Plaid Integration
+- **Hybrid Architecture**:
+    -   **UI (Flutter)**: Uses `plaid_flutter` to launch the **Link** widget and obtain a `public_token`.
+    -   **API (Pure Dart)**: Uses `plaid_dart` package (custom) to exchange tokens and fetch transactions. This allows API logic to run headless (CLI/Server).
 - **Environment**: Users start in the **Development** or **Sandbox** environment (free tier).
 - **Authentication Flow**:
-    1.  **Link Token**: The app requests a `link_token` from the backend (or direct Plaid call in serverless setups).
-    2.  **Plaid Link**: The UI presents the Plaid Link widget using the token.
+    1.  **Link Token**: The app requests a `link_token` via `PlaidClient` (Dart).
+    2.  **Plaid Link**: The UI presents the Plaid Link widget using the token (`plaid_flutter`).
     3.  **Public Token**: On success, Plaid returns a `public_token`.
-    4.  **Access Token**: The app exchanges the `public_token` for a permanent `access_token`.
-    5.  **Storage**: The `access_token` is securely stored (never logging it) and used for all subsequent data fetches.
+    4.  **Access Token**: The app exchanges the `public_token` for a permanent `access_token` via `PlaidClient`.
+    5.  **Storage**: The `access_token` is securely stored and used for daily syncs.
 
 ### Data Source Abstraction
 While Plaid is the default, the system uses a `BankService` abstraction to allow for other sources (e.g., CSV import, other aggregators). A `DataSource` configuration object holds the credentials and status of each connection.
@@ -21,6 +26,10 @@ While Plaid is the default, the system uses a `BankService` abstraction to allow
 ### Credentials
 
 I have a client_id and a sandbox_secret for Plaid. I need to store these in the environment variables.  So the app can pick them up from the environment.
+
+PLAID_CLIENT_ID=your_client_id_here
+PLAID_SECRET=your_sandbox_secret_here
+PLAID_ENV=sandbox
 
 ---
 
@@ -47,6 +56,50 @@ Transactions are the atomic units of the system. They are fetched from the `Data
     -   Plaid `category` (list) -> `tags`.
     -   Plaid `amount` -> `amount` (Ensure sign consistency).
 3.  **Deduplication**: Transactions are matched by `id`. Existing transactions are updated, not duplicated.
+
+### Unknown Transactions & AI Resolution
+Transactions that do not match an existing Regex rule are initially marked as **Unknown** (`isInitialized: false`). These require resolution before they can be included in the budget.
+
+#### Resolution Workflow
+1.  **Detection**: The `TagEngine` fails to match a `regex` in `db_tags.json`.
+2.  **AI Analysis**: The system delegates the description to an **AI Service**.
+    *   The AI performs a web search (if needed) to identify the Vendor.
+    *   *Input*: "SparkFun" -> *Context*: Electronics, Hobby components.
+    *   **Speculative Analysis ("Best Guess")**:
+        *   If the vendor is obscure or fake (Sandbox data), the AI relies on semantic clues in the name.
+        *   *Example*: "Touchstone Climbing" -> Contains "Climbing" -> Inference: "Gym", "Fitness", "Recreation".
+        *   **Policy**: Always populate tags. It is better to provide a wrong tag (which prompts user correction) than `Uncategorized` (which requires full manual entry).
+3.  **Classification**: The AI determines:
+    *   **Vendor Name**: Cleaned name (e.g., "SparkFun").
+    *   **Market/Service**: High-level category (e.g., "Electronics", "Education").
+    *   **Transaction Type**:
+        *   `Expense`: Standard purchase.
+        *   `Income`: Paycheck, refunds.
+        *   `Transfer`: Credit card payments (e.g., "AUTOMATIC PAYMENT - THANK"), moving funds between own accounts.
+    *   A new `Tag` entry is created and appended to the local `db_tags.json` (or database).
+    *   Future transactions with this description will now match automatically (O(1)).
+
+#### System Transactions (Bank as Vendor)
+The AI must disambiguate between external merchants (e.g., "Starbucks") and the Financial Institution itself.
+-   **Concept**: For Fees, Interest, and Internal Transfers, the **Vendor** is effectively the Bank (e.g., "Chase", "Wells Fargo").
+-   **Workflow**: The AI uses the transaction context (Source Account Name) to attribute these correctly.
+    -   *Input*: "INTRST PYMNT" + *Context*: "Chase Sapphire"
+    -   *Result*: Vendor="Chase", Tags=`['Interest', 'Fees']`.
+
+#### Special Case: Transfers & Payments
+Internal transfers (like paying off a Credit Card) are not "spending" in the budgetary sense but are critical for **Cashflow Management**.
+-   **Identification**: Descriptions often contain "PAYMENT", "TRANSFER", "THANK YOU".
+-   **Tagging**: Must be tagged with system tags: `Transfer`, `Payment`, or `Credit Card Payment`.
+-   **Logic**:
+    -   *Checking Account*: Outflow (Negative).
+    -   *Credit Card*: Inflow (Positive) -> Reduces the Debt balance.
+    -   The system explicitly links these to execute a zero-sum transfer where possible.
+
+#### Special Case: Interest Payments
+Transactions labeled "INTRST PYMNT" or similar are fees charged by the bank/institution.
+-   **Identification**: Regex matches `(?i)(INTRST|INTEREST)` or `(?i)PYMNT`.
+-   **Tagging**: Map to `Interest Payment` vendor and apply `['Interest', 'Fees', 'Finance']`.
+-   **Context**: Typically an expense on a credit card account, increasing the debt balance.
 
 ---
 

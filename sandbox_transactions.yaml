@@ -1,0 +1,97 @@
+transactions:
+  - id: "vx75gLap4AhEK4lALDRZTMxmx5G15aiqJjJod"
+    date: "2025-12-15"
+    description: "CREDIT CARD 3333 PAYMENT *//"
+    vendor: "Credit Card Payment"
+    amount: 25.0
+    tags: ["Credit Card Payment", "Transfer", "Payment"]
+  - id: "GWE3nqrjpoSKM56aDkRjsaPdP67m6gH6wlwWl"
+    date: "2025-12-15"
+    description: "Uber 063015 SF**POOL**"
+    vendor: "Uber"
+    amount: 5.4
+    tags: ["Uber", "Transport", "Dining", "Travel"]
+  - id: "knrbMaVJGks6M1mGzbl7iGeNeo1JoBHLaBax8"
+    date: "2025-12-14"
+    description: "ACH Electronic CreditGUSTO PAY 123456"
+    vendor: "Gusto Payroll"
+    amount: 5850.0
+    tags: ["Gusto Payroll", "Income", "Salary"]
+  - id: "6a1mnPAozdhBA3JXNyZvh7WPWqLaq8S8kWkra"
+    date: "2025-12-14"
+    description: "CD DEPOSIT .INITIAL."
+    vendor: "Bank Deposit"
+    amount: 1000.0
+    tags: ["Bank Deposit", "Income", "Financial", "Savings"]
+  - id: "X4D1bMLzaBhb7lQVyKEqig8z83em3BibJ4J5p"
+    date: "2025-12-13"
+    description: "Touchstone Climbing"
+    vendor: "Touchstone Climbing"
+    amount: 78.5
+    tags: ["Touchstone Climbing", "Fitness", "Gym", "Sports", "Recreation"]
+  - id: "ny3pRPqBKwIG8K1WnBrVSjEwEvbyvmCADdD8o"
+    date: "2025-12-13"
+    description: "United Airlines"
+    vendor: "United Airlines"
+    amount: -500.0
+    tags: ["United Airlines", "Travel", "Transport"]
+  - id: "bL93Dlb81gSGQ4oWwM76SZKpK6786numP5PGk"
+    date: "2025-12-12"
+    description: "McDonald's"
+    vendor: "McDonald's"
+    amount: 12.0
+    tags: ["McDonald's", "Fast Food", "Dining"]
+  - id: "mmBLMNlrqbfE6qLVP5K3TDNeNREbR9igkbk7m"
+    date: "2025-12-12"
+    description: "Starbucks"
+    vendor: "Starbucks"
+    amount: 4.33
+    tags: ["Starbucks", "Coffee", "Dining", "Drinks"]
+  - id: "y4Z3kgPAj5h9Bj6WlZzMhzd1daZEalc4M9Mrd"
+    date: "2025-12-11"
+    description: "SparkFun"
+    vendor: "SparkFun"
+    amount: 89.4
+    tags: ["SparkFun", "Electronics", "Education", "Hardware"]
+  - id: "Rz4VwP7RrohQd5V8gGPESjNDNZpyZJCaMKMzL"
+    date: "2025-12-10"
+    description: "INTRST PYMNT"
+    vendor: "Chase Bank"
+    amount: -4.22
+    tags: ["Chase Bank", "Interest", "Fees", "Finance"]
+  - id: "Dg9RnWlxMVuEb5dXyarRTegMgAbmANS3dgdzz"
+    date: "2025-11-30"
+    description: "United Airlines"
+    vendor: "United Airlines"
+    amount: 500.0
+    tags: ["United Airlines", "Travel", "Transport"]
+  - id: "9PgVRebGxKUNAa8RdE1phyL6LzjbzlI4BLBl1"
+    date: "2025-11-28"
+    description: "Uber 072515 SF**POOL**"
+    vendor: "Uber"
+    amount: 6.33
+    tags: ["Uber", "Transport", "Dining", "Travel"]
+  - id: "Vd71ZQMlxrHyP5awENo9TkQeQZE6ZBt9l4l6W"
+    date: "2025-11-25"
+    description: "Tectra Inc"
+    vendor: "Tectra Inc"
+    amount: 500.0
+    tags: ["Tectra Inc", "Business Services", "Contractors"]
+  - id: "JnKawz3189sDl568XRgQIjDPDb6VbdCBxExbo"
+    date: "2025-11-24"
+    description: "AUTOMATIC PAYMENT - THANK"
+    vendor: "Credit Card Payment"
+    amount: 2078.5
+    tags: ["Credit Card Payment", "Transfer", "Payment"]
+  - id: "5d1xnNWLr6HRAEVJx1WKIdo1olMalRi5JoJxG"
+    date: "2025-11-24"
+    description: "KFC"
+    vendor: "KFC"
+    amount: 500.0
+    tags: ["KFC", "Fast Food", "Dining"]
+  - id: "wdeARp4gNJHGyVRxN6D4Sb4z4r91rjiPMvMgP"
+    date: "2025-11-24"
+    description: "Madison Bicycle Shop"
+    vendor: "Madison Bicycle Shop"
+    amount: 500.0
+    tags: ["Madison Bicycle Shop", "Sports", "Shopping", "Hobbies"]
