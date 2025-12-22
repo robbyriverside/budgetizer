@@ -1,7 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-final budgetServiceProvider = Provider((ref) => BudgetService());
-
 class BudgetPeriod {
   final DateTime startDate;
   final DateTime endDate;
