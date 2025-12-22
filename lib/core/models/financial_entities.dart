@@ -78,6 +78,8 @@ class BankTransaction {
   final double amount;
   final List<String> tags; // Current active tags
   final List<String> removedTags; // Tags removed by user
+  final List<String>
+  suggestedRemovedTags; // Tags suggested for removal based on history
   final bool pending;
   final bool isInitialized;
   final String cashflowId; // Link to specific account
@@ -90,6 +92,7 @@ class BankTransaction {
     required this.amount,
     required this.tags,
     this.removedTags = const [],
+    this.suggestedRemovedTags = const [],
     required this.pending,
     this.isInitialized = true,
     required this.cashflowId,
@@ -109,6 +112,9 @@ class BankTransaction {
       amount: (json['amount'] as num).toDouble(),
       tags: List<String>.from(json['category'] ?? json['tags'] ?? []),
       removedTags: List<String>.from(json['removedTags'] ?? []),
+      suggestedRemovedTags: List<String>.from(
+        json['suggestedRemovedTags'] ?? [],
+      ),
       pending: json['pending'] ?? false,
       isInitialized: json['isInitialized'] ?? true,
       cashflowId: json['account_id'] ?? json['cashflowId'] ?? 'checking_1',
@@ -124,6 +130,7 @@ class BankTransaction {
       'amount': amount,
       'tags': tags,
       'removedTags': removedTags,
+      'suggestedRemovedTags': suggestedRemovedTags,
       'pending': pending,
       'isInitialized': isInitialized,
       'cashflowId': cashflowId,
@@ -138,6 +145,7 @@ class BankTransaction {
     double? amount,
     List<String>? tags,
     List<String>? removedTags,
+    List<String>? suggestedRemovedTags,
     bool? pending,
     bool? isInitialized,
     String? cashflowId,
@@ -150,6 +158,7 @@ class BankTransaction {
       amount: amount ?? this.amount,
       tags: tags ?? this.tags,
       removedTags: removedTags ?? this.removedTags,
+      suggestedRemovedTags: suggestedRemovedTags ?? this.suggestedRemovedTags,
       pending: pending ?? this.pending,
       isInitialized: isInitialized ?? this.isInitialized,
       cashflowId: cashflowId ?? this.cashflowId,
@@ -157,17 +166,84 @@ class BankTransaction {
   }
 }
 
+enum CashflowType { checking, creditCard, savings }
+
+enum SavingsType { expense, investment }
+
+class Cycle {
+  // Definition of a time period, could be fixed (monthly) or relative
+  final DateTime startDate;
+
+  Cycle({required this.startDate});
+
+  factory Cycle.fromJson(Map<String, dynamic> json) {
+    return Cycle(startDate: DateTime.parse(json['startDate']));
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'startDate': startDate.toIso8601String()};
+  }
+}
+
 class Cashflow {
+  // A specific time-bound period (e.g., January 2025)
   final String id;
-  final String name;
-  final String type; // Checking, Savings, Credit Card
-  final double balance;
+  final String seriesId; // References CashflowSeries.id
+  final Cycle cycle;
+  final double openingBalance;
+  final double closingBalance;
+  final List<BankTransaction> transactions;
 
   Cashflow({
+    required this.id,
+    required this.seriesId,
+    required this.cycle,
+    this.openingBalance = 0.0,
+    this.closingBalance = 0.0,
+    this.transactions = const [],
+  });
+
+  factory Cashflow.fromJson(Map<String, dynamic> json) {
+    return Cashflow(
+      id: json['id'],
+      seriesId: json['seriesId'] ?? '',
+      cycle: Cycle.fromJson(json['cycle']),
+      openingBalance: (json['openingBalance'] as num?)?.toDouble() ?? 0.0,
+      closingBalance: (json['closingBalance'] as num?)?.toDouble() ?? 0.0,
+      transactions:
+          (json['transactions'] as List<dynamic>?)
+              ?.map((e) => BankTransaction.fromJson(e))
+              .toList() ??
+          [],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'seriesId': seriesId,
+      'cycle': cycle.toJson(),
+      'openingBalance': openingBalance,
+      'closingBalance': closingBalance,
+      'transactions': transactions.map((t) => t.toJson()).toList(),
+    };
+  }
+}
+
+class CashflowSeries {
+  // The persistent account entity (formerly Cashflow)
+  final String id;
+  final String name;
+  final CashflowType type;
+  final double balance; // Current aggregate balance
+  final List<Cashflow> history; // Historical cycles
+
+  CashflowSeries({
     required this.id,
     required this.name,
     required this.type,
     required this.balance,
+    this.history = const [],
   });
 }
 

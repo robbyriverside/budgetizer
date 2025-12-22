@@ -11,23 +11,23 @@ part 'bank_service.g.dart';
 
 class MockBankService implements BankService {
   // In-Memory Storage
-  final List<Cashflow> _cashflows = [
-    Cashflow(
+  final List<CashflowSeries> _cashflows = [
+    CashflowSeries(
       id: 'checking_1',
       name: 'Chase Checking',
-      type: 'Checking',
+      type: CashflowType.checking,
       balance: 4520.50,
     ),
-    Cashflow(
+    CashflowSeries(
       id: 'savings_1',
       name: 'Chase Savings',
-      type: 'Savings',
+      type: CashflowType.savings,
       balance: 12000.00,
     ),
-    Cashflow(
+    CashflowSeries(
       id: 'visa_1',
       name: 'Chase Sapphire',
-      type: 'Credit Card',
+      type: CashflowType.creditCard,
       balance: -840.20,
     ),
   ];
@@ -45,7 +45,7 @@ class MockBankService implements BankService {
   Future<void> exchangePublicToken(String publicToken) async {}
 
   @override
-  Future<List<Cashflow>> fetchCashflows() async {
+  Future<List<CashflowSeries>> fetchCashflows() async {
     await Future.delayed(const Duration(milliseconds: 300));
     return _cashflows;
   }

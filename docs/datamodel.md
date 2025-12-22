@@ -105,19 +105,22 @@ Transactions labeled "INTRST PYMNT" or similar are fees charged by the bank/inst
 
 ## 3. Cashflows and Cashflow Series
 
-The Budgetizer logic is built on **Cashflows**, not just simple accounts. A Cashflow is a container for money entering and leaving over time.
+The Account object is defined by the users information.  As the user adds sources of transactions (banks, etc), the system creates a **Cashflow** for each source and the account knows which source maps to what cashflow.  
 
-### Hierarchy
--   **Checking Account (Root)**: The central hub. All income enters here; bills and credit card payments leave from here.
--   **Credit Cards (Child)**: Treated as sub-cashflows. They accumulate negative balance (debt) which is settled by a "Transfer" transaction from checking.
--   **Savings (Child)**: A destination for surplus funds or specific goals.
+The Budgetizer logic is built on **Cashflows**. A Cashflow is a container for money entering and leaving over time.  Everything the system does is to observe and monitor the cashflows and alert the user about cashflow issues; mentioned below.
 
-### Lifecycle & Concepts
--   **Cycle**: A defined time period (e.g., Monthly, Paycheck-to-Paycheck).
-    -   *Trigger*: A cycle often starts/ends on a key transaction (e.g., Mortgage Payment).
--   **Buffer**: The "Safe to Spend" balance remaining in the Checking cashflow for the current cycle.
-    -   *Calculation*: `Current Balance` + `Pending Income` - `Planned Expenses`.
--   **Series**: A repeating pattern of transactions (e.g., "Rent" every 1st of the month). The system identifies these to predict future cashflow.
+User spending data is arranged into **Cashflows**. Each cashflow has a **Cycle**.  Cycles are defined by a **Trigger**. The trigger is a transaction that occurs at the end of the cycle. The trigger is always a date.  But the date may be fixed, like 3rd of the month, or relative to a specific transaction, like the date you received your paycheck.
+
+There are three types of cashflows, **Checking**, **Credit Card**, and **Savings**. 
+
+### Cashflow Types
+-   **Checking Account (Root)**: The central hub. All income enters here; bills and credit card payments leave from here.  At the beginning of each cycle, the balance is checked against the buffer.  If the balance is less than the buffer, the system will alert the user.
+-   **Credit Cards (Child)**: Treated as sub-cashflows. They accumulate negative balance (debt) which is settled by a "Transfer" transaction from checking.  It can not be assumed that a billing period starts with a zero balance.  If there is a partial payment, the balance is adjusted accordingly.  That balance should always shink from cycle to cycle.  If it grows, even from zero, the user is alerted.
+-   **Savings (Child)**: Also a sub-cashflow. A destination for surplus funds or specific goals, usually added from checking.  There are two kinds of savings: **Expenses** and **Investment**.  Expenses in savings are for expenses outside the usual budget such as unexpected expenses, like car repairs or medical bills. Expenses will eventually be moved to checking to support paying the credit cards.  Investments in savings are for long-term goals, like retirement or buying a house. 
+
+Each **Cashflow** is just one in a series of cashflows over time.  The current cashflow is the one that contains the current date.  So you can ask a cashflow containing a particular date or today (current).
+
+
 
 ---
 
@@ -138,6 +141,11 @@ Tagging is the core organization mechanism. It is automated ("Smart Tagging") to
 -   **Immutability**: Users **remove** tags that don't apply, they rarely need to add them.
     -   *Example*: Target automatically gets `[Target, Groceries, Clothing]`. If you only bought food, you remove `Clothing`.
 -   **Vendor as Tag**: The Vendor Name (e.g., "Chevron") is itself a tag, allowing strict reporting on specific merchants.
+
+
+## 4.1 Account Storage
+
+Using SQLLite as a JSON store, like a NoSQL db.  Where one column is the key and the and another column contains the JSONB content.  The keys are according to what the system needs to store.  Each key could contain a cashflow for one cycle.  There could be a column with a date key for when that cashflow started the cycle.  Another column for the cashflow type (checking, credit card, savings).  And another column for the cashflow id.  It's just about which is the most efficient way to store the data.
 
 ---
 

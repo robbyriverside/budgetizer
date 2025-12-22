@@ -11,7 +11,7 @@ export 'ai_service.dart';
 typedef ResourceLoader = Future<String> Function(String path);
 
 abstract class BankService {
-  Future<List<Cashflow>> fetchCashflows();
+  Future<List<CashflowSeries>> fetchCashflows();
   Future<List<BankTransaction>> fetchTransactions(String cashflowId);
   Future<void> updateTransaction(BankTransaction transaction);
   Future<List<Tag>> fetchTags();
@@ -56,8 +56,20 @@ class PlaidBankService implements BankService {
     if (_tagsLoaded) return;
     try {
       if (resourceLoader != null) {
+        // Load Base Tags
         final jsonStr = await resourceLoader!('assets/data/db_tags.json');
         _tagEngine = TagEngine.fromJson(jsonStr);
+
+        // Load Account Tags (Mocked path for now, would be local storage/file)
+        try {
+          // In a real app we'd use path_provider to get app documents directory
+          // For now, we'll try to load from a known asset or ignore if not found
+          // final accountTagsStr = await resourceLoader!('assets/data/account_tags.json');
+          // _tagEngine!.loadAccountTags(accountTagsStr);
+        } catch (_) {
+          // No account tags yet
+        }
+
         _tagsLoaded = true;
       }
     } catch (e) {
@@ -70,6 +82,18 @@ class PlaidBankService implements BankService {
   void setTagEngine(TagEngine engine) {
     _tagEngine = engine;
     _tagsLoaded = true;
+  }
+
+  // Persistence Mock - In reality would write to file system
+  Future<void> _saveAccountTags() async {
+    if (_tagEngine != null) {
+      final tags = _tagEngine!.accountTags;
+      final jsonStr = jsonEncode({
+        'tags': tags.map((t) => t.toJson()).toList(),
+      });
+      // print('Saving account_tags.json: $jsonStr');
+      // await File('assets/data/account_tags.json').writeAsString(jsonStr);
+    }
   }
 
   @override
@@ -98,7 +122,7 @@ class PlaidBankService implements BankService {
   }
 
   @override
-  Future<List<Cashflow>> fetchCashflows() async {
+  Future<List<CashflowSeries>> fetchCashflows() async {
     if (_connectedSource?.accessToken == null) return [];
 
     // START TODO: Add accounts/get to PlaidClient
@@ -133,6 +157,9 @@ class PlaidBankService implements BankService {
     // Need to handle async mapping to await AI service
     final result = <BankTransaction>[];
 
+    // Mock History for Prediction Logic (In real app, fetch from DB)
+    final historyTransactions = <BankTransaction>[];
+
     for (var tx in transactions) {
       // Convert to object
       var transaction = BankTransaction.fromJson(
@@ -142,6 +169,13 @@ class PlaidBankService implements BankService {
       // Apply intelligent tagging (Regex first)
       if (_tagEngine != null) {
         transaction = _tagEngine!.applyTags(transaction);
+
+        // Predict Removed Tags
+        final suggested = _tagEngine!.predictRemovedTags(
+          transaction,
+          historyTransactions,
+        );
+        transaction = transaction.copyWith(suggestedRemovedTags: suggested);
       }
 
       // AI Fallback for Unknown Transactions (No Vendor identified)
@@ -171,10 +205,18 @@ class PlaidBankService implements BankService {
             tags.insert(0, analysis.vendorName);
           }
 
+          final suggested =
+              _tagEngine?.predictRemovedTags(
+                transaction,
+                historyTransactions,
+              ) ??
+              [];
+
           // Update Transaction
           transaction = transaction.copyWith(
             vendorName: analysis.vendorName,
             tags: tags,
+            suggestedRemovedTags: suggested,
             isInitialized: true, // Now initialized
           );
 
@@ -202,8 +244,7 @@ class PlaidBankService implements BankService {
                   .toList(),
             );
             _tagEngine!.learnTag(newTag);
-
-            // TODO: Persist this new tag to db_tags.json or db storage
+            await _saveAccountTags(); // Persist changes
           }
         } catch (e) {
           print('AI Analysis failed for ${transaction.description}: $e');

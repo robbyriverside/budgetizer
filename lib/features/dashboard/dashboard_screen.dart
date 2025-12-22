@@ -229,7 +229,7 @@ class DashboardScreen extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Left: Cashflow Selector
-          FutureBuilder<List<Cashflow>>(
+          FutureBuilder<List<CashflowSeries>>(
             future: cashflowsFuture,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
