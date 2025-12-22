@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:plaid_dart/plaid_dart.dart';
 import '../models/financial_entities.dart';
 import 'tag_engine.dart';
@@ -87,10 +86,10 @@ class PlaidBankService implements BankService {
   // Persistence Mock - In reality would write to file system
   Future<void> _saveAccountTags() async {
     if (_tagEngine != null) {
-      final tags = _tagEngine!.accountTags;
-      final jsonStr = jsonEncode({
-        'tags': tags.map((t) => t.toJson()).toList(),
-      });
+      // final tags = _tagEngine!.accountTags;
+      // final jsonStr = jsonEncode({
+      //   'tags': tags.map((t) => t.toJson()).toList(),
+      // });
       // print('Saving account_tags.json: $jsonStr');
       // await File('assets/data/account_tags.json').writeAsString(jsonStr);
     }

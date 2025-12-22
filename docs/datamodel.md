@@ -156,10 +156,14 @@ Budgets are constraints applied to Tags, not arbitrary buckets.
 ### Model
 Budget logic is embedded in the `Tag` definition:
 -   `budgetLimit` (`double`): The max spending allowed.
--   `frequency` (`int`): The period for the limit in **days**.
+-   `frequency` (`int`): The period for the limit in zero to fifteen **days**.
     -   `0`: Monthly (Calendar Month).
     -   `7`: Weekly (Rolling or Fixed 7 days).
-    -   `365`: Yearly.
+    -   `15`: Half a month. (MAX VALUE)
+
+A cashflow is defined based on a month of days.  So by default the Tag cycle is the entire month.  Frequency can reduce that Tag cycle to an arbitrary number of days. The max is 15 days, because that would represent two Tag cycles in a month.  But it can be any size.  The system handles overlapping Tag cycles by pro-rating the Tag limit.  So if the last period in the Tag cycle is only 10 days, the Tag limit is pro-rated to 10 days.
+
+The last period in the Tag cycle finish out the month.  So if the month has 31 days, and the Tag cycle is 15 days, the last period is 16 days.  If the Tag cycle is 7 days, the last period is 4 days.  If the last period is less than half the number of days in the Tag cycle, then the last period is added to the previous period.  If the last period is more than half the number of days in the last period is shortened to the remaining days in the month.    
 
 ### Validation Logic
 -   **Aggregation**: To check a budget, query all transactions with `Tag X` within the current cycle/frequency window.

@@ -1,5 +1,3 @@
-import '../models/financial_entities.dart';
-
 /// Structure returned by AI analysis
 class AIAnalysisResult {
   final String vendorName;
