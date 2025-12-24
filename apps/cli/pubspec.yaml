@@ -1,0 +1,17 @@
+name: cli
+description: A simple command-line application.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.9.2
+
+# Add regular dependencies here.
+dependencies:
+  budgetizer_dart:
+    path: ../../packages/budgetizer_dart
+  args: ^2.7.0
+  dotenv: ^4.2.0
+
+dev_dependencies:
+  lints: ^6.0.0
