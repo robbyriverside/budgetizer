@@ -3,7 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'features/dashboard/dashboard_screen.dart';
 
-void main() {
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env", isOptional: true);
   runApp(const ProviderScope(child: BudgetizerApp()));
 }
 

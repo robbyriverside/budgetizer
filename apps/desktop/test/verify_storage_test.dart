@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:budgetizer/core/services/database_service.dart';
-import 'package:budgetizer/core/models/financial_entities.dart';
+import 'package:budgetizer_dart/budgetizer_dart.dart';
 
 void main() async {
   print('Running Storage Verification...');

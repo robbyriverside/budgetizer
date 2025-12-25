@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:budgetizer/core/services/budget_service.dart';
+import 'package:budgetizer_dart/budgetizer_dart.dart';
 
 void main() {
   late BudgetService service;

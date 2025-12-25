@@ -1,7 +1,4 @@
-import 'package:budgetizer/core/services/budget_service.dart';
-import 'package:budgetizer/core/services/transaction_store.dart';
-import 'package:budgetizer/core/models/financial_entities.dart';
-import 'dart:io';
+import 'package:budgetizer_dart/budgetizer_dart.dart';
 
 void main() {
   print("=== Budget Logic & Tag Indexing Simulation (Step 6) ===\n");

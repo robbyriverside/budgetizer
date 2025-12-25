@@ -1,6 +1,5 @@
 import 'dart:io';
-import 'package:budgetizer/core/services/financial_service.dart';
-import 'package:budgetizer/core/services/tag_engine.dart';
+import 'package:budgetizer_dart/budgetizer_dart.dart';
 import 'package:plaid_dart/plaid_dart.dart';
 
 void main() async {

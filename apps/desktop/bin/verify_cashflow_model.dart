@@ -1,4 +1,4 @@
-import '../lib/core/models/financial_entities.dart';
+import 'package:budgetizer_dart/budgetizer_dart.dart';
 
 void main() {
   print("Verifying Cashflow Models...");

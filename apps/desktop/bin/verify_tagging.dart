@@ -1,5 +1,4 @@
-import 'package:budgetizer/core/services/tag_engine.dart';
-import 'package:budgetizer/core/models/financial_entities.dart';
+import 'package:budgetizer_dart/budgetizer_dart.dart';
 
 void main() {
   print('Running Tagging Verification...');
