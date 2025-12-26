@@ -7,7 +7,10 @@ import 'widgets/inspector_panel.dart';
 import 'widgets/tag_inspector_panel.dart';
 import '../../core/widgets/split_view.dart';
 import 'widgets/alerts_dialog.dart';
-import 'widgets/load_data_dialog.dart';
+
+import '../loading/loading_screen.dart' as apps_loading;
+import '../vendors/vendor_screen.dart' as apps_vendors;
+import '../reporting/reporting_screen.dart' as apps_reporting;
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -321,16 +324,64 @@ class DashboardScreen extends ConsumerWidget {
               // LOAD DATA
               FilledButton.icon(
                 onPressed: () async {
-                  // Show Load Dialog
-                  await showDialog(
-                    context: context,
-                    builder: (_) => const LoadDataDialog(),
+                  // Navigate to Loading Screen
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const apps_loading.LoadingScreen(),
+                    ),
                   );
                   // Refresh after load
                   ref.invalidate(bankTransactionListProvider);
                 },
                 icon: Icon(Icons.download),
                 label: Text("Load Data"),
+              ),
+              const SizedBox(width: 16),
+
+              // REPORT BUTTON
+              FilledButton.tonalIcon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const apps_reporting.ReportingScreen(),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.analytics),
+                label: Text("Report"),
+              ),
+              const SizedBox(width: 8),
+
+              // TOOLS MENU
+              PopupMenuButton<String>(
+                icon: const Icon(Icons.build),
+                tooltip: "Tools",
+                onSelected: (value) {
+                  if (value == 'vendors') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const apps_vendors.VendorScreen(),
+                      ),
+                    );
+                  }
+                },
+                itemBuilder: (BuildContext context) {
+                  return [
+                    const PopupMenuItem(
+                      value: 'vendors',
+                      child: Row(
+                        children: [
+                          Icon(Icons.label, color: Colors.grey),
+                          SizedBox(width: 8),
+                          Text("Vendor Editor"),
+                        ],
+                      ),
+                    ),
+                  ];
+                },
               ),
             ],
           ),
