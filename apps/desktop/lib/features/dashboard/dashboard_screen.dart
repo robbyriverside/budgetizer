@@ -6,11 +6,12 @@ import '../../core/services/bank_service.dart';
 import 'widgets/inspector_panel.dart';
 import 'widgets/tag_inspector_panel.dart';
 import '../../core/widgets/split_view.dart';
-import 'widgets/alerts_dialog.dart';
 
 import '../loading/loading_screen.dart' as apps_loading;
 import '../vendors/vendor_screen.dart' as apps_vendors;
 import '../reporting/reporting_screen.dart' as apps_reporting;
+import '../app/controllers/app_controller.dart';
+import 'widgets/intro_view.dart';
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -26,6 +27,9 @@ class DashboardScreen extends ConsumerWidget {
     // 3. Get Cashflows
     final currentCashflowId = ref.watch(currentCashflowProvider);
 
+    // 4. Get App State (DB Selection)
+    final appState = ref.watch(appControllerProvider);
+
     return Scaffold(
       body: SplitView(
         axis: Axis.horizontal,
@@ -36,13 +40,18 @@ class DashboardScreen extends ConsumerWidget {
         child1: Column(
           children: [
             // Header (Breadcrumbs + Balance)
-            _buildHeader(context, ref, currentCashflowId),
-            // Cycle Progress Bar
-            _buildCycleProgress(),
-            // Transaction List
+            _buildHeader(context, ref, currentCashflowId, appState),
+
+            // Content
             Expanded(
               child: transactionsAsync.when(
                 data: (transactions) {
+                  // AUTO DETECT FIRST TIME USER / EMPTY DB
+                  // If no transactions, show Intro View
+                  if (transactions.isEmpty) {
+                    return const IntroView();
+                  }
+
                   final uninitialized = transactions
                       .where((t) => !t.isInitialized)
                       .toList();
@@ -50,98 +59,140 @@ class DashboardScreen extends ConsumerWidget {
                       .where((t) => t.isInitialized)
                       .toList();
 
-                  return ListView(
+                  return Column(
                     children: [
-                      // 1. Uninitialized
-                      if (uninitialized.isNotEmpty) ...[
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          color: Colors.amber.withOpacity(0.1),
-                          child: Row(
-                            children: [
-                              Icon(Icons.warning_amber, color: Colors.amber),
-                              SizedBox(width: 10),
-                              Text(
-                                "New Transactions Needs Review",
-                                style: TextStyle(
-                                  color: Colors.amber,
-                                  fontWeight: FontWeight.bold,
+                      // Cycle Progress Bar (Only show if we have data)
+                      _buildCycleProgress(),
+                      Expanded(
+                        child: ListView(
+                          children: [
+                            // 1. Uninitialized
+                            if (uninitialized.isNotEmpty) ...[
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                color: Colors.amber.withOpacity(0.1),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.warning_amber,
+                                      color: Colors.amber,
+                                    ),
+                                    SizedBox(width: 10),
+                                    Text(
+                                      "New Transactions Needs Review",
+                                      style: TextStyle(
+                                        color: Colors.amber,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
+                              ...uninitialized.map((tx) {
+                                final isSelected = selection.contains(tx.id);
+                                return ListTile(
+                                  selected: isSelected,
+                                  selectedTileColor: Colors.amber.withOpacity(
+                                    0.2,
+                                  ),
+                                  onTap: () {
+                                    final isMulti =
+                                        HardwareKeyboard
+                                            .instance
+                                            .logicalKeysPressed
+                                            .contains(
+                                              LogicalKeyboardKey.shiftLeft,
+                                            ) ||
+                                        HardwareKeyboard
+                                            .instance
+                                            .logicalKeysPressed
+                                            .contains(
+                                              LogicalKeyboardKey.shiftRight,
+                                            );
+                                    ref
+                                        .read(
+                                          dashboardControllerProvider.notifier,
+                                        )
+                                        .selectTransaction(
+                                          tx.id,
+                                          multiSelect: isMulti,
+                                        );
+                                  },
+                                  leading: Icon(
+                                    Icons.new_releases,
+                                    color: Colors.amber,
+                                  ),
+                                  title: Text(tx.vendorName),
+                                  subtitle: Text("To be initialized..."),
+                                  trailing: Text(
+                                    '\$${tx.amount.abs().toStringAsFixed(2)}',
+                                  ),
+                                );
+                              }),
+                              Divider(color: Colors.white24, thickness: 2),
                             ],
-                          ),
-                        ),
-                        ...uninitialized.map((tx) {
-                          final isSelected = selection.contains(tx.id);
-                          return ListTile(
-                            selected: isSelected,
-                            selectedTileColor: Colors.amber.withOpacity(0.2),
-                            onTap: () {
-                              final isMulti =
-                                  HardwareKeyboard.instance.logicalKeysPressed
-                                      .contains(LogicalKeyboardKey.shiftLeft) ||
-                                  HardwareKeyboard.instance.logicalKeysPressed
-                                      .contains(LogicalKeyboardKey.shiftRight);
-                              ref
-                                  .read(dashboardControllerProvider.notifier)
-                                  .selectTransaction(
-                                    tx.id,
-                                    multiSelect: isMulti,
-                                  );
-                            },
-                            leading: Icon(
-                              Icons.new_releases,
-                              color: Colors.amber,
-                            ),
-                            title: Text(tx.vendorName),
-                            subtitle: Text("To be initialized..."),
-                            trailing: Text(
-                              '\$${tx.amount.abs().toStringAsFixed(2)}',
-                            ),
-                          );
-                        }),
-                        Divider(color: Colors.white24, thickness: 2),
-                      ],
-                      // 2. Initialized
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text(
-                          "Posted Transactions",
-                          style: TextStyle(color: Colors.grey),
+                            // 2. Initialized
+                            if (initialized.isNotEmpty) ...[
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Text(
+                                  "Posted Transactions",
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ),
+                              ...initialized.map((tx) {
+                                final isSelected = selection.contains(tx.id);
+                                return ListTile(
+                                  selected: isSelected,
+                                  selectedTileColor: Colors.teal.withOpacity(
+                                    0.2,
+                                  ),
+                                  onTap: () {
+                                    final isMulti =
+                                        HardwareKeyboard
+                                            .instance
+                                            .logicalKeysPressed
+                                            .contains(
+                                              LogicalKeyboardKey.shiftLeft,
+                                            ) ||
+                                        HardwareKeyboard
+                                            .instance
+                                            .logicalKeysPressed
+                                            .contains(
+                                              LogicalKeyboardKey.shiftRight,
+                                            );
+                                    ref
+                                        .read(
+                                          dashboardControllerProvider.notifier,
+                                        )
+                                        .selectTransaction(
+                                          tx.id,
+                                          multiSelect: isMulti,
+                                        );
+                                  },
+                                  leading: Icon(
+                                    Icons.receipt_long,
+                                    color: tx.amount < 0
+                                        ? Colors.green
+                                        : Colors.white,
+                                  ),
+                                  title: Text(tx.vendorName),
+                                  subtitle: Text(tx.tags.join(', ')),
+                                  trailing: Text(
+                                    '\$${tx.amount.abs().toStringAsFixed(2)}',
+                                    style: TextStyle(
+                                      color: tx.amount < 0
+                                          ? Colors.greenAccent
+                                          : Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                );
+                              }),
+                            ],
+                          ],
                         ),
                       ),
-                      ...initialized.map((tx) {
-                        final isSelected = selection.contains(tx.id);
-                        return ListTile(
-                          selected: isSelected,
-                          selectedTileColor: Colors.teal.withOpacity(0.2),
-                          onTap: () {
-                            final isMulti =
-                                HardwareKeyboard.instance.logicalKeysPressed
-                                    .contains(LogicalKeyboardKey.shiftLeft) ||
-                                HardwareKeyboard.instance.logicalKeysPressed
-                                    .contains(LogicalKeyboardKey.shiftRight);
-                            ref
-                                .read(dashboardControllerProvider.notifier)
-                                .selectTransaction(tx.id, multiSelect: isMulti);
-                          },
-                          leading: Icon(
-                            Icons.receipt_long,
-                            color: tx.amount < 0 ? Colors.green : Colors.white,
-                          ),
-                          title: Text(tx.vendorName),
-                          subtitle: Text(tx.tags.join(', ')),
-                          trailing: Text(
-                            '\$${tx.amount.abs().toStringAsFixed(2)}',
-                            style: TextStyle(
-                              color: tx.amount < 0
-                                  ? Colors.greenAccent
-                                  : Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        );
-                      }),
                     ],
                   );
                 },
@@ -182,12 +233,9 @@ class DashboardScreen extends ConsumerWidget {
       ],
     );
 
-    // If Tag Inspector is NOT visible, just return top content
-    if (dashboardState.selectedTag == null) {
-      return topContent;
-    }
+    // If Tag Inspector is NOT visible, just return topContent
+    if (dashboardState.selectedTag == null) return topContent;
 
-    // If Tag Inspector IS visible, use Vertical Split
     return SplitView(
       axis: Axis.vertical,
       mode: SplitViewMode.fixedSecond,
@@ -201,9 +249,13 @@ class DashboardScreen extends ConsumerWidget {
             final selectedTxId = dashboardState.selection.first;
             final tx = transactions.firstWhere(
               (t) => t.id == selectedTxId,
-              orElse: () => transactions[0],
+              orElse: () => transactions.isNotEmpty
+                  ? transactions[0]
+                  : null as dynamic, // Safety
             );
-            if (tx.tags.isNotEmpty &&
+            // If tx found
+            if (tx != null &&
+                tx.tags.isNotEmpty &&
                 tx.tags.first == dashboardState.selectedTag) {
               isVendor = true;
             }
@@ -223,115 +275,161 @@ class DashboardScreen extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
     String currentCashflowId,
+    AppState appState,
   ) {
-    final cashflowsFuture = ref.read(bankServiceProvider).fetchCashflows();
+    final cashflowsAsync = ref.watch(cashflowListProvider);
 
     return Container(
       padding: const EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Left: Cashflow Selector
-          FutureBuilder<List<CashflowSeries>>(
-            future: cashflowsFuture,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                final cashflows = snapshot.data!;
-                final current = cashflows.firstWhere(
-                  (c) => c.id == currentCashflowId,
-                  orElse: () => cashflows.first,
-                );
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+          // Left: Cashflow Selector AND DB Selector
+          Row(
+            children: [
+              // DB Selector Toggle
+              DropdownButton<TargetDbType>(
+                value: appState.targetDbType,
+                dropdownColor: Color(0xFF2C2C2C),
+                style: TextStyle(fontSize: 14, color: Colors.white70),
+                underline: SizedBox(),
+                items: TargetDbType.values.map((type) {
+                  return DropdownMenuItem(
+                    value: type,
+                    child: Row(
                       children: [
-                        DropdownButton<String>(
-                          value: current.id,
-                          underline: SizedBox(),
-                          icon: Icon(
-                            Icons.arrow_drop_down,
-                            color: Colors.tealAccent,
-                          ),
-                          dropdownColor: Color(0xFF2C2C2C),
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          onChanged: (newValue) {
-                            if (newValue != null) {
-                              ref
-                                  .read(currentCashflowProvider.notifier)
-                                  .set(newValue);
-                              ref.invalidate(bankTransactionListProvider);
-                            }
-                          },
-                          items: cashflows.map((c) {
-                            return DropdownMenuItem(
-                              value: c.id,
-                              child: Text(c.name),
-                            );
-                          }).toList(),
+                        Icon(
+                          type == TargetDbType.permanent
+                              ? Icons.storage
+                              : Icons.memory,
+                          size: 16,
+                          color: type == TargetDbType.permanent
+                              ? Colors.blueAccent
+                              : Colors.orangeAccent,
                         ),
-                        const SizedBox(width: 10),
+                        SizedBox(width: 8),
                         Text(
-                          "Cycle (Oct)",
-                          style: TextStyle(color: Colors.grey),
+                          type == TargetDbType.permanent
+                              ? "Core DB"
+                              : "Temp DB",
                         ),
                       ],
                     ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "\$${current.balance.toStringAsFixed(2)}",
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                );
-              }
-              return CircularProgressIndicator();
-            },
+                  );
+                }).toList(),
+                onChanged: (val) {
+                  if (val != null) {
+                    ref
+                        .read(appControllerProvider.notifier)
+                        .setTargetDbType(val);
+                  }
+                },
+              ),
+              Container(
+                height: 30,
+                width: 1,
+                color: Colors.white24,
+                margin: EdgeInsets.symmetric(horizontal: 16),
+              ),
+              // Cashflow Selector
+              // Cashflow Selector
+              cashflowsAsync.when(
+                data: (cashflows) {
+                  if (cashflows.isNotEmpty) {
+                    final current = cashflows.firstWhere(
+                      (c) => c.id == currentCashflowId,
+                      orElse: () => cashflows.first,
+                    );
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            DropdownButton<String>(
+                              value: current.id,
+                              underline: SizedBox(),
+                              icon: Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.tealAccent,
+                              ),
+                              dropdownColor: Color(0xFF2C2C2C),
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              onChanged: (newValue) {
+                                ref
+                                    .read(currentCashflowProvider.notifier)
+                                    .set(newValue!);
+                                ref.invalidate(bankTransactionListProvider);
+                              },
+                              items: cashflows.map((c) {
+                                return DropdownMenuItem(
+                                  value: c.id,
+                                  child: Text(c.name),
+                                );
+                              }).toList(),
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              "Cycle (Oct)",
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          "\$${current.balance.toStringAsFixed(2)}",
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return Text(
+                      "No Cashflows",
+                      style: TextStyle(color: Colors.grey),
+                    );
+                  }
+                },
+                loading: () => SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+                error: (err, stack) => Text(
+                  'Error loading cashflows',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+            ],
           ),
 
           // Right: Actions
           Row(
             children: [
-              // ALERT BUTTON
-              TextButton.icon(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (_) => const AlertsDialog(),
-                  );
-                },
-                icon: Icon(
-                  Icons.warning_amber_rounded,
-                  color: Colors.orangeAccent,
-                ),
-                label: Text(
-                  "1 Alert",
-                  style: TextStyle(color: Colors.orangeAccent),
-                ),
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.orangeAccent.withOpacity(0.1),
-                ),
-              ),
-              const SizedBox(width: 16),
-
-              // LOAD DATA
+              // LOAD DATA Button - Removed/Simplified?
+              // User said "Move DB selection to landing page... trans action viewer... show introductory material... since there is no saved last cashflow"
+              // If we are in Intro Mode, the "Load Data" is in the Intro body.
+              // If we are in "Normal" mode, we might still want "Load Data" in the header to add MORE data?
+              // The original "Load Data" button navigated to LoadingScreen.
+              // Now "IntroView" handles loading for first time.
+              // We should probably keep "Load Data" available but simpler?
+              // Or keep it as is, pointing to LoadingScreen?
+              // The requirement: "Move DB selection...".
+              // I'll keep "Load Data" button for now, but maybe it should open the same "Intro/Load" logic or the old LoadingScreen if specific configuration is needed?
+              // I'll keep it pointing to LoadingScreen for now as a fallback/advanced load, but we might want to refactor LoadingScreen later.
               FilledButton.icon(
                 onPressed: () async {
-                  // Navigate to Loading Screen
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (_) => const apps_loading.LoadingScreen(),
                     ),
                   );
-                  // Refresh after load
                   ref.invalidate(bankTransactionListProvider);
                 },
                 icon: Icon(Icons.download),
@@ -352,36 +450,20 @@ class DashboardScreen extends ConsumerWidget {
                 icon: Icon(Icons.analytics),
                 label: Text("Report"),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: 16),
 
-              // TOOLS MENU
-              PopupMenuButton<String>(
-                icon: const Icon(Icons.build),
-                tooltip: "Tools",
-                onSelected: (value) {
-                  if (value == 'vendors') {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const apps_vendors.VendorScreen(),
-                      ),
-                    );
-                  }
-                },
-                itemBuilder: (BuildContext context) {
-                  return [
-                    const PopupMenuItem(
-                      value: 'vendors',
-                      child: Row(
-                        children: [
-                          Icon(Icons.label, color: Colors.grey),
-                          SizedBox(width: 8),
-                          Text("Vendor Editor"),
-                        ],
-                      ),
+              // VENDOR BUTTON
+              FilledButton.tonalIcon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const apps_vendors.VendorScreen(),
                     ),
-                  ];
+                  );
                 },
+                icon: Icon(Icons.store),
+                label: Text("Vendors"),
               ),
             ],
           ),

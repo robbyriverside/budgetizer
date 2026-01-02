@@ -12,3 +12,4 @@ export 'src/services/budget_service.dart';
 export 'src/services/mock_transaction_generator.dart';
 export 'src/services/excel_service.dart';
 export 'src/services/gemini_service.dart';
+export 'src/services/statements_service.dart';

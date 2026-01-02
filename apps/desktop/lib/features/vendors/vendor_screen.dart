@@ -28,11 +28,27 @@ class _VendorScreenState extends ConsumerState<VendorScreen> {
   @override
   Widget build(BuildContext context) {
     final vendorsAsync = ref.watch(vendorControllerProvider);
+    final tagStateAsync = ref.watch(tagServiceProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("Vendor Editor"),
         actions: [
+          // Changes Log Button (New Feature)
+          tagStateAsync.when(
+            data: (state) => IconButton(
+              icon: Badge(
+                isLabelVisible: state.changes.isNotEmpty,
+                label: Text('${state.changes.length}'),
+                child: const Icon(Icons.history),
+              ),
+              onPressed: () => _showChangesDialog(context, ref, state.changes),
+              tooltip: "View Changes Log",
+            ),
+            loading: () => const SizedBox(),
+            error: (_, __) => const SizedBox(),
+          ),
+          const SizedBox(width: 8),
           TextButton.icon(
             onPressed: () {
               ref.read(vendorControllerProvider.notifier).undoChanges();
@@ -59,82 +75,134 @@ class _VendorScreenState extends ConsumerState<VendorScreen> {
         ],
       ),
       body: vendorsAsync.when(
-        data: (vendors) {
-          // Left: All Vendors (filtered by search)
-          final leftList = vendors.where((v) {
-            return v.name.toLowerCase().contains(_searchQuery.toLowerCase());
-          }).toList();
-
-          // Right: Vendors with Selected Tag
-          final rightList = _selectedTagFilter == null
-              ? <Tag>[]
-              : vendors
-                    .where((v) => v.related.contains(_selectedTagFilter))
-                    .toList();
-
-          return SplitView(
-            axis: Axis.horizontal,
-            initialRatio: 0.5,
-            child1: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      hintText: "Search Vendors...",
-                      border: OutlineInputBorder(),
-                    ),
-                    onChanged: (val) {
-                      setState(() {
-                        _searchQuery = val;
-                      });
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: leftList.length,
-                    itemBuilder: (context, index) {
-                      return _buildVendorTile(
-                        context,
-                        leftList[index],
-                        isLeft: true,
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-            child2: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    _selectedTagFilter == null
-                        ? "Select a tag to see related vendors"
-                        : "Vendors with tag: '$_selectedTagFilter'",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: rightList.length,
-                    itemBuilder: (context, index) {
-                      return _buildVendorTile(
-                        context,
-                        rightList[index],
-                        isLeft: false,
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          );
-        },
+        data: (vendors) => _buildSplitView(context, vendors),
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, stack) => Center(child: Text("Error: $err")),
+      ),
+    );
+  }
+
+  Widget _buildSplitView(BuildContext context, List<Tag> vendors) {
+    // Left: All Vendors (filtered by search)
+    final leftList = vendors.where((v) {
+      return v.name.toLowerCase().contains(_searchQuery.toLowerCase());
+    }).toList();
+
+    // Right: Vendors with Selected Tag
+    final rightList = _selectedTagFilter == null
+        ? <Tag>[]
+        : vendors.where((v) => v.related.contains(_selectedTagFilter)).toList();
+
+    return SplitView(
+      axis: Axis.horizontal,
+      initialRatio: 0.5,
+      child1: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.search),
+                hintText: "Search Vendors...",
+                border: OutlineInputBorder(),
+              ),
+              onChanged: (val) {
+                setState(() {
+                  _searchQuery = val;
+                });
+              },
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: leftList.length,
+              itemBuilder: (context, index) {
+                return _buildVendorTile(context, leftList[index], isLeft: true);
+              },
+            ),
+          ),
+        ],
+      ),
+      child2: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              _selectedTagFilter == null
+                  ? "Select a tag to see related vendors"
+                  : "Vendors with tag: '$_selectedTagFilter'",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: rightList.length,
+              itemBuilder: (context, index) {
+                return _buildVendorTile(
+                  context,
+                  rightList[index],
+                  isLeft: false,
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showChangesDialog(
+    BuildContext context,
+    WidgetRef ref,
+    List<TagChange> changes,
+  ) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text("Changes Log"),
+        content: SizedBox(
+          width: 500,
+          height: 400,
+          child: changes.isEmpty
+              ? const Center(child: Text("No changes made yet."))
+              : ListView.builder(
+                  itemCount: changes.length,
+                  itemBuilder: (context, index) {
+                    final change = changes[index]; // Most recent first
+                    return ListTile(
+                      leading: Icon(
+                        change.type == 'add'
+                            ? Icons.add_circle
+                            : Icons.remove_circle,
+                        color: change.type == 'add' ? Colors.green : Colors.red,
+                      ),
+                      title: Text(change.description),
+                      subtitle: Text(change.timestamp.toString().split('.')[0]),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.undo),
+                        tooltip: "Undo this change",
+                        onPressed: () {
+                          ref
+                              .read(tagServiceProvider.notifier)
+                              .undoSpecificChange(change);
+                          Navigator.pop(
+                            ctx,
+                          ); // Close to refresh or rebuild needed?
+                          // Dialog assumes state is watched by parent, but here we might need to rebuild dialogue content
+                          // Ideally, we keep dialog open and it updates, but simple way is close.
+                          // Or use Consumer in dialog.
+                        },
+                      ),
+                    );
+                  },
+                ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: const Text("Close"),
+          ),
+        ],
       ),
     );
   }
@@ -144,16 +212,27 @@ class _VendorScreenState extends ConsumerState<VendorScreen> {
     Tag vendor, {
     required bool isLeft,
   }) {
+    // Determine background color based on whether it effectively has the filtered tag
+    final isRelated =
+        _selectedTagFilter != null &&
+        vendor.related.contains(_selectedTagFilter);
+    final cardColor = isRelated && isLeft
+        ? Colors.tealAccent.withOpacity(0.1)
+        : null;
+
     return DragTarget<String>(
-      onWillAccept: (data) => data != null && !vendor.related.contains(data),
-      onAccept: (tag) {
+      onWillAcceptWithDetails: (details) =>
+          !vendor.related.contains(details.data),
+      onAcceptWithDetails: (details) {
         ref
             .read(vendorControllerProvider.notifier)
-            .addTagToVendor(vendor.name, tag);
+            .addTagToVendor(vendor.name, details.data);
       },
       builder: (context, candidateData, rejectedData) {
         return Container(
-          color: candidateData.isNotEmpty ? Colors.teal.withOpacity(0.3) : null,
+          color: candidateData.isNotEmpty
+              ? Colors.teal.withOpacity(0.3)
+              : cardColor,
           child: ListTile(
             title: Text(
               vendor.name,
@@ -161,6 +240,7 @@ class _VendorScreenState extends ConsumerState<VendorScreen> {
             ),
             subtitle: Wrap(
               spacing: 4,
+              runSpacing: 4,
               children: vendor.related.map((tag) {
                 return Draggable<String>(
                   data: tag,
@@ -183,6 +263,14 @@ class _VendorScreenState extends ConsumerState<VendorScreen> {
                       backgroundColor: _selectedTagFilter == tag
                           ? Colors.tealAccent.withOpacity(0.4)
                           : null,
+                      deleteIcon: const Icon(Icons.close, size: 16),
+                      onDeleted: () {
+                        // Implement delete action
+                        // Use TagService directly as Controller might not expose remove
+                        ref
+                            .read(tagServiceProvider.notifier)
+                            .removeTagFromVendor(vendor.name, tag);
+                      },
                     ),
                   ),
                 );

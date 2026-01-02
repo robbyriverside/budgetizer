@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'database_service.dart';
 import 'financial_service.dart';
 export 'financial_service.dart';
 
@@ -11,8 +11,12 @@ part 'bank_service.g.dart';
 
 class MockBankService implements BankService {
   final ResourceLoader? resourceLoader;
+  final bool enableDefaultMockData;
 
-  MockBankService({this.resourceLoader});
+  MockBankService({
+    this.resourceLoader,
+    this.enableDefaultMockData = true,
+  });
 
   // In-Memory Storage
   final List<CashflowSeries> _cashflows = [
@@ -51,6 +55,11 @@ class MockBankService implements BankService {
   @override
   Future<List<CashflowSeries>> fetchCashflows() async {
     await Future<void>.delayed(const Duration(milliseconds: 300));
+    // In a real scenario, we might iterate known cashflow IDs or store a list of series in DB.
+    // For now, we'll return our fixed list, but we might want to update their balances
+    // based on what's in the DB?
+    // For simplicity, we just return the static list structure,
+    // but fetchTransactions will handle the actual data.
     return _cashflows;
   }
 
@@ -58,15 +67,45 @@ class MockBankService implements BankService {
   Future<List<BankTransaction>> fetchTransactions(String cashflowId) async {
     await Future<void>.delayed(const Duration(milliseconds: 500));
 
+    // 1. Try to load from DB first
+    try {
+      final db = DatabaseService();
+      // We only use DB if it's initialized.
+      if (db.db != null) {
+        final cycles = await db.getCyclesForCashflow(cashflowId);
+        if (cycles.isNotEmpty) {
+          final allTxs = cycles.expand((c) => c.transactions).toList();
+
+          // Update in-memory cache
+          _transactionsByAccount[cashflowId] = allTxs;
+          _isFirstLoad = false;
+          return allTxs;
+        }
+      }
+    } catch (e) {}
+
+    // 2. Fallback to default mock data if DB was empty
     if (_isFirstLoad) {
       await _initializeMockData();
       _isFirstLoad = false;
+
+      // OPTIONAL: Persist this default data to DB so it sticks?
+      // Let's do it to ensure consistency.
+      final txs = _transactionsByAccount[cashflowId];
+      if (txs != null && txs.isNotEmpty) {
+        await importTransactions(txs);
+      }
     }
 
-    return _transactionsByAccount[cashflowId] ?? <BankTransaction>[];
+    final txs = List<BankTransaction>.from(
+        _transactionsByAccount[cashflowId] ?? <BankTransaction>[]);
+
+    return txs;
   }
 
   Future<void> _initializeMockData() async {
+    if (!enableDefaultMockData) return;
+
     // Load checking from file if exists, or generate basic ones
     if (resourceLoader != null) {
       try {
@@ -156,8 +195,101 @@ class MockBankService implements BankService {
       final index = list.indexWhere((t) => t.id == transaction.id);
       if (index != -1) {
         list[index] = transaction;
+        // Persist update
+        await importTransactions([transaction]);
+      } else {}
+    } else {}
+  }
+
+  @override
+  Future<void> importTransactions(List<BankTransaction> transactions) async {
+    _isFirstLoad = false;
+
+    // 1. Update In-Memory Map
+    for (var tx in transactions) {
+      final acct = tx.cashflowId;
+      if (!_transactionsByAccount.containsKey(acct)) {
+        _transactionsByAccount[acct] = [];
+      }
+      // Check for dupe by ID
+      final existingIndex =
+          _transactionsByAccount[acct]!.indexWhere((t) => t.id == tx.id);
+      if (existingIndex != -1) {
+        _transactionsByAccount[acct]![existingIndex] = tx;
+      } else {
+        _transactionsByAccount[acct]!.add(tx);
       }
     }
+
+    // 2. Persist to Database (Group by Account & Cycle)
+    try {
+      final db = DatabaseService();
+      if (db.db == null) {
+        return;
+      }
+
+      // Group by Cashflow Key
+      final Map<String, List<BankTransaction>> byCashflow = {};
+      for (var tx in transactions) {
+        byCashflow.putIfAbsent(tx.cashflowId, () => []).add(tx);
+      }
+
+      for (var cashflowId in byCashflow.keys) {
+        final txs = byCashflow[cashflowId]!;
+
+        // Group by Month (Cycle)
+        // Key: "YYYY-MM"
+        final Map<String, List<BankTransaction>> byMonth = {};
+        for (var tx in txs) {
+          final key =
+              "${tx.date.year}-${tx.date.month.toString().padLeft(2, '0')}";
+          byMonth.putIfAbsent(key, () => []).add(tx);
+        }
+
+        for (var monthKey in byMonth.keys) {
+          final newTxs = byMonth[monthKey]!;
+          final parts = monthKey.split('-');
+          final year = int.parse(parts[0]);
+          final month = int.parse(parts[1]);
+          final cycleStart = DateTime(year, month, 1);
+
+          final cycleKey = "${cashflowId}_${monthKey}";
+
+          // Load existing cycle to merge
+          Cashflow? existingCycle = await db.getCycle(cycleKey);
+
+          List<BankTransaction> mergedTxs = [];
+          if (existingCycle != null) {
+            mergedTxs = List.from(existingCycle.transactions);
+          }
+
+          // Merge newTxs into mergedTxs
+          for (var tx in newTxs) {
+            final idx = mergedTxs.indexWhere((t) => t.id == tx.id);
+            if (idx != -1) {
+              mergedTxs[idx] = tx; // Update
+            } else {
+              mergedTxs.add(tx); // Insert
+            }
+          }
+
+          // Create updated Cycle object
+          final updatedCycle = Cashflow(
+            id: cycleKey, // Use key as ID for simplicity
+            seriesId: cashflowId,
+            cycle: Cycle(startDate: cycleStart),
+            transactions: mergedTxs,
+            // We aren't calculating balances here properly yet, but that's fine for now
+            openingBalance: existingCycle?.openingBalance ?? 0.0,
+            closingBalance: existingCycle?.closingBalance ?? 0.0,
+          );
+
+          // Save
+          await db.saveCycle(cycleKey, updatedCycle, 'checking',
+              cashflowId); // Type hardcoded for now or derived?
+        }
+      }
+    } catch (e) {}
   }
 
   @override

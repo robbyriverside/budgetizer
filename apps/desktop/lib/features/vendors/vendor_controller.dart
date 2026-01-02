@@ -1,17 +1,17 @@
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/services/tag_service.dart';
 import 'package:budgetizer_dart/budgetizer_dart.dart';
 
-part 'vendor_controller.g.dart';
+final vendorControllerProvider =
+    AsyncNotifierProvider<VendorController, List<Tag>>(VendorController.new);
 
-@riverpod
-class VendorController extends _$VendorController {
+class VendorController extends AsyncNotifier<List<Tag>> {
   @override
   Future<List<Tag>> build() async {
     // Watch TagService so we rebuild when tags change (add/remove)
-    final tags = await ref.watch(tagServiceProvider.future);
+    final tagState = await ref.watch(tagServiceProvider.future);
     // Filter for just Vendors
-    return tags.where((t) => t.type == 'Vendor').toList();
+    return tagState.tags.where((t) => t.type == 'Vendor').toList();
   }
 
   void filterVendors(String query) async {

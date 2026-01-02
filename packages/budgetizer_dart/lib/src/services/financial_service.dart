@@ -2,6 +2,7 @@ import 'package:plaid_dart/plaid_dart.dart';
 import '../models/financial_entities.dart';
 import 'tag_engine.dart';
 import 'ai_service.dart';
+import 'database_service.dart';
 
 export '../models/financial_entities.dart';
 export 'tag_engine.dart';
@@ -13,6 +14,7 @@ abstract class BankService {
   Future<List<CashflowSeries>> fetchCashflows();
   Future<List<BankTransaction>> fetchTransactions(String cashflowId);
   Future<void> updateTransaction(BankTransaction transaction);
+  Future<void> importTransactions(List<BankTransaction> transactions);
   Future<List<Tag>> fetchTags();
   Future<void> updateTag(Tag tag);
   Future<Map<String, dynamic>> analyzeTransaction(String description);
@@ -31,6 +33,7 @@ class PlaidBankService implements BankService {
   TagEngine? _tagEngine;
   final AIService? _aiService;
   bool _tagsLoaded = false;
+  final List<BankTransaction> _importedTransactions = [];
 
   PlaidBankService({
     required String clientId,
@@ -40,13 +43,13 @@ class PlaidBankService implements BankService {
     TagEngine? tagEngine,
     AIService? aiService,
     this.resourceLoader,
-  }) : _client = PlaidClient(
-         clientId: clientId,
-         secret: secret,
-         environment: environment,
-       ),
-       _tagEngine = tagEngine,
-       _aiService = aiService {
+  })  : _client = PlaidClient(
+          clientId: clientId,
+          secret: secret,
+          environment: environment,
+        ),
+        _tagEngine = tagEngine,
+        _aiService = aiService {
     if (_tagEngine != null) {
       _tagsLoaded = true;
     }
@@ -158,126 +161,155 @@ class PlaidBankService implements BankService {
 
   @override
   Future<List<BankTransaction>> fetchTransactions(String cashflowId) async {
-    if (_connectedSource?.accessToken == null) return [];
-
-    await _ensureTagsLoaded();
-
-    // For sandbox/demo, we'll just fetch the last 30 days
-    final now = DateTime.now();
-    final startDate = now.subtract(const Duration(days: 30));
-
-    // Plaid requires YYYY-MM-DD
-    String formatDate(DateTime d) =>
-        "${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}";
-
-    final response = await _client.getTransactions(
-      _connectedSource!.accessToken!,
-      startDate: formatDate(startDate),
-      endDate: formatDate(now),
-    );
-
-    final transactions = response['transactions'] as List<dynamic>;
-
-    // Need to handle async mapping to await AI service
     final result = <BankTransaction>[];
 
-    // Mock History for Prediction Logic (In real app, fetch from DB)
-    final historyTransactions = <BankTransaction>[];
+    // 1. Fetch Plaid Data (if connected)
+    if (_connectedSource?.accessToken != null) {
+      await _ensureTagsLoaded();
 
-    for (var tx in transactions) {
-      // Convert to object
-      var transaction = BankTransaction.fromJson(
-        tx as Map<String, dynamic>,
-      ).copyWith(cashflowId: tx['account_id'] as String?);
+      // For sandbox/demo, we'll just fetch the last 30 days
+      final now = DateTime.now();
+      final startDate = now.subtract(const Duration(days: 30));
 
-      // Apply intelligent tagging (Regex first)
-      if (_tagEngine != null) {
-        transaction = _tagEngine!.applyTags(transaction);
+      // Plaid requires YYYY-MM-DD
+      String formatDate(DateTime d) =>
+          "${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}";
 
-        // Predict Removed Tags
-        final suggested = _tagEngine!.predictRemovedTags(
-          transaction,
-          historyTransactions,
+      try {
+        final response = await _client.getTransactions(
+          _connectedSource!.accessToken!,
+          startDate: formatDate(startDate),
+          endDate: formatDate(now),
         );
-        transaction = transaction.copyWith(suggestedRemovedTags: suggested);
-      }
 
-      // AI Fallback for Unknown Transactions (No Vendor identified)
-      // We assume if Vendor matches description, it wasn't really identified by TagEngine
-      // TagEngine.applyTags updates vendorName if it finds a 'Vendor' type tag.
-      bool isUnknown =
-          transaction.vendorName == transaction.description ||
-          transaction.tags.isEmpty ||
-          transaction.tags.contains('Uncategorized');
+        final transactions = response['transactions'] as List<dynamic>;
 
-      if (isUnknown && _aiService != null) {
-        try {
-          // Pass connected source name (e.g. "Chase Bank") as context
-          final analysis = await _aiService.analyzeTransaction(
-            transaction.description,
-            context: _connectedSource?.name,
-          );
+        // Mock History for Prediction Logic (In real app, fetch from DB)
+        final historyTransactions = <BankTransaction>[];
 
-          // Ensure Vendor is the first tag
-          final tags = List<String>.from(analysis.tags);
-          if (analysis.vendorName.isNotEmpty &&
-              !tags.contains(analysis.vendorName)) {
-            tags.insert(0, analysis.vendorName);
-          } else if (tags.contains(analysis.vendorName) &&
-              tags.indexOf(analysis.vendorName) != 0) {
-            tags.remove(analysis.vendorName);
-            tags.insert(0, analysis.vendorName);
-          }
+        for (var tx in transactions) {
+          // Convert to object
+          var transaction = BankTransaction.fromJson(
+            tx as Map<String, dynamic>,
+          ).copyWith(cashflowId: tx['account_id'] as String?);
 
-          final suggested =
-              _tagEngine?.predictRemovedTags(
-                transaction,
-                historyTransactions,
-              ) ??
-              [];
+          // Apply intelligent tagging (Regex first)
+          if (_tagEngine != null) {
+            transaction = _tagEngine!.applyTags(transaction);
 
-          // Update Transaction
-          transaction = transaction.copyWith(
-            vendorName: analysis.vendorName,
-            tags: tags,
-            suggestedRemovedTags: suggested,
-            isInitialized: true, // Now initialized
-          );
-
-          // Add Income/Transfer tags if type dictates
-          if (analysis.type == 'Income') {
-            final currentTags = List<String>.from(transaction.tags);
-            if (!currentTags.contains('Income')) currentTags.add('Income');
-            transaction = transaction.copyWith(tags: currentTags);
-          } else if (analysis.type == 'Transfer') {
-            final currentTags = List<String>.from(transaction.tags);
-            if (!currentTags.contains('Transfer')) currentTags.add('Transfer');
-            transaction = transaction.copyWith(tags: currentTags);
-          }
-
-          // Learn the new tag
-          if (analysis.suggestedRegex.isNotEmpty && _tagEngine != null) {
-            // Create a new Tag object
-            final newTag = Tag(
-              name: analysis.vendorName,
-              type: 'Vendor', // Assuming Vendor for now
-              description: 'Learned from AI: ${analysis.vendorName}',
-              regex: analysis.suggestedRegex,
-              related: analysis.tags
-                  .where((t) => t != analysis.vendorName)
-                  .toList(),
+            // Predict Removed Tags
+            final suggested = _tagEngine!.predictRemovedTags(
+              transaction,
+              historyTransactions,
             );
-            _tagEngine!.learnTag(newTag);
-            await _saveAccountTags(); // Persist changes
+            transaction = transaction.copyWith(suggestedRemovedTags: suggested);
           }
-        } catch (e) {
-          print('AI Analysis failed for ${transaction.description}: $e');
-        }
-      }
 
-      if (cashflowId == 'ALL' || transaction.cashflowId == cashflowId) {
-        result.add(transaction);
+          // AI Fallback for Unknown Transactions (No Vendor identified)
+          // We assume if Vendor matches description, it wasn't really identified by TagEngine
+          // TagEngine.applyTags updates vendorName if it finds a 'Vendor' type tag.
+          bool isUnknown = transaction.vendorName == transaction.description ||
+              transaction.tags.isEmpty ||
+              transaction.tags.contains('Uncategorized');
+
+          if (isUnknown && _aiService != null) {
+            try {
+              // Pass connected source name (e.g. "Chase Bank") as context
+              final analysis = await _aiService.analyzeTransaction(
+                transaction.description,
+                context: _connectedSource?.name,
+              );
+
+              // Ensure Vendor is the first tag
+              final tags = List<String>.from(analysis.tags);
+              if (analysis.vendorName.isNotEmpty &&
+                  !tags.contains(analysis.vendorName)) {
+                tags.insert(0, analysis.vendorName);
+              } else if (tags.contains(analysis.vendorName) &&
+                  tags.indexOf(analysis.vendorName) != 0) {
+                tags.remove(analysis.vendorName);
+                tags.insert(0, analysis.vendorName);
+              }
+
+              final suggested = _tagEngine?.predictRemovedTags(
+                    transaction,
+                    historyTransactions,
+                  ) ??
+                  [];
+
+              // Update Transaction
+              transaction = transaction.copyWith(
+                vendorName: analysis.vendorName,
+                tags: tags,
+                suggestedRemovedTags: suggested,
+                isInitialized: true, // Now initialized
+              );
+
+              // Add Income/Transfer tags if type dictates
+              if (analysis.type == 'Income') {
+                final currentTags = List<String>.from(transaction.tags);
+                if (!currentTags.contains('Income')) currentTags.add('Income');
+                transaction = transaction.copyWith(tags: currentTags);
+              } else if (analysis.type == 'Transfer') {
+                final currentTags = List<String>.from(transaction.tags);
+                if (!currentTags.contains('Transfer'))
+                  currentTags.add('Transfer');
+                transaction = transaction.copyWith(tags: currentTags);
+              }
+
+              // Learn the new tag
+              if (analysis.suggestedRegex.isNotEmpty && _tagEngine != null) {
+                // Create a new Tag object
+                final newTag = Tag(
+                  name: analysis.vendorName,
+                  type: 'Vendor', // Assuming Vendor for now
+                  description: 'Learned from AI: ${analysis.vendorName}',
+                  regex: analysis.suggestedRegex,
+                  related: analysis.tags
+                      .where((t) => t != analysis.vendorName)
+                      .toList(),
+                );
+                _tagEngine!.learnTag(newTag);
+                await _saveAccountTags(); // Persist changes
+              }
+            } catch (e) {
+              print('AI Analysis failed for ${transaction.description}: $e');
+            }
+          }
+
+          if (cashflowId == 'ALL' || transaction.cashflowId == cashflowId) {
+            result.add(transaction);
+          }
+        }
+      } catch (e) {
+        print("Error fetching Plaid transactions: $e");
       }
+    }
+
+    // 2. Load Persisted Manual/Imported Transactions
+    try {
+      final db = DatabaseService();
+      // Use a fixed key for manual imports for now. ideally strictly by account.
+      // We'll load the "manual_imports" cycle.
+      final manualCycle = await db.getCycle('manual_imports');
+      if (manualCycle != null) {
+        for (var tx in manualCycle.transactions) {
+          if (cashflowId == 'ALL' || tx.cashflowId == cashflowId) {
+            // Dedupe? If ID exists in Plaid result, prefer Plaid or Manual?
+            // Usually Manual overrides or adds.
+            // Let's check for ID collision
+            final existingIndex = result.indexWhere((t) => t.id == tx.id);
+            if (existingIndex == -1) {
+              result.add(tx);
+            } else {
+              // Local DB overrides fetched Plaid data
+              result[existingIndex] = tx;
+            }
+          }
+        }
+      } else {}
+    } catch (e) {
+      print('Error loading from DB: $e');
     }
 
     return result;
@@ -285,7 +317,46 @@ class PlaidBankService implements BankService {
 
   @override
   Future<void> updateTransaction(BankTransaction transaction) async {
-    // No-op for now
+    // Treat update as an import (upsert) to the manual/local DB
+    await importTransactions([transaction]);
+  }
+
+  @override
+  Future<void> importTransactions(List<BankTransaction> transactions) async {
+    // 1. Update In-Memory (for immediate partial updates if needed, though we rely on refetch)
+    _importedTransactions.addAll(transactions);
+
+    // 2. Persist to DB
+    try {
+      final db = DatabaseService();
+      const cycleKey = 'manual_imports';
+
+      // Load existing
+      var currentCycle = await db.getCycle(cycleKey);
+      List<BankTransaction> currentTxs = currentCycle?.transactions ?? [];
+
+      // Merge
+      for (var tx in transactions) {
+        final index = currentTxs.indexWhere((t) => t.id == tx.id);
+        if (index != -1) {
+          currentTxs[index] = tx;
+        } else {
+          currentTxs.add(tx);
+        }
+      }
+
+      // Save
+      final newCycle = Cashflow(
+        id: 'manual_flow',
+        seriesId: 'manual_series',
+        cycle: Cycle(startDate: DateTime.now()), // Arbitrary for bucket
+        transactions: currentTxs,
+      );
+
+      await db.saveCycle(cycleKey, newCycle, 'manual', 'manual_series');
+    } catch (e) {
+      print('Error saving to DB: $e');
+    }
   }
 
   @override

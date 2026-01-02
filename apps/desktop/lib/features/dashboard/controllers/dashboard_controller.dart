@@ -186,3 +186,9 @@ final dashboardCalculationsProvider = Provider<Map<String, double>>((ref) {
 
   return {'income': income, 'expense': expense, 'net': income - expense};
 });
+
+// CACHED PROVIDER FOR CASHFLOWS
+final cashflowListProvider = FutureProvider<List<CashflowSeries>>((ref) {
+  final service = ref.watch(bankServiceProvider);
+  return service.fetchCashflows();
+});

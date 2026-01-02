@@ -1,0 +1,5 @@
+# Report Debugging
+How to find the problem of the report not updating after new trasnactions are added.
+
+Here is a step by step process to find the problem.
+Go through the problem backwards starting with the UI list widgets.  Read the code to understand how they are supposed to update.  IF you can't find that logic, then it must be missing.  Then fix that.  Now look at where the UI redraw is getting it's data and make sure that is working correctly.  Then make sure saving the loaded data is getting into the data.  If that is working then it should be right.  I can see that the confusion is that you have too many mock bank types.  But saving transaction is not working, because if it were, then each time I restart the app, the data from the prior run would still be in the budgetizer.db.  Just because the source of data is a mocking bank, the data still gets saved.  We just need a way to checkpoint the data, so I can return to the last checkpoint, wihch would remove any transactions since the last checkpoint.  

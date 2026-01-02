@@ -19,18 +19,37 @@ class DatabaseService {
 
   DatabaseFactory? _factory;
   String? _dbPath;
+  bool _isTemporary = false;
 
   /// Initialize the database with a specific factory.
-  /// This allows dependency injection:
-  /// - Flutter App: Use `databaseFactory` from `package:sqflite` (native channels).
-  /// - Dart CLI: Use `databaseFactoryFfi` from `package:sqflite_common_ffi`.
-  Future<void> init(DatabaseFactory factory, String dirPath) async {
-    if (_database != null) return;
+  /// [isTemporary] determines if the database is in a temporary location.
+  /// [dbName] optional name for the database file (defaults to budgetizer.db)
+  Future<void> init(
+    DatabaseFactory factory,
+    String dirPath, {
+    bool isTemporary = false,
+    String dbName = 'budgetizer.db',
+  }) async {
+    // If we are already initialized and the mode is different, close and re-open
+    if (_database != null) {
+      if (_isTemporary == isTemporary && _dbPath != null) {
+        // already initialized in the correct mode
+        return;
+      }
+      await close();
+    }
 
     _factory = factory;
-    _dbPath = join(dirPath, 'budgetizer.db');
+    _isTemporary = isTemporary;
 
-    // Ensure directory exists if acting in CLI mode
+    if (isTemporary) {
+      final tempDir = Directory.systemTemp.createTempSync('budgetizer_temp_');
+      _dbPath = join(tempDir.path, dbName);
+    } else {
+      _dbPath = join(dirPath, dbName);
+    }
+
+    // Ensure directory exists
     try {
       final dir = Directory(dirname(_dbPath!));
       if (!dir.existsSync()) {
@@ -40,8 +59,46 @@ class DatabaseService {
 
     _database = await factory.openDatabase(
       _dbPath!,
-      options: OpenDatabaseOptions(version: 1, onCreate: _onCreate),
+      options: OpenDatabaseOptions(
+        version: 2,
+        onCreate: _onCreate,
+        onUpgrade: _onUpgrade,
+      ),
     );
+  }
+
+  /// Close the current database connection
+  Future<void> close() async {
+    if (_database != null) {
+      await _database!.close();
+      _database = null;
+    }
+  }
+
+  /// Reset the database (clear all tables) - mostly for use with Temporary DBs
+  Future<void> reset() async {
+    if (_database == null) return;
+
+    // We can either drop tables or delete the file.
+    // For simplicity, let's close, delete, and re-open.
+    await close();
+    if (_dbPath != null) {
+      final file = File(_dbPath!);
+      if (await file.exists()) {
+        await file.delete();
+      }
+    }
+    // Re-open (this will trigger onCreate)
+    if (_factory != null && _dbPath != null) {
+      _database = await _factory!.openDatabase(
+        _dbPath!,
+        options: OpenDatabaseOptions(
+          version: 2,
+          onCreate: _onCreate,
+          onUpgrade: _onUpgrade,
+        ),
+      );
+    }
   }
 
   Future<void> _onCreate(Database db, int version) async {
@@ -59,6 +116,38 @@ class DatabaseService {
     await db.execute(
       'CREATE INDEX idx_cashflow_id ON cashflow_cycles(cashflow_id)',
     );
+
+    // 4.2 Report Storage
+    await _createReportsTable(db);
+
+    // 4.3 Settings Storage
+    await _createSettingsTable(db);
+  }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      // Add reports and settings tables
+      await _createReportsTable(db);
+      await _createSettingsTable(db);
+    }
+  }
+
+  Future<void> _createReportsTable(Database db) async {
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS reports (
+        name TEXT PRIMARY KEY,
+        json_content JSONB NOT NULL
+      )
+    ''');
+  }
+
+  Future<void> _createSettingsTable(Database db) async {
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS settings (
+        key TEXT PRIMARY KEY,
+        value TEXT
+      )
+    ''');
   }
 
   /// Save or Update a Cycle (Cashflow instance representing a period)
@@ -126,6 +215,70 @@ class DatabaseService {
       final jsonStr = m['json_content'] as String;
       return Cashflow.fromJson(jsonDecode(jsonStr) as Map<String, dynamic>);
     }).toList();
+  }
+
+  // --- REPORT METHODS ---
+
+  Future<void> saveReport(String name, Map<String, dynamic> data) async {
+    if (_database == null) throw Exception('DB not initialized');
+    await _database!.insert(
+      'reports',
+      {'name': name, 'json_content': jsonEncode(data)},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<Map<String, dynamic>?> getReport(String name) async {
+    if (_database == null) throw Exception('DB not initialized');
+    final maps = await _database!.query(
+      'reports',
+      where: 'name = ?',
+      whereArgs: [name],
+    );
+    if (maps.isNotEmpty) {
+      return jsonDecode(maps.first['json_content'] as String)
+          as Map<String, dynamic>;
+    }
+    return null;
+  }
+
+  Future<List<String>> getAllReportNames() async {
+    if (_database == null) return [];
+    final maps = await _database!.query('reports', columns: ['name']);
+    return maps.map((m) => m['name'] as String).toList();
+  }
+
+  Future<void> deleteReport(String name) async {
+    if (_database == null) throw Exception('DB not initialized');
+    await _database!.delete('reports', where: 'name = ?', whereArgs: [name]);
+  }
+
+  // --- SETTINGS METHODS ---
+
+  Future<void> saveSetting(String key, String value) async {
+    if (_database == null) throw Exception('DB not initialized');
+    await _database!.insert(
+      'settings',
+      {'key': key, 'value': value},
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  Future<String?> getSetting(String key) async {
+    if (_database == null) return null;
+    try {
+      final maps = await _database!.query(
+        'settings',
+        where: 'key = ?',
+        whereArgs: [key],
+      );
+      if (maps.isNotEmpty) {
+        return maps.first['value'] as String;
+      }
+    } catch (_) {
+      // Allow graceful fail if table doesn't exist yet (though it should)
+    }
+    return null;
   }
 
   /// Helper to delete db for testing

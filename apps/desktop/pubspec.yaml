@@ -51,6 +51,7 @@ dependencies:
     path: ../../packages/plaid_dart
   budgetizer_dart:
     path: ../../packages/budgetizer_dart
+  path_provider: ^2.1.5
 
 dev_dependencies:
   flutter_test:

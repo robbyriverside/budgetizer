@@ -21,7 +21,7 @@ final class BankServiceProvider
         argument: null,
         retry: null,
         name: r'bankServiceProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -48,4 +48,4 @@ final class BankServiceProvider
   }
 }
 
-String _$bankServiceHash() => r'0302807f62a0d41969427eca9236c83a5f7f6b15';
+String _$bankServiceHash() => r'fd9fb6c6ace479fd6a2cc1886d10ca248fbbdffc';

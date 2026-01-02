@@ -41,7 +41,7 @@ final class LoadingControllerProvider
   }
 }
 
-String _$loadingControllerHash() => r'3993416c77f1354f706a9d4ebfde4f1e6a5a030d';
+String _$loadingControllerHash() => r'e0d3e87221d760c1f20ba991066d94a70ef9564f';
 
 abstract class _$LoadingController extends $Notifier<LoadingState> {
   LoadingState build();
