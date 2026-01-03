@@ -27,12 +27,14 @@ void main() async {
 
   // Initialize Service with Mock AI
   final aiService = MockAIService();
+  final storage = SqliteService();
   final service = PlaidBankService(
     clientId: clientId,
     secret: secret,
     environment: 'sandbox',
     tagEngine: tagEngine,
     aiService: aiService,
+    storage: storage,
     resourceLoader: (path) => File(path).readAsString(),
   );
 

@@ -2,7 +2,7 @@ import 'package:plaid_dart/plaid_dart.dart';
 import '../models/financial_entities.dart';
 import 'tag_engine.dart';
 import 'ai_service.dart';
-import 'database_service.dart';
+import '../interfaces/storage_repository.dart';
 
 export '../models/financial_entities.dart';
 export 'tag_engine.dart';
@@ -28,6 +28,7 @@ abstract class BankService {
 class PlaidBankService implements BankService {
   final PlaidClient _client;
   final ResourceLoader? resourceLoader;
+  final StorageRepository storage;
 
   DataSource? _connectedSource;
   TagEngine? _tagEngine;
@@ -43,6 +44,7 @@ class PlaidBankService implements BankService {
     TagEngine? tagEngine,
     AIService? aiService,
     this.resourceLoader,
+    required this.storage,
   })  : _client = PlaidClient(
           clientId: clientId,
           secret: secret,
@@ -288,10 +290,9 @@ class PlaidBankService implements BankService {
 
     // 2. Load Persisted Manual/Imported Transactions
     try {
-      final db = DatabaseService();
       // Use a fixed key for manual imports for now. ideally strictly by account.
       // We'll load the "manual_imports" cycle.
-      final manualCycle = await db.getCycle('manual_imports');
+      final manualCycle = await storage.getCycle('manual_imports');
       if (manualCycle != null) {
         for (var tx in manualCycle.transactions) {
           if (cashflowId == 'ALL' || tx.cashflowId == cashflowId) {
@@ -328,11 +329,10 @@ class PlaidBankService implements BankService {
 
     // 2. Persist to DB
     try {
-      final db = DatabaseService();
       const cycleKey = 'manual_imports';
 
       // Load existing
-      var currentCycle = await db.getCycle(cycleKey);
+      var currentCycle = await storage.getCycle(cycleKey);
       List<BankTransaction> currentTxs = currentCycle?.transactions ?? [];
 
       // Merge
@@ -353,7 +353,7 @@ class PlaidBankService implements BankService {
         transactions: currentTxs,
       );
 
-      await db.saveCycle(cycleKey, newCycle, 'manual', 'manual_series');
+      await storage.saveCycle(cycleKey, newCycle, 'manual', 'manual_series');
     } catch (e) {
       print('Error saving to DB: $e');
     }

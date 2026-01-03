@@ -4,7 +4,8 @@ environment:
   sdk: ^3.5.0
 
 workspace:
-  - apps/cli
   - apps/desktop
+  - apps/web
   - packages/budgetizer_dart
+  - packages/budgetizer_ui
   - packages/plaid_dart

@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'database_service.dart';
+import '../interfaces/storage_repository.dart';
 import 'financial_service.dart';
 export 'financial_service.dart';
 
@@ -12,10 +12,12 @@ part 'bank_service.g.dart';
 class MockBankService implements BankService {
   final ResourceLoader? resourceLoader;
   final bool enableDefaultMockData;
+  final StorageRepository storage;
 
   MockBankService({
     this.resourceLoader,
     this.enableDefaultMockData = true,
+    required this.storage,
   });
 
   // In-Memory Storage
@@ -69,19 +71,18 @@ class MockBankService implements BankService {
 
     // 1. Try to load from DB first
     try {
-      final db = DatabaseService();
       // We only use DB if it's initialized.
-      if (db.db != null) {
-        final cycles = await db.getCyclesForCashflow(cashflowId);
-        if (cycles.isNotEmpty) {
-          final allTxs = cycles.expand((c) => c.transactions).toList();
+      // if (db.db != null) { // Assumption: storage is always valid or throws if not
+      final cycles = await storage.getCyclesForCashflow(cashflowId);
+      if (cycles.isNotEmpty) {
+        final allTxs = cycles.expand((c) => c.transactions).toList();
 
-          // Update in-memory cache
-          _transactionsByAccount[cashflowId] = allTxs;
-          _isFirstLoad = false;
-          return allTxs;
-        }
+        // Update in-memory cache
+        _transactionsByAccount[cashflowId] = allTxs;
+        _isFirstLoad = false;
+        return allTxs;
       }
+      // }
     } catch (e) {}
 
     // 2. Fallback to default mock data if DB was empty
@@ -223,11 +224,6 @@ class MockBankService implements BankService {
 
     // 2. Persist to Database (Group by Account & Cycle)
     try {
-      final db = DatabaseService();
-      if (db.db == null) {
-        return;
-      }
-
       // Group by Cashflow Key
       final Map<String, List<BankTransaction>> byCashflow = {};
       for (var tx in transactions) {
@@ -256,7 +252,7 @@ class MockBankService implements BankService {
           final cycleKey = "${cashflowId}_${monthKey}";
 
           // Load existing cycle to merge
-          Cashflow? existingCycle = await db.getCycle(cycleKey);
+          Cashflow? existingCycle = await storage.getCycle(cycleKey);
 
           List<BankTransaction> mergedTxs = [];
           if (existingCycle != null) {
@@ -285,7 +281,7 @@ class MockBankService implements BankService {
           );
 
           // Save
-          await db.saveCycle(cycleKey, updatedCycle, 'checking',
+          await storage.saveCycle(cycleKey, updatedCycle, 'checking',
               cashflowId); // Type hardcoded for now or derived?
         }
       }
@@ -335,6 +331,8 @@ BankService bankService(Ref ref) {
   // For CLI, we might want to read from local disk if assets are available
   ResourceLoader? loader;
 
+  final storage = ref.watch(storageRepositoryProvider);
+
   if (clientId != null &&
       clientId.isNotEmpty &&
       secret != null &&
@@ -343,8 +341,12 @@ BankService bankService(Ref ref) {
       clientId: clientId,
       secret: secret,
       resourceLoader: loader,
+      storage: storage,
     );
   }
 
-  return MockBankService(resourceLoader: loader);
+  return MockBankService(
+    resourceLoader: loader,
+    storage: storage,
+  );
 }

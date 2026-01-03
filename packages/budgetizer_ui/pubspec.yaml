@@ -1,0 +1,41 @@
+name: budgetizer_ui
+description: "Shared UI library for budgetizer."
+version: 0.1.0
+homepage:
+
+environment:
+  sdk: ^3.9.2
+  flutter: ">=1.17.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  flutter_riverpod: ^3.0.3
+  riverpod_annotation: ^3.0.3
+  cupertino_icons: ^1.0.8
+  plaid_flutter: ^5.0.5
+  intl: ^0.20.2
+  uuid: ^4.5.2
+  google_fonts: ^6.3.3
+  fl_chart: ^0.65.0
+  flutter_dotenv: ^6.0.0
+  path_provider: ^2.1.5
+
+  budgetizer_dart:
+    path: ../budgetizer_dart
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.7.1
+  riverpod_generator: ^3.0.3
+  riverpod_lint: ^3.0.3
+
+flutter:
+  uses-material-design: true
+  assets: 
+    - assets/data/

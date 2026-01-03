@@ -48,4 +48,4 @@ final class BankServiceProvider
   }
 }
 
-String _$bankServiceHash() => r'1efe6300a841d6727c5bf47ebc2c307090a19a7b';
+String _$bankServiceHash() => r'ebe8b5fb6b3fc1d1e6d200a2d2c731279261caf8';
