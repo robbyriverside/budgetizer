@@ -53,8 +53,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey:
-        'AIzaSyBwXPxSkjWka4xjUPlF4W-NWrPtQAvcr-o', // TODO: Replace with your Web API Key
+    apiKey: 'APP-KEY-HERE', // TODO: Replace with your Web API Key
     appId: 'APP-ID-HERE', // TODO: Replace with your Web App ID
     messagingSenderId:
         'SENDER-ID-HERE', // TODO: Replace with your Messaging Sender ID
