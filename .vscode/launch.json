@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "budgetizer (Desktop)",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceFolder}/apps/desktop/lib/main.dart",
+            "cwd": "${workspaceFolder}/apps/desktop"
+        },
+        {
+            "name": "budgetizer (Web)",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceFolder}/apps/web/lib/main.dart",
+            "cwd": "${workspaceFolder}/apps/web"
+        }
+    ]
+}

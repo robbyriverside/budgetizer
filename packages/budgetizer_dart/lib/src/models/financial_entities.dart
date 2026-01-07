@@ -1,6 +1,6 @@
 class Tag {
   final String name;
-  final String? type; // Vendor, Market, System, Service
+  final String? type; // Vendor, Market, System
   final String? description;
   final double? budgetLimit;
   final int? frequency; // 0 = Monthly, X = Every X Days

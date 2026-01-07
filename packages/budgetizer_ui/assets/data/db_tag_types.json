@@ -1,0 +1,7564 @@
+{
+  "Vendor": [
+    {
+      "name": "5 Sips Coffee & Tea",
+      "type": "Vendor",
+      "description": "Learned from AI: 5 Sips Coffee & Tea",
+      "regex": "(?i)5 SIPS COFFEE & TEA",
+      "related": [
+        "Dining",
+        "Coffee",
+        "Variable"
+      ]
+    },
+    {
+      "name": "AP",
+      "type": "Vendor",
+      "description": "Vendor: AP",
+      "regex": "(?i)AP",
+      "related": [
+        "News",
+        "Subscription",
+        "Fixed",
+        "Recurring"
+      ]
+    },
+    {
+      "name": "AT&T",
+      "type": "Vendor",
+      "description": "Vendor: AT&T",
+      "regex": "(?i)AT&T",
+      "related": [
+        "Utilities",
+        "Mobile",
+        "Internet",
+        "Subscription",
+        "Fixed",
+        "Recurring"
+      ]
+    },
+    {
+      "name": "Amazon",
+      "type": "Vendor",
+      "description": "Vendor: Amazon",
+      "regex": "(?i)Amazon",
+      "related": [
+        "Groceries",
+        "Home Goods",
+        "Clothing",
+        "Entertainment",
+        "Travel",
+        "Financial",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Amazon Digital",
+      "type": "Vendor",
+      "description": "Learned from AI: Amazon Digital",
+      "regex": "(?i)AMZN Digital",
+      "related": [
+        "Subscription",
+        "Shopping"
+      ]
+    },
+    {
+      "name": "CA DMV",
+      "type": "Vendor",
+      "description": "Learned from AI: CA DMV",
+      "regex": "(?i)STATE OF CALIF DMV INT SC",
+      "related": [
+        "Government",
+        "Fees",
+        "Variable"
+      ]
+    },
+    {
+      "name": "CA DMV Fee",
+      "type": "Vendor",
+      "description": "Learned from AI: CA DMV Fee",
+      "regex": "(?i)CA DMV FEE",
+      "related": [
+        "Government",
+        "Fees",
+        "Variable"
+      ]
+    },
+    {
+      "name": "CJ Gas",
+      "type": "Vendor",
+      "description": "Learned from AI: CJ Gas",
+      "regex": "(?i)CJ GAS SACRAMENTO CA",
+      "related": [
+        "Gas",
+        "Automotive",
+        "Variable"
+      ]
+    },
+    {
+      "name": "CVS Pharmacy",
+      "type": "Vendor",
+      "description": "Learned from AI: CVS Pharmacy",
+      "regex": "(?i)CVS/PHARMACY",
+      "related": [
+        "Health",
+        "Pharmacy",
+        "Variable"
+      ]
+    },
+    {
+      "name": "CVS/Pharmacy",
+      "type": "Vendor",
+      "description": "Learned from AI: CVS/Pharmacy",
+      "regex": "(?i)CVS/PHARMACY #03943",
+      "related": [
+        "Pharmacy",
+        "Health",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Chevron",
+      "type": "Vendor",
+      "description": "Vendor: Chevron",
+      "regex": "(?i)Chevron",
+      "related": [
+        "Gas",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Chick-Fil-A",
+      "type": "Vendor",
+      "description": "Learned from AI: Chick-Fil-A",
+      "regex": "(?i)CHICK-FIL-A",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Cinnabon",
+      "type": "Vendor",
+      "description": "Learned from AI: Cinnabon",
+      "regex": "(?i)CINNABON #102554",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Compton's Market",
+      "type": "Vendor",
+      "description": "Learned from AI: Compton's Market",
+      "regex": "(?i)COMPTON'S MARKET",
+      "related": [
+        "Groceries",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Coriander Vietnamese Rest",
+      "type": "Vendor",
+      "description": "Learned from AI: Coriander Vietnamese Rest",
+      "regex": "(?i)CORIANDER VIETNAMESE REST",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Disney+",
+      "type": "Vendor",
+      "description": "Vendor: Disney+",
+      "regex": "(?i)Disney\\+",
+      "related": [
+        "Subscription",
+        "Fixed",
+        "Recurring",
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "Everai Santa Venera",
+      "type": "Vendor",
+      "description": "Learned from AI: Everai Santa Venera",
+      "regex": "(?i)EVERAI SANTA VENERA",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Extra Space",
+      "type": "Vendor",
+      "description": "Learned from AI: Extra Space",
+      "regex": "(?i)EXTRA SPACE",
+      "related": [
+        "Housing",
+        "Storage",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Eye Exam",
+      "type": "Vendor",
+      "description": "Learned from AI: Eye Exam",
+      "regex": "(?i)EYE EXAM 0090",
+      "related": [
+        "Health",
+        "Vision",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Google YouTube",
+      "type": "Vendor",
+      "description": "Learned from AI: Google YouTube",
+      "regex": "(?i)GOOGLE \\*YouTube",
+      "related": [
+        "Entertainment",
+        "Subscription"
+      ]
+    },
+    {
+      "name": "Google YouTube Primetime",
+      "type": "Vendor",
+      "description": "Learned from AI: Google YouTube Primetime",
+      "regex": "(?i)GOOGLE \\*YT Primetime",
+      "related": [
+        "Entertainment",
+        "Subscription"
+      ]
+    },
+    {
+      "name": "Guardian",
+      "type": "Vendor",
+      "description": "Vendor: Guardian",
+      "regex": "(?i)Guardian",
+      "related": [
+        "News",
+        "Subscription",
+        "Fixed",
+        "Recurring"
+      ]
+    },
+    {
+      "name": "HBO Max",
+      "type": "Vendor",
+      "description": "Vendor: HBO Max",
+      "regex": "(?i)HBO Max",
+      "related": [
+        "Subscription",
+        "Fixed",
+        "Recurring",
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "Jiffy Lube",
+      "type": "Vendor",
+      "description": "Vendor: Jiffy Lube",
+      "regex": "(?i)Jiffy Lube",
+      "related": [
+        "Auto Maintenance",
+        "Gas",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Jimboys",
+      "type": "Vendor",
+      "description": "Learned from AI: Jimboys",
+      "regex": "(?i)JIMBOYS 4",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Kaiser Permanente",
+      "type": "Vendor",
+      "description": "Learned from AI: Kaiser Permanente",
+      "regex": "(?i)KAISER 02090611",
+      "related": [
+        "Health",
+        "Medical",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Kaiser Pharmacy",
+      "type": "Vendor",
+      "description": "Learned from AI: Kaiser Pharmacy",
+      "regex": "(?i)KAISER PHARM",
+      "related": [
+        "Health",
+        "Pharmacy",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Karai Sushi & Spicy",
+      "type": "Vendor",
+      "description": "Learned from AI: Karai Sushi & Spicy",
+      "regex": "(?i)UEP\\*KARAI - SUSHI & SPICY",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Lyft",
+      "type": "Vendor",
+      "description": "Learned from AI: Lyft",
+      "regex": "(?i)LYFT \\*1 RIDE",
+      "related": [
+        "Rideshare",
+        "Transport",
+        "Variable"
+      ]
+    },
+    {
+      "name": "McDonald's",
+      "type": "Vendor",
+      "description": "Vendor: McDonald's",
+      "regex": "(?i)McDonald's",
+      "related": [
+        "Fast Food",
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Muir Way Market",
+      "type": "Vendor",
+      "description": "Learned from AI: Muir Way Market",
+      "regex": "(?i)MUIR WAY MARKET",
+      "related": [
+        "Groceries",
+        "Variable"
+      ]
+    },
+    {
+      "name": "NU ART EDUCATION",
+      "type": "Vendor",
+      "description": "Learned from AI: NU ART EDUCATION",
+      "regex": "(?i)NU ART EDUCATION",
+      "related": [
+        "Education",
+        "Services",
+        "Variable"
+      ]
+    },
+    {
+      "name": "NYTimes",
+      "type": "Vendor",
+      "description": "Vendor: NYTimes",
+      "regex": "(?i)NYTimes",
+      "related": [
+        "News",
+        "Subscription",
+        "Fixed",
+        "Recurring"
+      ]
+    },
+    {
+      "name": "Netflix",
+      "type": "Vendor",
+      "description": "Vendor: Netflix",
+      "regex": "(?i)Netflix",
+      "related": [
+        "Entertainment",
+        "Subscription",
+        "Fixed",
+        "Recurring"
+      ]
+    },
+    {
+      "name": "Paramount+",
+      "type": "Vendor",
+      "description": "Vendor: Paramount+",
+      "regex": "(?i)Paramount\\+",
+      "related": [
+        "Subscription",
+        "Fixed",
+        "Recurring",
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "PayPal DEMOCRCYNOW",
+      "type": "Vendor",
+      "description": "Learned from AI: PayPal DEMOCRCYNOW",
+      "regex": "(?i)PAYPAL \\*DEMOCRCYNOW",
+      "related": [
+        "Donation",
+        "Services",
+        "Variable"
+      ]
+    },
+    {
+      "name": "PayPal FRGTEAMFANS",
+      "type": "Vendor",
+      "description": "Learned from AI: PayPal FRGTEAMFANS",
+      "regex": "(?i)PAYPAL \\*FRGTEAMFANS",
+      "related": [
+        "Entertainment",
+        "Services",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Payment",
+      "type": "Vendor",
+      "description": "Learned from AI: Payment",
+      "regex": "(?i)Payment Thank You - Web",
+      "related": [
+        "Financial",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Peacock",
+      "type": "Vendor",
+      "description": "Vendor: Peacock",
+      "regex": "(?i)Peacock",
+      "related": [
+        "Subscription",
+        "Fixed",
+        "Recurring",
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "Pizza Guys",
+      "type": "Vendor",
+      "description": "Learned from AI: Pizza Guys",
+      "regex": "(?i)PIZZA GUYS 107",
+      "related": [
+        "Dining",
+        "Refund"
+      ]
+    },
+    {
+      "name": "Prime Video",
+      "type": "Vendor",
+      "description": "Learned from AI: Prime Video",
+      "regex": "(?i)Prime Video",
+      "related": [
+        "Entertainment",
+        "Subscription"
+      ]
+    },
+    {
+      "name": "Raising Canes",
+      "type": "Vendor",
+      "description": "Learned from AI: Raising Canes",
+      "regex": "(?i)RAISING CANES 1006",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Raley's",
+      "type": "Vendor",
+      "description": "Learned from AI: Raley's",
+      "regex": "(?i)RALEY'S #435",
+      "related": [
+        "Groceries",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Reuters",
+      "type": "Vendor",
+      "description": "Vendor: Reuters",
+      "regex": "(?i)Reuters",
+      "related": [
+        "News",
+        "Subscription",
+        "Fixed",
+        "Recurring"
+      ]
+    },
+    {
+      "name": "Safeway",
+      "type": "Vendor",
+      "description": "Vendor: Safeway",
+      "regex": "(?i)Safeway",
+      "related": [
+        "Groceries",
+        "Fast Food",
+        "Health",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Shell",
+      "type": "Vendor",
+      "description": "Vendor: Shell",
+      "regex": "(?i)Shell",
+      "related": [
+        "Gas",
+        "Transport",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Starbucks",
+      "type": "Vendor",
+      "description": "Vendor: Starbucks",
+      "regex": "(?i)Starbucks",
+      "related": [
+        "Dining",
+        "Fast Food",
+        "Coffee",
+        "Drinks",
+        "Variable"
+      ]
+    },
+    {
+      "name": "T-Mobile",
+      "type": "Vendor",
+      "description": "Vendor: T-Mobile",
+      "regex": "(?i)T-Mobile",
+      "related": [
+        "Utilities",
+        "Mobile",
+        "Internet",
+        "Subscription",
+        "Fixed",
+        "Recurring"
+      ]
+    },
+    {
+      "name": "TST Pier 50",
+      "type": "Vendor",
+      "description": "Learned from AI: TST Pier 50",
+      "regex": "(?i)TST\\*PIER 50",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Taichi Bubble Tea",
+      "type": "Vendor",
+      "description": "Learned from AI: Taichi Bubble Tea",
+      "regex": "(?i)TAICHI BUBBLE TEA",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Target",
+      "type": "Vendor",
+      "description": "Vendor: Target",
+      "regex": "(?i)Target",
+      "related": [
+        "Groceries",
+        "Home Goods",
+        "Clothing",
+        "Variable"
+      ]
+    },
+    {
+      "name": "The Art of Education",
+      "type": "Vendor",
+      "description": "Learned from AI: The Art of Education",
+      "regex": "(?i)THE ART OF EDUCATION",
+      "related": [
+        "Education",
+        "Hobby",
+        "Variable"
+      ]
+    },
+    {
+      "name": "The Coconut River Park",
+      "type": "Vendor",
+      "description": "Learned from AI: The Coconut River Park",
+      "regex": "(?i)THE COCONUT RIVER PARK",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "The Sandwich Spot",
+      "type": "Vendor",
+      "description": "Learned from AI: The Sandwich Spot",
+      "regex": "(?i)THE SANDWICH SPOT",
+      "related": [
+        "Dining",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Uber",
+      "type": "Vendor",
+      "description": "Vendor: Uber",
+      "regex": "(?i)Uber",
+      "related": [
+        "Transport",
+        "Dining",
+        "Travel",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Verizon",
+      "type": "Vendor",
+      "description": "Vendor: Verizon",
+      "regex": "(?i)Verizon",
+      "related": [
+        "Utilities",
+        "Mobile",
+        "Internet",
+        "Subscription",
+        "Fixed",
+        "Recurring"
+      ]
+    },
+    {
+      "name": "Victoria's Secret",
+      "type": "Vendor",
+      "description": "Learned from AI: Victoria's Secret",
+      "regex": "(?i)VICTORIA'S SECRET",
+      "related": [
+        "Shopping",
+        "Clothing",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Walmart",
+      "type": "Vendor",
+      "description": "Learned from AI: Walmart",
+      "regex": "(?i)WALMART\\.COM",
+      "related": [
+        "Shopping",
+        "Household",
+        "Variable"
+      ]
+    },
+    {
+      "name": "Whole Foods",
+      "type": "Vendor",
+      "description": "Vendor: Whole Foods",
+      "regex": "(?i)Whole Foods",
+      "related": [
+        "Groceries",
+        "Dining",
+        "Fast Food",
+        "Variable"
+      ]
+    },
+    {
+      "name": "YouTube",
+      "type": "Vendor",
+      "description": "Learned from AI: YouTube",
+      "regex": "(?i)YOUTUBE\\.COM/@ OH",
+      "related": [
+        "Entertainment",
+        "Subscription"
+      ]
+    }
+  ],
+  "Service": [
+    {
+      "name": "A-1 RENT-A-CAR",
+      "type": "Service",
+      "description": "A-1 RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3412"
+    },
+    {
+      "name": "ACTION AUTO RENTAL",
+      "type": "Service",
+      "description": "ACTION AUTO RENTAL",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3354"
+    },
+    {
+      "name": "ADAMS MARK HOTELS",
+      "type": "Service",
+      "description": "ADAMS MARK HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3681"
+    },
+    {
+      "name": "AEORFLOT",
+      "type": "Service",
+      "description": "AEORFLOT",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3011"
+    },
+    {
+      "name": "AER LINGUS",
+      "type": "Service",
+      "description": "AER LINGUS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3043"
+    },
+    {
+      "name": "AERO COACH AVAIATION",
+      "type": "Service",
+      "description": "AERO COACH AVAIATION",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3287"
+    },
+    {
+      "name": "AERO PERU",
+      "type": "Service",
+      "description": "AERO PERU",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3285"
+    },
+    {
+      "name": "AERO VIRGIN ISLANDS",
+      "type": "Service",
+      "description": "AERO VIRGIN ISLANDS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3284"
+    },
+    {
+      "name": "AEROLINEAS ARGENTINAS",
+      "type": "Service",
+      "description": "AEROLINEAS ARGENTINAS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3030"
+    },
+    {
+      "name": "AEROLINEAS NICARAGUENSIS",
+      "type": "Service",
+      "description": "AEROLINEAS NICARAGUENSIS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3286"
+    },
+    {
+      "name": "AEROMEXICO",
+      "type": "Service",
+      "description": "AEROMEXICO",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3076"
+    },
+    {
+      "name": "AFFILIATED AUTO RENTAL",
+      "type": "Service",
+      "description": "AFFILIATED AUTO RENTAL",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3351"
+    },
+    {
+      "name": "AGENCY RENT-A-CAR",
+      "type": "Service",
+      "description": "AGENCY RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3364"
+    },
+    {
+      "name": "AIR AFRIGUE",
+      "type": "Service",
+      "description": "AIR AFRIGUE",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3083"
+    },
+    {
+      "name": "AIR ALGERIE",
+      "type": "Service",
+      "description": "AIR ALGERIE",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3021"
+    },
+    {
+      "name": "AIR BRITISH COLUBIA",
+      "type": "Service",
+      "description": "AIR BRITISH COLUBIA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3071"
+    },
+    {
+      "name": "AIR CANADA",
+      "type": "Service",
+      "description": "AIR CANADA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3009"
+    },
+    {
+      "name": "AIR CHINA",
+      "type": "Service",
+      "description": "AIR CHINA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3261"
+    },
+    {
+      "name": "AIR DJIBOUTI",
+      "type": "Service",
+      "description": "AIR DJIBOUTI",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3282"
+    },
+    {
+      "name": "AIR FRANCE",
+      "type": "Service",
+      "description": "AIR FRANCE",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3007"
+    },
+    {
+      "name": "AIR JAMAICA",
+      "type": "Service",
+      "description": "AIR JAMAICA",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3280"
+    },
+    {
+      "name": "AIR LANKA",
+      "type": "Service",
+      "description": "AIR LANKA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3044"
+    },
+    {
+      "name": "AIR MALTA",
+      "type": "Service",
+      "description": "AIR MALTA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3028"
+    },
+    {
+      "name": "AIR MAURITIUS",
+      "type": "Service",
+      "description": "AIR MAURITIUS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3298"
+    },
+    {
+      "name": "AIR NEW ZEALAND",
+      "type": "Service",
+      "description": "AIR NEW ZEALAND",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3025"
+    },
+    {
+      "name": "AIR PANAMA",
+      "type": "Service",
+      "description": "AIR PANAMA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3267"
+    },
+    {
+      "name": "AIR SEYCHELLES",
+      "type": "Service",
+      "description": "AIR SEYCHELLES",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3266"
+    },
+    {
+      "name": "AIR ZAIRE",
+      "type": "Service",
+      "description": "AIR ZAIRE",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3151"
+    },
+    {
+      "name": "AIR ZIMBABWE",
+      "type": "Service",
+      "description": "AIR ZIMBABWE",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3096"
+    },
+    {
+      "name": "AIR-INDIA",
+      "type": "Service",
+      "description": "AIR-INDIA",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3020"
+    },
+    {
+      "name": "AIRINTER",
+      "type": "Service",
+      "description": "AIRINTER",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3065"
+    },
+    {
+      "name": "AIRWAYS RENT-A-CAR",
+      "type": "Service",
+      "description": "AIRWAYS RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3361"
+    },
+    {
+      "name": "AJAX RENT-A-CAR",
+      "type": "Service",
+      "description": "AJAX RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3376"
+    },
+    {
+      "name": "ALAMO RENT-A-CAR",
+      "type": "Service",
+      "description": "ALAMO RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3387"
+    },
+    {
+      "name": "ALASKA AIRLINES",
+      "type": "Service",
+      "description": "ALASKA AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3256"
+    },
+    {
+      "name": "ALITALIA",
+      "type": "Service",
+      "description": "ALITALIA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3013"
+    },
+    {
+      "name": "ALL NIPPON AIRWAYS",
+      "type": "Service",
+      "description": "ALL NIPPON AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3161"
+    },
+    {
+      "name": "ALLSTAE RENT-A-CAR",
+      "type": "Service",
+      "description": "ALLSTAE RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3421"
+    },
+    {
+      "name": "ALLSTAR INNS",
+      "type": "Service",
+      "description": "ALLSTAR INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3682"
+    },
+    {
+      "name": "ALM",
+      "type": "Service",
+      "description": "ALM",
+      "mcc_id": "3252"
+    },
+    {
+      "name": "ALOHA AIRLINES",
+      "type": "Service",
+      "description": "ALOHA AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3251"
+    },
+    {
+      "name": "ALPHA RENT-A-CAR",
+      "type": "Service",
+      "description": "ALPHA RENT-A-CAR",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3419"
+    },
+    {
+      "name": "ALTRA AUTO RENTAL",
+      "type": "Service",
+      "description": "ALTRA AUTO RENTAL",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3362"
+    },
+    {
+      "name": "AMELIA ISLAND PLANATION",
+      "type": "Service",
+      "description": "AMELIA ISLAND PLANATION",
+      "mcc_id": "3754"
+    },
+    {
+      "name": "AMERICA WEST",
+      "type": "Service",
+      "description": "AMERICA WEST",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3253"
+    },
+    {
+      "name": "AMERICAN AIRLINES",
+      "type": "Service",
+      "description": "AMERICAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3001"
+    },
+    {
+      "name": "AMERICAN INTL RENT-A-CAR",
+      "type": "Service",
+      "description": "AMERICAN INTL RENT-A-CAR",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3352"
+    },
+    {
+      "name": "AMERICAN TRANS AIR",
+      "type": "Service",
+      "description": "AMERICAN TRANS AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3259"
+    },
+    {
+      "name": "AMERICANA HOTELS",
+      "type": "Service",
+      "description": "AMERICANA HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Entertainment"
+      ],
+      "mcc_id": "3517"
+    },
+    {
+      "name": "AMFAC HOTELS",
+      "type": "Service",
+      "description": "AMFAC HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3536"
+    },
+    {
+      "name": "ANA HOTEL",
+      "type": "Service",
+      "description": "ANA HOTEL",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3537"
+    },
+    {
+      "name": "ANSA INTL RENT-A-CAR",
+      "type": "Service",
+      "description": "ANSA INTL RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3420"
+    },
+    {
+      "name": "ANSETT AIRLINES",
+      "type": "Service",
+      "description": "ANSETT AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3033"
+    },
+    {
+      "name": "ARABELLA HOTELS",
+      "type": "Service",
+      "description": "ARABELLA HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "3511"
+    },
+    {
+      "name": "ARCARD HOTELS",
+      "type": "Service",
+      "description": "ARCARD HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3670"
+    },
+    {
+      "name": "ARCTIA HOTELS",
+      "type": "Service",
+      "description": "ARCTIA HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3671"
+    },
+    {
+      "name": "ARIANA AFGHAN",
+      "type": "Service",
+      "description": "ARIANA AFGHAN",
+      "related": [
+        "Dining"
+      ],
+      "mcc_id": "3291"
+    },
+    {
+      "name": "ASTIR HOTELS",
+      "type": "Service",
+      "description": "ASTIR HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3531"
+    },
+    {
+      "name": "AUBERGE DES GOVERNEURS",
+      "type": "Service",
+      "description": "AUBERGE DES GOVERNEURS",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3549"
+    },
+    {
+      "name": "AUSTRAINLIAN AIRLINES",
+      "type": "Service",
+      "description": "AUSTRAINLIAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3034"
+    },
+    {
+      "name": "AUSTRIAN AIR SERVICE",
+      "type": "Service",
+      "description": "AUSTRIAN AIR SERVICE",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3243"
+    },
+    {
+      "name": "AUSTRIAN AIRLINES",
+      "type": "Service",
+      "description": "AUSTRIAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3051"
+    },
+    {
+      "name": "AUTOHANSA RENT-A-CAR",
+      "type": "Service",
+      "description": "AUTOHANSA RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3436"
+    },
+    {
+      "name": "AUTOMATE RENT-A-CAR",
+      "type": "Service",
+      "description": "AUTOMATE RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3425"
+    },
+    {
+      "name": "AVCAR RENT-A-CAR",
+      "type": "Service",
+      "description": "AVCAR RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3423"
+    },
+    {
+      "name": "AVENSA",
+      "type": "Service",
+      "description": "AVENSA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3242"
+    },
+    {
+      "name": "AVIACO (SPAIN)",
+      "type": "Service",
+      "description": "AVIACO (SPAIN)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3053"
+    },
+    {
+      "name": "AVIANCA",
+      "type": "Service",
+      "description": "AVIANCA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3039"
+    },
+    {
+      "name": "AVIATECA (GUATEMALA)",
+      "type": "Service",
+      "description": "AVIATECA (GUATEMALA)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3241"
+    },
+    {
+      "name": "AVIS RENT-A-CAR",
+      "type": "Service",
+      "description": "AVIS RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3389"
+    },
+    {
+      "name": "AVON RENT-A-CAR",
+      "type": "Service",
+      "description": "AVON RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3427"
+    },
+    {
+      "name": "Accounting",
+      "type": "Service",
+      "description": "Accounting, Auditing, and Bookkeeping Services",
+      "related": [
+        "Financial"
+      ],
+      "mcc_id": "8931"
+    },
+    {
+      "name": "Advertising Services",
+      "type": "Service",
+      "description": "Advertising Services",
+      "mcc_id": "7311"
+    },
+    {
+      "name": "Agricultural Co-operatives",
+      "type": "Service",
+      "description": "Agricultural Co-operatives",
+      "related": [
+        "Groceries",
+        "Utilities"
+      ],
+      "mcc_id": "0763"
+    },
+    {
+      "name": "Air Conditioning",
+      "type": "Service",
+      "description": "Air Conditioning Contractors - Sales and Installation, Heating Contractors - Sales, Service, Installation",
+      "related": [
+        "Home Goods",
+        "Utilities",
+        "Housing"
+      ],
+      "mcc_id": "1711"
+    },
+    {
+      "name": "Airlines",
+      "type": "Service",
+      "description": "Airlines",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3003"
+    },
+    {
+      "name": "Airports",
+      "type": "Service",
+      "description": "Airports, Airport Terminals, Flying Fields",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "4582"
+    },
+    {
+      "name": "Ambulance Services",
+      "type": "Service",
+      "description": "Ambulance Services",
+      "related": [
+        "Transport",
+        "Health"
+      ],
+      "mcc_id": "4119"
+    },
+    {
+      "name": "Amusement Parks",
+      "type": "Service",
+      "description": "Amusement Parks, Carnivals, Circuses, Fortune Tellers",
+      "related": [
+        "Entertainment",
+        "Travel"
+      ],
+      "mcc_id": "7996"
+    },
+    {
+      "name": "Antique Reproductions",
+      "type": "Service",
+      "description": "Antique Reproductions",
+      "related": [
+        "Home Goods"
+      ],
+      "mcc_id": "5937"
+    },
+    {
+      "name": "Antique Shops",
+      "type": "Service",
+      "description": "Antique Shops - Sales, Repairs, and Restoration Services",
+      "related": [
+        "Home Goods",
+        "Entertainment"
+      ],
+      "mcc_id": "5832"
+    },
+    {
+      "name": "Apparel",
+      "type": "Service",
+      "description": "Sports Apparel, Riding Apparel Stores",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5655"
+    },
+    {
+      "name": "Aquariums, Sea-aquariums, Dolphinariums",
+      "type": "Service",
+      "description": "Aquariums, Sea-aquariums, Dolphinariums",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7998"
+    },
+    {
+      "name": "Art Dealers",
+      "type": "Service",
+      "description": "Art Dealers and Galleries",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "5971"
+    },
+    {
+      "name": "Art Supplies",
+      "type": "Service",
+      "description": "Artist's Supply and Craft Shops",
+      "related": [
+        "Home Goods",
+        "Entertainment",
+        "Education"
+      ],
+      "mcc_id": "5970"
+    },
+    {
+      "name": "Associations",
+      "type": "Service",
+      "description": "Civic, Fraternal, and Social Associations",
+      "mcc_id": "8641"
+    },
+    {
+      "name": "Auto Host",
+      "type": "Service",
+      "description": "AUTO HOST COST CAR RENTALS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3400"
+    },
+    {
+      "name": "Auto Repair",
+      "type": "Service",
+      "description": "Mechanical repairs and fixes.",
+      "related": [
+        "Auto Maintenance"
+      ]
+    },
+    {
+      "name": "Automated Fuel Dispensers",
+      "type": "Service",
+      "description": "Automated Fuel Dispensers",
+      "related": [
+        "Gas",
+        "Auto Maintenance"
+      ],
+      "mcc_id": "5542"
+    },
+    {
+      "name": "Automobile Associations",
+      "type": "Service",
+      "description": "Automobile Associations",
+      "related": [
+        "Auto Maintenance",
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "8675"
+    },
+    {
+      "name": "Automobile Dealers",
+      "type": "Service",
+      "description": "Automobile and Truck Dealers (Used Only)",
+      "related": [
+        "Auto Maintenance",
+        "Transport"
+      ],
+      "mcc_id": "5521"
+    },
+    {
+      "name": "Automobile Supply Stores",
+      "type": "Service",
+      "description": "Automobile Supply Stores",
+      "related": [
+        "Auto Maintenance"
+      ],
+      "mcc_id": "5531"
+    },
+    {
+      "name": "Automotive",
+      "type": "Service",
+      "description": "Automotive Body Repair Shops",
+      "related": [
+        "Auto Maintenance"
+      ],
+      "mcc_id": "7531"
+    },
+    {
+      "name": "Automotive Parts",
+      "type": "Service",
+      "description": "Automotive Parts, Accessories Stores",
+      "related": [
+        "Auto Maintenance"
+      ],
+      "mcc_id": "5533"
+    },
+    {
+      "name": "Automotive Service Shops",
+      "type": "Service",
+      "description": "Automotive Service Shops",
+      "related": [
+        "Auto Maintenance"
+      ],
+      "mcc_id": "7538"
+    },
+    {
+      "name": "Automotive Tire Stores",
+      "type": "Service",
+      "description": "Automotive Tire Stores",
+      "related": [
+        "Auto Maintenance"
+      ],
+      "mcc_id": "5532"
+    },
+    {
+      "name": "BAHAMASAIR",
+      "type": "Service",
+      "description": "BAHAMASAIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3240"
+    },
+    {
+      "name": "BALKAN-BULGARIAN AIRLINES",
+      "type": "Service",
+      "description": "BALKAN-BULGARIAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3041"
+    },
+    {
+      "name": "BAR HARBOR AIRLINES",
+      "type": "Service",
+      "description": "BAR HARBOR AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3239"
+    },
+    {
+      "name": "BEMIDJI AIRLINES",
+      "type": "Service",
+      "description": "BEMIDJI AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3238"
+    },
+    {
+      "name": "BEST WESTERN HOTELS",
+      "type": "Service",
+      "description": "BEST WESTERN HOTELS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3502"
+    },
+    {
+      "name": "BOCA RATON RESORT",
+      "type": "Service",
+      "description": "BOCA RATON RESORT",
+      "related": [
+        "Dining",
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "3733"
+    },
+    {
+      "name": "BRAATHENS S.A.F.E. (NORWAY)",
+      "type": "Service",
+      "description": "BRAATHENS S.A.F.E. (NORWAY)",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3106"
+    },
+    {
+      "name": "BRITISH AIRWAYS",
+      "type": "Service",
+      "description": "BRITISH AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3005"
+    },
+    {
+      "name": "BRITISH MIDLAND",
+      "type": "Service",
+      "description": "BRITISH MIDLAND",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3111"
+    },
+    {
+      "name": "BROADMOOR HOTEL",
+      "type": "Service",
+      "description": "BROADMOOR HOTEL",
+      "related": [
+        "Dining",
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "3727"
+    },
+    {
+      "name": "BROKWAY AIR",
+      "type": "Service",
+      "description": "BROKWAY AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3235"
+    },
+    {
+      "name": "BROOKS RENT-A-CAR",
+      "type": "Service",
+      "description": "BROOKS RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3353"
+    },
+    {
+      "name": "BUDGET HOST INNS",
+      "type": "Service",
+      "description": "BUDGET HOST INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3684"
+    },
+    {
+      "name": "BUDGET RENT-A-CAR",
+      "type": "Service",
+      "description": "BUDGET RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3366"
+    },
+    {
+      "name": "BUDGETEL HOTELS",
+      "type": "Service",
+      "description": "BUDGETEL HOTELS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3685"
+    },
+    {
+      "name": "BWIA",
+      "type": "Service",
+      "description": "BWIA",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3234"
+    },
+    {
+      "name": "Bail Bonds",
+      "type": "Service",
+      "description": "Bail and Bond Payments",
+      "related": [
+        "Legal",
+        "Financial"
+      ],
+      "mcc_id": "9223"
+    },
+    {
+      "name": "Bakeries",
+      "type": "Service",
+      "description": "Bakeries",
+      "related": [
+        "Dining",
+        "Groceries"
+      ],
+      "mcc_id": "5462"
+    },
+    {
+      "name": "Bally's",
+      "type": "Service",
+      "description": "BALLY'S HOTEL AND CASINO",
+      "related": [
+        "Entertainment",
+        "Travel"
+      ],
+      "mcc_id": "3728"
+    },
+    {
+      "name": "Bands",
+      "type": "Service",
+      "description": "Bands, Orchestras, and Miscellaneous Entertainers (Not Elsewhere Classified)",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7929"
+    },
+    {
+      "name": "Bank Fees",
+      "type": "Service",
+      "description": "OD fees, maintenance fees, ATM fees.",
+      "related": [
+        "Financial"
+      ]
+    },
+    {
+      "name": "Barber Shops",
+      "type": "Service",
+      "description": "Barber and Beauty Shops",
+      "mcc_id": "7230"
+    },
+    {
+      "name": "Bars & Clubs",
+      "type": "Service",
+      "description": "Drinking Places (Alcoholic Beverages), Bars, Taverns, Cocktail lounges, Nightclubs and Discotheques",
+      "related": [
+        "Alcohol",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "5813"
+    },
+    {
+      "name": "Betting",
+      "type": "Service",
+      "description": "Betting (including Lottery Tickets, Casino Gaming Chips, Off-track Betting and Wagers at Race Tracks)",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7995"
+    },
+    {
+      "name": "Beverly Hills Hotel",
+      "type": "Service",
+      "description": "THE BEVERLY HILLS HOTEL",
+      "related": [
+        "Dining",
+        "Travel"
+      ],
+      "mcc_id": "3749"
+    },
+    {
+      "name": "Bicycle Shops",
+      "type": "Service",
+      "description": "Bicycle Shops - Sales and Service",
+      "related": [
+        "Transport",
+        "Auto Maintenance"
+      ],
+      "mcc_id": "5940"
+    },
+    {
+      "name": "Billiards",
+      "type": "Service",
+      "description": "Billiard and Pool Establishments",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7932"
+    },
+    {
+      "name": "Biltmore Hotel",
+      "type": "Service",
+      "description": "BILTMORE HOTEL AND SUITES",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment",
+        "Housing"
+      ],
+      "mcc_id": "3743"
+    },
+    {
+      "name": "Blueprinting",
+      "type": "Service",
+      "description": "Blueprinting and Photocopying Services",
+      "mcc_id": "7332"
+    },
+    {
+      "name": "Boat Dealers",
+      "type": "Service",
+      "description": "Boat Dealers",
+      "mcc_id": "5551"
+    },
+    {
+      "name": "Boat Rentals",
+      "type": "Service",
+      "description": "Boat Rentals and Leases",
+      "related": [
+        "Transport",
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "4457"
+    },
+    {
+      "name": "Book Stores",
+      "type": "Service",
+      "description": "Book Stores",
+      "related": [
+        "Entertainment",
+        "Education"
+      ],
+      "mcc_id": "5942"
+    },
+    {
+      "name": "Books",
+      "type": "Service",
+      "description": "Books, Periodicals, and Newspapers",
+      "related": [
+        "Education",
+        "Entertainment"
+      ],
+      "mcc_id": "5192"
+    },
+    {
+      "name": "Bowling Alleys",
+      "type": "Service",
+      "description": "Bowling Alleys",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7933"
+    },
+    {
+      "name": "Bus Lines",
+      "type": "Service",
+      "description": "Bus Lines, Including Charters, Tour Buses",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "4131"
+    },
+    {
+      "name": "Business Schools",
+      "type": "Service",
+      "description": "Business and Secretarial Schools",
+      "related": [
+        "Education"
+      ],
+      "mcc_id": "8244"
+    },
+    {
+      "name": "Business Services",
+      "type": "Service",
+      "description": "Business Services, Not Elsewhere Classified",
+      "mcc_id": "7399"
+    },
+    {
+      "name": "Buying/Shopping Services, Clubs",
+      "type": "Service",
+      "description": "Buying/Shopping Services, Clubs",
+      "related": [
+        "Groceries",
+        "Clothing",
+        "Home Goods",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "7278"
+    },
+    {
+      "name": "CAMPANIEL HOTELS",
+      "type": "Service",
+      "description": "CAMPANIEL HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3672"
+    },
+    {
+      "name": "CANADIAN AIRLINES INTERNATIONAL",
+      "type": "Service",
+      "description": "CANADIAN AIRLINES INTERNATIONAL",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3171"
+    },
+    {
+      "name": "CAPITOL AIR",
+      "type": "Service",
+      "description": "CAPITOL AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3233"
+    },
+    {
+      "name": "CAREFREE RESORTS",
+      "type": "Service",
+      "description": "CAREFREE RESORTS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3744"
+    },
+    {
+      "name": "CAREY RENT-A-CAR",
+      "type": "Service",
+      "description": "CAREY RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3428"
+    },
+    {
+      "name": "CARLTON HOTELS",
+      "type": "Service",
+      "description": "CARLTON HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3716"
+    },
+    {
+      "name": "CATHAY PACIFIC",
+      "type": "Service",
+      "description": "CATHAY PACIFIC",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3099"
+    },
+    {
+      "name": "CAYMAN AIRWAYS",
+      "type": "Service",
+      "description": "CAYMAN AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3228"
+    },
+    {
+      "name": "CHINA AIRLINES",
+      "type": "Service",
+      "description": "CHINA AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3078"
+    },
+    {
+      "name": "CIGA HOTELS",
+      "type": "Service",
+      "description": "CIGA HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment",
+        "Housing"
+      ],
+      "mcc_id": "3544"
+    },
+    {
+      "name": "CITE RENT-A-CAR",
+      "type": "Service",
+      "description": "CITE RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3437"
+    },
+    {
+      "name": "CITY LODGE HOTELS",
+      "type": "Service",
+      "description": "CITY LODGE HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Housing"
+      ],
+      "mcc_id": "3717"
+    },
+    {
+      "name": "CLARION HOTELS",
+      "type": "Service",
+      "description": "CLARION HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3687"
+    },
+    {
+      "name": "CLUB MED",
+      "type": "Service",
+      "description": "CLUB MED",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3742"
+    },
+    {
+      "name": "CLUBCORP/CLUB RESORTS",
+      "type": "Service",
+      "description": "CLUBCORP/CLUB RESORTS",
+      "related": [
+        "Dining",
+        "Travel"
+      ],
+      "mcc_id": "3747"
+    },
+    {
+      "name": "COAST HOTELS",
+      "type": "Service",
+      "description": "COAST HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3552"
+    },
+    {
+      "name": "COLORADO BELLE/EDGEWATER RESORT",
+      "type": "Service",
+      "description": "COLORADO BELLE/EDGEWATER RESORT",
+      "mcc_id": "3736"
+    },
+    {
+      "name": "COMAIR",
+      "type": "Service",
+      "description": "COMAIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3223"
+    },
+    {
+      "name": "COMFORT INNS",
+      "type": "Service",
+      "description": "COMFORT INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3562"
+    },
+    {
+      "name": "COMMAND AIRWAYS",
+      "type": "Service",
+      "description": "COMMAND AIRWAYS",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3222"
+    },
+    {
+      "name": "COMPANIA FAUCETT",
+      "type": "Service",
+      "description": "COMPANIA FAUCETT",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3220"
+    },
+    {
+      "name": "COMPRI HOTELS",
+      "type": "Service",
+      "description": "COMPRI HOTELS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3688"
+    },
+    {
+      "name": "CONCORDE HOTELS",
+      "type": "Service",
+      "description": "CONCORDE HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "3538"
+    },
+    {
+      "name": "CONSORT HOTELS",
+      "type": "Service",
+      "description": "CONSORT HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3689"
+    },
+    {
+      "name": "CONTINENTAL",
+      "type": "Service",
+      "description": "CONTINENTAL",
+      "related": [
+        "Auto Maintenance",
+        "Transport"
+      ],
+      "mcc_id": "3061"
+    },
+    {
+      "name": "COPA",
+      "type": "Service",
+      "description": "COPA",
+      "mcc_id": "3219"
+    },
+    {
+      "name": "COURTYARD BY MARRIOTT",
+      "type": "Service",
+      "description": "COURTYARD BY MARRIOTT",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3690"
+    },
+    {
+      "name": "CP HOTELS",
+      "type": "Service",
+      "description": "CP HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3529"
+    },
+    {
+      "name": "CPA Firm",
+      "type": "Service",
+      "description": "Accounting and tax preparation.",
+      "related": [
+        "Financial"
+      ]
+    },
+    {
+      "name": "CROATIA AIRLINES",
+      "type": "Service",
+      "description": "CROATIA AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3088"
+    },
+    {
+      "name": "CROWN AIR",
+      "type": "Service",
+      "description": "CROWN AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3218"
+    },
+    {
+      "name": "CROWNE PLAZA HOTELS",
+      "type": "Service",
+      "description": "CROWNE PLAZA HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3750"
+    },
+    {
+      "name": "CSA",
+      "type": "Service",
+      "description": "CSA",
+      "mcc_id": "3217"
+    },
+    {
+      "name": "CUMBERLAND AIRLINES",
+      "type": "Service",
+      "description": "CUMBERLAND AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3216"
+    },
+    {
+      "name": "CUMULUS HOTELS",
+      "type": "Service",
+      "description": "CUMULUS HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3678"
+    },
+    {
+      "name": "CUNARD HOTELS",
+      "type": "Service",
+      "description": "CUNARD HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3593"
+    },
+    {
+      "name": "CYPRUS AIRWAYS",
+      "type": "Service",
+      "description": "CYPRUS AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3292"
+    },
+    {
+      "name": "Cable Services",
+      "type": "Service",
+      "description": "Cable and other pay television (previously Cable Services)",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "4899"
+    },
+    {
+      "name": "Camera Supplies",
+      "type": "Service",
+      "description": "Camera and Photographic Supply Stores",
+      "mcc_id": "5946"
+    },
+    {
+      "name": "Camps",
+      "type": "Service",
+      "description": "Sporting and Recreational Camps",
+      "related": [
+        "Entertainment",
+        "Travel",
+        "Education"
+      ],
+      "mcc_id": "7032"
+    },
+    {
+      "name": "Candy Stores",
+      "type": "Service",
+      "description": "Candy, Nut, and Confectionery Stores",
+      "related": [
+        "Groceries",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "5441"
+    },
+    {
+      "name": "Car Rental",
+      "type": "Service",
+      "description": "Car Rental",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3355"
+    },
+    {
+      "name": "Car Washes",
+      "type": "Service",
+      "description": "Car Washes",
+      "related": [
+        "Auto Maintenance"
+      ],
+      "mcc_id": "7542"
+    },
+    {
+      "name": "Car and Truck Dealers",
+      "type": "Service",
+      "description": "Car and Truck Dealers (New and Used) Sales, Service, Repairs, Parts, and Leasing",
+      "related": [
+        "Auto Maintenance",
+        "Transport"
+      ],
+      "mcc_id": "5511"
+    },
+    {
+      "name": "Carpentry Contractors",
+      "type": "Service",
+      "description": "Carpentry Contractors",
+      "related": [
+        "Home Goods",
+        "Housing"
+      ],
+      "mcc_id": "1750"
+    },
+    {
+      "name": "Caterers",
+      "type": "Service",
+      "description": "Caterers",
+      "related": [
+        "Alcohol",
+        "Dining"
+      ],
+      "mcc_id": "5811"
+    },
+    {
+      "name": "Charitable Organizations",
+      "type": "Service",
+      "description": "Charitable and Social Service Organizations",
+      "mcc_id": "8398"
+    },
+    {
+      "name": "Chemicals",
+      "type": "Service",
+      "description": "Chemicals and Allied Products, Not Elsewhere Classified",
+      "mcc_id": "5169"
+    },
+    {
+      "name": "Child Care Services",
+      "type": "Service",
+      "description": "Child Care Services",
+      "related": [
+        "Education",
+        "Health"
+      ],
+      "mcc_id": "8351"
+    },
+    {
+      "name": "Children's Wear",
+      "type": "Service",
+      "description": "Children's and Infant's Wear Stores",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5641"
+    },
+    {
+      "name": "Chiropractors",
+      "type": "Service",
+      "description": "Chiropractors",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "8041"
+    },
+    {
+      "name": "Cigar Stores",
+      "type": "Service",
+      "description": "Cigar Stores and Stands",
+      "mcc_id": "5993"
+    },
+    {
+      "name": "Cleaning Services",
+      "type": "Service",
+      "description": "Carpet and Upholstery Cleaning",
+      "related": [
+        "Home Goods"
+      ],
+      "mcc_id": "7217"
+    },
+    {
+      "name": "Cleaning Supplies",
+      "type": "Service",
+      "description": "Specialty Cleaning, Polishing, and Sanitation Preparations",
+      "related": [
+        "Home Goods",
+        "Groceries"
+      ],
+      "mcc_id": "2842"
+    },
+    {
+      "name": "Climat de France",
+      "type": "Service",
+      "description": "CLIMAT DE FRANCE HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3677"
+    },
+    {
+      "name": "Clothing Rental",
+      "type": "Service",
+      "description": "Clothing Rental - Costumes, Formal Wear, Uniforms",
+      "related": [
+        "Clothing",
+        "Entertainment"
+      ],
+      "mcc_id": "7296"
+    },
+    {
+      "name": "Clothing Stores",
+      "type": "Service",
+      "description": "Men's and Boy's Clothing and Accessories Stores",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5611"
+    },
+    {
+      "name": "Clubs",
+      "type": "Service",
+      "description": "Membership Clubs (Sports, Recreation, Athletic), Country Clubs, and Private Golf Courses",
+      "related": [
+        "Entertainment",
+        "Dining",
+        "Travel"
+      ],
+      "mcc_id": "7997"
+    },
+    {
+      "name": "Coffee",
+      "type": "Service",
+      "description": "Coffee shops, cafes.",
+      "related": [
+        "Dining"
+      ]
+    },
+    {
+      "name": "Colleges",
+      "type": "Service",
+      "description": "Colleges, Junior Colleges, Universities, and ProfessionalSchools",
+      "related": [
+        "Education"
+      ],
+      "mcc_id": "8220"
+    },
+    {
+      "name": "Commercial Equipment",
+      "type": "Service",
+      "description": "Commercial Equipment, Not Elsewhere Classified",
+      "mcc_id": "5046"
+    },
+    {
+      "name": "Commercial Footwear",
+      "type": "Service",
+      "description": "Commercial Footwear",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5139"
+    },
+    {
+      "name": "Computer Maintenance",
+      "type": "Service",
+      "description": "Computer Maintenance and Repair Services, Not Elsewhere Classified",
+      "mcc_id": "7379"
+    },
+    {
+      "name": "Computer Network Services",
+      "type": "Service",
+      "description": "Computer Network Services",
+      "mcc_id": "4816"
+    },
+    {
+      "name": "Computer Programming",
+      "type": "Service",
+      "description": "Computer Programming, Integrated Systems Design and Data Processing Services",
+      "mcc_id": "7372"
+    },
+    {
+      "name": "Computer Software Stores",
+      "type": "Service",
+      "description": "Computer Software Stores",
+      "mcc_id": "5734"
+    },
+    {
+      "name": "Computers",
+      "type": "Service",
+      "description": "Computers, Computer Peripheral Equipment, Software",
+      "related": [
+        "Education",
+        "Entertainment",
+        "Utilities"
+      ],
+      "mcc_id": "5045"
+    },
+    {
+      "name": "Concrete Work",
+      "type": "Service",
+      "description": "Contractors - Concrete Work",
+      "related": [
+        "Housing"
+      ],
+      "mcc_id": "1771"
+    },
+    {
+      "name": "Construction Materials",
+      "type": "Service",
+      "description": "Construction Materials, Not Elsewhere Classified",
+      "mcc_id": "5039"
+    },
+    {
+      "name": "Consulting",
+      "type": "Service",
+      "description": "Management, Consulting, and Public Relations Services",
+      "mcc_id": "7392"
+    },
+    {
+      "name": "Contractors",
+      "type": "Service",
+      "description": "General Contractors-Residential and Commercial",
+      "related": [
+        "Housing",
+        "Home Goods"
+      ],
+      "mcc_id": "1520"
+    },
+    {
+      "name": "Correspondence Schools",
+      "type": "Service",
+      "description": "Correspondence Schools",
+      "related": [
+        "Education"
+      ],
+      "mcc_id": "8241"
+    },
+    {
+      "name": "Cosmetic Stores",
+      "type": "Service",
+      "description": "Cosmetic Stores",
+      "mcc_id": "5977"
+    },
+    {
+      "name": "Counseling Service",
+      "type": "Service",
+      "description": "Counseling Service - Debt, Marriage, Personal",
+      "related": [
+        "Health",
+        "Education",
+        "Financial"
+      ],
+      "mcc_id": "7277"
+    },
+    {
+      "name": "Courier Services",
+      "type": "Service",
+      "description": "Courier Services - Air or Ground, Freight forwarders",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "4215"
+    },
+    {
+      "name": "Court Costs",
+      "type": "Service",
+      "description": "Court Costs, including Alimony and Child Support",
+      "related": [
+        "Legal"
+      ],
+      "mcc_id": "9211"
+    },
+    {
+      "name": "Credit Reporting",
+      "type": "Service",
+      "description": "Consumer Credit Reporting Agencies",
+      "related": [
+        "Financial"
+      ],
+      "mcc_id": "7321"
+    },
+    {
+      "name": "Crest Hotels",
+      "type": "Service",
+      "description": "CREST HOTELS (see FORTE HOTELS)",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3521"
+    },
+    {
+      "name": "Cruise Lines",
+      "type": "Service",
+      "description": "Cruise and Steamship Lines",
+      "related": [
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "4411"
+    },
+    {
+      "name": "Cruzeiro do Sul",
+      "type": "Service",
+      "description": "CRUZEIRO DO SUL (BRAZIJ)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3046"
+    },
+    {
+      "name": "DAN AIR SERVICES",
+      "type": "Service",
+      "description": "DAN AIR SERVICES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3215"
+    },
+    {
+      "name": "DAN HOTELS",
+      "type": "Service",
+      "description": "DAN HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3629"
+    },
+    {
+      "name": "DANUBIUS HOTEL",
+      "type": "Service",
+      "description": "DANUBIUS HOTEL",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "3679"
+    },
+    {
+      "name": "DAYS INN, DAYSTOP",
+      "type": "Service",
+      "description": "DAYS INN, DAYSTOP",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3510"
+    },
+    {
+      "name": "DE VERE HOTELS",
+      "type": "Service",
+      "description": "DE VERE HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3648"
+    },
+    {
+      "name": "DELTA",
+      "type": "Service",
+      "description": "DELTA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3058"
+    },
+    {
+      "name": "DELTA HOTEL",
+      "type": "Service",
+      "description": "DELTA HOTEL",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3581"
+    },
+    {
+      "name": "DILLION INNS",
+      "type": "Service",
+      "description": "DILLION INNS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3691"
+    },
+    {
+      "name": "DOLLAR RENT-A-CAR",
+      "type": "Service",
+      "description": "DOLLAR RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3390"
+    },
+    {
+      "name": "DOMINICANA",
+      "type": "Service",
+      "description": "DOMINICANA",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3212"
+    },
+    {
+      "name": "DORAL HOTELS",
+      "type": "Service",
+      "description": "DORAL HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3587"
+    },
+    {
+      "name": "DORINT HOTELS",
+      "type": "Service",
+      "description": "DORINT HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3623"
+    },
+    {
+      "name": "DOUBLETREE HOTELS",
+      "type": "Service",
+      "description": "DOUBLETREE HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3692"
+    },
+    {
+      "name": "DOWNTOWNER-PASSPORT HOTEL",
+      "type": "Service",
+      "description": "DOWNTOWNER-PASSPORT HOTEL",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3527"
+    },
+    {
+      "name": "DRURY INNS",
+      "type": "Service",
+      "description": "DRURY INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3693"
+    },
+    {
+      "name": "DUNFEY HOTELS",
+      "type": "Service",
+      "description": "DUNFEY HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3525"
+    },
+    {
+      "name": "Dairy Products Stores",
+      "type": "Service",
+      "description": "Dairy Products Stores",
+      "related": [
+        "Groceries"
+      ],
+      "mcc_id": "5451"
+    },
+    {
+      "name": "Dance Studios",
+      "type": "Service",
+      "description": "Dance Halls, Studios and Schools",
+      "related": [
+        "Entertainment",
+        "Education"
+      ],
+      "mcc_id": "7911"
+    },
+    {
+      "name": "Dating Services",
+      "type": "Service",
+      "description": "Dating and Escort Services",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7273"
+    },
+    {
+      "name": "Dentists and Orthodontists",
+      "type": "Service",
+      "description": "Dentists and Orthodontists",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "8021"
+    },
+    {
+      "name": "Department Stores",
+      "type": "Service",
+      "description": "Department Stores",
+      "related": [
+        "Clothing",
+        "Home Goods"
+      ],
+      "mcc_id": "5311"
+    },
+    {
+      "name": "Digital Goods",
+      "type": "Service",
+      "description": "Digital Goods: Media, Books, Movies, Music",
+      "related": [
+        "Entertainment",
+        "Education"
+      ],
+      "mcc_id": "5815"
+    },
+    {
+      "name": "Digital Goods: Games",
+      "type": "Service",
+      "description": "Digital Goods: Games",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "5816"
+    },
+    {
+      "name": "Direct Marketing",
+      "type": "Service",
+      "description": "Direct Marketing - Catalog Merchant",
+      "related": [
+        "Clothing",
+        "Home Goods",
+        "Groceries"
+      ],
+      "mcc_id": "5964"
+    },
+    {
+      "name": "Discount Stores",
+      "type": "Service",
+      "description": "Discount Stores",
+      "related": [
+        "Groceries",
+        "Clothing",
+        "Home Goods"
+      ],
+      "mcc_id": "5310"
+    },
+    {
+      "name": "Doctors",
+      "type": "Service",
+      "description": "Doctors and Physicians (Not Elsewhere Classified)",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "8011"
+    },
+    {
+      "name": "Door-to-Door Sales",
+      "type": "Service",
+      "description": "Door-to-Door Sales",
+      "mcc_id": "5963"
+    },
+    {
+      "name": "Drapery",
+      "type": "Service",
+      "description": "Drapery, Window Covering and Upholstery Stores",
+      "related": [
+        "Home Goods",
+        "Housing"
+      ],
+      "mcc_id": "5714"
+    },
+    {
+      "name": "Drugs",
+      "type": "Service",
+      "description": "Drugs, Drug Proprietors, and Druggist's Sundries",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "5122"
+    },
+    {
+      "name": "Dry Cleaners",
+      "type": "Service",
+      "description": "Dry Cleaners",
+      "related": [
+        "Clothing",
+        "Home Goods"
+      ],
+      "mcc_id": "7216"
+    },
+    {
+      "name": "Dry Goods",
+      "type": "Service",
+      "description": "Piece Goods, Notions, and Other Dry Goods",
+      "related": [
+        "Home Goods",
+        "Clothing"
+      ],
+      "mcc_id": "5131"
+    },
+    {
+      "name": "Durable Goods",
+      "type": "Service",
+      "description": "Durable Goods, Not Elsewhere Classified",
+      "mcc_id": "5099"
+    },
+    {
+      "name": "Duty Free Store",
+      "type": "Service",
+      "description": "Duty Free Store",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "5309"
+    },
+    {
+      "name": "EASTWEST AIRLINES (AUSTRALIA)",
+      "type": "Service",
+      "description": "EASTWEST AIRLINES (AUSTRALIA)",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3057"
+    },
+    {
+      "name": "ECONO LODGES",
+      "type": "Service",
+      "description": "ECONO LODGES",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3644"
+    },
+    {
+      "name": "ECONO-CAR RENT-A-CAR",
+      "type": "Service",
+      "description": "ECONO-CAR RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3398"
+    },
+    {
+      "name": "ECUATORIANA",
+      "type": "Service",
+      "description": "ECUATORIANA",
+      "related": [
+        "Travel",
+        "Transport"
+      ],
+      "mcc_id": "3293"
+    },
+    {
+      "name": "EGYPTAIR",
+      "type": "Service",
+      "description": "EGYPTAIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3037"
+    },
+    {
+      "name": "EL AL",
+      "type": "Service",
+      "description": "EL AL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3032"
+    },
+    {
+      "name": "EMBASSY HOTELS",
+      "type": "Service",
+      "description": "EMBASSY HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Housing"
+      ],
+      "mcc_id": "3652"
+    },
+    {
+      "name": "EMBASSY SUITES",
+      "type": "Service",
+      "description": "EMBASSY SUITES",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3695"
+    },
+    {
+      "name": "ENTERPRISE RENT-A-CAR",
+      "type": "Service",
+      "description": "ENTERPRISE RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3405"
+    },
+    {
+      "name": "ETHIOPIAN AIRLINES",
+      "type": "Service",
+      "description": "ETHIOPIAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3294"
+    },
+    {
+      "name": "EUROP CAR",
+      "type": "Service",
+      "description": "EUROP CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3381"
+    },
+    {
+      "name": "EUROPE BY CAR",
+      "type": "Service",
+      "description": "EUROPE BY CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3391"
+    },
+    {
+      "name": "EVA AIRLINES",
+      "type": "Service",
+      "description": "EVA AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3084"
+    },
+    {
+      "name": "EXEL INNS",
+      "type": "Service",
+      "description": "EXEL INNS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3696"
+    },
+    {
+      "name": "Economy Inns",
+      "type": "Service",
+      "description": "ECONOMY INNS OF AMERICA",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3694"
+    },
+    {
+      "name": "Electric Razor",
+      "type": "Service",
+      "description": "Electric Razor Stores - Sales and Service",
+      "mcc_id": "5997"
+    },
+    {
+      "name": "Electrical Contractors",
+      "type": "Service",
+      "description": "Electrical Contractors",
+      "related": [
+        "Utilities",
+        "Home Goods",
+        "Housing"
+      ],
+      "mcc_id": "1731"
+    },
+    {
+      "name": "Electrical Parts",
+      "type": "Service",
+      "description": "Electrical Parts and Equipment",
+      "related": [
+        "Home Goods",
+        "Utilities"
+      ],
+      "mcc_id": "5065"
+    },
+    {
+      "name": "Electrical Repair",
+      "type": "Service",
+      "description": "Electrical And Small Appliance Repair Shops",
+      "related": [
+        "Home Goods",
+        "Utilities"
+      ],
+      "mcc_id": "7629"
+    },
+    {
+      "name": "Electronic Sales",
+      "type": "Service",
+      "description": "Electronic Sales",
+      "related": [
+        "Entertainment",
+        "Home Goods"
+      ],
+      "mcc_id": "5732"
+    },
+    {
+      "name": "Electronics",
+      "type": "Service",
+      "description": "Gadgets, tech."
+    },
+    {
+      "name": "Employment Agencies",
+      "type": "Service",
+      "description": "Employment Agencies, Temporary Help Services",
+      "mcc_id": "7361"
+    },
+    {
+      "name": "Engineering Services",
+      "type": "Service",
+      "description": "Architectural - Engineering and Surveying Services",
+      "mcc_id": "8911"
+    },
+    {
+      "name": "Equipment Rental",
+      "type": "Service",
+      "description": "Equipment Rental and Leasing Services, Tool Rental, Furniture Rental, and Appliance Rental",
+      "related": [
+        "Home Goods",
+        "Housing",
+        "Travel"
+      ],
+      "mcc_id": "7394"
+    },
+    {
+      "name": "Exterminating",
+      "type": "Service",
+      "description": "Exterminating and Disinfecting Services",
+      "mcc_id": "7342"
+    },
+    {
+      "name": "FAIRMONT HOTELS",
+      "type": "Service",
+      "description": "FAIRMONT HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3590"
+    },
+    {
+      "name": "FARFIELD HOTELS",
+      "type": "Service",
+      "description": "FARFIELD HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Housing"
+      ],
+      "mcc_id": "3697"
+    },
+    {
+      "name": "FARIFIELD INN",
+      "type": "Service",
+      "description": "FARIFIELD INN",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3715"
+    },
+    {
+      "name": "FINNAIR",
+      "type": "Service",
+      "description": "FINNAIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3042"
+    },
+    {
+      "name": "FLAG INN",
+      "type": "Service",
+      "description": "FLAG INN",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3664"
+    },
+    {
+      "name": "FLAG INNS (AUSRALIA)",
+      "type": "Service",
+      "description": "FLAG INNS (AUSRALIA)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3711"
+    },
+    {
+      "name": "FORTE HOTELS",
+      "type": "Service",
+      "description": "FORTE HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3505"
+    },
+    {
+      "name": "FORUM HOTELS",
+      "type": "Service",
+      "description": "FORUM HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3570"
+    },
+    {
+      "name": "FOUR SEASONS HOTELS",
+      "type": "Service",
+      "description": "FOUR SEASONS HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3543"
+    },
+    {
+      "name": "FREEDOM AIR",
+      "type": "Service",
+      "description": "FREEDOM AIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3204"
+    },
+    {
+      "name": "FRIENDSHIP INNS",
+      "type": "Service",
+      "description": "FRIENDSHIP INNS",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3507"
+    },
+    {
+      "name": "FUYANA AIRWAYS",
+      "type": "Service",
+      "description": "FUYANA AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3200"
+    },
+    {
+      "name": "Family Clothing Stores",
+      "type": "Service",
+      "description": "Family Clothing Stores",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5651"
+    },
+    {
+      "name": "Fees",
+      "type": "Service",
+      "description": "Various fees"
+    },
+    {
+      "name": "Financial Institutions",
+      "type": "Service",
+      "description": "Financial Institutions - Manual Cash Disbursements",
+      "related": [
+        "Financial"
+      ],
+      "mcc_id": "6010"
+    },
+    {
+      "name": "Fines",
+      "type": "Service",
+      "description": "Fines",
+      "related": [
+        "Legal"
+      ],
+      "mcc_id": "9222"
+    },
+    {
+      "name": "Fireplace",
+      "type": "Service",
+      "description": "Fireplace, Fireplace Screens, and Accessories Stores",
+      "related": [
+        "Home Goods",
+        "Housing"
+      ],
+      "mcc_id": "5718"
+    },
+    {
+      "name": "Floor Covering Stores",
+      "type": "Service",
+      "description": "Floor Covering Stores",
+      "related": [
+        "Home Goods",
+        "Housing"
+      ],
+      "mcc_id": "5713"
+    },
+    {
+      "name": "Florists",
+      "type": "Service",
+      "description": "Florists' Supplies, Nursery Stock and Flowers",
+      "related": [
+        "Home Goods",
+        "Dining"
+      ],
+      "mcc_id": "5193"
+    },
+    {
+      "name": "Food Stores",
+      "type": "Service",
+      "description": "Misc. Food Stores - Convenience Stores and Specialty Markets",
+      "related": [
+        "Groceries",
+        "Dining"
+      ],
+      "mcc_id": "5499"
+    },
+    {
+      "name": "Foreign Currency",
+      "type": "Service",
+      "description": "Non-Financial Institutions - Foreign Currency, Money Orders (not wire transfer) and Travelers Cheques",
+      "related": [
+        "Travel",
+        "Financial"
+      ],
+      "mcc_id": "6051"
+    },
+    {
+      "name": "Four Seasons",
+      "type": "Service",
+      "description": "FOUR SEASONS HOTEL (AUSTRALIA)",
+      "related": [
+        "Dining",
+        "Travel"
+      ],
+      "mcc_id": "3714"
+    },
+    {
+      "name": "Fuel",
+      "type": "Service",
+      "description": "Fuel - Fuel Oil, Wood, Coal, Liquefied Petroleum",
+      "related": [
+        "Gas",
+        "Utilities"
+      ],
+      "mcc_id": "5983"
+    },
+    {
+      "name": "Funeral Service",
+      "type": "Service",
+      "description": "Funeral Service and Crematories",
+      "mcc_id": "7261"
+    },
+    {
+      "name": "Furniture",
+      "type": "Service",
+      "description": "Furniture, Home Furnishings, and Equipment Stores, ExceptAppliances",
+      "related": [
+        "Home Goods",
+        "Housing"
+      ],
+      "mcc_id": "5712"
+    },
+    {
+      "name": "Furriers",
+      "type": "Service",
+      "description": "Furriers and Fur Shops",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5681"
+    },
+    {
+      "name": "GARUDA (INDONESIA)",
+      "type": "Service",
+      "description": "GARUDA (INDONESIA)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3103"
+    },
+    {
+      "name": "GCAS",
+      "type": "Service",
+      "description": "GCAS Emergency Services ( For Visa Only)",
+      "mcc_id": "9702"
+    },
+    {
+      "name": "GENERAL RENT-A-CAR",
+      "type": "Service",
+      "description": "GENERAL RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3409"
+    },
+    {
+      "name": "GODFREY NATL RENT-A-CAR",
+      "type": "Service",
+      "description": "GODFREY NATL RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3414"
+    },
+    {
+      "name": "GOLDEN CHAIN HOTEL",
+      "type": "Service",
+      "description": "GOLDEN CHAIN HOTEL",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3712"
+    },
+    {
+      "name": "GOLDEN PACIFIC AIR",
+      "type": "Service",
+      "description": "GOLDEN PACIFIC AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3203"
+    },
+    {
+      "name": "GOLDEN TULIP HOTELS",
+      "type": "Service",
+      "description": "GOLDEN TULIP HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3506"
+    },
+    {
+      "name": "GREENBRIAH RESORTS",
+      "type": "Service",
+      "description": "GREENBRIAH RESORTS",
+      "related": [
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "3753"
+    },
+    {
+      "name": "GULF AIR (BAHRAIN)",
+      "type": "Service",
+      "description": "GULF AIR (BAHRAIN)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3040"
+    },
+    {
+      "name": "Gift Shops",
+      "type": "Service",
+      "description": "Card Shops, Gift, Novelty, and Souvenir Shops",
+      "mcc_id": "5947"
+    },
+    {
+      "name": "Gifts",
+      "type": "Service",
+      "description": "Presents, donations.",
+      "related": [
+        "Home Goods",
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "Glass",
+      "type": "Service",
+      "description": "Glass, Paint, and Wallpaper Stores",
+      "related": [
+        "Home Goods"
+      ],
+      "mcc_id": "5231"
+    },
+    {
+      "name": "Glassware/Crystal Stores",
+      "type": "Service",
+      "description": "Glassware/Crystal Stores",
+      "related": [
+        "Home Goods"
+      ],
+      "mcc_id": "5950"
+    },
+    {
+      "name": "Golf Courses",
+      "type": "Service",
+      "description": "Golf Courses - Public",
+      "related": [
+        "Entertainment",
+        "Travel"
+      ],
+      "mcc_id": "7992"
+    },
+    {
+      "name": "Government Services",
+      "type": "Service",
+      "description": "Government Services ( Not Elsewhere Classified)",
+      "related": [
+        "Government"
+      ],
+      "mcc_id": "9399"
+    },
+    {
+      "name": "Government Transactions",
+      "type": "Service",
+      "description": "Intra - Government Transactions",
+      "mcc_id": "9405"
+    },
+    {
+      "name": "Government-Licensed Horse/Dog Racing",
+      "type": "Service",
+      "description": "Government-Licensed Horse/Dog Racing",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7802"
+    },
+    {
+      "name": "Government-Owned Lotteries",
+      "type": "Service",
+      "description": "Government-Owned Lotteries",
+      "related": [
+        "Entertainment",
+        "Financial"
+      ],
+      "mcc_id": "7800"
+    },
+    {
+      "name": "Grocery Stores, Supermarkets",
+      "type": "Service",
+      "description": "Grocery Stores, Supermarkets",
+      "related": [
+        "Groceries"
+      ],
+      "mcc_id": "5411"
+    },
+    {
+      "name": "Guest Quarters",
+      "type": "Service",
+      "description": "GUEST QUARTERS (Formally PICKETT SUITE HOTELS)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3701"
+    },
+    {
+      "name": "HAMPTON INNS",
+      "type": "Service",
+      "description": "HAMPTON INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3665"
+    },
+    {
+      "name": "HARLEY HOTELS",
+      "type": "Service",
+      "description": "HARLEY HOTELS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3698"
+    },
+    {
+      "name": "HARVEY/BRISTOL HOTELS",
+      "type": "Service",
+      "description": "HARVEY/BRISTOL HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3734"
+    },
+    {
+      "name": "HAVASU AIRLINES",
+      "type": "Service",
+      "description": "HAVASU AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3197"
+    },
+    {
+      "name": "HAWAIIAN AIR",
+      "type": "Service",
+      "description": "HAWAIIAN AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3196"
+    },
+    {
+      "name": "HELMSLEY HOTELS",
+      "type": "Service",
+      "description": "HELMSLEY HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3588"
+    },
+    {
+      "name": "HERTZ RENT-A-CAR",
+      "type": "Service",
+      "description": "HERTZ RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3357"
+    },
+    {
+      "name": "HILTON CONRAD",
+      "type": "Service",
+      "description": "HILTON CONRAD",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3721"
+    },
+    {
+      "name": "HILTON HOTELS",
+      "type": "Service",
+      "description": "HILTON HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3504"
+    },
+    {
+      "name": "HILTON INTERNATIONAL",
+      "type": "Service",
+      "description": "HILTON INTERNATIONAL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3535"
+    },
+    {
+      "name": "HOLIDAY RENT-A-WRECK",
+      "type": "Service",
+      "description": "HOLIDAY RENT-A-WRECK",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3368"
+    },
+    {
+      "name": "HOMEWOOD SUITES",
+      "type": "Service",
+      "description": "HOMEWOOD SUITES",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3751"
+    },
+    {
+      "name": "HOSPITALITY INTERNATIONAL",
+      "type": "Service",
+      "description": "HOSPITALITY INTERNATIONAL",
+      "related": [
+        "Dining",
+        "Travel"
+      ],
+      "mcc_id": "3595"
+    },
+    {
+      "name": "HOTEL IBIS",
+      "type": "Service",
+      "description": "HOTEL IBIS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3533"
+    },
+    {
+      "name": "HOTEL MERCURE",
+      "type": "Service",
+      "description": "HOTEL MERCURE",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "3579"
+    },
+    {
+      "name": "HOTEL OKURA",
+      "type": "Service",
+      "description": "HOTEL OKURA",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3541"
+    },
+    {
+      "name": "HOTELES EL PRESIDENTS",
+      "type": "Service",
+      "description": "HOTELES EL PRESIDENTS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3663"
+    },
+    {
+      "name": "HOTELES MELIA",
+      "type": "Service",
+      "description": "HOTELES MELIA",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3548"
+    },
+    {
+      "name": "HOTLE UNIVERSALE",
+      "type": "Service",
+      "description": "HOTLE UNIVERSALE",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3625"
+    },
+    {
+      "name": "HUNGAR HOTELS",
+      "type": "Service",
+      "description": "HUNGAR HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3585"
+    },
+    {
+      "name": "HUSA HOTELS",
+      "type": "Service",
+      "description": "HUSA HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3647"
+    },
+    {
+      "name": "HYATT HOTEL",
+      "type": "Service",
+      "description": "HYATT HOTEL",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment",
+        "Housing"
+      ],
+      "mcc_id": "3640"
+    },
+    {
+      "name": "Hardware",
+      "type": "Service",
+      "description": "Hardware Equipment and Supplies",
+      "related": [
+        "Home Goods",
+        "Utilities"
+      ],
+      "mcc_id": "5072"
+    },
+    {
+      "name": "Hardware Stores",
+      "type": "Service",
+      "description": "Hardware Stores",
+      "related": [
+        "Home Goods",
+        "Utilities"
+      ],
+      "mcc_id": "5251"
+    },
+    {
+      "name": "Harrah's",
+      "type": "Service",
+      "description": "HARRAH'S HOTELS AND CASINOS",
+      "related": [
+        "Dining",
+        "Entertainment",
+        "Travel"
+      ],
+      "mcc_id": "3731"
+    },
+    {
+      "name": "Health and Beauty",
+      "type": "Service",
+      "description": "Health and Beauty Shops",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "7298"
+    },
+    {
+      "name": "Hearing Aids",
+      "type": "Service",
+      "description": "Hearing Aids - Sales, Service, and Supply Stores",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "5975"
+    },
+    {
+      "name": "Hobby Shops",
+      "type": "Service",
+      "description": "Hobby, Toy, and Game Shops",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "5945"
+    },
+    {
+      "name": "Holiday Inn",
+      "type": "Service",
+      "description": "HOLIDAY INNS, HOLIDAY INN EXPRESS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3501"
+    },
+    {
+      "name": "Home Furnishing",
+      "type": "Service",
+      "description": "Miscellaneous Home Furnishing Specialty Stores",
+      "related": [
+        "Home Goods"
+      ],
+      "mcc_id": "5719"
+    },
+    {
+      "name": "Home Supply",
+      "type": "Service",
+      "description": "Home Supply Warehouse Stores",
+      "related": [
+        "Home Goods",
+        "Utilities"
+      ],
+      "mcc_id": "5200"
+    },
+    {
+      "name": "Home2Suites",
+      "type": "Service",
+      "description": "Home2Suites",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3816"
+    },
+    {
+      "name": "Hospitals",
+      "type": "Service",
+      "description": "Hospitals",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "8062"
+    },
+    {
+      "name": "Hotels/Motels/Inns/Resorts",
+      "type": "Service",
+      "description": "Hotels/Motels/Inns/Resorts",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3514"
+    },
+    {
+      "name": "Household Appliance Stores",
+      "type": "Service",
+      "description": "Household Appliance Stores",
+      "related": [
+        "Home Goods"
+      ],
+      "mcc_id": "5722"
+    },
+    {
+      "name": "Howard Johnson",
+      "type": "Service",
+      "description": "HO JO INN, HOWARD JOHNSON",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3638"
+    },
+    {
+      "name": "IBERIA",
+      "type": "Service",
+      "description": "IBERIA",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3102"
+    },
+    {
+      "name": "IBEROTEL HOTELS",
+      "type": "Service",
+      "description": "IBEROTEL HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment",
+        "Housing"
+      ],
+      "mcc_id": "3540"
+    },
+    {
+      "name": "IBUSZ HOTELS",
+      "type": "Service",
+      "description": "IBUSZ HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3673"
+    },
+    {
+      "name": "ICELANDAIR",
+      "type": "Service",
+      "description": "ICELANDAIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3050"
+    },
+    {
+      "name": "IMPERIAL LONDON HOTEL",
+      "type": "Service",
+      "description": "IMPERIAL LONDON HOTEL",
+      "related": [
+        "Travel",
+        "Dining",
+        "Housing"
+      ],
+      "mcc_id": "3651"
+    },
+    {
+      "name": "INDIAN AIRLINES",
+      "type": "Service",
+      "description": "INDIAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3193"
+    },
+    {
+      "name": "INER NOR HOTELS",
+      "type": "Service",
+      "description": "INER NOR HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3724"
+    },
+    {
+      "name": "INSURANCE RENT-A-CAR",
+      "type": "Service",
+      "description": "INSURANCE RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3429"
+    },
+    {
+      "name": "INTER-CONTINENTAL HOTELS",
+      "type": "Service",
+      "description": "INTER-CONTINENTAL HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3512"
+    },
+    {
+      "name": "INTERENT RENT-A-CAR",
+      "type": "Service",
+      "description": "INTERENT RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3438"
+    },
+    {
+      "name": "INTERHOTEL CEDOK",
+      "type": "Service",
+      "description": "INTERHOTEL CEDOK",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3675"
+    },
+    {
+      "name": "IRAN AIR",
+      "type": "Service",
+      "description": "IRAN AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3192"
+    },
+    {
+      "name": "ISLAND AIRLINES",
+      "type": "Service",
+      "description": "ISLAND AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3191"
+    },
+    {
+      "name": "Industrial Supplies",
+      "type": "Service",
+      "description": "Industrial Supplies, Not Elsewhere Classified",
+      "mcc_id": "5085"
+    },
+    {
+      "name": "Information Retrieval Services",
+      "type": "Service",
+      "description": "Information Retrieval Services",
+      "mcc_id": "7375"
+    },
+    {
+      "name": "Insurance",
+      "type": "Service",
+      "description": "Insurance Sales, Underwriting, and Premiums",
+      "related": [
+        "Financial"
+      ],
+      "mcc_id": "6300"
+    },
+    {
+      "name": "Insurance Service",
+      "type": "Service",
+      "description": "Direct Marketing- Insurance Service",
+      "related": [
+        "Financial"
+      ],
+      "mcc_id": "5960"
+    },
+    {
+      "name": "Interest",
+      "type": "Service",
+      "description": "Interest income or expense.",
+      "related": [
+        "Financial"
+      ]
+    },
+    {
+      "name": "Internet",
+      "type": "Service",
+      "description": "ISP services.",
+      "related": [
+        "Utilities",
+        "Entertainment",
+        "Education"
+      ]
+    },
+    {
+      "name": "Intra Company Purchases",
+      "type": "Service",
+      "description": "Intra - Company Purchases ( For Visa Only)",
+      "mcc_id": "9950"
+    },
+    {
+      "name": "JAPAN AIRLINES",
+      "type": "Service",
+      "description": "JAPAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3006"
+    },
+    {
+      "name": "JOHN ASCUAGA'S NUGGET",
+      "type": "Service",
+      "description": "JOHN ASCUAGA'S NUGGET",
+      "related": [
+        "Dining",
+        "Entertainment",
+        "Travel"
+      ],
+      "mcc_id": "3729"
+    },
+    {
+      "name": "JOLLY HOTELS",
+      "type": "Service",
+      "description": "JOLLY HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3558"
+    },
+    {
+      "name": "JOURNEY'S END MOTLS",
+      "type": "Service",
+      "description": "JOURNEY'S END MOTLS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3563"
+    },
+    {
+      "name": "JUGOSLAV AIR",
+      "type": "Service",
+      "description": "JUGOSLAV AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3190"
+    },
+    {
+      "name": "Janitorial Services",
+      "type": "Service",
+      "description": "Cleaning and Maintenance, Janitorial Services",
+      "related": [
+        "Home Goods",
+        "Utilities"
+      ],
+      "mcc_id": "7349"
+    },
+    {
+      "name": "Jewelry",
+      "type": "Service",
+      "description": "Precious Stones and Metals, Watches and Jewelry",
+      "mcc_id": "5094"
+    },
+    {
+      "name": "KAROS HOTELS",
+      "type": "Service",
+      "description": "KAROS HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment",
+        "Housing"
+      ],
+      "mcc_id": "3718"
+    },
+    {
+      "name": "KEMWELL GROUP RENT-A-CAR",
+      "type": "Service",
+      "description": "KEMWELL GROUP RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3394"
+    },
+    {
+      "name": "KENYA AIRLINES",
+      "type": "Service",
+      "description": "KENYA AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3295"
+    },
+    {
+      "name": "KLM",
+      "type": "Service",
+      "description": "KLM (ROYAL DUTCH AIRLINES)",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3010"
+    },
+    {
+      "name": "KNIGHTS INNS",
+      "type": "Service",
+      "description": "KNIGHTS INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3660"
+    },
+    {
+      "name": "KOREAN AIRLINES",
+      "type": "Service",
+      "description": "KOREAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3082"
+    },
+    {
+      "name": "KUWAIT AIRLINES",
+      "type": "Service",
+      "description": "KUWAIT AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3038"
+    },
+    {
+      "name": "LAB (BOLIVIA)",
+      "type": "Service",
+      "description": "LAB (BOLIVIA)",
+      "mcc_id": "3055"
+    },
+    {
+      "name": "LACSA (COSTA RICA)",
+      "type": "Service",
+      "description": "LACSA (COSTA RICA)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3187"
+    },
+    {
+      "name": "LADBROKE HOTELS",
+      "type": "Service",
+      "description": "LADBROKE HOTELS",
+      "related": [
+        "Travel",
+        "Entertainment",
+        "Housing"
+      ],
+      "mcc_id": "3568"
+    },
+    {
+      "name": "LADECO (CHILE)",
+      "type": "Service",
+      "description": "LADECO (CHILE)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3054"
+    },
+    {
+      "name": "LANCHILE",
+      "type": "Service",
+      "description": "LANCHILE",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3052"
+    },
+    {
+      "name": "LAP (PARAGUAY)",
+      "type": "Service",
+      "description": "LAP (PARAGUAY)",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3186"
+    },
+    {
+      "name": "LAV (VENEZUELA)",
+      "type": "Service",
+      "description": "LAV (VENEZUELA)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3185"
+    },
+    {
+      "name": "LIAT",
+      "type": "Service",
+      "description": "LIAT",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3184"
+    },
+    {
+      "name": "LOEWS HOTELS",
+      "type": "Service",
+      "description": "LOEWS HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment",
+        "Housing"
+      ],
+      "mcc_id": "3654"
+    },
+    {
+      "name": "LOT (POLAND)",
+      "type": "Service",
+      "description": "LOT (POLAND)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3182"
+    },
+    {
+      "name": "LUFTHANSA",
+      "type": "Service",
+      "description": "LUFTHANSA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3008"
+    },
+    {
+      "name": "LUXAIR",
+      "type": "Service",
+      "description": "LUXAIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3146"
+    },
+    {
+      "name": "La Quinta",
+      "type": "Service",
+      "description": "LA QUINTA MOTOR INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3516"
+    },
+    {
+      "name": "Landscaping",
+      "type": "Service",
+      "description": "Horticultural Services, Landscaping Services",
+      "related": [
+        "Home Goods",
+        "Housing"
+      ],
+      "mcc_id": "0780"
+    },
+    {
+      "name": "Laundry",
+      "type": "Service",
+      "description": "Laundry - Family and Commercial",
+      "mcc_id": "7211"
+    },
+    {
+      "name": "Laundry Services",
+      "type": "Service",
+      "description": "Laundry, Cleaning, and Garment Services",
+      "related": [
+        "Home Goods",
+        "Clothing"
+      ],
+      "mcc_id": "7210"
+    },
+    {
+      "name": "Law Firm",
+      "type": "Service",
+      "description": "Legal representation and advice.",
+      "related": [
+        "Legal"
+      ]
+    },
+    {
+      "name": "Lawn and Garden",
+      "type": "Service",
+      "description": "Nurseries - Lawn and Garden Supply Store",
+      "related": [
+        "Home Goods",
+        "Housing"
+      ],
+      "mcc_id": "5261"
+    },
+    {
+      "name": "Leather Goods Stores",
+      "type": "Service",
+      "description": "Leather Goods Stores",
+      "related": [
+        "Clothing",
+        "Home Goods"
+      ],
+      "mcc_id": "5948"
+    },
+    {
+      "name": "Legal Services",
+      "type": "Service",
+      "description": "Legal Services and Attorneys",
+      "mcc_id": "8111"
+    },
+    {
+      "name": "Loan Repayment",
+      "type": "Service",
+      "description": "Personal loans, car payments."
+    },
+    {
+      "name": "Lodging",
+      "type": "Service",
+      "description": "Lodging - Hotels, Motels, Resorts, Central Reservation Services (not elsewhere classified)",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "7011"
+    },
+    {
+      "name": "Lumber",
+      "type": "Service",
+      "description": "Lumber and Building Materials Stores",
+      "related": [
+        "Home Goods",
+        "Housing"
+      ],
+      "mcc_id": "5211"
+    },
+    {
+      "name": "MAJOR RENT-A-CAR",
+      "type": "Service",
+      "description": "MAJOR RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3430"
+    },
+    {
+      "name": "MALAYSIAN AIRLINE SYSTEM",
+      "type": "Service",
+      "description": "MALAYSIAN AIRLINE SYSTEM",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3100"
+    },
+    {
+      "name": "MALEV",
+      "type": "Service",
+      "description": "MALEV",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3181"
+    },
+    {
+      "name": "MANDARIN ORIENTAL HOTEL",
+      "type": "Service",
+      "description": "MANDARIN ORIENTAL HOTEL",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "3577"
+    },
+    {
+      "name": "MARITIM HOTELS",
+      "type": "Service",
+      "description": "MARITIM HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3668"
+    },
+    {
+      "name": "MARRIOTT HOTELS",
+      "type": "Service",
+      "description": "MARRIOTT HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3509"
+    },
+    {
+      "name": "MERIDIEN HOTELS",
+      "type": "Service",
+      "description": "MERIDIEN HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3520"
+    },
+    {
+      "name": "MERLIN HOTELS",
+      "type": "Service",
+      "description": "MERLIN HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3622"
+    },
+    {
+      "name": "MESA AIR",
+      "type": "Service",
+      "description": "MESA AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3178"
+    },
+    {
+      "name": "METRO AIRLINES",
+      "type": "Service",
+      "description": "METRO AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3087"
+    },
+    {
+      "name": "METROFLIGHT AIRLINES",
+      "type": "Service",
+      "description": "METROFLIGHT AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3176"
+    },
+    {
+      "name": "METROPOLE HOTELS",
+      "type": "Service",
+      "description": "METROPOLE HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3661"
+    },
+    {
+      "name": "MEXICANA",
+      "type": "Service",
+      "description": "MEXICANA",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3023"
+    },
+    {
+      "name": "MGM GRAND HOTEL",
+      "type": "Service",
+      "description": "MGM GRAND HOTEL",
+      "related": [
+        "Entertainment",
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3730"
+    },
+    {
+      "name": "MIDWAY MOTOR LODGE",
+      "type": "Service",
+      "description": "MIDWAY MOTOR LODGE",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3699"
+    },
+    {
+      "name": "MILLENIUM BROADWAY HOTEL",
+      "type": "Service",
+      "description": "MILLENIUM BROADWAY HOTEL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3741"
+    },
+    {
+      "name": "MILLEVILLE RENT-A-CAR",
+      "type": "Service",
+      "description": "MILLEVILLE RENT-A-CAR",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3439"
+    },
+    {
+      "name": "MIYAKO HOTELS",
+      "type": "Service",
+      "description": "MIYAKO HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Housing"
+      ],
+      "mcc_id": "3572"
+    },
+    {
+      "name": "MOTEL 6",
+      "type": "Service",
+      "description": "MOTEL 6",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3700"
+    },
+    {
+      "name": "MOUNT CHARLOTTE THISTLE",
+      "type": "Service",
+      "description": "MOUNT CHARLOTTE THISTLE",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3639"
+    },
+    {
+      "name": "MOVENPICK HOTELS",
+      "type": "Service",
+      "description": "MOVENPICK HOTELS",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3612"
+    },
+    {
+      "name": "Mail Order Houses",
+      "type": "Service",
+      "description": "Mail Order Houses Including Catalog Order Stores, Book/Record Clubs (No longer permitted for U.S. original presentments)",
+      "mcc_id": "5961"
+    },
+    {
+      "name": "Marinas",
+      "type": "Service",
+      "description": "Marinas, Marine Service, and Supplies",
+      "related": [
+        "Transport",
+        "Entertainment",
+        "Gifts",
+        "Home Goods"
+      ],
+      "mcc_id": "4468"
+    },
+    {
+      "name": "Massage Parlors",
+      "type": "Service",
+      "description": "Massage Parlors",
+      "related": [
+        "Health",
+        "Entertainment"
+      ],
+      "mcc_id": "7297"
+    },
+    {
+      "name": "Masters Economy Inns",
+      "type": "Service",
+      "description": "* MASTERS ECONOMY INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3835"
+    },
+    {
+      "name": "Meat Provisioners",
+      "type": "Service",
+      "description": "Meat Provisioners - Freezer and Locker",
+      "mcc_id": "5422"
+    },
+    {
+      "name": "Medical Laboratories",
+      "type": "Service",
+      "description": "Medical and Dental Laboratories",
+      "mcc_id": "8071"
+    },
+    {
+      "name": "Medical Services",
+      "type": "Service",
+      "description": "Medical Services and Health Practitioners (Not Elsewhere Classified)",
+      "mcc_id": "8099"
+    },
+    {
+      "name": "Medical Supplies",
+      "type": "Service",
+      "description": "Medical, Dental Ophthalmic, Hospital Equipment and Supplies",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "5047"
+    },
+    {
+      "name": "Membership Organizations",
+      "type": "Service",
+      "description": "Membership Organizations ( Not Elsewhere Classified)",
+      "mcc_id": "8699"
+    },
+    {
+      "name": "Metal Service Centers",
+      "type": "Service",
+      "description": "Metal Service Centers and Offices",
+      "mcc_id": "5051"
+    },
+    {
+      "name": "Midwest Express",
+      "type": "Service",
+      "description": "MIDWEST EXPRESS AIRLINES, INC.",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3085"
+    },
+    {
+      "name": "Misc. General Merchandise",
+      "type": "Service",
+      "description": "Misc. General Merchandise",
+      "mcc_id": "5399"
+    },
+    {
+      "name": "Miscellaneous Auto Dealers",
+      "type": "Service",
+      "description": "Miscellaneous Auto Dealers",
+      "related": [
+        "Transport",
+        "Auto Maintenance"
+      ],
+      "mcc_id": "5599"
+    },
+    {
+      "name": "Miscellaneous Retail",
+      "type": "Service",
+      "description": "Miscellaneous and Specialty Retail Stores",
+      "mcc_id": "5999"
+    },
+    {
+      "name": "Mobile",
+      "type": "Service",
+      "description": "Cell phone service.",
+      "related": [
+        "Transport",
+        "Utilities",
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "Mobile Home Dealers",
+      "type": "Service",
+      "description": "Mobile Home Dealers",
+      "related": [
+        "Housing"
+      ],
+      "mcc_id": "5271"
+    },
+    {
+      "name": "Money Transfer",
+      "type": "Service",
+      "description": "Money Orders - Wire Transfer",
+      "related": [
+        "Financial"
+      ],
+      "mcc_id": "4829"
+    },
+    {
+      "name": "Motion Picture Theaters",
+      "type": "Service",
+      "description": "Motion Picture Theaters",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7832"
+    },
+    {
+      "name": "Motion Pictures",
+      "type": "Service",
+      "description": "Motion Pictures and Video Tape Production and Distribution",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7829"
+    },
+    {
+      "name": "Motor Home Dealers",
+      "type": "Service",
+      "description": "Motor Home Dealers",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "5592"
+    },
+    {
+      "name": "Motor Vehicle Supplies",
+      "type": "Service",
+      "description": "Motor vehicle supplies and new parts",
+      "related": [
+        "Auto Maintenance",
+        "Transport"
+      ],
+      "mcc_id": "5013"
+    },
+    {
+      "name": "Motorcycle Dealers",
+      "type": "Service",
+      "description": "Motorcycle Dealers",
+      "related": [
+        "Transport",
+        "Auto Maintenance"
+      ],
+      "mcc_id": "5571"
+    },
+    {
+      "name": "Music Stores",
+      "type": "Service",
+      "description": "Music Stores, Musical Instruments, Piano Sheet Music",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "5733"
+    },
+    {
+      "name": "NATIONAIR",
+      "type": "Service",
+      "description": "NATIONAIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3172"
+    },
+    {
+      "name": "NATIONAL CAR RENTAL",
+      "type": "Service",
+      "description": "NATIONAL CAR RENTAL",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3393"
+    },
+    {
+      "name": "NEW YORK HELICOPTER",
+      "type": "Service",
+      "description": "NEW YORK HELICOPTER",
+      "related": [
+        "Transport",
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "3165"
+    },
+    {
+      "name": "NIGERIA AIRWAYS",
+      "type": "Service",
+      "description": "NIGERIA AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3045"
+    },
+    {
+      "name": "NOAH'S HOTELS",
+      "type": "Service",
+      "description": "NOAH'S HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3603"
+    },
+    {
+      "name": "NORDAIR",
+      "type": "Service",
+      "description": "NORDAIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3081"
+    },
+    {
+      "name": "NORONTAIR",
+      "type": "Service",
+      "description": "NORONTAIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3164"
+    },
+    {
+      "name": "NORTHWEST",
+      "type": "Service",
+      "description": "NORTHWEST",
+      "mcc_id": "3060"
+    },
+    {
+      "name": "NOUNT COOK",
+      "type": "Service",
+      "description": "NOUNT COOK",
+      "related": [
+        "Dining",
+        "Travel"
+      ],
+      "mcc_id": "3170"
+    },
+    {
+      "name": "NOVOTEL HOTELS",
+      "type": "Service",
+      "description": "NOVOTEL HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Housing"
+      ],
+      "mcc_id": "3642"
+    },
+    {
+      "name": "Newsstands",
+      "type": "Service",
+      "description": "News Dealers and Newsstands",
+      "mcc_id": "5994"
+    },
+    {
+      "name": "Non-durable Goods",
+      "type": "Service",
+      "description": "Non-durable Goods, Not Elsewhere Classified",
+      "related": [
+        "Groceries",
+        "Clothing",
+        "Health"
+      ],
+      "mcc_id": "5199"
+    },
+    {
+      "name": "Nursing Care",
+      "type": "Service",
+      "description": "Nursing and Personal Care Facilities",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "8050"
+    },
+    {
+      "name": "OBEROI HOTELS",
+      "type": "Service",
+      "description": "OBEROI HOTELS",
+      "related": [
+        "Dining",
+        "Travel"
+      ],
+      "mcc_id": "3657"
+    },
+    {
+      "name": "OLYMPIC AIRWAYS",
+      "type": "Service",
+      "description": "OLYMPIC AIRWAYS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3031"
+    },
+    {
+      "name": "OMNI HOTELS",
+      "type": "Service",
+      "description": "OMNI HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3592"
+    },
+    {
+      "name": "OPRYLAND HOTEL",
+      "type": "Service",
+      "description": "OPRYLAND HOTEL",
+      "related": [
+        "Travel",
+        "Entertainment",
+        "Dining"
+      ],
+      "mcc_id": "3732"
+    },
+    {
+      "name": "OTANI HOTELS",
+      "type": "Service",
+      "description": "OTANI HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "3658"
+    },
+    {
+      "name": "Office Equipment",
+      "type": "Service",
+      "description": "Office, Photographic, Photocopy, and Microfilm Equipment",
+      "related": [
+        "Home Goods",
+        "Education"
+      ],
+      "mcc_id": "5044"
+    },
+    {
+      "name": "Office Furniture",
+      "type": "Service",
+      "description": "Office and Commercial Furniture",
+      "related": [
+        "Home Goods"
+      ],
+      "mcc_id": "5021"
+    },
+    {
+      "name": "Oil Change",
+      "type": "Service",
+      "description": "Preventative maintenance (e.g., Jiffy Lube).",
+      "related": [
+        "Auto Maintenance"
+      ]
+    },
+    {
+      "name": "On-Line Casinos",
+      "type": "Service",
+      "description": "Government-Licensed On-Line Casinos (On-Line Gambling)",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7801"
+    },
+    {
+      "name": "Opticians",
+      "type": "Service",
+      "description": "Opticians, Opticians Goods and Eyeglasses",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "8043"
+    },
+    {
+      "name": "Optometrists and Ophthalmologists",
+      "type": "Service",
+      "description": "Optometrists and Ophthalmologists",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "8042"
+    },
+    {
+      "name": "Orthopedic Goods",
+      "type": "Service",
+      "description": "Orthopedic Goods Prosthetic Devices",
+      "mcc_id": "5976"
+    },
+    {
+      "name": "Osteopaths",
+      "type": "Service",
+      "description": "Osteopaths",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "8031"
+    },
+    {
+      "name": "PAKISTAN INTERNATIONAL",
+      "type": "Service",
+      "description": "PAKISTAN INTERNATIONAL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3024"
+    },
+    {
+      "name": "PAN AMERICAN",
+      "type": "Service",
+      "description": "PAN AMERICAN",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3002"
+    },
+    {
+      "name": "PANNONIA HOTELS",
+      "type": "Service",
+      "description": "PANNONIA HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3599"
+    },
+    {
+      "name": "PARK INNS INTERNATIONAL",
+      "type": "Service",
+      "description": "PARK INNS INTERNATIONAL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3553"
+    },
+    {
+      "name": "PAYLESS CAR RENTAL",
+      "type": "Service",
+      "description": "PAYLESS CAR RENTAL",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3359"
+    },
+    {
+      "name": "PBA",
+      "type": "Service",
+      "description": "PBA",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "3159"
+    },
+    {
+      "name": "PEABODY HOTELS",
+      "type": "Service",
+      "description": "PEABODY HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3752"
+    },
+    {
+      "name": "PENNSULA HOTEL",
+      "type": "Service",
+      "description": "PENNSULA HOTEL",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3523"
+    },
+    {
+      "name": "PENTA HOTELS",
+      "type": "Service",
+      "description": "PENTA HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3653"
+    },
+    {
+      "name": "PHILIPPINE AIRLINES",
+      "type": "Service",
+      "description": "PHILIPPINE AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3022"
+    },
+    {
+      "name": "PRINCE HOTELS",
+      "type": "Service",
+      "description": "PRINCE HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3626"
+    },
+    {
+      "name": "PRINCESS HOTELS INTERNATIONAL",
+      "type": "Service",
+      "description": "PRINCESS HOTELS INTERNATIONAL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3584"
+    },
+    {
+      "name": "PRINCEVILLE",
+      "type": "Service",
+      "description": "PRINCEVILLE",
+      "related": [
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "3154"
+    },
+    {
+      "name": "PROTEA HOTELS",
+      "type": "Service",
+      "description": "PROTEA HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3719"
+    },
+    {
+      "name": "PULLMAN INTERNATIONAL HOTELS",
+      "type": "Service",
+      "description": "PULLMAN INTERNATIONAL HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3519"
+    },
+    {
+      "name": "Package Stores",
+      "type": "Service",
+      "description": "Package Stores - Beer, Wine, and Liquor",
+      "related": [
+        "Alcohol",
+        "Groceries",
+        "Entertainment"
+      ],
+      "mcc_id": "5921"
+    },
+    {
+      "name": "Package Tour",
+      "type": "Service",
+      "description": "Package Tour Operators (For use in Germany only)",
+      "related": [
+        "Travel",
+        "Tours",
+        "Booking"
+      ],
+      "mcc_id": "4723"
+    },
+    {
+      "name": "Paint Shops",
+      "type": "Service",
+      "description": "Paint Shops - Automotive",
+      "related": [
+        "Auto Maintenance"
+      ],
+      "mcc_id": "7535"
+    },
+    {
+      "name": "Paints",
+      "type": "Service",
+      "description": "Paints, Varnishes, and Supplies",
+      "related": [
+        "Home Goods"
+      ],
+      "mcc_id": "5198"
+    },
+    {
+      "name": "Parking Lots",
+      "type": "Service",
+      "description": "Automobile Parking Lots and Garages",
+      "related": [
+        "Transport",
+        "Auto Maintenance"
+      ],
+      "mcc_id": "7523"
+    },
+    {
+      "name": "Passenger Railways",
+      "type": "Service",
+      "description": "Passenger Railways",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "4112"
+    },
+    {
+      "name": "Pawn Shops",
+      "type": "Service",
+      "description": "Pawn Shops and Salvage Yards",
+      "related": [
+        "Financial"
+      ],
+      "mcc_id": "5933"
+    },
+    {
+      "name": "Personal Services",
+      "type": "Service",
+      "description": "Miscellaneous Personal Services ( not elsewhere classifies)",
+      "mcc_id": "7299"
+    },
+    {
+      "name": "Pet Shops",
+      "type": "Service",
+      "description": "Pet Shops, Pet Foods, and Supplies Stores",
+      "mcc_id": "5995"
+    },
+    {
+      "name": "Petroleum",
+      "type": "Service",
+      "description": "Petroleum and Petroleum Products",
+      "related": [
+        "Gas",
+        "Transport",
+        "Utilities"
+      ],
+      "mcc_id": "5172"
+    },
+    {
+      "name": "Pharmacies",
+      "type": "Service",
+      "description": "Drug Stores and Pharmacies",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "5912"
+    },
+    {
+      "name": "Photofinishing",
+      "type": "Service",
+      "description": "Photofinishing Laboratories, Photo Developing",
+      "mcc_id": "7395"
+    },
+    {
+      "name": "Photographic Studios",
+      "type": "Service",
+      "description": "Photographic Studios",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7221"
+    },
+    {
+      "name": "Photography",
+      "type": "Service",
+      "description": "Commercial Photography, Art and Graphics",
+      "related": [
+        "Entertainment",
+        "Travel"
+      ],
+      "mcc_id": "7333"
+    },
+    {
+      "name": "Plumbing Supplies",
+      "type": "Service",
+      "description": "Plumbing and Heating Equipment and Supplies",
+      "related": [
+        "Home Goods",
+        "Utilities",
+        "Housing"
+      ],
+      "mcc_id": "5074"
+    },
+    {
+      "name": "Podiatrists and Chiropodists",
+      "type": "Service",
+      "description": "Podiatrists and Chiropodists",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "8049"
+    },
+    {
+      "name": "Political Organizations",
+      "type": "Service",
+      "description": "Political Organizations",
+      "mcc_id": "8651"
+    },
+    {
+      "name": "Postal Services",
+      "type": "Service",
+      "description": "Postal Services - Government Only",
+      "related": [
+        "Government",
+        "Transport",
+        "Utilities"
+      ],
+      "mcc_id": "9402"
+    },
+    {
+      "name": "Professional Services",
+      "type": "Service",
+      "description": "Professional Services ( Not Elsewhere Defined)",
+      "mcc_id": "8999"
+    },
+    {
+      "name": "Protective Services",
+      "type": "Service",
+      "description": "Protective and Security Services - Including Armored Carsand Guard Dogs",
+      "mcc_id": "7393"
+    },
+    {
+      "name": "Public warehousing, Storage",
+      "type": "Service",
+      "description": "Public warehousing, Storage",
+      "mcc_id": "4225"
+    },
+    {
+      "name": "Publishing",
+      "type": "Service",
+      "description": "Miscellaneous Publishing and Printing",
+      "mcc_id": "2741"
+    },
+    {
+      "name": "QANTAS",
+      "type": "Service",
+      "description": "QANTAS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3012"
+    },
+    {
+      "name": "QUALITY PACIFIC HOTEL",
+      "type": "Service",
+      "description": "QUALITY PACIFIC HOTEL",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3713"
+    },
+    {
+      "name": "QUEBECAIRE",
+      "type": "Service",
+      "description": "QUEBECAIRE",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3056"
+    },
+    {
+      "name": "QUEENS MOAT HOUSES",
+      "type": "Service",
+      "description": "QUEENS MOAT HOUSES",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3645"
+    },
+    {
+      "name": "Quality Inn",
+      "type": "Service",
+      "description": "QUALITY INNS, QUALITY SUITES",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3508"
+    },
+    {
+      "name": "Quick Copy",
+      "type": "Service",
+      "description": "Quick Copy, Reproduction and Blueprinting Services",
+      "mcc_id": "7338"
+    },
+    {
+      "name": "RADISSON HOTELS",
+      "type": "Service",
+      "description": "RADISSON HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3649"
+    },
+    {
+      "name": "RANK HOTELS",
+      "type": "Service",
+      "description": "RANK HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3633"
+    },
+    {
+      "name": "RANTASIPI HOTELS",
+      "type": "Service",
+      "description": "RANTASIPI HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3674"
+    },
+    {
+      "name": "RED ROOK INNS",
+      "type": "Service",
+      "description": "RED ROOK INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3650"
+    },
+    {
+      "name": "REGAL 8 INNS",
+      "type": "Service",
+      "description": "REGAL 8 INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3550"
+    },
+    {
+      "name": "REGENT INTERNATIONAL HOTELS",
+      "type": "Service",
+      "description": "REGENT INTERNATIONAL HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3598"
+    },
+    {
+      "name": "RELAX INNS",
+      "type": "Service",
+      "description": "RELAX INNS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3565"
+    },
+    {
+      "name": "RENO AIR, INC.",
+      "type": "Service",
+      "description": "RENO AIR, INC.",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3262"
+    },
+    {
+      "name": "RENT-A-WRECK",
+      "type": "Service",
+      "description": "RENT-A-WRECK",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3370"
+    },
+    {
+      "name": "REPLACEMENT RENT-A-CAR",
+      "type": "Service",
+      "description": "REPLACEMENT RENT-A-CAR",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3431"
+    },
+    {
+      "name": "RESERVE RENT-A-CAR",
+      "type": "Service",
+      "description": "RESERVE RENT-A-CAR",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "3432"
+    },
+    {
+      "name": "RESIDENCE INNS",
+      "type": "Service",
+      "description": "RESIDENCE INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3703"
+    },
+    {
+      "name": "RESO HOTELS",
+      "type": "Service",
+      "description": "RESO HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3635"
+    },
+    {
+      "name": "RICA HOTELS",
+      "type": "Service",
+      "description": "RICA HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3723"
+    },
+    {
+      "name": "RIO SUITES",
+      "type": "Service",
+      "description": "RIO SUITES",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3726"
+    },
+    {
+      "name": "RODEWAY INNS",
+      "type": "Service",
+      "description": "RODEWAY INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3515"
+    },
+    {
+      "name": "ROYAL AIR MAROC",
+      "type": "Service",
+      "description": "ROYAL AIR MAROC",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3048"
+    },
+    {
+      "name": "ROYAL HOTELS",
+      "type": "Service",
+      "description": "ROYAL HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "3542"
+    },
+    {
+      "name": "ROYCE HOTELS",
+      "type": "Service",
+      "description": "ROYCE HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3704"
+    },
+    {
+      "name": "Radio Repair Shops",
+      "type": "Service",
+      "description": "Radio Repair Shops",
+      "mcc_id": "7622"
+    },
+    {
+      "name": "Railroads",
+      "type": "Service",
+      "description": "Railroads",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "4011"
+    },
+    {
+      "name": "Ramada",
+      "type": "Service",
+      "description": "RAMADA INNS, RAMADA LIMITED",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3637"
+    },
+    {
+      "name": "Real Estate",
+      "type": "Service",
+      "description": "Real Estate Agents and Managers - Rentals",
+      "related": [
+        "Housing"
+      ],
+      "mcc_id": "6513"
+    },
+    {
+      "name": "Record Shops",
+      "type": "Service",
+      "description": "Record Shops",
+      "related": [
+        "Music",
+        "Records",
+        "CDs",
+        "Entertainment"
+      ],
+      "mcc_id": "5735"
+    },
+    {
+      "name": "Recreation Services",
+      "type": "Service",
+      "description": "Recreation Services (Not Elsewhere Classified)",
+      "mcc_id": "7999"
+    },
+    {
+      "name": "Recreational Vehicles",
+      "type": "Service",
+      "description": "Motor Home and Recreational Vehicle Rentals",
+      "related": [
+        "Travel",
+        "Entertainment",
+        "Gas"
+      ],
+      "mcc_id": "7519"
+    },
+    {
+      "name": "Red Lion",
+      "type": "Service",
+      "description": "RED LION HOTELS, RED LION INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3528"
+    },
+    {
+      "name": "Referral Service",
+      "type": "Service",
+      "description": "Automated Referral Service ( For Visa Only)",
+      "mcc_id": "9700"
+    },
+    {
+      "name": "Religious Goods Stores",
+      "type": "Service",
+      "description": "Religious Goods Stores",
+      "mcc_id": "5973"
+    },
+    {
+      "name": "Religious Organizations",
+      "type": "Service",
+      "description": "Religious Organizations",
+      "mcc_id": "8661"
+    },
+    {
+      "name": "Renaissance",
+      "type": "Service",
+      "description": "RENAISSANCE HOTELS, STOUFFER HOTELS",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3530"
+    },
+    {
+      "name": "Repair Shops",
+      "type": "Service",
+      "description": "Shop Repair Shops and Shoe Shine Parlors, and Hat Cleaning Shops",
+      "related": [
+        "Home Goods",
+        "Clothing",
+        "Auto Maintenance"
+      ],
+      "mcc_id": "7251"
+    },
+    {
+      "name": "Restaurants",
+      "type": "Service",
+      "description": "Eating places and Restaurants",
+      "related": [
+        "Alcohol",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "5812"
+    },
+    {
+      "name": "Ride Services",
+      "type": "Service",
+      "description": "Taxis, Uber, Lyft.",
+      "related": [
+        "Transport"
+      ]
+    },
+    {
+      "name": "Rideshare",
+      "type": "Service",
+      "description": "Rideshare services like Uber/Lyft"
+    },
+    {
+      "name": "Ritz Carlton",
+      "type": "Service",
+      "description": "THE RITZ CARLTON HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3710"
+    },
+    {
+      "name": "Riviera Hotel",
+      "type": "Service",
+      "description": "RIVIERA HOTEL AND CASINO",
+      "mcc_id": "3737"
+    },
+    {
+      "name": "Roofing",
+      "type": "Service",
+      "description": "Roofing - Contractors, Sheet Metal Work - Contractors, Siding - Contractors",
+      "related": [
+        "Housing"
+      ],
+      "mcc_id": "1761"
+    },
+    {
+      "name": "SABENA",
+      "type": "Service",
+      "description": "SABENA",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3029"
+    },
+    {
+      "name": "SAETA",
+      "type": "Service",
+      "description": "SAETA SOCIAEDAD ECUATORIANOS DE TRANSPORTES AEREOS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3229"
+    },
+    {
+      "name": "SAN JUAN AIRLINES",
+      "type": "Service",
+      "description": "SAN JUAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3145"
+    },
+    {
+      "name": "SANDMAN HOTELS",
+      "type": "Service",
+      "description": "SANDMAN HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3573"
+    },
+    {
+      "name": "SANDMAN INNS",
+      "type": "Service",
+      "description": "SANDMAN INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3705"
+    },
+    {
+      "name": "SARA HOTELS",
+      "type": "Service",
+      "description": "SARA HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3656"
+    },
+    {
+      "name": "SAROVA HOTELS",
+      "type": "Service",
+      "description": "SAROVA HOTELS",
+      "related": [
+        "Dining",
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "3636"
+    },
+    {
+      "name": "SAS",
+      "type": "Service",
+      "description": "SAS",
+      "related": [
+        "Education",
+        "Financial"
+      ],
+      "mcc_id": "3016"
+    },
+    {
+      "name": "SAS HOTELS",
+      "type": "Service",
+      "description": "SAS HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3583"
+    },
+    {
+      "name": "SAUDIA ARABIAN AIRLINES",
+      "type": "Service",
+      "description": "SAUDIA ARABIAN AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3014"
+    },
+    {
+      "name": "SCANDIC HOTELS",
+      "type": "Service",
+      "description": "SCANDIC HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Housing"
+      ],
+      "mcc_id": "3655"
+    },
+    {
+      "name": "SCENIC AIRLINES",
+      "type": "Service",
+      "description": "SCENIC AIRLINES",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3143"
+    },
+    {
+      "name": "SEAINES PLANATION",
+      "type": "Service",
+      "description": "SEAINES PLANATION",
+      "mcc_id": "3725"
+    },
+    {
+      "name": "SHANGRI-LA INTERNATIONAL",
+      "type": "Service",
+      "description": "SHANGRI-LA INTERNATIONAL",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3545"
+    },
+    {
+      "name": "SHERATON HOTELS",
+      "type": "Service",
+      "description": "SHERATON HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3503"
+    },
+    {
+      "name": "SHILO INNS",
+      "type": "Service",
+      "description": "SHILO INNS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3706"
+    },
+    {
+      "name": "SHONEY'S INNS",
+      "type": "Service",
+      "description": "SHONEY'S INNS",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3707"
+    },
+    {
+      "name": "SHOWCASE RENTAL CARS",
+      "type": "Service",
+      "description": "SHOWCASE RENTAL CARS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3386"
+    },
+    {
+      "name": "SIMMONS AIRLINES",
+      "type": "Service",
+      "description": "SIMMONS AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3138"
+    },
+    {
+      "name": "SINGAPORE AIRLINES",
+      "type": "Service",
+      "description": "SINGAPORE AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3075"
+    },
+    {
+      "name": "SINGLETON",
+      "type": "Service",
+      "description": "SINGLETON",
+      "mcc_id": "3137"
+    },
+    {
+      "name": "SNAPPY CAR RENTAL",
+      "type": "Service",
+      "description": "SNAPPY CAR RENTAL",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3360"
+    },
+    {
+      "name": "SOFITEL HOTELS",
+      "type": "Service",
+      "description": "SOFITEL HOTELS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "3641"
+    },
+    {
+      "name": "SOKOS HOTELS",
+      "type": "Service",
+      "description": "SOKOS HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3586"
+    },
+    {
+      "name": "SOL HOTELS",
+      "type": "Service",
+      "description": "SOL HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3518"
+    },
+    {
+      "name": "SONESTA HOTELS",
+      "type": "Service",
+      "description": "SONESTA HOTELS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3591"
+    },
+    {
+      "name": "SOUTH AFRICAN AIRWAYS",
+      "type": "Service",
+      "description": "SOUTH AFRICAN AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3017"
+    },
+    {
+      "name": "SOUTH SEAS RESORTS",
+      "type": "Service",
+      "description": "SOUTH SEAS RESORTS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3756"
+    },
+    {
+      "name": "SOUTHERN PACIFIC HOTELS",
+      "type": "Service",
+      "description": "SOUTHERN PACIFIC HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3534"
+    },
+    {
+      "name": "SOUTHERN SUN HOTELS",
+      "type": "Service",
+      "description": "SOUTHERN SUN HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3720"
+    },
+    {
+      "name": "SOUTHWEST",
+      "type": "Service",
+      "description": "SOUTHWEST",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3066"
+    },
+    {
+      "name": "ST. REGIS HOTEL",
+      "type": "Service",
+      "description": "ST. REGIS HOTEL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3745"
+    },
+    {
+      "name": "STAKIS HOTELS",
+      "type": "Service",
+      "description": "STAKIS HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3666"
+    },
+    {
+      "name": "STEIGENBERGER HOTELS",
+      "type": "Service",
+      "description": "STEIGENBERGER HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3643"
+    },
+    {
+      "name": "SUDAN AIRWAYS",
+      "type": "Service",
+      "description": "SUDAN AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3135"
+    },
+    {
+      "name": "SUISSE CHALETS",
+      "type": "Service",
+      "description": "SUISSE CHALETS",
+      "related": [
+        "Dining",
+        "Entertainment"
+      ],
+      "mcc_id": "3686"
+    },
+    {
+      "name": "SUN COUNTRY AIRLINES",
+      "type": "Service",
+      "description": "SUN COUNTRY AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3069"
+    },
+    {
+      "name": "SUN ROUTE HOTELS",
+      "type": "Service",
+      "description": "SUN ROUTE HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3532"
+    },
+    {
+      "name": "SUN WORLD INTERNATIONAL",
+      "type": "Service",
+      "description": "SUN WORLD INTERNATIONAL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3130"
+    },
+    {
+      "name": "SUNBELT AIRLINES",
+      "type": "Service",
+      "description": "SUNBELT AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3133"
+    },
+    {
+      "name": "SUPER8 MOTELS",
+      "type": "Service",
+      "description": "SUPER8 MOTELS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3709"
+    },
+    {
+      "name": "SURINAM AIRWAYS",
+      "type": "Service",
+      "description": "SURINAM AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3129"
+    },
+    {
+      "name": "SWALLOW HOTELS",
+      "type": "Service",
+      "description": "SWALLOW HOTELS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3646"
+    },
+    {
+      "name": "SWISSAIR",
+      "type": "Service",
+      "description": "SWISSAIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3015"
+    },
+    {
+      "name": "SWISSOTEL",
+      "type": "Service",
+      "description": "SWISSOTEL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3634"
+    },
+    {
+      "name": "Sasha",
+      "type": "Service",
+      "description": "SASHA SERVICIO AERO DE HONDURAS",
+      "mcc_id": "3231"
+    },
+    {
+      "name": "Schools",
+      "type": "Service",
+      "description": "Elementary and Secondary Schools",
+      "related": [
+        "Education"
+      ],
+      "mcc_id": "8211"
+    },
+    {
+      "name": "Secondhand Stores",
+      "type": "Service",
+      "description": "Used Merchandise and Secondhand Stores",
+      "related": [
+        "Clothing",
+        "Home Goods"
+      ],
+      "mcc_id": "5931"
+    },
+    {
+      "name": "Secretarial Services",
+      "type": "Service",
+      "description": "Stenographic and Secretarial Support Services",
+      "mcc_id": "7339"
+    },
+    {
+      "name": "Security Brokers/Dealers",
+      "type": "Service",
+      "description": "Security Brokers/Dealers",
+      "mcc_id": "6211"
+    },
+    {
+      "name": "Service Stations",
+      "type": "Service",
+      "description": "Service Stations ( with or without ancillary services)",
+      "related": [
+        "Gas",
+        "Auto Maintenance",
+        "Transport"
+      ],
+      "mcc_id": "5541"
+    },
+    {
+      "name": "Services",
+      "type": "Service",
+      "description": "General services"
+    },
+    {
+      "name": "Sewing",
+      "type": "Service",
+      "description": "Sewing, Needle, Fabric, and Price Goods Stores",
+      "related": [
+        "Home Goods",
+        "Clothing"
+      ],
+      "mcc_id": "5949"
+    },
+    {
+      "name": "Shoe Stores",
+      "type": "Service",
+      "description": "Shoe Stores",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5661"
+    },
+    {
+      "name": "Snowmobile Dealers",
+      "type": "Service",
+      "description": "Snowmobile Dealers",
+      "related": [
+        "Transport",
+        "Entertainment"
+      ],
+      "mcc_id": "5598"
+    },
+    {
+      "name": "Sporting Goods Stores",
+      "type": "Service",
+      "description": "Sporting Goods Stores",
+      "mcc_id": "5941"
+    },
+    {
+      "name": "Sports Venues",
+      "type": "Service",
+      "description": "Commercial Sports, Athletic Fields, Professional Sport Clubs, and Sport Promoters",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7941"
+    },
+    {
+      "name": "Stamp and Coin Stores",
+      "type": "Service",
+      "description": "Stamp and Coin Stores - Philatelic and Numismatic Supplies",
+      "mcc_id": "5972"
+    },
+    {
+      "name": "Stationery",
+      "type": "Service",
+      "description": "Stationery, Office Supplies, Printing, and Writing Paper",
+      "related": [
+        "Education",
+        "Home Goods"
+      ],
+      "mcc_id": "5111"
+    },
+    {
+      "name": "Storage",
+      "type": "Service",
+      "description": "Storage unit rental"
+    },
+    {
+      "name": "Streaming",
+      "type": "Service",
+      "description": "Digital media subscriptions.",
+      "related": [
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "Swimming Pools",
+      "type": "Service",
+      "description": "Swimming Pools - Sales, Service, and Supplies",
+      "related": [
+        "Home Goods",
+        "Utilities",
+        "Entertainment"
+      ],
+      "mcc_id": "5996"
+    },
+    {
+      "name": "TACA INTERNATIONAL",
+      "type": "Service",
+      "description": "TACA INTERNATIONAL",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3127"
+    },
+    {
+      "name": "TAJ HOTELS INTERNATIONAL",
+      "type": "Service",
+      "description": "TAJ HOTELS INTERNATIONAL",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3659"
+    },
+    {
+      "name": "TALAIR",
+      "type": "Service",
+      "description": "TALAIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3126"
+    },
+    {
+      "name": "TAN",
+      "type": "Service",
+      "description": "TAN",
+      "mcc_id": "3125"
+    },
+    {
+      "name": "TAP (PORTUGAL)",
+      "type": "Service",
+      "description": "TAP (PORTUGAL)",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3035"
+    },
+    {
+      "name": "TELFORD INTERNATIONAL",
+      "type": "Service",
+      "description": "TELFORD INTERNATIONAL",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3620"
+    },
+    {
+      "name": "THAI AIRWAYS",
+      "type": "Service",
+      "description": "THAI AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3077"
+    },
+    {
+      "name": "THE ELIOT HOTEL",
+      "type": "Service",
+      "description": "THE ELIOT HOTEL",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3746"
+    },
+    {
+      "name": "THE HOMESTEAD",
+      "type": "Service",
+      "description": "THE HOMESTEAD",
+      "related": [
+        "Housing",
+        "Travel"
+      ],
+      "mcc_id": "3755"
+    },
+    {
+      "name": "THE REGISTRY HOTELS",
+      "type": "Service",
+      "description": "THE REGISTRY HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3702"
+    },
+    {
+      "name": "THRIFTY RENT-A-CAR",
+      "type": "Service",
+      "description": "THRIFTY RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3395"
+    },
+    {
+      "name": "THY (TURKEY)",
+      "type": "Service",
+      "description": "THY (TURKEY)",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3047"
+    },
+    {
+      "name": "TILDEN TENT-A-CAR",
+      "type": "Service",
+      "description": "TILDEN TENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3396"
+    },
+    {
+      "name": "TOKYO HOTEL",
+      "type": "Service",
+      "description": "TOKYO HOTEL",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3522"
+    },
+    {
+      "name": "TOWNPLACE SUITES",
+      "type": "Service",
+      "description": "TOWNPLACE SUITES",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3740"
+    },
+    {
+      "name": "TRANS WORLD AIRLINES",
+      "type": "Service",
+      "description": "TRANS WORLD AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3004"
+    },
+    {
+      "name": "TRANSAERO",
+      "type": "Service",
+      "description": "TRANSAERO",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3089"
+    },
+    {
+      "name": "TRAVELODGE",
+      "type": "Service",
+      "description": "TRAVELODGE",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3615"
+    },
+    {
+      "name": "TROPICAL RENT-A-CAR",
+      "type": "Service",
+      "description": "TROPICAL RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3385"
+    },
+    {
+      "name": "TRUMP AIRLINE",
+      "type": "Service",
+      "description": "TRUMP AIRLINE",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3254"
+    },
+    {
+      "name": "TUNIS AIR",
+      "type": "Service",
+      "description": "TUNIS AIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3049"
+    },
+    {
+      "name": "Tailors",
+      "type": "Service",
+      "description": "Tailors, Seamstress, Mending, and Alterations",
+      "related": [
+        "Clothing",
+        "Home Goods"
+      ],
+      "mcc_id": "5697"
+    },
+    {
+      "name": "Tax Payments",
+      "type": "Service",
+      "description": "Tax Payments",
+      "related": [
+        "Government",
+        "Financial"
+      ],
+      "mcc_id": "9311"
+    },
+    {
+      "name": "Tax Preparation Service",
+      "type": "Service",
+      "description": "Tax Preparation Service",
+      "related": [
+        "Financial"
+      ],
+      "mcc_id": "7276"
+    },
+    {
+      "name": "Taxes",
+      "type": "Service",
+      "description": "Income tax, property tax.",
+      "related": [
+        "Housing",
+        "Utilities",
+        "Financial"
+      ]
+    },
+    {
+      "name": "Taxicabs and Limousines",
+      "type": "Service",
+      "description": "Taxicabs and Limousines",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "4121"
+    },
+    {
+      "name": "Telecommunication",
+      "type": "Service",
+      "description": "Fax services, Telecommunication Services",
+      "related": [
+        "Utilities",
+        "Transport"
+      ],
+      "mcc_id": "4814"
+    },
+    {
+      "name": "Telecommunications",
+      "type": "Service",
+      "description": "Telecommunications Equipment including telephone sales",
+      "mcc_id": "4812"
+    },
+    {
+      "name": "Telegraph services",
+      "type": "Service",
+      "description": "Telegraph services",
+      "mcc_id": "4821"
+    },
+    {
+      "name": "Teleservices",
+      "type": "Service",
+      "description": "Direct Marketing - Inbound Teleservices Merchant",
+      "mcc_id": "5967"
+    },
+    {
+      "name": "Tent Shops",
+      "type": "Service",
+      "description": "Tent and Awning Shops",
+      "related": [
+        "Home Goods",
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "5998"
+    },
+    {
+      "name": "Theatrical Producers",
+      "type": "Service",
+      "description": "Theatrical Producers (Except Motion Pictures), Ticket Agencies",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7922"
+    },
+    {
+      "name": "Timeshares",
+      "type": "Service",
+      "description": "Timeshares",
+      "related": [
+        "Housing",
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "7012"
+    },
+    {
+      "name": "Tire Repair",
+      "type": "Service",
+      "description": "Tire Re-treading and Repair Shops",
+      "related": [
+        "Auto Maintenance"
+      ],
+      "mcc_id": "7534"
+    },
+    {
+      "name": "Toll Fees",
+      "type": "Service",
+      "description": "Toll and Bridge Fees",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "4784"
+    },
+    {
+      "name": "Tourist Attractions",
+      "type": "Service",
+      "description": "Tourist Attractions and Exhibits",
+      "related": [
+        "Travel",
+        "Entertainment"
+      ],
+      "mcc_id": "7991"
+    },
+    {
+      "name": "Towing Services",
+      "type": "Service",
+      "description": "Towing Services",
+      "related": [
+        "Transport",
+        "Auto Maintenance"
+      ],
+      "mcc_id": "7549"
+    },
+    {
+      "name": "Trailer Parks",
+      "type": "Service",
+      "description": "Trailer Parks and Camp Grounds",
+      "related": [
+        "Housing",
+        "Travel",
+        "Utilities"
+      ],
+      "mcc_id": "7033"
+    },
+    {
+      "name": "Trailers",
+      "type": "Service",
+      "description": "Recreational and Utility Trailers, Camp Dealers",
+      "mcc_id": "5561"
+    },
+    {
+      "name": "Transportation",
+      "type": "Service",
+      "description": "Local/Suburban Commuter Passenger Transportation - Railroads, Feries, Local Water Transportation.",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "4111"
+    },
+    {
+      "name": "Transportation Services",
+      "type": "Service",
+      "description": "Transportation Services, Not elsewhere classified)",
+      "mcc_id": "4789"
+    },
+    {
+      "name": "Transportes Aeros Militares",
+      "type": "Service",
+      "description": "TRANSPORTES AEROS MILITARES ECCUATORANOS",
+      "mcc_id": "3221"
+    },
+    {
+      "name": "Travel Agencies",
+      "type": "Service",
+      "description": "Travel Agencies and Tour Operations",
+      "related": [
+        "Travel",
+        "Booking",
+        "Tours"
+      ],
+      "mcc_id": "4722"
+    },
+    {
+      "name": "Travel Services",
+      "type": "Service",
+      "description": "Direct Marketing - Travel Related Arrangements Services",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "5962"
+    },
+    {
+      "name": "Tropicana",
+      "type": "Service",
+      "description": "TROPICANA RESORT AND CASINO",
+      "related": [
+        "Entertainment",
+        "Travel"
+      ],
+      "mcc_id": "3738"
+    },
+    {
+      "name": "Truck Rentals",
+      "type": "Service",
+      "description": "Truck and Utility Trailer Rentals",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "7513"
+    },
+    {
+      "name": "Truck Stop",
+      "type": "Service",
+      "description": "Truck Stop",
+      "related": [
+        "Gas",
+        "Dining",
+        "Transport"
+      ],
+      "mcc_id": "7511"
+    },
+    {
+      "name": "Trucking",
+      "type": "Service",
+      "description": "Motor Freight Carriers, Moving and Storage Companies, Trucking - Local/Long Distance, Delivery Services - Local",
+      "related": [
+        "Transport"
+      ],
+      "mcc_id": "4214"
+    },
+    {
+      "name": "Typesetting",
+      "type": "Service",
+      "description": "Typesetting, Plate Making, & Related Services",
+      "mcc_id": "2791"
+    },
+    {
+      "name": "Typewriter Stores",
+      "type": "Service",
+      "description": "Typewriter Stores - Sales, Rental, Service",
+      "mcc_id": "5978"
+    },
+    {
+      "name": "UGLY DUCKLING RENT-A-CAR",
+      "type": "Service",
+      "description": "UGLY DUCKLING RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3433"
+    },
+    {
+      "name": "UNITED AIRLINES",
+      "type": "Service",
+      "description": "UNITED AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3000"
+    },
+    {
+      "name": "US AIR",
+      "type": "Service",
+      "description": "US AIR",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3063"
+    },
+    {
+      "name": "USA RENT-A-CAR",
+      "type": "Service",
+      "description": "USA RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3434"
+    },
+    {
+      "name": "UTA/INTERAIR",
+      "type": "Service",
+      "description": "UTA/INTERAIR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3027"
+    },
+    {
+      "name": "Uniforms",
+      "type": "Service",
+      "description": "Men's Women's and Children's Uniforms and Commercial Clothing",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5137"
+    },
+    {
+      "name": "Utilities",
+      "type": "Service",
+      "description": "Electric, Gas, Sanitary and Water Utilities",
+      "related": [
+        "Gas",
+        "Utilities"
+      ],
+      "mcc_id": "4900"
+    },
+    {
+      "name": "VAGABOND HOTELS",
+      "type": "Service",
+      "description": "VAGABOND HOTELS",
+      "related": [
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3575"
+    },
+    {
+      "name": "VALLEY AIRLINES",
+      "type": "Service",
+      "description": "VALLEY AIRLINES",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3118"
+    },
+    {
+      "name": "VALUE RENT-A-CAR",
+      "type": "Service",
+      "description": "VALUE RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3435"
+    },
+    {
+      "name": "VARIG (BRAZIL)",
+      "type": "Service",
+      "description": "VARIG (BRAZIL)",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3018"
+    },
+    {
+      "name": "VASP (BRAZIL)",
+      "type": "Service",
+      "description": "VASP (BRAZIL)",
+      "mcc_id": "3036"
+    },
+    {
+      "name": "VENTURE INNS",
+      "type": "Service",
+      "description": "VENTURE INNS",
+      "related": [
+        "Dining",
+        "Travel",
+        "Housing"
+      ],
+      "mcc_id": "3574"
+    },
+    {
+      "name": "VIA ROUTE RENT-A-CAR",
+      "type": "Service",
+      "description": "VIA ROUTE RENT-A-CAR",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3440"
+    },
+    {
+      "name": "VIASA",
+      "type": "Service",
+      "description": "VIASA",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3117"
+    },
+    {
+      "name": "VIRGIN ATLANTIC",
+      "type": "Service",
+      "description": "VIRGIN ATLANTIC",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3144"
+    },
+    {
+      "name": "Variety Stores",
+      "type": "Service",
+      "description": "Variety Stores",
+      "related": [
+        "Groceries",
+        "Home Goods",
+        "Clothing",
+        "Entertainment"
+      ],
+      "mcc_id": "5331"
+    },
+    {
+      "name": "Veterinary Services",
+      "type": "Service",
+      "description": "Veterinary Services",
+      "related": [
+        "Health"
+      ],
+      "mcc_id": "0742"
+    },
+    {
+      "name": "Video Game Arcades/Establishments",
+      "type": "Service",
+      "description": "Video Game Arcades/Establishments",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7994"
+    },
+    {
+      "name": "Video Games",
+      "type": "Service",
+      "description": "Video Amusement Game Supplies",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7993"
+    },
+    {
+      "name": "Video Rental",
+      "type": "Service",
+      "description": "Video Tape Rental Stores",
+      "related": [
+        "Entertainment"
+      ],
+      "mcc_id": "7841"
+    },
+    {
+      "name": "Visa Credential Service",
+      "type": "Service",
+      "description": "Visa Credential Service ( For Visa Only)",
+      "related": [
+        "Financial",
+        "Travel"
+      ],
+      "mcc_id": "9701"
+    },
+    {
+      "name": "VisaPhone",
+      "type": "Service",
+      "description": "VisaPhone",
+      "mcc_id": "4815"
+    },
+    {
+      "name": "Vocational Schools",
+      "type": "Service",
+      "description": "Vocational Schools and Trade Schools",
+      "related": [
+        "Education"
+      ],
+      "mcc_id": "8249"
+    },
+    {
+      "name": "WELCOMGROUP HOTELS",
+      "type": "Service",
+      "description": "WELCOMGROUP HOTELS",
+      "related": [
+        "Travel",
+        "Dining"
+      ],
+      "mcc_id": "3524"
+    },
+    {
+      "name": "WELESLEY INNS",
+      "type": "Service",
+      "description": "WELESLEY INNS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Dining"
+      ],
+      "mcc_id": "3748"
+    },
+    {
+      "name": "WESTERN",
+      "type": "Service",
+      "description": "WESTERN",
+      "mcc_id": "3062"
+    },
+    {
+      "name": "WESTIN HOTELS",
+      "type": "Service",
+      "description": "WESTIN HOTELS",
+      "related": [
+        "Travel"
+      ],
+      "mcc_id": "3513"
+    },
+    {
+      "name": "WIDERO'S FLYVESELSKAP",
+      "type": "Service",
+      "description": "WIDERO'S FLYVESELSKAP",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3299"
+    },
+    {
+      "name": "WINDWARD ISLAND",
+      "type": "Service",
+      "description": "WINDWARD ISLAND",
+      "mcc_id": "3112"
+    },
+    {
+      "name": "WINGS AIRWAYS",
+      "type": "Service",
+      "description": "WINGS AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3110"
+    },
+    {
+      "name": "Watch Repair",
+      "type": "Service",
+      "description": "Watch, Clock, and Jewelry Repair",
+      "mcc_id": "7631"
+    },
+    {
+      "name": "Welding Repair",
+      "type": "Service",
+      "description": "Welding Repair",
+      "mcc_id": "7692"
+    },
+    {
+      "name": "Wholesale Clubs",
+      "type": "Service",
+      "description": "Wholesale Clubs",
+      "related": [
+        "Groceries",
+        "Home Goods"
+      ],
+      "mcc_id": "5300"
+    },
+    {
+      "name": "WiFi",
+      "type": "Service",
+      "description": "Wireless internet access.",
+      "related": [
+        "Internet",
+        "Utilities"
+      ]
+    },
+    {
+      "name": "Wig",
+      "type": "Service",
+      "description": "Wig and Toupee Stores",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5698"
+    },
+    {
+      "name": "Women's Accessories",
+      "type": "Service",
+      "description": "Women's Accessory and Specialty Shops",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5631"
+    },
+    {
+      "name": "Women's Ready-to-Wear Stores",
+      "type": "Service",
+      "description": "Women's Ready-to-Wear Stores",
+      "related": [
+        "Clothing"
+      ],
+      "mcc_id": "5621"
+    },
+    {
+      "name": "Woodside",
+      "type": "Service",
+      "description": "WOODSIDE HOTELS AND RESORTS",
+      "related": [
+        "Travel",
+        "Dining",
+        "Entertainment",
+        "Housing"
+      ],
+      "mcc_id": "3739"
+    },
+    {
+      "name": "Wrecking",
+      "type": "Service",
+      "description": "Wrecking and Salvage Yards",
+      "related": [
+        "Auto Maintenance",
+        "Home Goods"
+      ],
+      "mcc_id": "5935"
+    },
+    {
+      "name": "Wyndham",
+      "type": "Service",
+      "description": "WYNDHAM HOTEL AND RESORTS",
+      "related": [
+        "Travel",
+        "Housing",
+        "Entertainment"
+      ],
+      "mcc_id": "3722"
+    },
+    {
+      "name": "ZAMBIA AIRWAYS",
+      "type": "Service",
+      "description": "ZAMBIA AIRWAYS",
+      "related": [
+        "Transport",
+        "Travel"
+      ],
+      "mcc_id": "3094"
+    }
+  ],
+  "Market": [
+    {
+      "name": "Alcohol",
+      "type": "Market",
+      "description": "Beer, wine, liquor.",
+      "related": [
+        "Drinks"
+      ]
+    },
+    {
+      "name": "Auto Maintenance",
+      "type": "Market",
+      "description": "Repairs, parts, service (e.g., Jiffy Lube).",
+      "related": [
+        "Transport"
+      ]
+    },
+    {
+      "name": "Booking",
+      "type": "Market",
+      "description": "Reservations, appointments, travel agencies.",
+      "related": [
+        "Travel"
+      ]
+    },
+    {
+      "name": "CDs",
+      "type": "Market",
+      "description": "Compact discs, physical media.",
+      "related": [
+        "Music",
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "Clothing",
+      "type": "Market",
+      "description": "Apparel, shoes, accessories (e.g., GAP, Nike)."
+    },
+    {
+      "name": "Dining",
+      "type": "Market",
+      "description": "Sit-down restaurants, bistros, bars."
+    },
+    {
+      "name": "Donation",
+      "type": "Market",
+      "description": "Charitable donations"
+    },
+    {
+      "name": "Drinks",
+      "type": "Market",
+      "description": "Beverages, alcohol, smoothies, juice (e.g. Starbucks, Jamba)",
+      "related": [
+        "Dining"
+      ]
+    },
+    {
+      "name": "Education",
+      "type": "Market",
+      "description": "Schools and Educational Services ( Not Elsewhere Classified)",
+      "related": [
+        "Education"
+      ],
+      "mcc_id": "8299"
+    },
+    {
+      "name": "Entertainment",
+      "type": "Market",
+      "description": "Fun, hobbies, media (e.g., Netflix, Cinema)."
+    },
+    {
+      "name": "Fast Food",
+      "type": "Market",
+      "description": "Quick service, drive-thru, cafes, smoothie/juice bars, coffee shops.",
+      "related": [
+        "Dining"
+      ]
+    },
+    {
+      "name": "Financial",
+      "type": "Market",
+      "description": "Banks, credit unions, loans, taxes."
+    },
+    {
+      "name": "Gas",
+      "type": "Market",
+      "description": "Fuel stations (e.g., Shell, Chevron).",
+      "related": [
+        "Transport",
+        "Auto Maintenance"
+      ]
+    },
+    {
+      "name": "Government",
+      "type": "Market",
+      "description": "Taxes, fines, public services.",
+      "related": [
+        "Legal"
+      ]
+    },
+    {
+      "name": "Groceries",
+      "type": "Market",
+      "description": "Supermarkets, bakers, butchers (e.g., Whole Foods, Safeway)."
+    },
+    {
+      "name": "Health",
+      "type": "Market",
+      "description": "Medical, dental, pharmacy (e.g., Walgreens, Kaiser)."
+    },
+    {
+      "name": "Hobby",
+      "type": "Market",
+      "description": "Hobbies and leisure"
+    },
+    {
+      "name": "Home Goods",
+      "type": "Market",
+      "description": "Furniture, decor, hardware (e.g., Home Depot, IKEA)."
+    },
+    {
+      "name": "Household",
+      "type": "Market",
+      "description": "Household supplies and expenses"
+    },
+    {
+      "name": "Housing",
+      "type": "Market",
+      "description": "Rent, mortgage, repairs (e.g., specific property management)."
+    },
+    {
+      "name": "Legal",
+      "type": "Market",
+      "description": "Lawyers, courts, legal fees.",
+      "related": [
+        "Government"
+      ]
+    },
+    {
+      "name": "Medical",
+      "type": "Market",
+      "description": "Medical services and expenses"
+    },
+    {
+      "name": "Music",
+      "type": "Market",
+      "description": "Instruments, sheet music, lessons.",
+      "related": [
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "News",
+      "type": "Market",
+      "description": "Newspapers, magazines, digital subscriptions.",
+      "related": [
+        "Education",
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "Pharmacy",
+      "type": "Market",
+      "description": "Pharmacy and medication"
+    },
+    {
+      "name": "Records",
+      "type": "Market",
+      "description": "Vinyl records, LPs.",
+      "related": [
+        "Music",
+        "Entertainment"
+      ]
+    },
+    {
+      "name": "Shopping",
+      "type": "Market",
+      "description": "General shopping"
+    },
+    {
+      "name": "Tours",
+      "type": "Market",
+      "description": "Guided tours, excursions, packages.",
+      "related": [
+        "Travel",
+        "Booking"
+      ]
+    },
+    {
+      "name": "Transport",
+      "type": "Market",
+      "description": "Rideshare, public transit, taxis (e.g., Uber, Lyft).",
+      "related": [
+        "Travel"
+      ]
+    },
+    {
+      "name": "Travel",
+      "type": "Market",
+      "description": "Flights, hotels, car rentals (e.g., Airbnb, Delta)."
+    },
+    {
+      "name": "Vision",
+      "type": "Market",
+      "description": "Vision care and expenses"
+    }
+  ],
+  "System": [
+    {
+      "name": "Fixed",
+      "type": "System",
+      "description": "Fixed non-recurring expense"
+    },
+    {
+      "name": "Income",
+      "type": "System",
+      "description": "Positive amount added to the budget"
+    },
+    {
+      "name": "Pending",
+      "type": "System",
+      "description": "Pending transaction"
+    },
+    {
+      "name": "Recurring",
+      "type": "System",
+      "description": "Variable recurring expense"
+    },
+    {
+      "name": "Refund",
+      "type": "System",
+      "description": "Refund or return of funds"
+    },
+    {
+      "name": "Subscription",
+      "type": "System",
+      "description": "Fixed recurring expense"
+    },
+    {
+      "name": "Transfer",
+      "type": "System",
+      "description": "Transfer between accounts"
+    },
+    {
+      "name": "Variable",
+      "type": "System",
+      "description": "Variable non-recurring expense"
+    }
+  ]
+}

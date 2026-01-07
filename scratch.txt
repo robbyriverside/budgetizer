@@ -1,0 +1,3 @@
+display the Tags associated with a transaction 
+using a different color for each Tag type.  
+So Market Tags are green, Vendor tags are dark blue, Service is dark green, 

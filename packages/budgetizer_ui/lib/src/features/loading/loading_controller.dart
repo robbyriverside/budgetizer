@@ -166,6 +166,8 @@ class LoadingController extends _$LoadingController {
     state = state.copyWith(isLoading: false);
   }
 
+  final List<TransactionTagAction> _undoStack = [];
+
   void deleteTag(String tag) {
     final newDeleted = {...state.deletedTags, tag};
     state = state.copyWith(
@@ -183,10 +185,51 @@ class LoadingController extends _$LoadingController {
   }
 
   void removeTagFromTransaction(String transactionId, String tag) {
+    _undoStack.add(TransactionTagAction(transactionId, tag, true));
+
     final updatedTransactions = state.loadedTransactions.map((tx) {
       if (tx.id == transactionId) {
         final newTags = List<String>.from(tx.tags)..remove(tag);
         return tx.copyWith(tags: newTags);
+      }
+      return tx;
+    }).toList();
+
+    state = state.copyWith(
+      loadedTransactions: updatedTransactions,
+      tagCounts: _computeTagCounts(updatedTransactions, state.deletedTags),
+    );
+  }
+
+  void undoLastTagAction() {
+    if (_undoStack.isEmpty) return;
+    final action = _undoStack.removeLast();
+
+    if (action.isRemoval) {
+      // Re-add tag
+      _addTagToTransaction(action.txId, action.tag);
+    } else {
+      // Logic for undoing an add (if we implement adding tags later)
+      // For now, removing it directly without recording undo would be:
+      final updatedTransactions = state.loadedTransactions.map((tx) {
+        if (tx.id == action.txId) {
+          final newTags = List<String>.from(tx.tags)..remove(action.tag);
+          return tx.copyWith(tags: newTags);
+        }
+        return tx;
+      }).toList();
+
+      state = state.copyWith(
+        loadedTransactions: updatedTransactions,
+        tagCounts: _computeTagCounts(updatedTransactions, state.deletedTags),
+      );
+    }
+  }
+
+  void _addTagToTransaction(String txId, String tag) {
+    final updatedTransactions = state.loadedTransactions.map((tx) {
+      if (tx.id == txId && !tx.tags.contains(tag)) {
+        return tx.copyWith(tags: [...tx.tags, tag]);
       }
       return tx;
     }).toList();
@@ -240,6 +283,13 @@ class LoadingController extends _$LoadingController {
 
     state = state.copyWith(loadedTransactions: []);
   }
+}
+
+class TransactionTagAction {
+  final String txId;
+  final String tag;
+  final bool isRemoval;
+  TransactionTagAction(this.txId, this.tag, this.isRemoval);
 }
 
 class LoadingState {

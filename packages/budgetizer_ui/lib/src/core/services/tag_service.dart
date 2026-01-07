@@ -24,11 +24,24 @@ class TagChange {
 class TagState {
   final List<Tag> tags;
   final List<TagChange> changes;
+  final Map<String, String> tagTypeMap;
 
-  TagState({this.tags = const [], this.changes = const []});
+  TagState({
+    this.tags = const [],
+    this.changes = const [],
+    this.tagTypeMap = const {},
+  });
 
-  TagState copyWith({List<Tag>? tags, List<TagChange>? changes}) {
-    return TagState(tags: tags ?? this.tags, changes: changes ?? this.changes);
+  TagState copyWith({
+    List<Tag>? tags,
+    List<TagChange>? changes,
+    Map<String, String>? tagTypeMap,
+  }) {
+    return TagState(
+      tags: tags ?? this.tags,
+      changes: changes ?? this.changes,
+      tagTypeMap: tagTypeMap ?? this.tagTypeMap,
+    );
   }
 }
 
@@ -43,7 +56,11 @@ class TagService extends AsyncNotifier<TagState> {
   @override
   Future<TagState> build() async {
     final tags = await _loadTags();
-    return TagState(tags: tags);
+    final typeMap = {
+      for (var t in tags)
+        if (t.type != null) t.name: t.type!,
+    };
+    return TagState(tags: tags, tagTypeMap: typeMap);
   }
 
   Future<List<Tag>> _loadTags() async {
@@ -58,6 +75,36 @@ class TagService extends AsyncNotifier<TagState> {
       print('Error loading tags: $e');
       return [];
     }
+  }
+
+  /// Returns true if the removal is valid (keeps at least 1 Market tag).
+  /// Returns false if it violates the rule.
+  bool validateTagRemoval(List<String> currentTags, String tagToRemove) {
+    if (!state.hasValue) return true; // Fail safe
+    final map = state.value!.tagTypeMap;
+    final typeToRemove = map[tagToRemove];
+
+    if (typeToRemove == null) return true; // Unknown type, allow removal
+
+    // We only care if we are removing a Market tag
+    if (!['Market'].contains(typeToRemove)) return true;
+
+    // Check if there are any *other* Market tags remaining
+    bool hasMarket = false;
+    for (final tag in currentTags) {
+      if (tag == tagToRemove) continue; // Skip the one we are removing
+      final type = map[tag];
+      if (type == 'Market') {
+        hasMarket = true;
+        break;
+      }
+    }
+
+    if (!hasMarket) {
+      return false;
+    }
+
+    return true;
   }
 
   void createCheckpoint() {
@@ -75,6 +122,7 @@ class TagService extends AsyncNotifier<TagState> {
         TagState(
           tags: List.from(_checkpointTags.map((t) => Tag.fromJson(t.toJson()))),
           changes: List.from(_checkpointChanges),
+          tagTypeMap: state.value?.tagTypeMap ?? {},
         ),
       );
     }
@@ -98,6 +146,7 @@ class TagService extends AsyncNotifier<TagState> {
 
     if (vendorIndex != -1) {
       final vendor = currentList[vendorIndex];
+      // Also update map if it's a new tag? No, this only links them.
       if (!vendor.related.contains(tagName)) {
         final updatedVendor = vendor.copyWith(
           related: [...vendor.related, tagName],
@@ -162,16 +211,8 @@ class TagService extends AsyncNotifier<TagState> {
 
     // Reverse the action
     if (change.type == 'add') {
-      // Undo add -> remove
-      // We call the internal 'remove' logic but WITHOUT adding a new log entry
-      // OR we just assume removeTagFromVendor adds a log entry, so "undoing a change" IS a change itself?
-      // "provide a way to selectively undo the changes... remove from the changes list"
-      // User said: "undo dialog should let the user delete changes in the list, and an undo button that reverses the changes to the list."
-      // So we should remove this change from the log AND reverse the effect.
-
       _applyReverse(change);
     } else if (change.type == 'remove') {
-      // Undo remove -> add
       _applyReverse(change);
     }
 
@@ -184,7 +225,6 @@ class TagService extends AsyncNotifier<TagState> {
   }
 
   void _applyReverse(TagChange change) {
-    // Helper that modifies tags but NOT changes log
     if (!state.hasValue) return;
     final currentState = state.value!;
     final currentList = List<Tag>.from(currentState.tags);

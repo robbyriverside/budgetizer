@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:budgetizer_dart/budgetizer_dart.dart';
 import '../../core/widgets/split_view.dart';
 import '../../core/services/tag_service.dart';
+import '../../widgets/tag_chip.dart';
 import 'vendor_controller.dart';
 
 class VendorScreen extends ConsumerStatefulWidget {
@@ -217,7 +218,7 @@ class _VendorScreenState extends ConsumerState<VendorScreen> {
         _selectedTagFilter != null &&
         vendor.related.contains(_selectedTagFilter);
     final cardColor = isRelated && isLeft
-        ? Colors.tealAccent.withOpacity(0.1)
+        ? Colors.tealAccent.withValues(alpha: 0.1)
         : null;
 
     return DragTarget<String>(
@@ -231,7 +232,7 @@ class _VendorScreenState extends ConsumerState<VendorScreen> {
       builder: (context, candidateData, rejectedData) {
         return Container(
           color: candidateData.isNotEmpty
-              ? Colors.teal.withOpacity(0.3)
+              ? Colors.teal.withValues(alpha: 0.3)
               : cardColor,
           child: ListTile(
             title: Text(
@@ -242,15 +243,27 @@ class _VendorScreenState extends ConsumerState<VendorScreen> {
               spacing: 4,
               runSpacing: 4,
               children: vendor.related.map((tag) {
+                // Determine Tag Type from provider state?
+                // The widget doesn't easily access the type map here unless we pass it down
+                // OR we can read it from the provider again.
+                // But efficient way is to read it once in build.
+                // Let's modify the signature or assume context read is ok?
+                // Actually _buildVendorTile has context.
+                // We will use ref.read inside build... wait, ref is not available in _buildVendorTile easily unless passed or using ConsumerWidget.
+                // _VendorScreenState is a ConsumerState, so we have 'ref'.
+
+                final tagState = ref.read(tagServiceProvider).value;
+                final type = tagState?.tagTypeMap[tag];
+
                 return Draggable<String>(
                   data: tag,
                   feedback: Material(
                     color: Colors.transparent,
-                    child: Chip(label: Text(tag), backgroundColor: Colors.teal),
+                    child: TagChip(label: tag, type: type), // Simple feedback
                   ),
-                  childWhenDragging: Chip(
-                    label: Text(tag),
-                    backgroundColor: Colors.grey,
+                  childWhenDragging: Opacity(
+                    opacity: 0.5,
+                    child: TagChip(label: tag, type: type),
                   ),
                   child: GestureDetector(
                     onTap: () {
@@ -258,15 +271,10 @@ class _VendorScreenState extends ConsumerState<VendorScreen> {
                         _selectedTagFilter = tag;
                       });
                     },
-                    child: Chip(
-                      label: Text(tag),
-                      backgroundColor: _selectedTagFilter == tag
-                          ? Colors.tealAccent.withOpacity(0.4)
-                          : null,
-                      deleteIcon: const Icon(Icons.close, size: 16),
+                    child: TagChip(
+                      label: tag,
+                      type: type,
                       onDeleted: () {
-                        // Implement delete action
-                        // Use TagService directly as Controller might not expose remove
                         ref
                             .read(tagServiceProvider.notifier)
                             .removeTagFromVendor(vendor.name, tag);

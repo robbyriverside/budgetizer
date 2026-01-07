@@ -6,6 +6,8 @@ import '../../core/services/bank_service.dart';
 import 'widgets/inspector_panel.dart';
 import 'widgets/tag_inspector_panel.dart';
 import '../../core/widgets/split_view.dart';
+import '../../widgets/transaction_list_tile.dart';
+import '../../core/services/tag_service.dart';
 
 import '../loading/loading_screen.dart' as apps_loading;
 import '../vendors/vendor_screen.dart' as apps_vendors;
@@ -29,6 +31,7 @@ class DashboardScreen extends ConsumerWidget {
 
     // 4. Get App State (DB Selection)
     final appState = ref.watch(appControllerProvider);
+    final tagState = ref.watch(tagServiceProvider);
 
     return Scaffold(
       body: SplitView(
@@ -70,7 +73,7 @@ class DashboardScreen extends ConsumerWidget {
                             if (uninitialized.isNotEmpty) ...[
                               Container(
                                 padding: EdgeInsets.all(10),
-                                color: Colors.amber.withOpacity(0.1),
+                                color: Colors.amber.withValues(alpha: 0.1),
                                 child: Row(
                                   children: [
                                     Icon(
@@ -90,11 +93,11 @@ class DashboardScreen extends ConsumerWidget {
                               ),
                               ...uninitialized.map((tx) {
                                 final isSelected = selection.contains(tx.id);
-                                return ListTile(
+                                return TransactionListTile(
+                                  key: ValueKey(tx.id),
+                                  transaction: tx,
+                                  tagTypeMap: tagState.value?.tagTypeMap,
                                   selected: isSelected,
-                                  selectedTileColor: Colors.amber.withOpacity(
-                                    0.2,
-                                  ),
                                   onTap: () {
                                     final isMulti =
                                         HardwareKeyboard
@@ -118,15 +121,29 @@ class DashboardScreen extends ConsumerWidget {
                                           multiSelect: isMulti,
                                         );
                                   },
-                                  leading: Icon(
-                                    Icons.new_releases,
-                                    color: Colors.amber,
-                                  ),
-                                  title: Text(tx.vendorName),
-                                  subtitle: Text("To be initialized..."),
-                                  trailing: Text(
-                                    '\$${tx.amount.abs().toStringAsFixed(2)}',
-                                  ),
+                                  onTagDeleted: (tag) {
+                                    final isValid = ref
+                                        .read(tagServiceProvider.notifier)
+                                        .validateTagRemoval(tx.tags, tag);
+                                    if (!isValid) {
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        const SnackBar(
+                                          backgroundColor: Colors.red,
+                                          content: Text(
+                                            "Cannot remove: Transaction must have at least one Market tag.",
+                                          ),
+                                        ),
+                                      );
+                                      return;
+                                    }
+                                    ref
+                                        .read(
+                                          dashboardControllerProvider.notifier,
+                                        )
+                                        .removeTagFromTransaction(tx.id, tag);
+                                  },
                                 );
                               }),
                               Divider(color: Colors.white24, thickness: 2),
@@ -142,11 +159,11 @@ class DashboardScreen extends ConsumerWidget {
                               ),
                               ...initialized.map((tx) {
                                 final isSelected = selection.contains(tx.id);
-                                return ListTile(
+                                return TransactionListTile(
+                                  key: ValueKey(tx.id),
+                                  transaction: tx,
+                                  tagTypeMap: tagState.value?.tagTypeMap,
                                   selected: isSelected,
-                                  selectedTileColor: Colors.teal.withOpacity(
-                                    0.2,
-                                  ),
                                   onTap: () {
                                     final isMulti =
                                         HardwareKeyboard
@@ -170,23 +187,29 @@ class DashboardScreen extends ConsumerWidget {
                                           multiSelect: isMulti,
                                         );
                                   },
-                                  leading: Icon(
-                                    Icons.receipt_long,
-                                    color: tx.amount < 0
-                                        ? Colors.green
-                                        : Colors.white,
-                                  ),
-                                  title: Text(tx.vendorName),
-                                  subtitle: Text(tx.tags.join(', ')),
-                                  trailing: Text(
-                                    '\$${tx.amount.abs().toStringAsFixed(2)}',
-                                    style: TextStyle(
-                                      color: tx.amount < 0
-                                          ? Colors.greenAccent
-                                          : Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                                  onTagDeleted: (tag) {
+                                    final isValid = ref
+                                        .read(tagServiceProvider.notifier)
+                                        .validateTagRemoval(tx.tags, tag);
+                                    if (!isValid) {
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        const SnackBar(
+                                          backgroundColor: Colors.red,
+                                          content: Text(
+                                            "Cannot remove: Transaction must have at least one Market tag.",
+                                          ),
+                                        ),
+                                      );
+                                      return;
+                                    }
+                                    ref
+                                        .read(
+                                          dashboardControllerProvider.notifier,
+                                        )
+                                        .removeTagFromTransaction(tx.id, tag);
+                                  },
                                 );
                               }),
                             ],
@@ -247,12 +270,10 @@ class DashboardScreen extends ConsumerWidget {
           bool isVendor = false;
           if (dashboardState.selection.isNotEmpty) {
             final selectedTxId = dashboardState.selection.first;
-            final tx = transactions.firstWhere(
-              (t) => t.id == selectedTxId,
-              orElse: () => transactions.isNotEmpty
-                  ? transactions[0]
-                  : null as dynamic, // Safety
-            );
+            final tx =
+                transactions.where((t) => t.id == selectedTxId).firstOrNull ??
+                (transactions.isNotEmpty ? transactions[0] : null);
+
             // If tx found
             if (tx != null &&
                 tx.tags.isNotEmpty &&

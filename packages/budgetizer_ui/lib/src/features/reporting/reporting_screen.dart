@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/widgets/split_view.dart';
+import '../../core/services/tag_service.dart';
+import '../../widgets/tag_chip.dart';
 import 'reporting_controller.dart';
 
 class ReportingScreen extends ConsumerStatefulWidget {
@@ -399,6 +401,12 @@ class _ReportingScreenState extends ConsumerState<ReportingScreen> {
   }
 
   Widget _buildDraggableTableRow(SpendingTag tag, bool isAlternating) {
+    // We are inside a method of ConsumerState, so we can use `ref`.
+    // However, watching inside a helper method for a list item *might* be expensive if it rebuilds the whole list.
+    // Better to read or if we want reactivity, it's fine for now as it's triggered by build.
+    final tagState = ref.watch(tagServiceProvider);
+    final tagType = tagState.value?.tagTypeMap[tag.name];
+
     final rowContent = Container(
       color: isAlternating
           ? Colors.white.withValues(alpha: 0.05)
@@ -413,11 +421,12 @@ class _ReportingScreenState extends ConsumerState<ReportingScreen> {
                 if (tag.isBudgeted)
                   const Icon(Icons.check, size: 16, color: Colors.teal),
                 const SizedBox(width: 8),
-                Text(
-                  tag.name,
-                  style: TextStyle(
-                    color: tag.isBudgeted ? Colors.grey : Colors.white,
-                  ),
+                TagChip(
+                  label: tag.name,
+                  type: tagType,
+                  onTap: () {
+                    // Optional: Filter logic if needed
+                  },
                 ),
               ],
             ),
@@ -607,13 +616,16 @@ class _ReportingScreenState extends ConsumerState<ReportingScreen> {
                 // 1. Tag Name
                 Expanded(
                   flex: 3,
-                  child: Text(
-                    item.tagName,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black87,
-                    ),
+                  child: Row(
+                    children: [
+                      TagChip(
+                        label: item.tagName,
+                        type: ref
+                            .watch(tagServiceProvider)
+                            .value
+                            ?.tagTypeMap[item.tagName],
+                      ),
+                    ],
                   ),
                 ),
 
